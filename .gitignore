@@ -1,6 +1,8 @@
 node_modules/
 .next/
+.open-next/
 .DS_Store
 .env*
 !.env.example
 *.tsbuildinfo
+cloudflare-env.d.ts
