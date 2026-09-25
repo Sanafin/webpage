@@ -36,11 +36,11 @@ export function FAQSection() {
     <section id="faq" className="py-16">
       <div className="max-w-4xl mx-auto px-6">
         <div className="reveal mb-16">
-          <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-[#14B8A6] mb-4 font-bold block">
+          <p className="text-[13px] font-medium text-[#14B8A6] mb-4 font-bold block">
             Common questions
           </p>
-          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-[#2f241f] mb-6 leading-[1.1] font-medium tracking-tight">
-            Frequently asked <span className="text-primary italic font-semibold">questions</span>
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl text-[#2f241f] mb-6 leading-[1.1] font-medium tracking-tight">
+            Frequently asked <span className="text-[#1f1a17]/40">questions</span>
           </h2>
         </div>
 
@@ -49,7 +49,7 @@ export function FAQSection() {
             <details key={faq.question} className="group/details">
               <summary className="flex min-h-20 cursor-pointer list-none items-center gap-4 rounded-lg px-2 py-5 transition-colors hover:bg-[#fffaf6]/75 [&::-webkit-details-marker]:hidden">
                 <span className="w-8 shrink-0 font-mono text-xs text-[#6B7280]">0{index + 1}</span>
-                <h3 className="flex-1 font-serif text-lg sm:text-xl text-[#2f241f] leading-snug font-semibold tracking-tight">{faq.question}</h3>
+                <h3 className="flex-1 font-display text-lg sm:text-xl text-[#2f241f] leading-snug font-semibold tracking-tight">{faq.question}</h3>
                 <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[#efc2a5]/35 bg-white/60 text-[#8c6a59] transition-all duration-300 group-open/details:rotate-180 group-open/details:border-[#14B8A6]/35 group-open/details:text-[#14B8A6]">
                   <ChevronDown className="h-4 w-4" aria-hidden="true" />
                 </span>

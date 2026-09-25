@@ -45,15 +45,15 @@ function Tile({
 }) {
   return (
     <motion.article
-      className={`glow-border group relative flex flex-col overflow-hidden rounded-3xl bg-[#1a1310] p-6 sm:p-8 ${className}`}
+      className={`group relative flex flex-col overflow-hidden rounded-3xl bg-[#f5f1ed] p-6 sm:p-8 ${className}`}
       initial={{ opacity: 0, y: 30 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ delay, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
     >
       <div className="relative z-10 mb-6">
-        <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-[#f15d22] font-bold mb-3">{eyebrow}</p>
-        <h3 className="font-serif text-2xl sm:text-[1.7rem] font-semibold tracking-tight text-[#fffaf6] mb-2">{title}</h3>
-        <p className="text-sm text-[#fffaf6]/55 leading-relaxed max-w-md">{body}</p>
+        <p className="text-[13px] font-medium text-[#f15d22] mb-3">{eyebrow}</p>
+        <h3 className="font-display text-2xl sm:text-[1.7rem] font-medium text-[#1f1a17] mb-2">{title}</h3>
+        <p className="text-[15px] text-[#6f6660] leading-relaxed max-w-md">{body}</p>
       </div>
       <div className="relative z-10 mt-auto">{children}</div>
     </motion.article>
@@ -97,7 +97,7 @@ function TrendChart({ animate }: { animate: boolean }) {
         cy={y(trend[trend.length - 1])}
         r="5"
         fill="#14B8A6"
-        stroke="#1a1310"
+        stroke="#ffffff"
         strokeWidth="2"
         initial={{ scale: 0 }}
         animate={animate ? { scale: 1 } : {}}
@@ -114,8 +114,7 @@ export function ProductBento() {
   const animate = isInView || Boolean(shouldReduceMotion)
 
   return (
-    <section ref={sectionRef} id="how" className="relative overflow-hidden bg-[#120d0b] text-[#fffaf6] scroll-mt-24">
-      <div className="absolute left-1/2 top-0 -translate-x-1/2 h-[500px] w-[900px] rounded-full bg-[#f15d22]/10 blur-[140px] pointer-events-none" aria-hidden="true" />
+    <section ref={sectionRef} id="how" className="relative overflow-hidden bg-[#fbfaf8] text-[#1f1a17] scroll-mt-24">
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <motion.div
@@ -125,13 +124,13 @@ export function ProductBento() {
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
         >
           <div className="max-w-2xl">
-            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-[#14B8A6] mb-4 font-bold">The product</p>
-            <h2 className="font-serif text-4xl sm:text-5xl md:text-6xl leading-[1.02] font-medium tracking-tight">
+            <p className="text-[13px] font-medium text-[#f15d22] mb-4">The product</p>
+            <h2 className="font-display text-4xl sm:text-5xl md:text-6xl leading-[1.04] font-medium">
               One workspace, from patient data{" "}
-              <span className="italic font-semibold bg-gradient-to-r from-[#ffb08a] via-[#f15d22] to-[#ff6f3b] bg-clip-text text-transparent pr-1">to payout.</span>
+              <span className="text-[#1f1a17]/40">to payout.</span>
             </h2>
           </div>
-          <p className="font-mono text-[10px] uppercase tracking-wider text-[#fffaf6]/40 font-bold lg:text-right">
+          <p className="text-[13px] text-[#a39a93] lg:text-right">
             Example values · illustrative
           </p>
         </motion.div>
@@ -150,7 +149,7 @@ export function ProductBento() {
                 {sources.map(({ label, icon: Icon }, i) => (
                   <motion.li
                     key={label}
-                    className="flex items-center gap-2 rounded-xl border border-white/10 bg-white/[0.04] px-3 py-2.5 text-xs text-[#fffaf6]/80"
+                    className="flex items-center gap-2 rounded-xl border border-[#ece7e2] bg-white px-3 py-2.5 text-xs text-[#1f1a17] shadow-[0_1px_2px_rgba(47,36,31,0.04)]"
                     initial={{ opacity: 0, x: -12 }}
                     animate={animate ? { opacity: 1, x: 0 } : {}}
                     transition={{ delay: 0.3 + i * 0.08, duration: 0.5 }}
@@ -165,17 +164,17 @@ export function ProductBento() {
                 <div className="h-px w-full bg-gradient-to-r from-[#14B8A6]/10 via-[#14B8A6]/60 to-[#f15d22]/70" />
                 {!shouldReduceMotion && (
                   <motion.span
-                    className="absolute h-1.5 w-1.5 rounded-full bg-[#fffaf6] shadow-[0_0_12px_#14B8A6]"
+                    className="absolute h-1.5 w-1.5 rounded-full bg-[#14B8A6] shadow-[0_0_10px_#14B8A6]"
                     animate={{ left: ["0%", "100%"], opacity: [0, 1, 0] }}
                     transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
                   />
                 )}
               </div>
 
-              <div className="rounded-2xl border border-[#f15d22]/30 bg-gradient-to-br from-[#f15d22]/15 to-transparent p-4 sm:p-5">
+              <div className="rounded-2xl border border-[#f15d22]/30 bg-white p-4 sm:p-5">
                 <div className="flex items-center gap-2 mb-3">
                   <HeartPulse className="h-4 w-4 text-[#f15d22]" aria-hidden="true" />
-                  <span className="font-mono text-[9px] uppercase tracking-wider text-[#efc2a5] font-bold">Evidence model</span>
+                  <span className="text-[12px] font-medium text-[#1f1a17]">Evidence model</span>
                 </div>
                 <dl className="space-y-2 text-xs">
                   {[
@@ -184,8 +183,8 @@ export function ProductBento() {
                     ["Data freshness", "Live"],
                   ].map(([k, v]) => (
                     <div key={k} className="flex items-center justify-between gap-3">
-                      <dt className="text-[#fffaf6]/55">{k}</dt>
-                      <dd className="font-mono font-bold text-[#fffaf6]">{v}</dd>
+                      <dt className="text-[#6f6660]">{k}</dt>
+                      <dd className="font-medium text-[#1f1a17]">{v}</dd>
                     </div>
                   ))}
                 </dl>
@@ -202,9 +201,9 @@ export function ProductBento() {
             delay={0.1}
             inView={isInView}
           >
-            <div className="rounded-2xl border border-white/10 bg-black/20 p-4">
+            <div className="rounded-2xl border border-[#ece7e2] bg-white p-4 shadow-[0_1px_2px_rgba(47,36,31,0.04)]">
               <div className="flex items-baseline justify-between mb-3">
-                <span className="font-mono text-[9px] uppercase tracking-wider text-[#fffaf6]/50 font-bold">HbA1c · 6 months</span>
+                <span className="text-[12px] text-[#6f6660]">HbA1c · 6 months</span>
                 <span className="font-mono text-xs font-bold text-[#14B8A6]">−0.65 pts</span>
               </div>
               <TrendChart animate={animate} />
@@ -220,10 +219,10 @@ export function ProductBento() {
             delay={0.15}
             inView={isInView}
           >
-            <pre className="overflow-x-auto rounded-2xl border border-white/10 bg-black/30 p-4 font-mono text-[11px] leading-relaxed text-[#fffaf6]/80">
+            <pre className="overflow-x-auto rounded-2xl border border-[#ece7e2] bg-white p-4 font-mono text-[11px] leading-relaxed text-[#1f1a17]/80 shadow-[0_1px_2px_rgba(47,36,31,0.04)]">
 {`rule `}<span className="text-[#14B8A6]">milestone_2</span>{` {
-  when  `}<span className="text-[#efc2a5]">hba1c.delta</span>{` <= `}<span className="text-[#f15d22]">-0.5</span>{`
-  at    `}<span className="text-[#efc2a5]">month</span>{` = `}<span className="text-[#f15d22]">6</span>{`
+  when  `}<span className="text-[#8c6a59]">hba1c.delta</span>{` <= `}<span className="text-[#f15d22]">-0.5</span>{`
+  at    `}<span className="text-[#8c6a59]">month</span>{` = `}<span className="text-[#f15d22]">6</span>{`
   pay   `}<span className="text-[#f15d22]">CHF 40,000</span>{`
   else  hold → clinical review
 }`}
@@ -239,7 +238,7 @@ export function ProductBento() {
             delay={0.2}
             inView={isInView}
           >
-            <div className="rounded-2xl border border-white/10 bg-black/20 divide-y divide-white/10">
+            <div className="rounded-2xl border border-[#ece7e2] bg-white divide-y divide-[#f0ebe6] shadow-[0_1px_2px_rgba(47,36,31,0.04)]">
               {ledger.map((row, i) => (
                 <motion.div
                   key={row.event}
@@ -248,9 +247,9 @@ export function ProductBento() {
                   animate={animate ? { opacity: 1 } : {}}
                   transition={{ delay: 0.5 + i * 0.15 }}
                 >
-                  <span className="text-sm text-[#fffaf6]/80 truncate">{row.event}</span>
+                  <span className="text-sm text-[#1f1a17] truncate">{row.event}</span>
                   <div className="flex items-center gap-4 shrink-0">
-                    <span className="font-mono text-xs font-bold text-[#fffaf6]">{row.amount}</span>
+                    <span className="text-sm font-medium text-[#1f1a17]">{row.amount}</span>
                     <span
                       className={`rounded-full px-2.5 py-1 font-mono text-[9px] uppercase tracking-wider font-bold ${
                         row.status === "Released"
@@ -270,7 +269,7 @@ export function ProductBento() {
         <div className="mt-12 flex justify-center">
           <Link
             href="/demo"
-            className="inline-flex min-h-11 items-center gap-2 rounded-[10px] border border-white/20 px-5 py-3 font-mono text-xs font-bold uppercase tracking-[0.18em] text-[#fffaf6] transition-colors hover:border-white/40 hover:bg-white/[0.06]"
+            className="inline-flex min-h-11 items-center gap-1.5 rounded-full bg-[#f1ece7] px-6 py-2.5 text-[15px] font-medium text-[#1f1a17] transition-colors hover:bg-[#e9e2db]"
           >
             See it on your data
             <ArrowUpRight className="h-4 w-4" aria-hidden="true" />

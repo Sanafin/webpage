@@ -56,12 +56,12 @@ export function WhyNowSection() {
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
         >
           <div>
-            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-[#f15d22] mb-4 font-bold">
+            <p className="text-[13px] font-medium text-[#f15d22] mb-4 font-bold">
               Why now
             </p>
-            <h2 className="font-serif text-4xl sm:text-5xl md:text-6xl text-[#2f241f] leading-[1.02] font-medium tracking-tight">
+            <h2 className="font-display text-4xl sm:text-5xl md:text-6xl text-[#2f241f] leading-[1.02] font-medium tracking-tight">
               Regulators now make payment{" "}
-              <span className="italic font-semibold bg-gradient-to-r from-[#ff824c] via-primary to-[#d03d00] bg-clip-text text-transparent pr-1">
+              <span className="text-[#1f1a17]/40">
                 depend on outcomes.
               </span>
             </h2>
@@ -80,17 +80,17 @@ export function WhyNowSection() {
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.15 + idx * 0.1, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
             >
-              <div className="flex items-center justify-between mb-8 font-mono text-[10px] uppercase tracking-wider font-bold">
+              <div className="flex items-center justify-between mb-8 text-[12px] font-medium">
                 <span className="text-[#0f8f81]">{shift.region}</span>
                 <span className="text-[#8c6a59]/70">{shift.date}</span>
               </div>
-              <p className="font-serif text-6xl sm:text-7xl font-semibold tracking-tight leading-none bg-gradient-to-br from-[#ff824c] via-[#f15d22] to-[#b83305] bg-clip-text text-transparent mb-3">
+              <p className="font-display text-6xl sm:text-7xl font-semibold tracking-tight leading-none bg-gradient-to-br from-[#ff824c] via-[#f15d22] to-[#b83305] bg-clip-text text-transparent mb-3">
                 {shift.stat}
               </p>
-              <p className="font-mono text-[10px] uppercase tracking-wider text-[#8c6a59] font-bold mb-8">
+              <p className="text-[12px] text-[#8c6a59] font-medium mb-8">
                 {shift.statLabel}
               </p>
-              <h3 className="font-serif text-xl font-semibold tracking-tight text-[#2f241f] mb-2">
+              <h3 className="font-display text-xl font-semibold tracking-tight text-[#2f241f] mb-2">
                 {shift.title}
               </h3>
               <p className="text-sm text-[#6f5346] leading-relaxed mb-6 flex-1">

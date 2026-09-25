@@ -34,10 +34,10 @@ export function EconomicRealitiesTable() {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
         >
-          <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-[#f15d22] mb-4 font-bold">The bottleneck</p>
-          <h2 className="font-serif text-4xl sm:text-5xl md:text-6xl text-[#2f241f] leading-[1.02] font-medium tracking-tight mb-6">
+          <p className="text-[13px] font-medium text-[#f15d22] mb-4 font-bold">The bottleneck</p>
+          <h2 className="font-display text-4xl sm:text-5xl md:text-6xl text-[#2f241f] leading-[1.02] font-medium tracking-tight mb-6">
             Reimbursement costs more{" "}
-            <span className="italic font-semibold bg-gradient-to-r from-[#ff824c] via-primary to-[#d03d00] bg-clip-text text-transparent pr-1">than the product.</span>
+            <span className="text-[#1f1a17]/40">than the product.</span>
           </h2>
           <p className="text-[#6f5346] text-base sm:text-lg leading-relaxed max-w-2xl">
             Before the first reimbursed franc, digital health teams burn up to CHF 400k and lose 18 months to manual consulting work.
@@ -54,10 +54,10 @@ export function EconomicRealitiesTable() {
               transition={{ delay: 0.1 + i * 0.08, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
             >
               <CornerMarks tone="muted" />
-              <p className="font-mono text-[10px] uppercase tracking-wider text-[#8c6a59] font-bold">
-                <span className="text-[#b83305]">▸</span> Today · {stat.label}
+              <p className="text-[12px] text-[#8c6a59] font-medium">
+                Today · {stat.label}
               </p>
-              <p className="mt-auto whitespace-nowrap font-serif text-[2rem] sm:text-4xl xl:text-[2.6rem] font-semibold tracking-tight text-[#2f241f]">{stat.value}</p>
+              <p className="mt-auto whitespace-nowrap font-display text-[2rem] sm:text-4xl xl:text-[2.6rem] font-semibold tracking-tight text-[#2f241f]">{stat.value}</p>
               <p className="mt-2 text-sm text-[#8c6a59]">{stat.note}</p>
             </motion.div>
           ))}
@@ -69,10 +69,10 @@ export function EconomicRealitiesTable() {
             transition={{ delay: 0.36, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           >
             <CornerMarks tone="accent" />
-            <p className="font-mono text-[10px] uppercase tracking-wider text-[#14B8A6] font-bold">
-              ▸ With Sanafin · Pilot ready
+            <p className="text-[12px] text-[#14B8A6] font-medium">
+              With Sanafin · Pilot ready
             </p>
-            <p className="mt-auto whitespace-nowrap font-serif text-[2rem] sm:text-4xl xl:text-[2.6rem] font-semibold tracking-tight bg-gradient-to-r from-[#5eead4] to-[#14B8A6] bg-clip-text text-transparent">
+            <p className="mt-auto whitespace-nowrap font-display text-[2rem] sm:text-4xl xl:text-[2.6rem] font-semibold tracking-tight bg-gradient-to-r from-[#5eead4] to-[#14B8A6] bg-clip-text text-transparent">
               &lt; 2 weeks
             </p>
             <p className="mt-2 text-sm text-[#fffaf6]/60">Software replaces the consulting layer, with a continuous evidence pipeline built in.</p>

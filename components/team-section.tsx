@@ -93,11 +93,11 @@ export function TeamSection() {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-[#14B8A6] mb-4 font-bold block">
+          <p className="text-[13px] font-medium text-[#14B8A6] mb-4 font-bold block">
             The team
           </p>
-          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-[#2f241f] max-w-xl leading-[1.1] font-medium tracking-tight mb-6">
-            Built by <span className="text-primary italic font-semibold bg-gradient-to-r from-[#ff824c] via-primary to-[#d03d00] bg-clip-text text-transparent pr-1">domain experts</span>. Shipped with <span className="text-primary italic font-semibold bg-gradient-to-r from-[#ff824c] via-primary to-[#d03d00] bg-clip-text text-transparent pr-1">care</span>.
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl text-[#2f241f] max-w-xl leading-[1.1] font-medium tracking-tight mb-6">
+            Built by <span className="text-[#1f1a17]/40">domain experts</span>. Shipped with <span className="text-[#1f1a17]/40">care</span>.
           </h2>
         </motion.div>
 
@@ -129,7 +129,7 @@ export function TeamSection() {
                 </a>
               </div>
               <div className="flex flex-1 flex-col px-2 pt-4 pb-2">
-                <p className="font-serif text-xl font-semibold tracking-tight text-[#2f241f]">{person.name}</p>
+                <p className="font-display text-xl font-semibold tracking-tight text-[#2f241f]">{person.name}</p>
                 <p className="font-mono text-[10px] uppercase tracking-wider text-[#0f8f81] font-bold mt-1 mb-3">{person.title}</p>
                 <p className="text-[#6f5346] text-sm leading-relaxed mb-4">{person.bio}</p>
                 <ul className="mt-auto flex flex-wrap gap-1.5">
@@ -145,7 +145,7 @@ export function TeamSection() {
         </div>
 
         <div className="mt-14">
-          <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-[#8c6a59] font-bold mb-4">Advisors</p>
+          <p className="text-[13px] font-medium text-[#8c6a59] font-bold mb-4">Advisors</p>
           <ul className="divide-y divide-[#efc2a5]/40 border-y border-[#efc2a5]/40">
             {advisors.map((person) => (
               <li key={person.name} className="group flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6 py-5">
@@ -154,7 +154,7 @@ export function TeamSection() {
                     <Image src={person.photo} alt={person.name} fill sizes="48px" className="object-cover object-top grayscale-[70%] transition group-hover:grayscale-0" />
                   </div>
                   <div>
-                    <p className="font-serif text-lg font-semibold text-[#2f241f] leading-tight">{person.name}</p>
+                    <p className="font-display text-lg font-semibold text-[#2f241f] leading-tight">{person.name}</p>
                     <p className="font-mono text-[9px] uppercase tracking-wider text-[#0f8f81] font-bold">{person.tags[0]}</p>
                   </div>
                 </div>
@@ -180,7 +180,7 @@ export function TeamSection() {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.6 }}
         >
-          <h3 className="font-serif text-2xl md:text-3xl text-[#2f241f] mb-4 font-semibold tracking-tight">
+          <h3 className="font-display text-2xl md:text-3xl text-[#2f241f] mb-4 font-semibold tracking-tight">
             Build the reimbursement stack with us.
           </h3>
           <p className="text-[#8c6a59] text-base mb-10 leading-relaxed">

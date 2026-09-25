@@ -20,7 +20,7 @@ export default function Home() {
   return (
     <div className="page-wrapper">
       <div className="page-content">
-        <Header tone="dark" />
+        <Header />
         <main className="landing-page">
           <Hero />
           <BackedBy />
