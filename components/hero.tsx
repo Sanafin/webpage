@@ -8,6 +8,7 @@ import { ArrowRight, ArrowUpRight, BadgeCheck, Lock } from "lucide-react"
 import { HeroFlow } from "@/components/hero-flow"
 import { HeroBackdrop } from "@/components/hero-backdrop"
 import { SwissCross } from "@/components/ui/swiss-cross"
+import { Laurel } from "@/components/ui/laurel"
 import { lois } from "@/lib/traction"
 
 const containerVariants: Variants = {
@@ -49,7 +50,7 @@ export function Hero() {
   const cardRotate = useTransform(scrollYProgress, [0, 1], [shouldReduceMotion ? 0 : -6, 0])
 
   return (
-    <section ref={sectionRef} id="platform" className="relative overflow-hidden pt-36 md:pt-44 pb-20 md:pb-28 text-[#fffaf6]">
+    <section ref={sectionRef} id="platform" className="relative overflow-hidden pt-36 md:pt-40 pb-20 md:pb-28 text-[#fffaf6]">
       <HeroBackdrop />
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
@@ -103,9 +104,24 @@ export function Hero() {
               </Link>
             </motion.div>
 
-            <motion.ul
-              variants={itemVariants}
-              className="flex flex-wrap gap-x-6 gap-y-2 font-mono text-[10px] uppercase tracking-wider text-[#fffaf6]/55 font-bold"
+            <motion.div variants={itemVariants} className="flex flex-col sm:flex-row sm:items-center gap-5 sm:gap-8">
+            <a
+              href="https://ibsdf.ch/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex shrink-0 items-center gap-2 text-[#efc2a5]/80 transition-colors hover:text-[#efc2a5]"
+            >
+              <Laurel className="h-11 w-auto" />
+              <span className="text-center leading-tight">
+                <span className="block font-mono text-[9px] uppercase tracking-[0.2em] text-[#fffaf6]/50 font-bold">Winner</span>
+                <span className="block font-serif text-sm font-semibold text-[#fffaf6]">InnoBooster Sustainable</span>
+                <span className="block font-serif text-sm font-semibold text-[#fffaf6]">Digital Finance Award</span>
+              </span>
+              <Laurel className="h-11 w-auto" flip />
+            </a>
+
+            <ul
+              className="flex flex-col gap-2 sm:border-l sm:border-white/10 sm:pl-8 font-mono text-[10px] uppercase tracking-wider text-[#fffaf6]/55 font-bold"
             >
               {proofPoints.map((point) => (
                 <li key={point} className="flex items-center gap-2">
@@ -113,7 +129,8 @@ export function Hero() {
                   {point}
                 </li>
               ))}
-            </motion.ul>
+            </ul>
+            </motion.div>
           </motion.div>
 
           <motion.div
