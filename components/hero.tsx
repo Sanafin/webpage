@@ -7,6 +7,7 @@ import Link from "next/link"
 import { ArrowRight, ArrowUpRight } from "lucide-react"
 import { HeroFlow } from "@/components/hero-flow"
 import { SwissCross } from "@/components/ui/swiss-cross"
+import { lois } from "@/lib/traction"
 
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
@@ -34,7 +35,7 @@ const itemVariants: Variants = {
 const proofPoints = [
   "Swiss-hosted",
   "Built on ETH Zurich research",
-  "Live in weeks, not 18 months",
+  `${lois.length} signed letters of intent`,
 ]
 
 export function Hero() {

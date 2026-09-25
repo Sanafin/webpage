@@ -26,5 +26,12 @@ export const backers: Backer[] = [
   { name: "SFTA", logo: sftaLogo },
 ]
 
-// Signed LOIs and paid pilots. The "Signed with" row stays hidden until this has entries.
-export const lois: Loi[] = []
+// Signed letters of intent, anonymised on purpose: partners are described by type,
+// never by name or logo, unless they have agreed to be named publicly.
+// The "Letters of intent" row stays hidden while this is empty.
+export const lois: Loi[] = [
+  { partner: "Swiss hospital group", detail: "Diabetes care proof of concept" },
+  { partner: "Swiss digital prevention company", detail: "Reimbursement readiness" },
+  { partner: "University longevity medicine centre", detail: "Workflow validation" },
+  { partner: "Preventive health provider", detail: "Workflow validation" },
+]

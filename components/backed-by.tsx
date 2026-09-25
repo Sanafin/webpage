@@ -26,11 +26,11 @@ export function BackedBy() {
         {lois.length > 0 && (
           <div className="mt-8 pt-8 border-t border-[#efc2a5]/25 flex flex-col md:flex-row md:items-center gap-6 md:gap-12">
             <p className="shrink-0 font-mono text-[10px] uppercase tracking-[0.3em] text-[#0f8f81] font-bold text-center md:text-left">
-              Signed with
+              {lois.length} signed letters of intent
             </p>
-            <ul className="flex flex-1 flex-wrap items-center justify-center md:justify-start gap-x-10 gap-y-6">
+            <ul className="grid flex-1 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-5 text-center md:text-left">
               {lois.map((loi) => (
-                <li key={loi.partner} className="flex items-center gap-3">
+                <li key={loi.partner} className="flex items-center justify-center md:justify-start gap-3">
                   {loi.logo ? (
                     <Image src={loi.logo} alt={loi.partner} className="h-8 w-auto object-contain" style={{ width: "auto" }} />
                   ) : null}
