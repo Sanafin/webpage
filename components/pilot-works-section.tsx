@@ -211,50 +211,38 @@ export function PilotWorksSection() {
 
   return (
     <section id="usecases" className="py-16 relative overflow-hidden bg-transparent scroll-mt-24">
-      {/* Light Checker Pattern Background with smooth fading */}
-      <div
-        className="absolute inset-0 z-0 pointer-events-none select-none"
-        style={{
-          backgroundImage: `linear-gradient(to right, rgba(210, 205, 200, 0.32) 1px, transparent 1px), linear-gradient(to bottom, rgba(210, 205, 200, 0.32) 1px, transparent 1px)`,
-          backgroundSize: '80px 80px',
-          maskImage: 'linear-gradient(to bottom, transparent 0%, black 25%, black 75%, transparent 100%)',
-          WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 25%, black 75%, transparent 100%)',
-        }}
-      />
 
-      {/* Subtle ambient blur */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-[#14B8A6]/5 blur-[120px] pointer-events-none" />
 
       <div className="max-w-5xl mx-auto px-6 relative z-10">
 
         {/* Header */}
         <div className="mb-16 text-center max-w-3xl mx-auto">
-          <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-[#14B8A6] mb-4 font-bold block">
+          <p className="text-[13px] font-medium text-[#14B8A6] mb-4 font-bold block">
             Example contracts
           </p>
-          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-[#2f241f] mb-6 leading-[1.1] font-medium tracking-tight">
-            Start with metabolic health. <span className="text-primary italic font-semibold bg-gradient-to-r from-[#ff824c] via-primary to-[#d03d00] bg-clip-text text-transparent pr-1">Scale longevity.</span>
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl text-[#2f241f] mb-6 leading-[1.1] font-medium tracking-tight">
+            Start with metabolic health. <span className="text-[#1f1a17]/40">Scale longevity.</span>
           </h2>
-          <p className="text-[#8c6a59] font-sans text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
+          <p className="text-[#6f6660] font-sans text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
             Start with European metabolic health. Expand across digital therapeutics, medical devices, and value-based care.
           </p>
-          <p className="mt-4 font-mono text-[10px] uppercase tracking-wider text-[#8c6a59] font-bold">
+          <p className="mt-4 text-[13px] text-[#a39a93]">
             Illustrative scenarios — not customer data
           </p>
         </div>
 
         {/* Tab Selection */}
         <div className="flex justify-center mb-8 relative z-20">
-          <div className="bg-[#fffaf6]/14 backdrop-blur-[6px] p-1 border border-[#efc2a5]/35 rounded-[10px] flex gap-1 shadow-sm">
+          <div className="bg-[#f1ece7] p-1 rounded-full flex gap-1">
             {programs.map((prog) => (
               <button
                 type="button"
                 key={prog.id}
                 onClick={() => setActiveTab(prog.id)}
                 aria-pressed={activeTab === prog.id}
-                className={`min-h-10 px-4 py-2 rounded-lg text-xs font-mono tracking-wider transition-all duration-200 cursor-pointer ${activeTab === prog.id
-                  ? "bg-[#14B8A6] text-white shadow-sm font-bold"
-                  : "text-[#8c6a59] hover:text-[#2f241f] hover:bg-white/60"
+                className={`min-h-10 px-4 py-2 rounded-full text-[14px] transition-all duration-200 cursor-pointer ${activeTab === prog.id
+                  ? "bg-white text-[#1f1a17] shadow-sm font-medium"
+                  : "text-[#6f6660] hover:text-[#1f1a17]"
                   }`}
               >
                 {prog.name}
@@ -269,7 +257,7 @@ export function PilotWorksSection() {
           {/* Header row */}
           <div className="px-8 py-6 border-b border-[#efc2a5]/20 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div className="space-y-1">
-              <h3 className="text-xl sm:text-2xl font-serif font-semibold text-[#2f241f] tracking-tight">
+              <h3 className="text-xl sm:text-2xl font-display font-semibold text-[#2f241f] tracking-tight">
                 {currentProgram.name}
               </h3>
               <p className="text-xs sm:text-sm font-sans text-[#8c6a59]">
@@ -281,7 +269,7 @@ export function PilotWorksSection() {
                 <span className="block font-mono text-[9px] uppercase tracking-wider text-[#8c6a59] font-bold">
                   Example Escrow
                 </span>
-                <span className="text-xl sm:text-2xl font-serif font-semibold text-[#f15d22]">
+                <span className="text-xl sm:text-2xl font-display font-semibold text-[#f15d22]">
                   CHF {currentProgram.budget.toLocaleString('en-US')}
                 </span>
               </div>
@@ -300,7 +288,7 @@ export function PilotWorksSection() {
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
                   <div className="w-1 h-3.5 bg-[#14B8A6] rounded-full" />
-                  <h4 className="font-serif text-base font-semibold text-[#2f241f] tracking-tight">
+                  <h4 className="font-display text-base font-semibold text-[#2f241f] tracking-tight">
                     Contract Mechanics
                   </h4>
                 </div>
@@ -319,7 +307,7 @@ export function PilotWorksSection() {
                   <span className="px-2.5 py-1 rounded-full font-mono text-[8px] font-bold text-[#14B8A6] bg-[#14B8A6]/8 backdrop-blur-[2px] border border-[#14B8A6]/20 shadow-sm uppercase tracking-wider">
                     Step 01
                   </span>
-                  <h4 className="font-serif text-sm font-semibold text-[#2f241f] tracking-tight flex items-center gap-1.5">
+                  <h4 className="font-display text-sm font-semibold text-[#2f241f] tracking-tight flex items-center gap-1.5">
                     <Link2 className="w-4 h-4 text-[#14B8A6] group-hover:rotate-12 transition-transform duration-300" />
                     Connect Data
                   </h4>
@@ -345,7 +333,7 @@ export function PilotWorksSection() {
                   <span className="px-2.5 py-1 rounded-full font-mono text-[8px] font-bold text-[#14B8A6] bg-[#14B8A6]/8 backdrop-blur-[2px] border border-[#14B8A6]/20 shadow-sm uppercase tracking-wider">
                     Step 02
                   </span>
-                  <h4 className="font-serif text-sm font-semibold text-[#2f241f] tracking-tight flex items-center gap-1.5">
+                  <h4 className="font-display text-sm font-semibold text-[#2f241f] tracking-tight flex items-center gap-1.5">
                     <Target className="w-4 h-4 text-[#14B8A6] group-hover:rotate-12 transition-transform duration-300" />
                     Verify Evidence
                   </h4>
@@ -374,7 +362,7 @@ export function PilotWorksSection() {
                   <span className="px-2.5 py-1 rounded-full font-mono text-[8px] font-bold text-[#14B8A6] bg-[#14B8A6]/8 backdrop-blur-[2px] border border-[#14B8A6]/20 shadow-sm uppercase tracking-wider">
                     Step 03
                   </span>
-                  <h4 className="font-serif text-sm font-semibold text-[#2f241f] tracking-tight flex items-center gap-1.5">
+                  <h4 className="font-display text-sm font-semibold text-[#2f241f] tracking-tight flex items-center gap-1.5">
                     <Coins className="w-4 h-4 text-[#14B8A6] group-hover:rotate-12 transition-transform duration-300" />
                     Automate Payment
                   </h4>

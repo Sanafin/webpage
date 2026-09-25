@@ -24,8 +24,8 @@ export function Footer() {
           </div>
 
           <div>
-            <p className="font-mono text-xs uppercase tracking-widest text-[#2f241f] mb-6">Solutions</p>
-            <ul className="space-y-4 text-sm text-[#8c6a59]">
+            <p className="text-[13px] font-medium text-[#1f1a17] mb-6">Solutions</p>
+            <ul className="space-y-4 text-[14px] text-[#6f6660]">
               <li><Link href="/#how" className="text-link hover:text-[#14B8A6]">How it works</Link></li>
               <li><Link href="/#usecases" className="text-link hover:text-[#14B8A6]">Use cases</Link></li>
               <li><Link href="/eden-framework" className="text-link hover:text-[#14B8A6]">EDEN Framework</Link></li>
@@ -33,8 +33,8 @@ export function Footer() {
           </div>
 
           <div>
-            <p className="font-mono text-xs uppercase tracking-widest text-[#2f241f] mb-6">Support</p>
-            <ul className="space-y-4 text-sm text-[#8c6a59]">
+            <p className="text-[13px] font-medium text-[#1f1a17] mb-6">Support</p>
+            <ul className="space-y-4 text-[14px] text-[#6f6660]">
               <li><Link href="/#why-now" className="text-link hover:text-[#14B8A6]">Why now</Link></li>
               <li><Link href="/#faq" className="text-link hover:text-[#14B8A6]">FAQ</Link></li>
               <li><Link href="/api-docs" className="text-link hover:text-[#14B8A6]">API Documentation</Link></li>
@@ -42,8 +42,8 @@ export function Footer() {
           </div>
 
           <div>
-            <p className="font-mono text-xs uppercase tracking-widest text-[#2f241f] mb-6">Important Links</p>
-            <ul className="space-y-4 text-sm text-[#8c6a59]">
+            <p className="text-[13px] font-medium text-[#1f1a17] mb-6">Important Links</p>
+            <ul className="space-y-4 text-[14px] text-[#6f6660]">
               <li><Link href="/#contact" className="text-link hover:text-[#14B8A6]">Join Beta Waitlist</Link></li>
               <li><Link href="/demo" className="text-link hover:text-[#14B8A6]">Book a Call</Link></li>
               <li><a href="https://wellfound.com/company/sanafin" target="_blank" rel="noopener noreferrer" className="text-link hover:text-[#14B8A6]">Careers (Wellfound)</a></li>
@@ -53,17 +53,17 @@ export function Footer() {
 
         <div className="pt-10 border-t border-black/5 flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="flex flex-col md:flex-row items-center gap-4 md:gap-8">
-            <p className="font-mono text-xs text-[#8c6a59]/60">
+            <p className="text-[13px] text-[#a39a93]">
               &copy; {new Date().getFullYear()} Sanafin.tech.
             </p>
-            <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 font-mono text-[10px] uppercase tracking-wider text-[#8c6a59]/60">
+            <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-[13px] text-[#a39a93]">
               <Link href="/imprint" className="text-link hover:text-[#14B8A6]">Imprint</Link>
               <Link href="/privacy" className="text-link hover:text-[#14B8A6]">Privacy Policy</Link>
               <Link href="/terms" className="text-link hover:text-[#14B8A6]">Terms & Compliance</Link>
             </div>
           </div>
           <div className="flex items-center gap-2.5">
-            <p className="font-mono text-xs text-[#8c6a59]/60">
+            <p className="text-[13px] text-[#a39a93]">
               Every value-based contract, one operating system.
             </p>
             <a

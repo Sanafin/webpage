@@ -298,7 +298,7 @@ footer :is(a, button):focus-visible {
 .page-wrapper {
   position: relative;
   min-height: 100vh;
-  background: linear-gradient(180deg, #ffffff 0%, #fdfcfb 50%, #faf8f6 100%);
+  background: #fbfaf8;
 }
 
 /* Fixed top-level overlay with subtle grain texture */
@@ -608,4 +608,32 @@ footer :is(a, button):focus-visible {
   .action-inverse:hover {
     transform: none;
   }
+}
+
+/* Logo strip */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.marquee-track {
+  animation: marquee 32s linear infinite;
+}
+
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
+}
+
+/* Display type for the landing page: tight geometric sans */
+.font-display {
+  font-family: var(--font-sans), system-ui, sans-serif;
+  font-weight: 400;
+  letter-spacing: -0.035em;
+  font-feature-settings: "ss01", "kern";
 }

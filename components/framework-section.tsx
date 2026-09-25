@@ -168,13 +168,13 @@ export function FrameworkSection() {
             animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -24 }}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           >
-            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-[#14B8A6] mb-5 flex items-center gap-2 font-bold">
+            <p className="text-[13px] font-medium text-[#14B8A6] mb-5 flex items-center gap-2 font-bold">
               <span className="inline-block w-6 h-px bg-[#14B8A6]" />
               Foundation
             </p>
 
-            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-[#2f241f] mb-7 leading-[1.06] font-medium tracking-tight">
-              A de-risked engine built on <span className="text-primary italic font-semibold bg-gradient-to-r from-[#ff824c] via-primary to-[#d03d00] bg-clip-text text-transparent pr-1">research</span>
+            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl text-[#2f241f] mb-7 leading-[1.06] font-medium tracking-tight">
+              A de-risked engine built on <span className="text-[#1f1a17]/40">research</span>
             </h2>
 
             <p className="text-[#8c6a59] font-sans text-base sm:text-lg leading-relaxed mb-9 max-w-xl">
@@ -269,7 +269,7 @@ export function FrameworkSection() {
               }`}
             >
               <div className="flex h-full flex-col justify-between gap-4">
-                <span className={`font-serif text-3xl sm:text-4xl font-bold ${stat.color} tracking-tight group-hover:text-[#2f241f] transition-colors duration-300 inline-block`}>
+                <span className={`font-display text-3xl sm:text-4xl font-bold ${stat.color} tracking-tight group-hover:text-[#2f241f] transition-colors duration-300 inline-block`}>
                   {stat.target !== undefined ? (
                     <AnimatedMetric target={stat.target} suffix={stat.suffix} isInView={isInView} />
                   ) : (

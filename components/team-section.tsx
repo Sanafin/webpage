@@ -16,6 +16,7 @@ import wellfoundLogo from "@/components/ui/logo/Wellfound_logo.png"
 const team = [
   {
     name: "Wasu Mekniran",
+    tags: ["PhD · ETH Zurich", "MBA"],
     title: "CEO",
     bio: "MBA & MSc in Computation. PhD in Financing for MedTech at ETH Zurich. Built Sanafin's reimbursement science.",
     photo: wasuProfile,
@@ -23,6 +24,7 @@ const team = [
   },
   {
     name: "Djata Sigam",
+    tags: ["Imperial · ETH Zurich", "8+ yrs fintech"],
     title: "CTO",
     bio: "MSc in Mathematics, Imperial College London & ETH Zurich. 8+ years in fintech engineering, trust, and cybersecurity.",
     photo: djataProfile,
@@ -30,6 +32,7 @@ const team = [
   },
   {
     name: "Susanne Oudbier",
+    tags: ["Dr. med.", "PhD Medicine"],
     title: "Medical Officer",
     bio: "Dr. med. at HOCH Ostschweiz. PhD in Medicine. Clinical outcomes expert.",
     photo: susanProfile,
@@ -37,6 +40,7 @@ const team = [
   },
   {
     name: "Anej Rozman",
+    tags: ["ETH Zurich · UZH", "Quant finance"],
     title: "Quant Lead",
     bio: "Co-Founder at ETH Blockchain Club. MSc in Quantitative Finance at ETH Zurich/UZH. Built Sanafin's risk and prediction models.",
     photo: anejProfile,
@@ -44,6 +48,7 @@ const team = [
   },
   {
     name: "Ajintha Pathmanathan",
+    tags: ["Dr. med., MPH"],
     title: "Advisor",
     bio: "Dr. med., MPH, 20+ years of global medical leadership across UK, US & AU systems, CEO of medical tech ventures.",
     photo: ajinthaProfile,
@@ -51,6 +56,7 @@ const team = [
   },
   {
     name: "Niklaus Neddermann",
+    tags: ["ex-Julius Bär · SNB"],
     title: "Advisor",
     bio: "CEO of a FINMA-licensed asset manager, 20+ years in finance, Former executive at Julius Bär and Swiss National Bank.",
     photo: niklausProfile,
@@ -61,6 +67,8 @@ const team = [
 export function TeamSection() {
   const sectionRef = useRef<HTMLElement>(null)
   const isInView = useInView(sectionRef, { once: true, margin: "-80px" })
+  const core = team.filter((person) => person.title !== "Advisor")
+  const advisors = team.filter((person) => person.title === "Advisor")
 
   return (
     <section ref={sectionRef} id="team" className="py-16 relative overflow-hidden">
@@ -85,53 +93,84 @@ export function TeamSection() {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-[#14B8A6] mb-4 font-bold block">
-            Why this team
+          <p className="text-[13px] font-medium text-[#14B8A6] mb-4 font-bold block">
+            The team
           </p>
-          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-[#2f241f] max-w-xl leading-[1.1] font-medium tracking-tight mb-6">
-            Built by <span className="text-primary italic font-semibold bg-gradient-to-r from-[#ff824c] via-primary to-[#d03d00] bg-clip-text text-transparent pr-1">domain experts</span>. Shipped with <span className="text-primary italic font-semibold bg-gradient-to-r from-[#ff824c] via-primary to-[#d03d00] bg-clip-text text-transparent pr-1">care</span>.
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl text-[#2f241f] max-w-xl leading-[1.1] font-medium tracking-tight mb-6">
+            Built by <span className="text-[#1f1a17]/40">domain experts</span>. Shipped with <span className="text-[#1f1a17]/40">care</span>.
           </h2>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-6 gap-8">
-          {team.map((person, i) => (
-            <motion.div
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          {core.map((person, i) => (
+            <motion.article
               key={person.name}
               initial={{ opacity: 0, y: 24 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="interactive-surface group rounded-2xl border border-transparent p-3 -m-3"
+              transition={{ duration: 0.5, delay: i * 0.08 }}
+              className="group flex flex-col rounded-3xl border border-[#efc2a5]/40 bg-white/70 p-3 transition-shadow duration-300 hover:shadow-[0_24px_50px_-24px_rgba(47,36,31,0.35)]"
             >
-              {/* Photo */}
-              <div className="relative w-full aspect-square mb-4 rounded-2xl overflow-hidden shadow-[0_1px_4px_rgba(0,0,0,0.06)] group-hover:shadow-[0_4px_16px_rgba(0,0,0,0.1)] transition-shadow duration-300 bg-[#f0ece8]">
+              <div className="relative w-full aspect-[4/5] overflow-hidden rounded-2xl bg-[#f0ece8]">
                 <Image
                   src={person.photo}
                   alt={person.name}
                   fill
-                  className="object-cover object-top"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                  className="object-cover object-top grayscale-[35%] transition duration-500 group-hover:grayscale-0 group-hover:scale-[1.03]"
                 />
-              </div>
-
-              <div className="flex items-start justify-between gap-2 mb-2">
-                <div>
-                  <p className="text-[#2f241f] text-sm font-medium leading-snug">{person.name}</p>
-                  <p className="text-[#14B8A6] font-mono text-[10px] uppercase tracking-wider mt-1">
-                    {person.title}
-                  </p>
-                </div>
                 <a
                   href={person.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="icon-action flex h-9 w-9 items-center justify-center rounded-full border border-transparent text-[#8c6a59] hover:border-[#14B8A6]/20 hover:bg-[#14B8A6]/5 mt-0.5 shrink-0"
+                  className="absolute right-3 bottom-3 flex h-9 w-9 items-center justify-center rounded-lg bg-[#120d0b]/85 text-white backdrop-blur transition-colors hover:bg-[#0a66c2]"
                   aria-label={`${person.name} on LinkedIn`}
                 >
                   <Linkedin className="w-3.5 h-3.5" />
                 </a>
               </div>
-              <p className="text-[#8c6a59] text-xs leading-relaxed">{person.bio}</p>
-            </motion.div>
+              <div className="flex flex-1 flex-col px-2 pt-4 pb-2">
+                <p className="font-display text-xl font-semibold tracking-tight text-[#2f241f]">{person.name}</p>
+                <p className="font-mono text-[10px] uppercase tracking-wider text-[#0f8f81] font-bold mt-1 mb-3">{person.title}</p>
+                <p className="text-[#6f5346] text-sm leading-relaxed mb-4">{person.bio}</p>
+                <ul className="mt-auto flex flex-wrap gap-1.5">
+                  {person.tags.map((tag) => (
+                    <li key={tag} className="rounded-full border border-[#efc2a5]/60 bg-[#fffaf6] px-2.5 py-1 font-mono text-[9px] uppercase tracking-wider text-[#8c6a59] font-bold">
+                      {tag}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </motion.article>
           ))}
+        </div>
+
+        <div className="mt-14">
+          <p className="text-[13px] font-medium text-[#8c6a59] font-bold mb-4">Advisors</p>
+          <ul className="divide-y divide-[#efc2a5]/40 border-y border-[#efc2a5]/40">
+            {advisors.map((person) => (
+              <li key={person.name} className="group flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6 py-5">
+                <div className="flex items-center gap-4 sm:w-72 shrink-0">
+                  <div className="relative h-12 w-12 overflow-hidden rounded-full bg-[#f0ece8]">
+                    <Image src={person.photo} alt={person.name} fill sizes="48px" className="object-cover object-top grayscale-[70%] transition group-hover:grayscale-0" />
+                  </div>
+                  <div>
+                    <p className="font-display text-lg font-semibold text-[#2f241f] leading-tight">{person.name}</p>
+                    <p className="font-mono text-[9px] uppercase tracking-wider text-[#0f8f81] font-bold">{person.tags[0]}</p>
+                  </div>
+                </div>
+                <p className="flex-1 text-sm text-[#6f5346] leading-relaxed">{person.bio}</p>
+                <a
+                  href={person.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="icon-action hidden sm:flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[#efc2a5]/60 text-[#8c6a59]"
+                  aria-label={`${person.name} on LinkedIn`}
+                >
+                  <Linkedin className="w-3.5 h-3.5" />
+                </a>
+              </li>
+            ))}
+          </ul>
         </div>
 
         {/* Recruitment CTA */}
@@ -141,7 +180,7 @@ export function TeamSection() {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.6 }}
         >
-          <h3 className="font-serif text-2xl md:text-3xl text-[#2f241f] mb-4 font-semibold tracking-tight">
+          <h3 className="font-display text-2xl md:text-3xl text-[#2f241f] mb-4 font-semibold tracking-tight">
             Build the reimbursement stack with us.
           </h3>
           <p className="text-[#8c6a59] text-base mb-10 leading-relaxed">
