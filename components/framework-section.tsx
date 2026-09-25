@@ -225,6 +225,9 @@ export function FrameworkSection() {
             <div className="absolute -bottom-24 -left-16 h-64 w-64 rounded-full bg-[#f15d22]/10 blur-3xl" />
 
             <div className="relative z-10 flex h-full flex-col gap-3">
+              <span className="self-end rounded-full border border-white/15 bg-white/5 px-2.5 py-1 font-mono text-[9px] uppercase tracking-wider text-[#efc2a5]/70 font-bold">
+                Illustrative
+              </span>
               <div className="min-h-[285px] flex-1 rounded-2xl border border-white/8 bg-black/20 p-5 backdrop-blur-sm sm:p-6">
                 <ReportVisual />
               </div>

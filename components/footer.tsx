@@ -35,7 +35,7 @@ export function Footer() {
           <div>
             <p className="font-mono text-xs uppercase tracking-widest text-[#2f241f] mb-6">Support</p>
             <ul className="space-y-4 text-sm text-[#8c6a59]">
-              <li><Link href="/#resources" className="text-link hover:text-[#14B8A6]">Resources</Link></li>
+              <li><Link href="/#why-now" className="text-link hover:text-[#14B8A6]">Why now</Link></li>
               <li><Link href="/#faq" className="text-link hover:text-[#14B8A6]">FAQ</Link></li>
               <li><Link href="/api-docs" className="text-link hover:text-[#14B8A6]">API Documentation</Link></li>
             </ul>
@@ -45,7 +45,7 @@ export function Footer() {
             <p className="font-mono text-xs uppercase tracking-widest text-[#2f241f] mb-6">Important Links</p>
             <ul className="space-y-4 text-sm text-[#8c6a59]">
               <li><Link href="/#contact" className="text-link hover:text-[#14B8A6]">Join Beta Waitlist</Link></li>
-              <li><Link href="/demo" className="text-link hover:text-[#14B8A6]">Book a Demo</Link></li>
+              <li><Link href="/demo" className="text-link hover:text-[#14B8A6]">Book a Call</Link></li>
               <li><a href="https://wellfound.com/company/sanafin" target="_blank" rel="noopener noreferrer" className="text-link hover:text-[#14B8A6]">Careers (Wellfound)</a></li>
             </ul>
           </div>

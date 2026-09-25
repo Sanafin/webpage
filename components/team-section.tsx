@@ -12,7 +12,6 @@ import djataProfile from "@/components/ui/profiles/djata_profile.png"
 import ajinthaProfile from "@/components/ui/profiles/ajintha_profile.png"
 import niklausProfile from "@/components/ui/profiles/niklaus_profile.png"
 import wellfoundLogo from "@/components/ui/logo/Wellfound_logo.png"
-import { MbhpScrollSection } from "@/components/mbhp-scroll-section"
 
 const team = [
   {
@@ -135,14 +134,9 @@ export function TeamSection() {
           ))}
         </div>
 
-        {/* MBHP Parallax Scroll Connection Graphic */}
-        <div className="mt-8">
-          <MbhpScrollSection />
-        </div>
-
         {/* Recruitment CTA */}
         <motion.div
-          className="mt-6 text-center max-w-2xl mx-auto"
+          className="mt-16 text-center max-w-2xl mx-auto"
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.6 }}

@@ -7,6 +7,14 @@ import { Menu, X } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
 import { AnnouncementBar } from "./announcement-bar"
 
+const navLinks = [
+  { href: "/#problem", label: "Problem" },
+  { href: "/#why-now", label: "Why Now" },
+  { href: "/#how", label: "Product" },
+  { href: "/#team", label: "Team" },
+  { href: "/#faq", label: "FAQ" },
+]
+
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
@@ -55,32 +63,19 @@ export function Header() {
           </Link>
           
           <nav className="hidden md:flex items-center gap-8 text-sm font-mono">
-            <Link href="/#how" className="nav-link text-[#2f241f]/70 hover:text-[#2f241f] uppercase tracking-widest text-[10px] font-bold">
-              How It Works
-            </Link>
-            <Link href="/#usecases" className="nav-link text-[#2f241f]/70 hover:text-[#2f241f] uppercase tracking-widest text-[10px] font-bold">
-              Use Cases
-            </Link>
-            <Link href="/#faq" className="nav-link text-[#2f241f]/70 hover:text-[#2f241f] uppercase tracking-widest text-[10px] font-bold">
-              FAQ
-            </Link>
-            <Link href="/#contact" className="nav-link text-[#2f241f]/70 hover:text-[#2f241f] uppercase tracking-widest text-[10px] font-bold">
-              Contact
-            </Link>
+            {navLinks.map((link) => (
+              <Link key={link.href} href={link.href} className="nav-link text-[#2f241f]/70 hover:text-[#2f241f] uppercase tracking-widest text-[10px] font-bold">
+                {link.label}
+              </Link>
+            ))}
           </nav>
 
           <div className="hidden md:flex items-center gap-3">
             <Link 
-              href="/#contact" 
-              className="action-secondary px-4 py-2 border border-[#2f241f]/20 hover:border-[#2f241f]/40 rounded-[10px] text-[#2f241f] hover:bg-[#f2e8e1]/40 font-mono uppercase tracking-widest text-[10px] font-bold cursor-pointer transition-colors"
-            >
-              beta waitlist
-            </Link>
-            <Link 
               href="/demo" 
               className="px-4 py-2 bg-[#14B8A6] hover:bg-[#0f8f81] text-white rounded-[10px] font-mono uppercase tracking-widest text-[10px] font-bold cursor-pointer transition-all duration-200 shadow-sm hover:shadow"
             >
-              book a demo
+              book a call
             </Link>
           </div>
           
@@ -111,48 +106,23 @@ export function Header() {
               className="md:hidden bg-[#fffaf6]/95 backdrop-blur-xl border-t border-[#efc2a5]/30 overflow-hidden shadow-lg"
             >
               <div className="space-y-1 px-6 pb-6 pt-4">
-                <Link
-                    href="/#how"
+                {navLinks.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
                     className="block rounded-lg px-3 py-3 text-sm text-[#2f241f]/70 hover:text-[#2f241f] hover:bg-[#f2e8e1]/70 transition-colors font-mono uppercase tracking-widest text-[10px] font-bold"
                     onClick={() => setMobileMenuOpen(false)}
                   >
-                    How It Works
-                </Link>
-                <Link
-                    href="/#usecases"
-                    className="block rounded-lg px-3 py-3 text-sm text-[#2f241f]/70 hover:text-[#2f241f] hover:bg-[#f2e8e1]/70 transition-colors font-mono uppercase tracking-widest text-[10px] font-bold"
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    Use Cases
-                </Link>
-                <Link
-                  href="/#faq"
-                  className="block rounded-lg px-3 py-3 text-sm text-[#2f241f]/70 hover:text-[#2f241f] hover:bg-[#f2e8e1]/70 transition-colors font-mono uppercase tracking-widest text-[10px] font-bold"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  FAQ
-                </Link>
-                <Link
-                  href="/#contact"
-                  className="block rounded-lg px-3 py-3 text-sm text-[#2f241f]/70 hover:text-[#2f241f] hover:bg-[#f2e8e1]/70 transition-colors font-mono uppercase tracking-widest text-[10px] font-bold"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  Contact
-                </Link>
-                <div className="pt-4 flex flex-col gap-2">
-                  <Link 
-                    href="/#contact" 
-                    className="action-secondary inline-flex min-h-11 items-center justify-center w-full px-4 py-2.5 border border-[#efc2a5]/50 rounded-[10px] text-[#2f241f] hover:bg-[#f2e8e1]/60 font-mono uppercase tracking-widest text-[10px] font-bold text-center cursor-pointer transition-colors"
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    beta waitlist
+                    {link.label}
                   </Link>
+                ))}
+                <div className="pt-4">
                   <Link 
                     href="/demo" 
                     className="inline-flex min-h-11 items-center justify-center w-full px-4 py-2.5 bg-[#14B8A6] text-white hover:bg-[#0f8f81] rounded-[10px] font-mono uppercase tracking-widest text-[10px] font-bold text-center cursor-pointer transition-all duration-200 shadow-sm"
                     onClick={() => setMobileMenuOpen(false)}
                   >
-                    book a demo
+                    book a call
                   </Link>
                 </div>
               </div>

@@ -112,7 +112,7 @@
   isolation: isolate;
 }
 
-.landing-page > section:not(#platform) {
+.landing-page > section:not(#platform):not(#backers) {
   padding-block: clamp(4.5rem, 7vw, 6.5rem);
 }
 
