@@ -26,8 +26,8 @@ const faqs = [
     answer: "Sanafin is designed to prototype and deploy a reimbursement pilot in under two weeks. Production timing depends on data access, integration scope, and stakeholder readiness."
   },
   {
-    question: "What happens after I join the waitlist?",
-    answer: "You’ll receive product updates and hear from us when beta access opens."
+    question: "How do we get started?",
+    answer: "Book a discovery call. We scope a pilot around your product, your data sources, and the payer you want to contract with."
   },
 ]
 

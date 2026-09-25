@@ -2,14 +2,6 @@ import { useState } from "react"
 import Link from "next/link"
 import { ArrowRight, Check } from "lucide-react"
 
-function SwissCross({ className = "w-2.5 h-2.5 text-[#14B8A6] shrink-0" }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 10 10" fill="currentColor">
-      <path d="M4,1 H6 V4 H9 V6 H6 V9 H4 V6 H1 V4 H4 Z" />
-    </svg>
-  )
-}
-
 export function CTASection() {
   const [email, setEmail] = useState("")
   const [submitted, setSubmitted] = useState(false)
@@ -76,75 +68,56 @@ export function CTASection() {
             ) : (
               <>
                 <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-orange-200 mb-4 font-bold block">
-                  Beta access
+                  Get in touch
                 </p>
                 <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-white mb-6 leading-[1.1] font-medium tracking-tight">
                   Turn better outcomes into <br className="hidden sm:block" />{" "}
                   <span className="text-orange-100 italic font-semibold">reimbursable care</span>
                 </h2>
-                <p className="text-orange-50/80 font-sans text-base sm:text-lg leading-relaxed max-w-2xl mx-auto mb-8">
-                  Join the beta waitlist and be among the first to turn health outcomes into reimbursable contracts.
+                <p className="text-orange-50/80 font-sans text-base sm:text-lg leading-relaxed max-w-xl mx-auto mb-8">
+                  Building a digital health product, funding outcomes, or investing in the category? Let&apos;s talk.
                 </p>
-                <form
-                  onSubmit={handleSubmit}
-                  aria-busy={loading}
-                  className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto mb-4"
-                >
-                  <input
-                    type="email"
-                    required
-                    value={email}
-                    onChange={e => setEmail(e.target.value)}
-                    placeholder="Enter your email"
-                    aria-label="Email address"
-                    aria-invalid={Boolean(error)}
-                    aria-describedby={error ? "access-request-error" : undefined}
-                    className="form-field flex-1 rounded-[10px] px-5 py-4 font-mono text-sm placeholder:text-[#8c6a59]/60 bg-white border border-white/20 text-[#2f241f] outline-none"
-                  />
-                  <button
-                    type="submit"
-                    disabled={loading}
-                    className="action-inverse bg-white text-[#b83305] disabled:bg-[#f2e8e1]/80 disabled:text-[#8c6a59] font-semibold px-8 py-4 font-mono text-sm uppercase tracking-wider hover:bg-orange-50 disabled:opacity-85 disabled:cursor-not-allowed rounded-[10px] whitespace-nowrap shadow-md hover:shadow-lg cursor-pointer flex items-center justify-center gap-2 min-w-[200px]"
-                  >
-                    {loading ? (
-                      <>
-                        <svg className="animate-spin h-4 w-4 text-[#8c6a59]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                        </svg>
-                        <span>Processing</span>
-                      </>
-                    ) : (
-                      "Join Beta Waitlist"
-                    )}
-                  </button>
-                </form>
-                {error && (
-                  <div id="access-request-error" role="alert" className="mb-8 p-4 rounded-[10px] bg-red-500/10 border border-red-500/25 text-red-200 text-xs font-mono text-left max-w-md mx-auto flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 bg-red-400 rounded-full shrink-0" />
-                    <span>{error}</span>
-                  </div>
-                )}
                 <Link
                   href="/demo"
-                  className="mb-8 inline-flex items-center justify-center gap-2 font-mono text-xs font-bold uppercase tracking-wider text-orange-100 transition-colors hover:text-white"
+                  className="action-inverse inline-flex min-h-12 items-center justify-center gap-2 rounded-[10px] bg-white px-8 py-4 font-mono text-sm font-bold uppercase tracking-wider text-[#b83305] shadow-md hover:bg-orange-50 hover:shadow-lg"
                 >
-                  Book a demo
-                  <ArrowRight className="h-3.5 w-3.5" />
+                  Book a discovery call
+                  <ArrowRight className="h-4 w-4" aria-hidden="true" />
                 </Link>
-                 <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-4 text-white/70">
-                  <span className="font-mono text-xs flex items-center gap-2">
-                    <SwissCross className="w-2 h-2 text-[#f15d22] shrink-0 animate-pulse" />
-                    Beta access
-                  </span>
-                  <span className="font-mono text-xs flex items-center gap-2">
-                    <SwissCross className="w-2 h-2 text-[#f15d22] shrink-0 animate-pulse" />
-                    Product previews
-                  </span>
-                  <span className="font-mono text-xs flex items-center gap-2">
-                    <SwissCross className="w-2 h-2 text-[#f15d22] shrink-0 animate-pulse" />
-                    Launch updates
-                  </span>
+
+                <div className="mt-12 pt-8 border-t border-white/15 max-w-md mx-auto">
+                  <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-orange-100/80 mb-4 font-bold">
+                    Or get product updates
+                  </p>
+                  <form
+                    onSubmit={handleSubmit}
+                    aria-busy={loading}
+                    className="flex flex-col sm:flex-row gap-2"
+                  >
+                    <input
+                      type="email"
+                      required
+                      value={email}
+                      onChange={e => setEmail(e.target.value)}
+                      placeholder="Enter your email"
+                      aria-label="Email address"
+                      aria-invalid={Boolean(error)}
+                      aria-describedby={error ? "access-request-error" : undefined}
+                      className="form-field flex-1 rounded-[10px] px-4 py-3 font-mono text-sm placeholder:text-white/60 bg-white/10 border border-white/25 text-white outline-none"
+                    />
+                    <button
+                      type="submit"
+                      disabled={loading}
+                      className="action-secondary rounded-[10px] border border-white/40 px-5 py-3 font-mono text-xs font-bold uppercase tracking-wider text-white hover:bg-white/10 disabled:opacity-60 disabled:cursor-not-allowed cursor-pointer whitespace-nowrap"
+                    >
+                      {loading ? "Joining..." : "Join beta waitlist"}
+                    </button>
+                  </form>
+                  {error && (
+                    <p id="access-request-error" role="alert" className="mt-3 text-xs font-mono text-red-100">
+                      {error}
+                    </p>
+                  )}
                 </div>
               </>
             )}

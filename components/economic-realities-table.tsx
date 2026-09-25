@@ -57,7 +57,7 @@ export function EconomicRealitiesTable() {
   return (
     <section
       ref={sectionRef}
-      id="why-now"
+      id="problem"
       className="py-24 sm:py-28 relative overflow-hidden bg-transparent border-t border-[#efc2a5]/20 scroll-mt-24"
     >
       {/* Subtle background grid */}

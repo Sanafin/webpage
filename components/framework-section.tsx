@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react"
 import { animate, motion, useInView, useMotionValue, useReducedMotion, useTransform } from "framer-motion"
 import Link from "next/link"
 import { ChevronRight } from "lucide-react"
+import { lois } from "@/lib/traction"
 
 function SwissCross({ className = "w-2.5 h-2.5 text-[#f15d22] shrink-0" }: { className?: string }) {
   return (
@@ -177,7 +178,7 @@ export function FrameworkSection() {
             </h2>
 
             <p className="text-[#8c6a59] font-sans text-base sm:text-lg leading-relaxed mb-9 max-w-xl">
-              3.5 years of research, productized: guideline automation, reimbursement logic, and live evidence workflows.
+              4 years of research, productized: guideline automation, reimbursement logic, and live evidence workflows.
             </p>
 
             <div className="grid gap-2.5 text-sm text-[#6f5346]">
@@ -225,6 +226,9 @@ export function FrameworkSection() {
             <div className="absolute -bottom-24 -left-16 h-64 w-64 rounded-full bg-[#f15d22]/10 blur-3xl" />
 
             <div className="relative z-10 flex h-full flex-col gap-3">
+              <span className="self-end rounded-full border border-white/15 bg-white/5 px-2.5 py-1 font-mono text-[9px] uppercase tracking-wider text-[#efc2a5]/70 font-bold">
+                Illustrative
+              </span>
               <div className="min-h-[285px] flex-1 rounded-2xl border border-white/8 bg-black/20 p-5 backdrop-blur-sm sm:p-6">
                 <ReportVisual />
               </div>
@@ -251,7 +255,7 @@ export function FrameworkSection() {
           {[
             { metric: "5+", target: 5, suffix: "+", label: "Validated Models", color: "text-[#d9480f]" },
             { metric: "4 Yrs", target: 4, suffix: " Yrs", label: "Academic Research", color: "text-[#b45309]" },
-            { metric: "3", target: 3, suffix: "", label: "Design Partners", color: "text-[#9f3f2f]" },
+            { metric: String(lois.length), target: lois.length, suffix: "", label: "Signed LOIs", color: "text-[#9f3f2f]" },
             { metric: "Public", label: "Open Scientific Framework", color: "text-[#6f5346]" },
           ].map((stat, idx) => (
             <div

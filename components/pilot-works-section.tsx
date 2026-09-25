@@ -230,13 +230,16 @@ export function PilotWorksSection() {
         {/* Header */}
         <div className="mb-16 text-center max-w-3xl mx-auto">
           <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-[#14B8A6] mb-4 font-bold block">
-            Initial clinical usecases
+            Example contracts
           </p>
           <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-[#2f241f] mb-6 leading-[1.1] font-medium tracking-tight">
             Start with metabolic health. <span className="text-primary italic font-semibold bg-gradient-to-r from-[#ff824c] via-primary to-[#d03d00] bg-clip-text text-transparent pr-1">Scale longevity.</span>
           </h2>
           <p className="text-[#8c6a59] font-sans text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
             Start with European metabolic health. Expand across digital therapeutics, medical devices, and value-based care.
+          </p>
+          <p className="mt-4 font-mono text-[10px] uppercase tracking-wider text-[#8c6a59] font-bold">
+            Illustrative scenarios — not customer data
           </p>
         </div>
 
@@ -270,26 +273,22 @@ export function PilotWorksSection() {
                 {currentProgram.name}
               </h3>
               <p className="text-xs sm:text-sm font-sans text-[#8c6a59]">
-                Active Cycle: <span className="font-semibold text-[#2f241f]">{currentProgram.duration}</span> • {currentProgram.population}
+                Cycle: <span className="font-semibold text-[#2f241f]">{currentProgram.duration}</span> • {currentProgram.population}
               </p>
             </div>
             <div className="flex items-center gap-4">
               <div className="text-left sm:text-right">
                 <span className="block font-mono text-[9px] uppercase tracking-wider text-[#8c6a59] font-bold">
-                  Escrow Balance Locked
+                  Example Escrow
                 </span>
                 <span className="text-xl sm:text-2xl font-serif font-semibold text-[#f15d22]">
                   CHF {currentProgram.budget.toLocaleString('en-US')}
                 </span>
               </div>
               <div className="h-8 w-px bg-[#efc2a5]/20 hidden sm:block" />
-              <div className="inline-flex items-center gap-1.5 font-mono text-[9px] bg-emerald-500/10 backdrop-blur-[4px] text-emerald-700 px-2.5 py-1 rounded-full border border-emerald-500/30 font-bold tracking-wider shrink-0 shadow-xs">
-                <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-                </span>
-                <span>ACTIVE SECURE</span>
-              </div>
+              <span className="inline-flex items-center rounded-full border border-[#8c6a59]/25 bg-white px-2.5 py-1 font-mono text-[9px] uppercase tracking-wider text-[#8c6a59] font-bold shrink-0">
+                Illustrative
+              </span>
             </div>
           </div>
 
