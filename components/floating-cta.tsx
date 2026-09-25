@@ -30,7 +30,7 @@ export function FloatingCTA() {
         >
           <Link
             href="/demo"
-            className="group flex items-center gap-2.5 px-6 py-3.5 bg-gradient-to-r from-[#14B8A6] to-[#0d9488] text-white rounded-full shadow-[0_8px_30px_rgba(20,184,166,0.3)] hover:shadow-[0_8px_30px_rgba(20,184,166,0.5)] transition-all duration-300 hover:scale-105 border border-white/10 font-mono text-[11px] uppercase tracking-widest font-bold"
+            className="group flex items-center gap-2.5 px-6 py-3.5 bg-gradient-to-r from-[#f15d22] to-[#d03d00] text-white rounded-full shadow-[0_8px_30px_rgba(241,93,34,0.35)] hover:shadow-[0_8px_30px_rgba(241,93,34,0.55)] transition-all duration-300 hover:scale-105 border border-white/10 font-mono text-[11px] uppercase tracking-widest font-bold"
           >
             <span>Book a call</span>
             <ArrowUpRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true" />

@@ -6,7 +6,7 @@ import { Hero } from "@/components/hero"
 import { BackedBy } from "@/components/backed-by"
 import { EconomicRealitiesTable } from "@/components/economic-realities-table"
 import { WhyNowSection } from "@/components/why-now-section"
-import { ProblemSection } from "@/components/problem-section"
+import { ProductBento } from "@/components/product-bento"
 import { PilotWorksSection } from "@/components/pilot-works-section"
 import { FrameworkSection } from "@/components/framework-section"
 import { TeamSection } from "@/components/team-section"
@@ -20,13 +20,13 @@ export default function Home() {
   return (
     <div className="page-wrapper">
       <div className="page-content">
-        <Header />
+        <Header tone="dark" />
         <main className="landing-page">
           <Hero />
           <BackedBy />
           <EconomicRealitiesTable />
           <WhyNowSection />
-          <ProblemSection />
+          <ProductBento />
           <PilotWorksSection />
           <FrameworkSection />
           <TeamSection />

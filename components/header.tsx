@@ -15,7 +15,8 @@ const navLinks = [
   { href: "/#faq", label: "FAQ" },
 ]
 
-export function Header() {
+export function Header({ tone = "light" }: { tone?: "light" | "dark" }) {
+  const dark = tone === "dark"
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
 
@@ -44,8 +45,10 @@ export function Header() {
       
       <div 
         className={`transition-all duration-300 ${
-          isScrolled 
-            ? "bg-[#fffaf6]/80 backdrop-blur-md border-b border-[#efc2a5]/30 py-3" 
+          isScrolled
+            ? dark
+              ? "bg-[#120d0b]/92 backdrop-blur-md border-b border-white/10 py-3"
+              : "bg-[#fffaf6]/80 backdrop-blur-md border-b border-[#efc2a5]/30 py-3"
             : "bg-transparent py-6"
         }`}
       >
@@ -56,7 +59,7 @@ export function Header() {
               alt="Sanafin"
               width={110}
               height={36}
-              className="h-7 w-auto"
+              className={`h-7 w-auto ${dark ? "brightness-0 invert" : ""}`}
               style={{ height: "28px", width: "auto" }}
               priority
             />
@@ -64,7 +67,7 @@ export function Header() {
           
           <nav className="hidden md:flex items-center gap-8 text-sm font-mono">
             {navLinks.map((link) => (
-              <Link key={link.href} href={link.href} className="nav-link text-[#2f241f]/70 hover:text-[#2f241f] uppercase tracking-widest text-[10px] font-bold">
+              <Link key={link.href} href={link.href} className={`nav-link uppercase tracking-widest text-[10px] font-bold ${dark ? "text-[#fffaf6]/65 hover:text-[#fffaf6]" : "text-[#2f241f]/70 hover:text-[#2f241f]"}`}>
                 {link.label}
               </Link>
             ))}
@@ -73,7 +76,7 @@ export function Header() {
           <div className="hidden md:flex items-center gap-3">
             <Link 
               href="/demo" 
-              className="px-4 py-2 bg-[#14B8A6] hover:bg-[#0f8f81] text-white rounded-[10px] font-mono uppercase tracking-widest text-[10px] font-bold cursor-pointer transition-all duration-200 shadow-sm hover:shadow"
+              className={`px-4 py-2 text-white rounded-[10px] font-mono uppercase tracking-widest text-[10px] font-bold cursor-pointer transition-all duration-200 shadow-sm hover:shadow ${dark ? "bg-[#f15d22] hover:bg-[#d03d00]" : "bg-[#14B8A6] hover:bg-[#0f8f81]"}`}
             >
               book a call
             </Link>
@@ -81,7 +84,7 @@ export function Header() {
           
           <button
             type="button"
-            className="icon-action md:hidden -m-2.5 inline-flex min-h-11 min-w-11 items-center justify-center rounded-lg p-2.5 text-[#2f241f] hover:bg-[#f2e8e1]"
+            className={`icon-action md:hidden -m-2.5 inline-flex min-h-11 min-w-11 items-center justify-center rounded-lg p-2.5 ${dark ? "text-[#fffaf6] hover:bg-white/10" : "text-[#2f241f] hover:bg-[#f2e8e1]"}`}
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-expanded={mobileMenuOpen}
             aria-controls="mobile-navigation"

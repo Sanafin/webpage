@@ -57,7 +57,7 @@ export function HeroFlow() {
       {/* Ambient glow */}
       <div className="absolute -inset-8 rounded-[40px] bg-[radial-gradient(ellipse_at_30%_20%,rgba(241,93,34,0.14),transparent_60%),radial-gradient(ellipse_at_80%_90%,rgba(20,184,166,0.14),transparent_60%)] blur-2xl pointer-events-none" />
 
-      <div className="relative rounded-[24px] border border-[#efc2a5]/40 bg-white/85 backdrop-blur-md shadow-[0_32px_70px_-28px_rgba(47,36,31,0.35)] overflow-hidden">
+      <div className="relative rounded-[24px] border border-white/20 bg-[#fffaf6] shadow-[0_40px_120px_-30px_rgba(241,93,34,0.55),0_0_0_1px_rgba(255,255,255,0.06)] overflow-hidden">
         {/* Card header */}
         <div className="flex items-center justify-between gap-3 px-5 sm:px-6 py-4 border-b border-[#efc2a5]/30 bg-[#fffaf6]/70">
           <div className="min-w-0">
