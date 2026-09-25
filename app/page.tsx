@@ -4,6 +4,7 @@ import { useScrollReveal } from "@/hooks/use-scroll-reveal"
 import { Header } from "@/components/header"
 import { Hero } from "@/components/hero"
 import { BackedBy } from "@/components/backed-by"
+import { OutcomeFilm } from "@/components/outcome-film"
 import { EconomicRealitiesTable } from "@/components/economic-realities-table"
 import { WhyNowSection } from "@/components/why-now-section"
 import { ProductBento } from "@/components/product-bento"
@@ -24,6 +25,7 @@ export default function Home() {
         <main className="landing-page">
           <Hero />
           <BackedBy />
+          <OutcomeFilm />
           <EconomicRealitiesTable />
           <WhyNowSection />
           <ProductBento />

@@ -7,7 +7,6 @@ import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 import { AppPreview } from "@/components/app-preview"
 import { Laurel } from "@/components/ui/laurel"
-import { heroVideo } from "@/lib/media"
 import { lois } from "@/lib/traction"
 
 const containerVariants: Variants = {
@@ -99,18 +98,6 @@ export function Hero() {
           <div className="pointer-events-none absolute -inset-x-24 -top-16 bottom-0 overflow-hidden rounded-[48px]" aria-hidden="true">
             <div className="absolute left-[10%] top-[10%] h-[70%] w-[45%] rounded-full bg-[#ffb08a]/40 blur-[90px]" />
             <div className="absolute right-[8%] top-[20%] h-[70%] w-[45%] rounded-full bg-[#9ee6dc]/45 blur-[90px]" />
-            {heroVideo && (
-              <video
-                className="absolute inset-0 h-full w-full object-cover opacity-30 motion-reduce:hidden"
-                style={{ maskImage: "radial-gradient(ellipse at center, black 30%, transparent 75%)", WebkitMaskImage: "radial-gradient(ellipse at center, black 30%, transparent 75%)" }}
-                src={heroVideo.src}
-                poster={heroVideo.poster}
-                autoPlay
-                muted
-                loop
-                playsInline
-              />
-            )}
           </div>
           <div className="relative">
             <AppPreview />
