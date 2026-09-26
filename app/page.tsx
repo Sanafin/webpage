@@ -4,9 +4,8 @@ import { Recognition } from "@/components/recognition"
 import { ProblemSection } from "@/components/problem-section"
 import { HowItWorks } from "@/components/how-it-works"
 import { WhyNowSection } from "@/components/why-now-section"
-import { ProductBento } from "@/components/product-bento"
-import { PilotWorksSection } from "@/components/pilot-works-section"
-import { FrameworkSection } from "@/components/framework-section"
+import { OutcomeStudio } from "@/components/outcome-studio"
+import { ExampleContracts } from "@/components/example-contracts"
 import { TeamSection } from "@/components/team-section"
 import { FAQSection } from "@/components/faq-section"
 import { CTASection } from "@/components/cta-section"
@@ -24,9 +23,8 @@ export default function Home() {
           <ProblemSection />
           <WhyNowSection />
           <HowItWorks />
-          <ProductBento />
-          <PilotWorksSection />
-          <FrameworkSection />
+          <OutcomeStudio />
+          <ExampleContracts />
           <TeamSection />
           <Recognition />
           <FAQSection />
