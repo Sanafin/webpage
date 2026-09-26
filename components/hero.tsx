@@ -66,7 +66,7 @@ export function Hero() {
                     Research from ETH Zurich · HSG · Imperial
                   </Link>
                 </li>
-                <li className="hidden xl:block">
+                <li className="hidden 2xl:block">
                   <Link href="#how" className="inline-flex items-center rounded-full bg-[#f5f1ed] px-3 py-1 text-[12px] text-[#1f1a17] hover:bg-[#ece7e2]">
                     Sanafin never holds funds
                   </Link>
