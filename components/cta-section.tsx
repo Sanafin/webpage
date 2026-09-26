@@ -1,3 +1,5 @@
+"use client"
+
 import { useState } from "react"
 import Link from "next/link"
 import { Check } from "lucide-react"
@@ -63,7 +65,7 @@ export function CTASection() {
 
         <div className="mt-12 max-w-md">
           {submitted ? (
-            <p role="status" className="inline-flex items-center gap-2 text-[14px] text-[#0f8f81]">
+            <p role="status" className="inline-flex items-center gap-2 text-[14px] text-[#0f766e]">
               <Check className="h-4 w-4" aria-hidden="true" />
               You&apos;re on the list. We&apos;ll be in touch when beta access opens.
             </p>
@@ -80,7 +82,7 @@ export function CTASection() {
                   aria-label="Email address"
                   aria-invalid={Boolean(error)}
                   aria-describedby={error ? "access-request-error" : undefined}
-                  className="min-w-0 flex-1 bg-transparent px-4 py-2 text-[14px] text-[#1f1a17] placeholder:text-[#a39a93] outline-none"
+                  className="min-w-0 flex-1 bg-transparent px-4 py-2 text-[14px] text-[#1f1a17] placeholder:text-[#766d67] outline-none"
                 />
                 <button
                   type="submit"

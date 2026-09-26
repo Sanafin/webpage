@@ -71,7 +71,7 @@ export function PilotWorksSection() {
             <h2 className="font-display text-4xl sm:text-5xl md:text-6xl leading-[1.04] text-[#1f1a17]">
               Metabolic health first.
               <br />
-              <span className="text-[#1f1a17]/40">Longevity next.</span>
+              <span className="text-[#1f1a17]/60">Longevity next.</span>
             </h2>
           </div>
           <p className="text-[15px] sm:text-base leading-relaxed text-[#6f6660] lg:pb-2">
@@ -90,7 +90,7 @@ export function PilotWorksSection() {
               transition={{ delay: i * 0.08, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
             >
               <div className="px-4 pt-4 pb-5">
-                <p className="text-[12px] text-[#a39a93] mb-2">Example contract</p>
+                <p className="text-[12px] text-[#766d67] mb-2">Example contract</p>
                 <h3 className="font-display text-2xl text-[#1f1a17] mb-1">{p.name}</h3>
                 <p className="text-[14px] text-[#6f6660]">{p.population}</p>
               </div>
@@ -98,29 +98,29 @@ export function PilotWorksSection() {
               <div className="flex flex-1 flex-col rounded-2xl bg-white p-5 shadow-[0_1px_2px_rgba(47,36,31,0.05)]">
                 <dl className="grid grid-cols-2 gap-4 pb-5 border-b border-[#f0ebe6]">
                   <div>
-                    <dt className="text-[12px] text-[#a39a93]">Outcome-linked budget</dt>
+                    <dt className="text-[12px] text-[#766d67]">Outcome-linked budget</dt>
                     <dd className="mt-1 text-xl font-medium tracking-tight text-[#1f1a17]">{p.budget}</dd>
                   </div>
                   <div>
-                    <dt className="text-[12px] text-[#a39a93]">Duration</dt>
+                    <dt className="text-[12px] text-[#766d67]">Duration</dt>
                     <dd className="mt-1 text-xl font-medium tracking-tight text-[#1f1a17]">{p.duration}</dd>
                   </div>
                 </dl>
 
                 <div className="py-5 border-b border-[#f0ebe6]">
-                  <p className="text-[12px] text-[#a39a93] mb-3">Payment is triggered when</p>
+                  <p className="text-[12px] text-[#766d67] mb-3">Payment is triggered when</p>
                   <ul className="space-y-2">
                     {p.targets.map((t) => (
                       <li key={t.label} className="flex items-center justify-between text-[14px]">
                         <span className="text-[#1f1a17]">{t.label}</span>
-                        <span className="font-medium text-[#0f8f81]">{t.threshold}</span>
+                        <span className="font-medium text-[#0f766e]">{t.threshold}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
 
                 <div className="py-5 border-b border-[#f0ebe6]">
-                  <p className="text-[12px] text-[#a39a93] mb-3">Payout schedule</p>
+                  <p className="text-[12px] text-[#766d67] mb-3">Payout schedule</p>
                   <ul className="space-y-2">
                     {p.milestones.map((m) => (
                       <li key={m.text} className="flex items-center justify-between text-[14px]">
@@ -132,7 +132,7 @@ export function PilotWorksSection() {
                 </div>
 
                 <div className="pt-5 mt-auto">
-                  <p className="text-[12px] text-[#a39a93] mb-2">Evidence from</p>
+                  <p className="text-[12px] text-[#766d67] mb-2">Evidence from</p>
                   <ul className="flex flex-wrap gap-1.5">
                     {p.sources.map((s) => (
                       <li key={s} className="rounded-full bg-[#f5f1ed] px-2.5 py-1 text-[12px] text-[#6f6660]">

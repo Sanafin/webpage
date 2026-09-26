@@ -54,7 +54,7 @@ export function OutcomeFilm() {
           <h2 className="font-display text-4xl sm:text-5xl md:text-6xl leading-[1.04] font-medium text-[#1f1a17] max-w-3xl">
             Money moves
             <br />
-            <span className="text-[#1f1a17]/40">when outcomes do.</span>
+            <span className="text-[#1f1a17]/60">when outcomes do.</span>
           </h2>
           <p className="max-w-sm text-[15px] leading-relaxed text-[#6f6660] md:pb-2">
             That is the whole idea. When a patient outcome is verified against the contract, payment follows automatically. No manual claims, no chasing, no consultants.

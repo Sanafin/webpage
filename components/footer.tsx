@@ -53,17 +53,17 @@ export function Footer() {
 
         <div className="pt-10 border-t border-black/5 flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="flex flex-col md:flex-row items-center gap-4 md:gap-8">
-            <p className="text-[13px] text-[#a39a93]">
+            <p className="text-[13px] text-[#766d67]">
               &copy; {new Date().getFullYear()} Sanafin.tech.
             </p>
-            <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-[13px] text-[#a39a93]">
+            <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-[13px] text-[#766d67]">
               <Link href="/imprint" className="text-link hover:text-[#14B8A6]">Imprint</Link>
               <Link href="/privacy" className="text-link hover:text-[#14B8A6]">Privacy Policy</Link>
               <Link href="/terms" className="text-link hover:text-[#14B8A6]">Terms & Compliance</Link>
             </div>
           </div>
           <div className="flex items-center gap-2.5">
-            <p className="text-[13px] text-[#a39a93]">
+            <p className="text-[13px] text-[#766d67]">
               Every value-based contract, one operating system.
             </p>
             <a

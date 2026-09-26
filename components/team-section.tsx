@@ -84,7 +84,7 @@ export function TeamSection() {
             The team
           </p>
           <h2 className="font-display text-3xl sm:text-4xl md:text-5xl text-[#2f241f] max-w-xl leading-[1.1] font-medium tracking-tight mb-6">
-            Clinical, financial and engineering depth.<br /><span className="text-[#1f1a17]/40">In one team.</span>
+            Clinical, financial and engineering depth.<br /><span className="text-[#1f1a17]/60">In one team.</span>
           </h2>
         </motion.div>
 
@@ -117,7 +117,7 @@ export function TeamSection() {
               </div>
               <div className="flex flex-1 flex-col px-2 pt-4 pb-2">
                 <p className="font-display text-xl font-semibold tracking-tight text-[#2f241f]">{person.name}</p>
-                <p className="text-[13px] text-[#0f8f81] mt-0.5 mb-3">{person.title}</p>
+                <p className="text-[13px] text-[#0f766e] mt-0.5 mb-3">{person.title}</p>
                 <p className="text-[#6f5346] text-sm leading-relaxed mb-4">{person.bio}</p>
                 <ul className="mt-auto flex flex-wrap gap-1.5">
                   {person.tags.map((tag) => (
@@ -142,7 +142,7 @@ export function TeamSection() {
                   </div>
                   <div>
                     <p className="font-display text-lg font-semibold text-[#2f241f] leading-tight">{person.name}</p>
-                    <p className="text-[12px] text-[#0f8f81]">{person.tags[0]}</p>
+                    <p className="text-[12px] text-[#0f766e]">{person.tags[0]}</p>
                   </div>
                 </div>
                 <p className="flex-1 text-sm text-[#6f5346] leading-relaxed">{person.bio}</p>

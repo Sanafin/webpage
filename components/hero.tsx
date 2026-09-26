@@ -57,7 +57,7 @@ export function Hero() {
           >
             <span className="lg:whitespace-nowrap">Payers now pay for outcomes.</span>
             <br />
-            <span className="lg:whitespace-nowrap text-[#1f1a17]/40">We make them provable.</span>
+            <span className="lg:whitespace-nowrap text-[#1f1a17]/60">We make them provable.</span>
           </motion.h1>
 
           <motion.p
@@ -83,7 +83,7 @@ export function Hero() {
             </Link>
           </motion.div>
 
-          <motion.p variants={itemVariants} className="text-[13px] text-[#a39a93]">
+          <motion.p variants={itemVariants} className="text-[13px] text-[#766d67]">
             Swiss-hosted · Built on ETH Zurich research · {lois.length} signed letters of intent
           </motion.p>
         </motion.div>

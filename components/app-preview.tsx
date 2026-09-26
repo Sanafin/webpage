@@ -104,7 +104,7 @@ export function AppPreview() {
         <div className="min-w-0 flex-1 p-4 pb-16 sm:p-5 sm:pb-16">
           {/* Top bar */}
           <div className="flex items-center justify-between gap-3 mb-5">
-            <div className="flex min-w-0 flex-1 items-center gap-2 rounded-lg border border-[#f0ebe6] bg-[#fcfbfa] px-3 py-1.5 text-[12px] text-[#a39a93] max-w-xs">
+            <div className="flex min-w-0 flex-1 items-center gap-2 rounded-lg border border-[#f0ebe6] bg-[#fcfbfa] px-3 py-1.5 text-[12px] text-[#766d67] max-w-xs">
               <Search className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
               <span className="truncate">Search contracts, endpoints…</span>
             </div>
@@ -130,13 +130,13 @@ export function AppPreview() {
                     <Check className="h-3 w-3 text-[#14B8A6]" aria-hidden="true" />
                   </p>
                   <p className="mt-1 text-2xl sm:text-[28px] font-medium tracking-tight text-[#1f1a17]">
-                    CHF 60,000<span className="text-base text-[#a39a93]">.00</span>
+                    CHF 60,000<span className="text-base text-[#766d67]">.00</span>
                   </p>
                 </div>
-                <span className="rounded-md bg-[#14B8A6]/10 px-2 py-1 text-[11px] font-medium text-[#0f8f81]">+ CHF 8k this month</span>
+                <span className="rounded-md bg-[#14B8A6]/10 px-2 py-1 text-[11px] font-medium text-[#0f766e]">+ CHF 8k this month</span>
               </div>
               <AreaChart />
-              <div className="flex justify-between text-[10px] text-[#a39a93]">
+              <div className="flex justify-between text-[10px] text-[#766d67]">
                 <span>Jan</span>
                 <span>Apr</span>
                 <span>Jul</span>
@@ -149,18 +149,18 @@ export function AppPreview() {
             <div className="rounded-xl border border-[#f0ebe6] p-4">
               <div className="flex items-center justify-between mb-3">
                 <p className="text-[13px] font-medium text-[#1f1a17]">Active contracts</p>
-                <span className="text-[11px] text-[#a39a93]">View all</span>
+                <span className="text-[11px] text-[#766d67]">View all</span>
               </div>
               <ul className="divide-y divide-[#f0ebe6]">
                 {contracts.map((c) => (
                   <li key={c.name} className="flex items-center justify-between gap-3 py-2.5">
                     <div className="min-w-0">
                       <p className="truncate text-[12px] font-medium text-[#1f1a17]">{c.name}</p>
-                      <p className="text-[11px] text-[#a39a93]">{c.payer}</p>
+                      <p className="text-[11px] text-[#766d67]">{c.payer}</p>
                     </div>
                     <div className="shrink-0 text-right">
                       <p className="text-[12px] text-[#1f1a17]">{c.value}</p>
-                      <p className={`text-[10px] font-medium ${c.status === "On track" ? "text-[#0f8f81]" : "text-[#d03d00]"}`}>
+                      <p className={`text-[10px] font-medium ${c.status === "On track" ? "text-[#0f766e]" : "text-[#d03d00]"}`}>
                         {c.status}
                       </p>
                     </div>

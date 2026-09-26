@@ -127,10 +127,10 @@ export function ProductBento() {
             <p className="text-[13px] font-medium text-[#f15d22] mb-4">The product</p>
             <h2 className="font-display text-4xl sm:text-5xl md:text-6xl leading-[1.04] font-medium">
               One workspace, from patient data{" "}
-              <span className="text-[#1f1a17]/40">to payout.</span>
+              <span className="text-[#1f1a17]/60">to payout.</span>
             </h2>
           </div>
-          <p className="text-[13px] text-[#a39a93] lg:text-right">
+          <p className="text-[13px] text-[#766d67] lg:text-right">
             Example values · illustrative
           </p>
         </motion.div>

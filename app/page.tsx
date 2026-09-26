@@ -1,11 +1,7 @@
-"use client"
-
-import { useScrollReveal } from "@/hooks/use-scroll-reveal"
 import { Header } from "@/components/header"
 import { Hero } from "@/components/hero"
-import { BackedBy } from "@/components/backed-by"
+import { Recognition } from "@/components/recognition"
 import { OutcomeFilm } from "@/components/outcome-film"
-import { EconomicRealitiesTable } from "@/components/economic-realities-table"
 import { WhyNowSection } from "@/components/why-now-section"
 import { ProductBento } from "@/components/product-bento"
 import { PilotWorksSection } from "@/components/pilot-works-section"
@@ -15,18 +11,17 @@ import { FAQSection } from "@/components/faq-section"
 import { CTASection } from "@/components/cta-section"
 import { Footer } from "@/components/footer"
 
+// Server component: the hero and every static section render visible HTML with no
+// hydration gate. Interactive islands are client components of their own.
 export default function Home() {
-  useScrollReveal()
-
   return (
     <div className="page-wrapper">
       <div className="page-content">
         <Header />
-        <main className="landing-page">
+        <main id="main" className="landing-page">
           <Hero />
-          <BackedBy />
+          <Recognition />
           <OutcomeFilm />
-          <EconomicRealitiesTable />
           <WhyNowSection />
           <ProductBento />
           <PilotWorksSection />

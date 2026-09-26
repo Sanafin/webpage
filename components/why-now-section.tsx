@@ -61,7 +61,7 @@ export function WhyNowSection() {
             </p>
             <h2 className="font-display text-4xl sm:text-5xl md:text-6xl text-[#2f241f] leading-[1.02] font-medium tracking-tight">
               Regulators now make payment{" "}
-              <span className="text-[#1f1a17]/40">
+              <span className="text-[#1f1a17]/60">
                 depend on outcomes.
               </span>
             </h2>
@@ -81,7 +81,7 @@ export function WhyNowSection() {
               transition={{ delay: 0.15 + idx * 0.1, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
             >
               <div className="flex items-center justify-between mb-8 text-[12px] font-medium">
-                <span className="text-[#0f8f81]">{shift.region}</span>
+                <span className="text-[#0f766e]">{shift.region}</span>
                 <span className="text-[#8c6a59]/70">{shift.date}</span>
               </div>
               <p className="font-display text-6xl sm:text-7xl font-semibold tracking-tight leading-none bg-gradient-to-br from-[#ff824c] via-[#f15d22] to-[#b83305] bg-clip-text text-transparent mb-3">

@@ -29,13 +29,13 @@ export function FrameworkSection() {
             <h2 className="font-display text-4xl sm:text-5xl md:text-6xl leading-[1.04] text-[#1f1a17] mb-6">
               Built on research,
               <br />
-              <span className="text-[#1f1a17]/40">not guesswork.</span>
+              <span className="text-[#1f1a17]/60">not guesswork.</span>
             </h2>
             <p className="text-base sm:text-lg leading-relaxed text-[#6f6660] mb-8 max-w-lg">
               Sanafin productizes four years of research into reimbursement science: guideline automation, outcome-based payment logic and live evidence workflows, published as the open EDEN framework.
             </p>
 
-            <p className="text-[13px] text-[#a39a93] mb-3">Research roots</p>
+            <p className="text-[13px] text-[#766d67] mb-3">Research roots</p>
             <ul className="mb-10 divide-y divide-[#ece7e2] border-y border-[#ece7e2]">
               {institutions.map((name) => (
                 <li key={name} className="py-3.5 text-[15px] text-[#1f1a17]">
