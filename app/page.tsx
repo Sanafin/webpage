@@ -1,7 +1,8 @@
 import { Header } from "@/components/header"
 import { Hero } from "@/components/hero"
 import { Recognition } from "@/components/recognition"
-import { OutcomeFilm } from "@/components/outcome-film"
+import { ProblemSection } from "@/components/problem-section"
+import { HowItWorks } from "@/components/how-it-works"
 import { WhyNowSection } from "@/components/why-now-section"
 import { ProductBento } from "@/components/product-bento"
 import { PilotWorksSection } from "@/components/pilot-works-section"
@@ -20,13 +21,14 @@ export default function Home() {
         <Header />
         <main id="main" className="landing-page">
           <Hero />
-          <Recognition />
-          <OutcomeFilm />
+          <ProblemSection />
           <WhyNowSection />
+          <HowItWorks />
           <ProductBento />
           <PilotWorksSection />
           <FrameworkSection />
           <TeamSection />
+          <Recognition />
           <FAQSection />
           <CTASection />
         </main>

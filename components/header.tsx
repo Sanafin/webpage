@@ -5,11 +5,12 @@ import Image from "next/image"
 import { useState, useEffect } from "react"
 import { Menu, X } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
+import { CTA } from "@/lib/site"
 
 const navLinks = [
-  { href: "/#problem", label: "Problem" },
-  { href: "/#why-now", label: "Why Now" },
-  { href: "/#how", label: "Product" },
+  { href: "/#how", label: "How it works" },
+  { href: "/#product", label: "Product" },
+  { href: "/#why-now", label: "Why now" },
   { href: "/#team", label: "Team" },
   { href: "/#faq", label: "FAQ" },
 ]
@@ -23,7 +24,7 @@ export function Header({ tone = "light" }: { tone?: "light" | "dark" }) {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20)
     }
-    window.addEventListener("scroll", handleScroll)
+    window.addEventListener("scroll", handleScroll, { passive: true })
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
@@ -40,8 +41,7 @@ export function Header({ tone = "light" }: { tone?: "light" | "dark" }) {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50">
-      
-      <div 
+      <div
         className={`transition-all duration-300 ${
           isScrolled
             ? dark
@@ -62,24 +62,34 @@ export function Header({ tone = "light" }: { tone?: "light" | "dark" }) {
               priority
             />
           </Link>
-          
-          <nav className="hidden md:flex items-center gap-8 text-sm">
+
+          <nav className="hidden md:flex items-center gap-7 text-sm" aria-label="Main">
             {navLinks.map((link) => (
-              <Link key={link.href} href={link.href} className={`nav-link text-[14px] ${dark ? "text-[#fffaf6]/65 hover:text-[#fffaf6]" : "text-[#1f1a17]/65 hover:text-[#1f1a17]"}`}>
+              <Link key={link.href} href={link.href} className={`nav-link text-[14px] ${dark ? "text-[#fffaf6]/70 hover:text-[#fffaf6]" : "text-[#1f1a17]/70 hover:text-[#1f1a17]"}`}>
                 {link.label}
               </Link>
             ))}
           </nav>
 
-          <div className="hidden md:flex items-center gap-3">
-            <Link 
-              href="/demo" 
-              className={`px-4 py-2 text-white rounded-full text-[14px] font-medium cursor-pointer transition-colors duration-200 ${dark ? "bg-[#f15d22] hover:bg-[#d03d00]" : "bg-[#f15d22] hover:bg-[#d94f18]"}`}
+          <div className="hidden md:flex items-center gap-5">
+            <Link
+              href="/#investors"
+              data-cta="request_deck"
+              data-location="header"
+              className={`nav-link text-[14px] ${dark ? "text-[#fffaf6]/70 hover:text-[#fffaf6]" : "text-[#1f1a17]/70 hover:text-[#1f1a17]"}`}
             >
-              Book a call
+              For investors
+            </Link>
+            <Link
+              href="/demo"
+              data-cta="book_call"
+              data-location="header"
+              className="px-4 py-2 text-white rounded-full text-[14px] font-medium cursor-pointer transition-colors duration-200 bg-[#c4460f] hover:bg-[#a83a0b]"
+            >
+              {CTA.buyer}
             </Link>
           </div>
-          
+
           <button
             type="button"
             className={`icon-action md:hidden -m-2.5 inline-flex min-h-11 min-w-11 items-center justify-center rounded-lg p-2.5 ${dark ? "text-[#fffaf6] hover:bg-white/10" : "text-[#2f241f] hover:bg-[#f2e8e1]"}`}
@@ -88,18 +98,13 @@ export function Header({ tone = "light" }: { tone?: "light" | "dark" }) {
             aria-controls="mobile-navigation"
           >
             <span className="sr-only">{mobileMenuOpen ? "Close main menu" : "Open main menu"}</span>
-            {mobileMenuOpen ? (
-              <X className="h-6 w-6" aria-hidden="true" />
-            ) : (
-              <Menu className="h-6 w-6" aria-hidden="true" />
-            )}
+            {mobileMenuOpen ? <X className="h-6 w-6" aria-hidden="true" /> : <Menu className="h-6 w-6" aria-hidden="true" />}
           </button>
         </div>
 
-        {/* Mobile menu */}
         <AnimatePresence>
           {mobileMenuOpen && (
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
@@ -107,23 +112,25 @@ export function Header({ tone = "light" }: { tone?: "light" | "dark" }) {
               className="md:hidden bg-white/95 backdrop-blur-xl border-t border-[#ece7e2] overflow-hidden shadow-lg"
             >
               <div className="space-y-1 px-6 pb-6 pt-4">
-                {navLinks.map((link) => (
+                {[...navLinks, { href: "/#investors", label: "For investors" }].map((link) => (
                   <Link
                     key={link.href}
                     href={link.href}
-                    className="block rounded-lg px-3 py-3 text-[15px] text-[#1f1a17]/75 hover:text-[#1f1a17] hover:bg-[#f3efeb] transition-colors"
+                    className="block rounded-lg px-3 py-3 text-[15px] text-[#1f1a17]/80 hover:text-[#1f1a17] hover:bg-[#f3efeb] transition-colors"
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     {link.label}
                   </Link>
                 ))}
                 <div className="pt-4">
-                  <Link 
-                    href="/demo" 
-                    className="inline-flex min-h-11 items-center justify-center w-full px-4 py-2.5 bg-[#f15d22] text-white hover:bg-[#d94f18] rounded-full text-[15px] font-medium text-center cursor-pointer transition-colors duration-200"
+                  <Link
+                    href="/demo"
+                    data-cta="book_call"
+                    data-location="mobile-menu"
+                    className="inline-flex min-h-11 items-center justify-center w-full px-4 py-2.5 bg-[#c4460f] text-white hover:bg-[#a83a0b] rounded-full text-[15px] font-medium text-center cursor-pointer transition-colors duration-200"
                     onClick={() => setMobileMenuOpen(false)}
                   >
-                    Book a call
+                    {CTA.buyer}
                   </Link>
                 </div>
               </div>
