@@ -33,12 +33,26 @@ export function CTASection() {
   }
 
   return (
-    <section id="contact" className="relative z-10 bg-[#efebe6] py-24 md:py-32">
-      <div className="max-w-3xl mx-auto px-6 text-center">
-        <h2 className="font-display text-3xl sm:text-4xl md:text-[2.75rem] leading-[1.15] font-medium text-[#1f1a17] mb-8">
+    <section id="contact" className="relative z-10 scroll-mt-24">
+      <div className="max-w-7xl mx-auto px-6">
+      <div className="relative flex flex-col-reverse md:block overflow-hidden rounded-3xl bg-[#ebe4db]">
+        {/* Still-life in the same world as the marble film */}
+        <picture>
+          <source media="(min-width: 768px)" srcSet="/media/closing-still.jpg" />
+          <img
+            src="/media/closing-still-mobile.jpg"
+            alt="A teal and an orange glass marble beside a brass balance scale on cream linen"
+            className="block w-full aspect-[9/10] object-cover md:absolute md:inset-0 md:h-full md:aspect-auto md:object-[70%_center]"
+            loading="lazy"
+          />
+        </picture>
+        <div className="pointer-events-none absolute inset-0 hidden md:block bg-gradient-to-r from-[#ebe4db] via-[#ebe4db]/70 to-transparent" aria-hidden="true" />
+
+        <div className="relative px-6 py-10 sm:px-10 md:px-14 md:py-24 max-w-xl">
+        <h2 className="font-display text-3xl sm:text-4xl md:text-[2.75rem] leading-[1.12] text-[#1f1a17] mb-8">
           Sanafin turns verified health outcomes into contracts payers can fund.
         </h2>
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+        <div className="flex flex-col sm:flex-row items-start gap-3">
           <Link
             href="/demo"
             className="inline-flex min-h-11 items-center justify-center rounded-full bg-[#f15d22] px-6 py-2.5 text-[15px] font-medium text-white shadow-[0_8px_24px_-8px_rgba(241,93,34,0.7)] transition-colors hover:bg-[#d94f18]"
@@ -47,7 +61,7 @@ export function CTASection() {
           </Link>
         </div>
 
-        <div className="mx-auto mt-14 max-w-md">
+        <div className="mt-12 max-w-md">
           {submitted ? (
             <p role="status" className="inline-flex items-center gap-2 text-[14px] text-[#0f8f81]">
               <Check className="h-4 w-4" aria-hidden="true" />
@@ -84,6 +98,8 @@ export function CTASection() {
             </>
           )}
         </div>
+        </div>
+      </div>
       </div>
     </section>
   )
