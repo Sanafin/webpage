@@ -312,18 +312,6 @@ footer :is(a, button):focus-visible {
   z-index: 1;
 }
 
-/* Vignette overlay — very subtle warm accent, not orange-dominant */
-.page-wrapper::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background:
-    linear-gradient(180deg, rgba(233, 131, 67, 0.04) 0%, rgba(233, 131, 67, 0.01) 28%, rgba(233, 131, 67, 0) 48%),
-    radial-gradient(ellipse 56% 44% at -16% 18%, rgba(233, 131, 67, 0.05) 0%, transparent 68%),
-    radial-gradient(ellipse 58% 44% at 116% 18%, rgba(233, 131, 67, 0.05) 0%, transparent 68%);
-  pointer-events: none;
-  z-index: 2;
-}
 
 /* Content sits above the grid, grain, and vignette */
 .page-content {
