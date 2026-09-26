@@ -2,7 +2,6 @@ import type { Metadata } from 'next'
 import { Playfair_Display } from 'next/font/google'
 import localFont from 'next/font/local'
 import { Analytics } from '@vercel/analytics/next'
-import { FloatingCTA } from '@/components/floating-cta'
 import './globals.css'
 
 const gilroy = localFont({
@@ -65,7 +64,6 @@ export default function RootLayout({
     <html suppressHydrationWarning lang="en" className="scroll-smooth" data-scroll-behavior="smooth">
       <body suppressHydrationWarning className={`${gilroy.variable} ${playfair.variable} font-sans antialiased bg-[#f8f4ef] text-[#2f241f]`}>
         {children}
-        <FloatingCTA />
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>

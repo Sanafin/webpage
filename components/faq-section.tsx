@@ -1,4 +1,5 @@
-import { ChevronDown } from "lucide-react"
+import Link from "next/link"
+import { Plus } from "lucide-react"
 
 const faqs = [
   {
@@ -33,31 +34,28 @@ const faqs = [
 
 export function FAQSection() {
   return (
-    <section id="faq" className="py-16">
-      <div className="max-w-4xl mx-auto px-6">
-        <div className="reveal mb-16">
-          <p className="text-[13px] font-medium text-[#14B8A6] mb-4 font-bold block">
-            Common questions
-          </p>
-          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl text-[#2f241f] mb-6 leading-[1.1] font-medium tracking-tight">
-            Frequently asked <span className="text-[#1f1a17]/40">questions</span>
+    <section id="faq" className="relative scroll-mt-24">
+      <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-[0.8fr_1.2fr] gap-10 lg:gap-20">
+        <div>
+          <p className="text-[13px] font-medium text-[#f15d22] mb-4">FAQ</p>
+          <h2 className="font-display text-4xl sm:text-5xl leading-[1.05] text-[#1f1a17] mb-6">
+            Questions,
+            <br />
+            <span className="text-[#1f1a17]/40">answered.</span>
           </h2>
+          <p className="text-[15px] text-[#6f6660] leading-relaxed max-w-sm">
+            Anything else? <Link href="/demo" className="text-[#1f1a17] underline decoration-[#d9d1ca] underline-offset-4 hover:decoration-[#1f1a17]">Book a discovery call</Link> and we&apos;ll walk you through it.
+          </p>
         </div>
 
-        <div className="reveal divide-y divide-[#efc2a5]/25 border-y border-[#efc2a5]/25">
-          {faqs.map((faq, index) => (
+        <div className="divide-y divide-[#ece7e2] border-y border-[#ece7e2]">
+          {faqs.map((faq) => (
             <details key={faq.question} className="group/details">
-              <summary className="flex min-h-20 cursor-pointer list-none items-center gap-4 rounded-lg px-2 py-5 transition-colors hover:bg-[#fffaf6]/75 [&::-webkit-details-marker]:hidden">
-                <span className="w-8 shrink-0 font-mono text-xs text-[#6B7280]">0{index + 1}</span>
-                <h3 className="flex-1 font-display text-lg sm:text-xl text-[#2f241f] leading-snug font-semibold tracking-tight">{faq.question}</h3>
-                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[#efc2a5]/35 bg-white/60 text-[#8c6a59] transition-all duration-300 group-open/details:rotate-180 group-open/details:border-[#14B8A6]/35 group-open/details:text-[#14B8A6]">
-                  <ChevronDown className="h-4 w-4" aria-hidden="true" />
-                </span>
+              <summary className="flex cursor-pointer list-none items-center justify-between gap-6 py-6 [&::-webkit-details-marker]:hidden">
+                <h3 className="text-[17px] sm:text-lg font-medium text-[#1f1a17] leading-snug">{faq.question}</h3>
+                <Plus className="h-5 w-5 shrink-0 text-[#a39a93] transition-transform duration-300 group-open/details:rotate-45" aria-hidden="true" />
               </summary>
-              <div className="grid md:grid-cols-12 gap-4 px-2 pb-7">
-                <div className="hidden md:block md:col-span-1" />
-                <p className="md:col-span-11 text-[#8c6a59] leading-relaxed text-base max-w-3xl font-sans pr-12">{faq.answer}</p>
-              </div>
+              <p className="pb-6 pr-10 text-[15px] leading-relaxed text-[#6f6660]">{faq.answer}</p>
             </details>
           ))}
         </div>
