@@ -2,6 +2,9 @@ import type { Metadata } from 'next'
 import { Playfair_Display } from 'next/font/google'
 import localFont from 'next/font/local'
 import { MotionProvider } from '@/components/motion-provider'
+import { Analytics } from '@/components/analytics'
+import { CtaTracker } from '@/components/cta-tracker'
+import { JsonLd } from '@/components/json-ld'
 import { site } from '@/lib/site'
 import './globals.css'
 
@@ -37,11 +40,13 @@ export const metadata: Metadata = {
     title: site.title,
     description: site.description,
     url: '/',
+    images: [{ url: '/og.jpg', width: 1200, height: 630, alt: 'A brass balance scale with a teal marble in one pan and an amber marble in the other, on cream linen' }],
   },
   twitter: {
     card: 'summary_large_image',
     title: site.title,
     description: site.description,
+    images: ['/og.jpg'],
   },
   robots: { index: true, follow: true },
   icons: {
@@ -63,6 +68,9 @@ export default function RootLayout({
       <body suppressHydrationWarning className={`${geist.variable} ${playfair.variable} font-sans antialiased bg-[#f8f4ef] text-[#2f241f]`}>
         <a href="#main" className="skip-link">Skip to content</a>
         <MotionProvider>{children}</MotionProvider>
+        <CtaTracker />
+        <Analytics />
+        <JsonLd />
       </body>
     </html>
   )

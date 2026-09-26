@@ -18,7 +18,7 @@ import {
 
 export default function ApiDocsPage() {
   useScrollReveal()
-  const [activeWorkflow, setActiveWorkflow] = useState<"ingest" | "escrow">("ingest")
+  const [activeWorkflow, setActiveWorkflow] = useState<"ingest" | "settle">("ingest")
   const [activeLang, setActiveLang] = useState<"curl" | "node">("curl")
 
   const ingestCode = {
@@ -68,13 +68,13 @@ const response = await axios.post(
 console.log(response.data);`
   }
 
-  const escrowCode = {
-    curl: `curl -X POST https://api.sanafin.tech/v1/escrow/pools \\
+  const settleCode = {
+    curl: `curl -X POST https://api.sanafin.tech/v1/commitments \\
   -H "Authorization: Bearer sf_live_..." \\
   -H "Content-Type: application/json" \\
   -d '{
     "contract_id": "con_892f3a8b9",
-    "escrow_amount": 1250.00,
+    "committed_amount": 1250.00,
     "currency": "CHF",
     "funder_id": "pyr_helsana_0921",
     "provider_id": "prov_oviva_732a",
@@ -87,10 +87,10 @@ console.log(response.data);`
     node: `const axios = require('axios');
 
 const response = await axios.post(
-  'https://api.sanafin.tech/v1/escrow/pools',
+  'https://api.sanafin.tech/v1/commitments',
   {
     contract_id: 'con_892f3a8b9',
-    escrow_amount: 1250.00,
+    committed_amount: 1250.00,
     currency: 'CHF',
     funder_id: 'pyr_helsana_0921',
     provider_id: 'prov_oviva_732a',
@@ -125,10 +125,10 @@ console.log(response.data);`
     "state": "pending_payout_evaluation"
   }
 }`,
-    escrow: `{
+    settle: `{
   "pool_id": "pool_892f3a8b9",
   "status": "initialized",
-  "escrow_address": "CH93_0000_1234_5678_9012_3",
+  "custody_reference": "CH93_0000_1234_5678_9012_3",
   "locked_amount": 1250.00,
   "currency": "CHF",
   "verification_requirements": {
@@ -150,7 +150,7 @@ console.log(response.data);`
               API Reference & Overview
             </h1>
             <p className="text-[#8c6a59] text-base sm:text-lg leading-relaxed font-sans max-w-2xl">
-              Sanafin APIs bridge the gap between healthcare data streams and financial settlement. Securely ingest clinical evidence and orchestrate programmatic escrows to execute value-based contracts automatically.
+              Sanafin APIs bridge the gap between healthcare data streams and financial settlement. Securely ingest clinical evidence and issue settlement instructions that execute outcome-conditional contracts automatically. Committed funds are held by a licensed custody partner, never by Sanafin.
             </p>
           </div>
 
@@ -170,7 +170,7 @@ console.log(response.data);`
               {
                 title: "Idempotency",
                 icon: <CheckCircle2 className="w-4 h-4 text-[#14B8A6]" />,
-                desc: "All contract and escrow creations support idempotency keys to ensure zero double-funding errors."
+                desc: "All contract and commitment creations support idempotency keys to ensure zero double-funding errors."
               }
             ].map((concept) => (
               <div key={concept.title} className="p-6 bg-white border border-[#efc2a5]/30 rounded-[10px] shadow-[0_4px_20px_rgba(47,36,31,0.01)]">
@@ -205,13 +205,13 @@ console.log(response.data);`
                   )}
                 </button>
                 <button
-                  onClick={() => setActiveWorkflow("escrow")}
+                  onClick={() => setActiveWorkflow("settle")}
                   className={`pb-4 text-xs font-mono uppercase tracking-wider font-bold transition-all relative ${
-                    activeWorkflow === "escrow" ? "text-[#14B8A6]" : "text-[#8c6a59] hover:text-[#2f241f]"
+                    activeWorkflow === "settle" ? "text-[#14B8A6]" : "text-[#8c6a59] hover:text-[#2f241f]"
                   }`}
                 >
-                  2. Escrow & Payouts
-                  {activeWorkflow === "escrow" && (
+                  2. Commitments & settlement
+                  {activeWorkflow === "settle" && (
                     <motion.div layoutId="workflowUnderline" className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#14B8A6]" />
                   )}
                 </button>
@@ -271,23 +271,23 @@ console.log(response.data);`
                   </div>
                 </div>
               ) : (
-                // ESCROW DOCUMENTATION
+                // SETTLEMENT DOCUMENTATION
                 <div className="space-y-6">
                   <div>
                     <span className="inline-flex items-center gap-1.5 font-mono text-[9px] font-bold text-white bg-[#14B8A6] px-2.5 py-0.5 rounded-[4px] mb-3">
                       POST
                     </span>
                     <span className="font-mono text-xs text-[#2f241f] ml-3 bg-black/5 px-2 py-0.5 rounded-[4px]">
-                      /v1/escrow/pools
+                      /v1/commitments
                     </span>
                   </div>
                   
                   <h3 className="font-serif text-xl font-semibold text-[#2f241f]">
-                    Creating programmatic escrow contracts
+                    Creating conditional commitments
                   </h3>
                   
                   <p className="text-[#8c6a59] text-sm leading-relaxed font-sans">
-                    Use this endpoint to initialize and fund conditional contract pools. Escrow values are locked programmatically in compliance with Swiss digital health execution regulations and are only disbursed once targeted outcomes are verified.
+                    Use this endpoint to register a conditional commitment against a contract. The committed amount is held by the licensed custody partner and a settlement instruction is issued only once the targeted outcome is verified.
                   </p>
 
                   <div className="space-y-4 pt-4 border-t border-[#efc2a5]/10">
@@ -296,12 +296,12 @@ console.log(response.data);`
                     <div className="space-y-3.5 text-xs font-sans text-[#8c6a59]">
                       <div className="flex justify-between border-b border-[#efc2a5]/10 pb-2">
                         <div>
-                          <code className="text-[#2f241f] font-semibold font-mono">escrow_amount</code>
+                          <code className="text-[#2f241f] font-semibold font-mono">committed_amount</code>
                           <span className="text-[10px] text-red-500 font-mono ml-2">required</span>
                         </div>
                         <span className="font-mono text-[10px]">decimal</span>
                       </div>
-                      <p className="leading-normal pl-2 border-l border-[#14B8A6]/20">The total financial value locked at risk in the escrow pool.</p>
+                      <p className="leading-normal pl-2 border-l border-[#14B8A6]/20">The total amount committed by the funder and held by the custody partner.</p>
 
                       <div className="flex justify-between border-b border-[#efc2a5]/10 pb-2 pt-2">
                         <div>
@@ -363,7 +363,7 @@ console.log(response.data);`
                 <div className="p-6 overflow-x-auto border-b border-white/5">
                   <span className="text-[10px] font-bold text-zinc-500 block mb-3 uppercase tracking-wider">REQUEST PAYLOAD</span>
                   <pre className="text-[11px] leading-relaxed text-zinc-300 whitespace-pre">
-                    {activeWorkflow === "ingest" ? ingestCode[activeLang] : escrowCode[activeLang]}
+                    {activeWorkflow === "ingest" ? ingestCode[activeLang] : settleCode[activeLang]}
                   </pre>
                 </div>
               </div>
@@ -377,7 +377,7 @@ console.log(response.data);`
                   </span>
                 </div>
                 <pre className="text-[11px] leading-relaxed text-[#14B8A6]/90 whitespace-pre">
-                  {activeWorkflow === "ingest" ? responses.ingest : responses.escrow}
+                  {activeWorkflow === "ingest" ? responses.ingest : responses.settle}
                 </pre>
               </div>
 

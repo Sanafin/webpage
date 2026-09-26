@@ -44,7 +44,7 @@ const team = [
     name: "Anej Rozman",
     title: "Quantitative Scientist",
     owns: "Owns the risk and health-economic models.",
-    credential: "MSc Quantitative Finance, UZH/ETH · co-founder, ETH Blockchain Club",
+    credential: "MSc Quantitative Finance, UZH/ETH",
     photo: anejProfile,
     linkedin: "https://www.linkedin.com/in/anej-rozman/",
   },
