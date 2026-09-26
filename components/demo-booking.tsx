@@ -1,181 +1,151 @@
 "use client"
 
 import { useState } from "react"
-import { ArrowUpRight, Check, Clock, Globe, Video } from "lucide-react"
+import Image from "next/image"
+import { ArrowUpRight, Check, Clock, Video } from "lucide-react"
+import { DeckRequestForm } from "@/components/deck-request-form"
+import { site } from "@/lib/site"
+import wasuProfile from "@/components/ui/profiles/wasu_profile.webp"
 
-export function DemoBooking() {
-  const doodleUrl = "https://doodle.com/bp/wasumekniran/discover-sanafin"
-  const [email, setEmail] = useState("")
-  const [submitted, setSubmitted] = useState(false)
-  const [loading, setLoading] = useState(false)
-  const [error, setError] = useState("")
-  const topics = [
-    "Evidence-generation bottlenecks across metabolic endpoints",
-    "Swiss HTA gaps in your current pilot or clinical data",
-    "Payer risk-sharing viability for your business model",
-    "Architecture fit for an automated validation layer",
-  ]
-  const rightFit = [
-    "Planning or running a Swiss pilot or clinical study",
-    "Turning raw metabolic data into payer-ready evidence",
-    "Pressure-testing reimbursement strategy before custom infrastructure",
-  ]
+// Light booking page in the landing-page system. Visitors pick who they are; the
+// scheduler stays on Doodle for now, and investors are routed to the deck form.
 
-  async function handleSubmit(e: React.FormEvent) {
-    e.preventDefault()
-    if (!email) return
-    setLoading(true)
-    setError("")
-    try {
-      const res = await fetch("/api/request-access", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email }),
-      })
+const roles = [
+  { id: "manufacturer", label: "Digital health manufacturer" },
+  { id: "funder", label: "Insurer or employer" },
+  { id: "provider", label: "Hospital or provider" },
+  { id: "investor", label: "Investor" },
+  { id: "other", label: "Other" },
+] as const
 
-      if (res.ok) {
-        setSubmitted(true)
-      } else {
-        const data = await res.json().catch(() => ({}))
-        setError(data.error || "Please try again.")
-      }
-    } catch {
-      setError("Please check your connection and try again.")
-    } finally {
-      setLoading(false)
-    }
-  }
+type Role = (typeof roles)[number]["id"]
+
+const agenda = [
+  "Your programme, the outcome it can prove and who would fund it",
+  "What an outcome-conditional contract would look like on your data",
+  "Whether a two-week pilot makes sense, and what it needs",
+]
+
+const next = [
+  ["Day 0", "25-minute call with a founder"],
+  ["Week 1", "Data connected, threshold agreed"],
+  ["Week 2", "Rules live, first verification report"],
+]
+
+export function DemoBooking({ initialRole }: { initialRole?: string }) {
+  const valid = roles.find((r) => r.id === initialRole)?.id
+  const [role, setRole] = useState<Role | null>(valid ?? null)
 
   return (
-    <section
-      aria-labelledby="demo-booking-title"
-      className="w-full overflow-hidden rounded-[18px] border border-[#efc2a5]/45 bg-[#fffaf6] shadow-[var(--shadow-lg)] grid grid-cols-1 lg:grid-cols-12"
-    >
-      <div className="relative flex min-h-[540px] flex-col justify-between overflow-hidden bg-[#241c18] text-white lg:col-span-7">
-        <div className="absolute inset-0 pointer-events-none bg-[linear-gradient(140deg,rgba(20,184,166,0.14)_0%,rgba(20,184,166,0)_38%),linear-gradient(320deg,rgba(241,93,34,0.12)_0%,rgba(241,93,34,0)_42%)]" />
-        <div className="relative z-10">
+    <section aria-labelledby="demo-booking-title" className="grid gap-6 lg:grid-cols-12">
+      <div className="lg:col-span-6">
+        <p className="text-[13px] font-medium text-[#c4460f] mb-4">Discovery call</p>
+        <h1 id="demo-booking-title" className="font-display text-4xl sm:text-5xl leading-[1.04] text-[#1f1a17] mb-5">
+          Book a 25-minute discovery call.
+        </h1>
+        <p className="max-w-xl text-base sm:text-[17px] leading-relaxed text-[#6f6660] mb-8">
+          A working session, not a pitch. We map your programme onto an outcome-conditional contract and tell you
+          honestly whether a pilot fits.
+        </p>
 
-          <div className="px-7 pt-7 md:px-10 md:pt-8">
-            <h1
-              id="demo-booking-title"
-              className="font-serif text-3xl font-semibold leading-[1.08] tracking-tight text-white md:text-5xl"
-            >
-              Book a discovery call.
-            </h1>
-            <p className="mt-4 max-w-2xl text-sm leading-6 text-[#f4dfd2]/78 md:text-base">
-              Map your Swiss market-access path and align metabolic outcomes with HTA readiness. This is a collaborative discovery call, not a generic sales pitch or trial access.
-            </p>
+        <p className="text-[12px] font-medium uppercase tracking-[0.12em] text-[#766d67] mb-3">What we&apos;ll cover</p>
+        <ul className="mb-8 space-y-2.5">
+          {agenda.map((a) => (
+            <li key={a} className="flex gap-3 text-[15px] leading-snug text-[#1f1a17]">
+              <Check className="mt-0.5 h-4 w-4 shrink-0 text-[#0f766e]" aria-hidden="true" />
+              {a}
+            </li>
+          ))}
+        </ul>
 
-            <div className="mt-7">
-              <ul className="grid gap-3 md:grid-cols-2">
-                {topics.map((topic) => (
-                  <li key={topic} className="flex gap-3 text-sm leading-5 text-[#f4dfd2]/72">
-                    <Check className="mt-0.5 h-4 w-4 shrink-0 text-[#5eead4]" aria-hidden="true" />
-                    <span>{topic}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+        <p className="text-[12px] font-medium uppercase tracking-[0.12em] text-[#766d67] mb-3">Who you&apos;ll talk to</p>
+        <div className="mb-8 flex items-center gap-4 rounded-3xl bg-[#f5f1ed] p-4">
+          <span className="relative h-14 w-14 shrink-0 overflow-hidden rounded-2xl bg-[#ebe4db]">
+            <Image src={wasuProfile} alt={site.ceo.name} fill sizes="56px" className="object-cover object-top" />
+          </span>
+          <div>
+            <p className="text-[15px] font-medium text-[#1f1a17]">{site.ceo.name}</p>
+            <p className="text-[13px] text-[#6f6660]">{site.ceo.title} · PhD in healthcare financing, ETH Zurich · researcher at HSG</p>
           </div>
         </div>
 
-        <div className="relative z-10 pb-7 md:pb-10" />
+        <p className="text-[12px] font-medium uppercase tracking-[0.12em] text-[#766d67] mb-3">What happens next</p>
+        <ol className="divide-y divide-[#ece7e2] rounded-2xl border border-[#ece7e2]">
+          {next.map(([when, what]) => (
+            <li key={when} className="flex items-center gap-4 px-4 py-2.5 text-[14px]">
+              <span className="w-16 shrink-0 font-mono text-[12px] text-[#766d67]">{when}</span>
+              <span className="text-[#1f1a17]">{what}</span>
+            </li>
+          ))}
+        </ol>
+        <p className="mt-4 text-[12.5px] text-[#766d67]">Timeline is our target. NDA on request; nothing you share is used outside this conversation.</p>
       </div>
 
-      <aside className="flex items-center bg-white p-7 md:p-10 lg:col-span-5">
-        <div className="mx-auto w-full max-w-md">
-          <div>
-            <p className="font-mono text-[10px] font-bold uppercase tracking-[0.24em] text-[#8c6a59]">
-              Discovery call
-            </p>
-            <h2 className="mt-3 font-serif text-2xl font-semibold leading-tight tracking-tight text-[#2f241f]">
-              Align your evidence plan.
-            </h2>
-            <p className="mt-3 text-sm leading-6 text-[#7f6153]">
-              We will explore your evidence bottlenecks, Swiss HTA timeline, and whether automated data infrastructure belongs in your roadmap.
-            </p>
+      <aside className="lg:col-span-6 lg:pl-6">
+        <div className="rounded-[28px] bg-[#f5f1ed] p-4 sm:p-6">
+          <p className="text-[13px] font-medium text-[#1f1a17] mb-3">
+            <span className="font-mono text-[12px] text-[#766d67] mr-2">1</span>I&apos;m a…
+          </p>
+          <div role="radiogroup" aria-label="Your role" className="mb-5 flex flex-wrap gap-2">
+            {roles.map((r) => {
+              const selected = role === r.id
+              return (
+                <button
+                  key={r.id}
+                  type="button"
+                  role="radio"
+                  aria-checked={selected}
+                  onClick={() => setRole(r.id)}
+                  className={`rounded-full px-4 py-2 text-[14px] transition-colors ${
+                    selected ? "bg-[#1f1a17] text-white" : "bg-white text-[#1f1a17] hover:bg-[#ece7e2]"
+                  }`}
+                >
+                  {r.label}
+                </button>
+              )
+            })}
           </div>
 
-          <a
-            href={doodleUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-7 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-[10px] bg-[#14B8A6] px-5 py-3 text-center font-mono text-xs font-bold uppercase tracking-[0.18em] text-white shadow-[0_12px_24px_-14px_rgba(20,184,166,0.9)] transition-all hover:-translate-y-0.5 hover:bg-[#0f766e] hover:shadow-[0_18px_32px_-16px_rgba(20,184,166,0.85)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#14B8A6]"
-          >
-            Schedule on Doodle
-            <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
-          </a>
-
-          <div className="mt-6 grid gap-3 text-sm text-[#5f493f]">
-            <div className="flex items-center gap-3">
-              <Clock className="h-4 w-4 text-[#14B8A6]" aria-hidden="true" />
-              <span>25-minute session</span>
-            </div>
-            <div className="flex items-center gap-3">
-              <Video className="h-4 w-4 text-[#14B8A6]" aria-hidden="true" />
-              <span>Zoom video call</span>
-            </div>
-            <div className="flex items-center gap-3">
-              <Globe className="h-4 w-4 text-[#14B8A6]" aria-hidden="true" />
-              <span>Timezone-aware booking</span>
-            </div>
-          </div>
-
-          <div className="mt-7 border-t border-[#efc2a5]/35 pt-7">
-            {submitted ? (
-              <div className="flex items-center gap-2 text-sm font-semibold text-[#0f766e]">
-                <Check className="h-4 w-4" aria-hidden="true" />
-                <span>You're on the beta waiting list.</span>
+          {role === "investor" ? (
+            <>
+              <p className="text-[13px] font-medium text-[#1f1a17] mb-3">
+                <span className="font-mono text-[12px] text-[#766d67] mr-2">2</span>Investors get the deck first; a call follows if useful.
+              </p>
+              <DeckRequestForm source="demo" />
+            </>
+          ) : (
+            <>
+              <p className="text-[13px] font-medium text-[#1f1a17] mb-3">
+                <span className="font-mono text-[12px] text-[#766d67] mr-2">2</span>Choose a time
+              </p>
+              <div className="rounded-3xl bg-white p-6 shadow-[0_1px_2px_rgba(47,36,31,0.06)]">
+                <a
+                  href={`${site.doodleUrl}${role ? `?role=${role}` : ""}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-cta="doodle_open"
+                  data-location="demo"
+                  data-audience={role ?? "unset"}
+                  className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-[#c4460f] px-6 py-3 text-[15px] font-medium text-white shadow-[0_8px_24px_-8px_rgba(241,93,34,0.7)] transition-colors hover:bg-[#a83a0b]"
+                >
+                  Choose a time
+                  <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+                </a>
+                <p className="mt-3 text-center text-[12px] text-[#766d67]">Opens our scheduling page in a new tab.</p>
+                <div className="mt-6 grid grid-cols-2 gap-3 text-[13px] text-[#6f6660]">
+                  <div className="flex items-center gap-2">
+                    <Clock className="h-4 w-4 text-[#0f766e]" aria-hidden="true" />
+                    25 minutes
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Video className="h-4 w-4 text-[#0f766e]" aria-hidden="true" />
+                    Video call
+                  </div>
+                </div>
               </div>
-            ) : (
-              <>
-                <p className="mb-3 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-[#8c6a59]">
-                  Beta waiting list
-                </p>
-                <form onSubmit={handleSubmit} aria-busy={loading} className="flex gap-2">
-                  <input
-                    type="email"
-                    required
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder="Email"
-                    aria-label="Email address"
-                    aria-invalid={Boolean(error)}
-                    className="min-h-10 min-w-0 flex-1 rounded-[8px] border border-[#efc2a5]/45 bg-[#fffaf6] px-3 py-2 text-sm text-[#2f241f] outline-none transition-colors placeholder:text-[#8c6a59]/55 focus:border-[#14B8A6]"
-                    disabled={loading}
-                  />
-                  <button
-                    type="submit"
-                    disabled={loading}
-                    className="min-h-10 shrink-0 rounded-[8px] bg-[#2f241f] px-3 py-2 font-mono text-[10px] font-bold uppercase tracking-wider text-white transition-colors hover:bg-[#1f1714] disabled:cursor-not-allowed disabled:opacity-60"
-                  >
-                    {loading ? "Joining" : "Join"}
-                  </button>
-                </form>
-                {error && (
-                  <p role="alert" className="mt-2 text-xs text-red-600">
-                    {error}
-                  </p>
-                )}
-              </>
-            )}
-          </div>
-
-          <div className="mt-7 border-t border-[#efc2a5]/35 pt-7">
-            <h3 className="font-mono text-xs font-bold uppercase tracking-[0.2em] text-[#2f241f]">
-              Right fit if you are
-            </h3>
-            <ul className="mt-4 space-y-3">
-              {rightFit.map((item) => (
-                <li key={item} className="flex gap-3 text-sm leading-6 text-[#5f493f]">
-                  <span className="mt-1 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-[#14B8A6]/10">
-                    <Check className="h-3 w-3 text-[#14B8A6]" aria-hidden="true" />
-                  </span>
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
+              {!role && <p className="mt-3 text-[12px] text-[#766d67]">Picking a role helps us prepare; it is optional.</p>}
+            </>
+          )}
         </div>
       </aside>
     </section>

@@ -7,6 +7,7 @@ import { WhyNowSection } from "@/components/why-now-section"
 import { OutcomeStudio } from "@/components/outcome-studio"
 import { ExampleContracts } from "@/components/example-contracts"
 import { TeamSection } from "@/components/team-section"
+import { InvestorSection } from "@/components/investor-section"
 import { FAQSection } from "@/components/faq-section"
 import { CTASection } from "@/components/cta-section"
 import { Footer } from "@/components/footer"
@@ -27,6 +28,7 @@ export default function Home() {
           <ExampleContracts />
           <TeamSection />
           <Recognition />
+          <InvestorSection />
           <FAQSection />
           <CTASection />
         </main>

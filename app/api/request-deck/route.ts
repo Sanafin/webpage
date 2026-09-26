@@ -1,18 +1,20 @@
 import { NextResponse } from "next/server"
-import { accessRequestSchema } from "@/lib/schemas"
-import { subscribeToUpdates } from "@/lib/klaviyo"
+import { deckRequestSchema } from "@/lib/schemas"
+import { trackDeckRequested } from "@/lib/klaviyo"
 import { clientKey, isRateLimited } from "@/lib/rate-limit"
 
-// Product-updates subscription (marketing consent). Logs carry outcome codes only.
+// Investor deck requests. Records a Klaviyo event (no marketing consent) that the
+// owner's flow turns into a notification. Logs carry outcome codes only, never
+// names or emails.
 
 function log(outcome: string, status: number, started: number) {
-  console.log(JSON.stringify({ route: "request-access", outcome, status, ms: Date.now() - started }))
+  console.log(JSON.stringify({ route: "request-deck", outcome, status, ms: Date.now() - started }))
 }
 
 export async function POST(request: Request) {
   const started = Date.now()
 
-  if (isRateLimited(clientKey(request), 10)) {
+  if (isRateLimited(clientKey(request), 5)) {
     log("rate_limited", 429, started)
     return NextResponse.json({ error: "rate_limited" }, { status: 429 })
   }
@@ -25,26 +27,26 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "invalid_request" }, { status: 400 })
   }
 
-  const parsed = accessRequestSchema.safeParse(body)
+  const parsed = deckRequestSchema.safeParse(body)
   if (!parsed.success) {
     log("invalid_fields", 400, started)
     return NextResponse.json({ error: "invalid_request", fields: parsed.error.flatten().fieldErrors }, { status: 400 })
   }
 
+  // Honeypot filled: pretend success, do nothing
   if (parsed.data.website) {
     log("honeypot", 200, started)
     return NextResponse.json({ ok: true })
   }
 
   const apiKey = process.env.KLAVIYO_PRIVATE_API_KEY
-  const listId = process.env.KLAVIYO_LIST_ID
-  if (!apiKey || !listId) {
+  if (!apiKey) {
     log("unconfigured", 503, started)
     return NextResponse.json({ error: "unavailable" }, { status: 503 })
   }
 
   try {
-    const res = await subscribeToUpdates(apiKey, listId, parsed.data)
+    const res = await trackDeckRequested(apiKey, parsed.data)
     if (!res.ok) {
       log("upstream_error", 502, started)
       return NextResponse.json({ error: "upstream" }, { status: 502 })
