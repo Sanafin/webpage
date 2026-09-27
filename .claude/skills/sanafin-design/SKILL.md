@@ -62,6 +62,8 @@ Rules:
 - World: cream linen, pale oak, brushed brass, one teal and one amber marble, soft north light. Slots live in `lib/media.ts`; every component renders a plain plate when a slot is `null`.
 - Prefer one real artefact per screen over a generated one when it exists: a product screenshot, the film, a portrait.
 - Never people, coins, pills, flags, or UI in generated images.
+- Minimal, one motif: a thin brass threshold line and the two marbles, on mostly empty linen. Never balance scales, gavels, books, envelopes-as-legal-mail or any prop that reads as a law firm, bank or notary. Sanafin is a fintech in healthcare; the objects should say measurement and threshold, not justice or tradition.
+- A generated still is a backdrop, never the subject: small objects, large negative space, and the product frame or the text carries the screen.
 
 ## 5. Review procedure (do this before every commit that touches the page)
 

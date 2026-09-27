@@ -30,7 +30,7 @@ export function ClosingMedia() {
             ref={videoRef}
             className="hidden md:block h-full w-full object-cover object-[70%_center]"
             src={media.closingLoop ?? undefined}
-            poster={media.closingStill}
+            poster={media.closingStill ?? undefined}
             muted
             loop
             playsInline
@@ -57,20 +57,24 @@ export function ClosingMedia() {
             {paused ? <Play className="h-4 w-4 fill-current" aria-hidden="true" /> : <Pause className="h-4 w-4 fill-current" aria-hidden="true" />}
           </button>
         </>
-      ) : (
+      ) : media.closingStill ? (
         <img
           src={media.closingStill}
           alt=""
           className="hidden md:block h-full w-full object-cover object-[70%_center]"
           loading="lazy"
         />
+      ) : (
+        <div className="hidden md:block h-full w-full bg-[radial-gradient(ellipse_60%_80%_at_80%_50%,#ffd9c4_0%,#f5f1ed_55%,#fbfaf8_100%)]" />
       )}
-      <img
-        src={media.closingStillMobile}
-        alt=""
-        className="block w-full aspect-[16/10] object-cover md:hidden"
-        loading="lazy"
-      />
+      {media.closingStillMobile && (
+        <img
+          src={media.closingStillMobile}
+          alt=""
+          className="block w-full aspect-[16/10] object-cover md:hidden"
+          loading="lazy"
+        />
+      )}
     </div>
   )
 }
