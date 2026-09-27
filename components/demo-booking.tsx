@@ -39,7 +39,7 @@ export function DemoBooking({ initialRole }: { initialRole?: string }) {
   return (
     <section aria-labelledby="demo-booking-title" className="grid gap-6 lg:grid-cols-12">
       <div className="lg:col-span-6">
-        <p className="text-[13px] font-medium text-[#c4460f] mb-4">Discovery call</p>
+        <p className="text-[13px] font-medium text-[#f15d22] mb-4">Discovery call</p>
         <h1 id="demo-booking-title" className="font-display text-4xl sm:text-5xl leading-[1.04] text-[#1f1a17] mb-5">
           Book a 25-minute discovery call.
         </h1>
@@ -48,7 +48,7 @@ export function DemoBooking({ initialRole }: { initialRole?: string }) {
           honestly whether a pilot fits.
         </p>
 
-        <p className="text-[12px] font-medium uppercase tracking-[0.12em] text-[#766d67] mb-3">What we&apos;ll cover</p>
+        <p className="text-[13px] text-[#766d67] mb-3">What we&apos;ll cover</p>
         <ul className="mb-8 space-y-2.5">
           {agenda.map((a) => (
             <li key={a} className="flex gap-3 text-[15px] leading-snug text-[#1f1a17]">
@@ -58,7 +58,7 @@ export function DemoBooking({ initialRole }: { initialRole?: string }) {
           ))}
         </ul>
 
-        <p className="text-[12px] font-medium uppercase tracking-[0.12em] text-[#766d67] mb-3">Who you&apos;ll talk to</p>
+        <p className="text-[13px] text-[#766d67] mb-3">Who you&apos;ll talk to</p>
         <div className="mb-8 flex items-center gap-4 rounded-3xl bg-[#f5f1ed] p-4">
           <span className="relative h-14 w-14 shrink-0 overflow-hidden rounded-2xl bg-[#ebe4db]">
             <Image src={wasuProfile} alt={site.ceo.name} fill sizes="56px" className="object-cover object-top" />
@@ -69,7 +69,7 @@ export function DemoBooking({ initialRole }: { initialRole?: string }) {
           </div>
         </div>
 
-        <p className="text-[12px] font-medium uppercase tracking-[0.12em] text-[#766d67] mb-3">What happens next</p>
+        <p className="text-[13px] text-[#766d67] mb-3">What happens next</p>
         <ol className="divide-y divide-[#ece7e2] rounded-2xl border border-[#ece7e2]">
           {next.map(([when, what]) => (
             <li key={when} className="flex items-center gap-4 px-4 py-2.5 text-[14px]">
@@ -126,7 +126,7 @@ export function DemoBooking({ initialRole }: { initialRole?: string }) {
                   data-cta="doodle_open"
                   data-location="demo"
                   data-audience={role ?? "unset"}
-                  className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-[#c4460f] px-6 py-3 text-[15px] font-medium text-white shadow-[0_8px_24px_-8px_rgba(241,93,34,0.7)] transition-colors hover:bg-[#a83a0b]"
+                  className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-[#f15d22] px-6 py-3 text-[15px] font-medium text-white shadow-[0_8px_24px_-8px_rgba(241,93,34,0.7)] transition-colors hover:bg-[#d94f18]"
                 >
                   Choose a time
                   <ArrowUpRight className="h-4 w-4" aria-hidden="true" />

@@ -54,7 +54,7 @@ export function Footer() {
               style={{ height: "32px", width: "auto" }}
             />
             <p className="max-w-sm text-[14px] leading-relaxed text-[#6f6660] mb-6">{site.tagline}</p>
-            <p className="text-[12px] font-medium uppercase tracking-[0.12em] text-[#766d67] mb-3">Product updates</p>
+            <p className="text-[13px] text-[#766d67] mb-3">Product updates</p>
             <UpdatesForm />
           </div>
 

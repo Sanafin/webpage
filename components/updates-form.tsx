@@ -3,7 +3,7 @@
 import { useState } from "react"
 import { Check } from "lucide-react"
 
-// Product-updates field in the footer (marketing consent, Klaviyo list).
+// Product-updates field in the footer (marketing consent, Plunk contacts).
 export function UpdatesForm() {
   const [email, setEmail] = useState("")
   const [website, setWebsite] = useState("")

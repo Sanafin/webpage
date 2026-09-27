@@ -176,7 +176,7 @@ export function MobileContractCard() {
             <span className="text-[#1f1a17]">{m.label}</span>
             <span
               className={`rounded-full px-2 py-0.5 text-[10px] font-medium uppercase tracking-wider ${
-                m.status === "Released" ? "bg-[#14B8A6]/15 text-[#0f766e]" : "bg-[#f15d22]/15 text-[#c4460f]"
+                m.status === "Released" ? "bg-[#14B8A6]/15 text-[#0f766e]" : "bg-[#f15d22]/15 text-[#f15d22]"
               }`}
             >
               {m.status}

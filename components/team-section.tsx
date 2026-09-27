@@ -78,9 +78,11 @@ export function TeamSection() {
       <div className="max-w-7xl mx-auto px-6">
         <div className="mb-14 grid gap-6 lg:grid-cols-2 lg:gap-16 lg:items-end">
           <div>
-            <p className="text-[13px] font-medium text-[#c4460f] mb-4">Why this team</p>
-            <h2 id="team-title" className="font-display text-4xl sm:text-5xl md:text-6xl leading-[1.04] text-[#1f1a17]">
-              Four years researching why outcome-based payment stalls. Then we built the tool.
+            <p className="text-[13px] font-medium text-[#f15d22] mb-4">Why this team</p>
+            <h2 id="team-title" className="font-display text-4xl sm:text-5xl leading-[1.04] text-[#1f1a17]">
+              Four years researching why outcome-based payment stalls.
+              <br />
+              <span className="text-[#1f1a17]/45">Then we built the tool.</span>
             </h2>
           </div>
           <p className="text-[15px] sm:text-base leading-relaxed text-[#766d67] lg:pb-2">
@@ -123,7 +125,7 @@ export function TeamSection() {
 
         {/* Advisors */}
         <div className="mt-10">
-          <p className="text-[12px] font-medium uppercase tracking-[0.12em] text-[#766d67] mb-3">Advisory board</p>
+          <p className="text-[13px] text-[#766d67] mb-3">Advisory board</p>
           <ul className="divide-y divide-[#ece7e2] border-y border-[#ece7e2]">
             {advisors.map((a) => (
               <li key={a.name} className="grid gap-2 py-4 sm:grid-cols-[16rem_1fr_auto] sm:items-center sm:gap-6">
@@ -170,7 +172,7 @@ export function TeamSection() {
           <div className="rounded-3xl border border-[#ece7e2] bg-white p-7">
             <div className="mb-5 flex items-end justify-between gap-4">
               <div>
-                <p className="text-[12px] font-medium uppercase tracking-[0.12em] text-[#766d67] mb-1">Selected research</p>
+                <p className="text-[13px] text-[#766d67] mb-1">Selected research</p>
                 <p className="font-display text-2xl text-[#1f1a17]">{publications.length} publications, CEO first author</p>
               </div>
               <Link href="/eden-framework" className="hidden sm:inline-flex items-center gap-1 text-[13px] text-[#1f1a17] underline decoration-[#d9d1ca] underline-offset-4 hover:decoration-[#1f1a17]">
@@ -208,16 +210,16 @@ export function TeamSection() {
             </p>
           </div>
 
-          <div className="relative overflow-hidden rounded-3xl bg-[#1f1a17] p-7 text-white">
+          <div className="relative overflow-hidden rounded-3xl bg-[#f5f1ed] p-7 text-[#1f1a17]">
             {media.researchStill && (
               <img src={media.researchStill} alt="" className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-30" loading="lazy" />
             )}
             <div className="relative">
-              <p className="text-[12px] font-medium uppercase tracking-[0.12em] text-white/60 mb-5">Milestones</p>
+              <p className="text-[13px] text-[#766d67] mb-5">Milestones</p>
               <ol className="space-y-4">
                 {milestones.map((m) => (
                   <li key={m.date + m.label} className="grid grid-cols-[6rem_1fr] gap-3">
-                    <span className="font-mono text-[12px] text-white/60">{m.date}</span>
+                    <span className="text-[13px] text-[#766d67]">{m.date}</span>
                     <span className="text-[14px] leading-snug">{m.label}</span>
                   </li>
                 ))}

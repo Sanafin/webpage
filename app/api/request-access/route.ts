@@ -1,9 +1,10 @@
 import { NextResponse } from "next/server"
 import { accessRequestSchema } from "@/lib/schemas"
-import { subscribeToUpdates } from "@/lib/klaviyo"
+import { subscribeContact } from "@/lib/notify"
 import { clientKey, isRateLimited } from "@/lib/rate-limit"
 
-// Product-updates subscription (marketing consent). Logs carry outcome codes only.
+// Product-updates subscription (marketing consent) via Plunk contacts. Logs carry
+// outcome codes only.
 
 function log(outcome: string, status: number, started: number) {
   console.log(JSON.stringify({ route: "request-access", outcome, status, ms: Date.now() - started }))
@@ -36,15 +37,14 @@ export async function POST(request: Request) {
     return NextResponse.json({ ok: true })
   }
 
-  const apiKey = process.env.KLAVIYO_PRIVATE_API_KEY
-  const listId = process.env.KLAVIYO_LIST_ID
-  if (!apiKey || !listId) {
+  const secret = process.env.PLUNK_SECRET_KEY
+  if (!secret) {
     log("unconfigured", 503, started)
     return NextResponse.json({ error: "unavailable" }, { status: 503 })
   }
 
   try {
-    const res = await subscribeToUpdates(apiKey, listId, parsed.data)
+    const res = await subscribeContact(secret, parsed.data)
     if (!res.ok) {
       log("upstream_error", 502, started)
       return NextResponse.json({ error: "upstream" }, { status: 502 })

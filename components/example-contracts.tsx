@@ -29,9 +29,11 @@ export function ExampleContracts() {
       <div className="max-w-7xl mx-auto px-6">
         <div className="mb-12 grid lg:grid-cols-2 gap-6 lg:gap-16 lg:items-end">
           <div>
-            <p className="text-[13px] font-medium text-[#c4460f] mb-4">Where we start</p>
-            <h2 id="examples-title" className="font-display text-4xl sm:text-5xl md:text-6xl leading-[1.04] text-[#1f1a17]">
+            <p className="text-[13px] font-medium text-[#f15d22] mb-4">Where we start</p>
+            <h2 id="examples-title" className="font-display text-4xl sm:text-5xl leading-[1.04] text-[#1f1a17]">
               Metabolic health first.
+              <br />
+              <span className="text-[#1f1a17]/45">Longevity next.</span>
             </h2>
           </div>
           <p className="text-[15px] sm:text-base leading-relaxed text-[#766d67] lg:pb-2">
@@ -124,10 +126,10 @@ export function ExampleContracts() {
 
           {/* Pilot offer */}
           <aside className="flex flex-col rounded-3xl border border-[#ece7e2] bg-white p-7 sm:p-8">
-            <p className="text-[13px] font-medium text-[#c4460f] mb-3">Start a pilot</p>
+            <p className="text-[13px] font-medium text-[#f15d22] mb-3">Start a pilot</p>
             <h3 className="font-display text-2xl sm:text-3xl text-[#1f1a17] mb-6">One funder, one manufacturer, one outcome.</h3>
 
-            <p className="text-[12px] font-medium uppercase tracking-[0.12em] text-[#766d67] mb-3">Scope</p>
+            <p className="text-[13px] text-[#766d67] mb-3">Scope</p>
             <ul className="mb-6 space-y-2">
               {pilot.scope.map((s) => (
                 <li key={s} className="flex gap-2.5 text-[14px] text-[#1f1a17]">
@@ -137,7 +139,7 @@ export function ExampleContracts() {
               ))}
             </ul>
 
-            <p className="text-[12px] font-medium uppercase tracking-[0.12em] text-[#766d67] mb-3">Timeline · our target</p>
+            <p className="text-[13px] text-[#766d67] mb-3">Timeline · our target</p>
             <ol className="mb-6 divide-y divide-[#f0ebe6] rounded-2xl border border-[#f0ebe6]">
               {pilot.timeline.map(([when, what]) => (
                 <li key={when} className="flex items-center gap-4 px-4 py-2.5 text-[14px]">
@@ -147,7 +149,7 @@ export function ExampleContracts() {
               ))}
             </ol>
 
-            <p className="text-[12px] font-medium uppercase tracking-[0.12em] text-[#766d67] mb-3">A pilot fits if</p>
+            <p className="text-[13px] text-[#766d67] mb-3">A pilot fits if</p>
             <ul className="mb-8 space-y-2">
               {pilot.fit.map((s) => (
                 <li key={s} className="flex gap-2.5 text-[14px] text-[#6f6660]">

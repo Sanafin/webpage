@@ -1,11 +1,10 @@
 import { NextResponse } from "next/server"
 import { deckRequestSchema } from "@/lib/schemas"
-import { trackDeckRequested } from "@/lib/klaviyo"
+import { notifyDeckRequest } from "@/lib/notify"
 import { clientKey, isRateLimited } from "@/lib/rate-limit"
 
-// Investor deck requests. Records a Klaviyo event (no marketing consent) that the
-// owner's flow turns into a notification. Logs carry outcome codes only, never
-// names or emails.
+// Investor deck requests. Emails the owner (who replies personally) and confirms
+// to the requester, via Plunk. Logs carry outcome codes only, never names or emails.
 
 function log(outcome: string, status: number, started: number) {
   console.log(JSON.stringify({ route: "request-deck", outcome, status, ms: Date.now() - started }))
@@ -39,14 +38,15 @@ export async function POST(request: Request) {
     return NextResponse.json({ ok: true })
   }
 
-  const apiKey = process.env.KLAVIYO_PRIVATE_API_KEY
-  if (!apiKey) {
+  const secret = process.env.PLUNK_SECRET_KEY
+  const to = process.env.DECK_NOTIFY_TO
+  if (!secret || !to) {
     log("unconfigured", 503, started)
     return NextResponse.json({ error: "unavailable" }, { status: 503 })
   }
 
   try {
-    const res = await trackDeckRequested(apiKey, parsed.data)
+    const res = await notifyDeckRequest(secret, to, parsed.data)
     if (!res.ok) {
       log("upstream_error", 502, started)
       return NextResponse.json({ error: "upstream" }, { status: 502 })

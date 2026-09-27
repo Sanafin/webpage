@@ -7,7 +7,7 @@ export function Fn({ id, className = "" }: { id: string; className?: string }) {
   const n = sourceNumber(id)
   const s = getSource(id)
   return (
-    <sup className={`ml-0.5 align-super text-[0.62em] font-medium leading-none ${className}`}>
+    <sup className={`ml-0.5 align-super text-[0.42em] font-medium leading-none ${className}`}>
       <a
         href={`#src-${n}`}
         aria-label={`Source ${n}: ${s.label}`}

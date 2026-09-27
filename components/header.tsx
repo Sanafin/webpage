@@ -84,7 +84,7 @@ export function Header({ tone = "light" }: { tone?: "light" | "dark" }) {
               href="/demo"
               data-cta="book_call"
               data-location="header"
-              className="px-4 py-2 text-white rounded-full text-[14px] font-medium cursor-pointer transition-colors duration-200 bg-[#c4460f] hover:bg-[#a83a0b]"
+              className="px-4 py-2 text-white rounded-full text-[14px] font-medium cursor-pointer transition-colors duration-200 bg-[#f15d22] hover:bg-[#d94f18]"
             >
               {CTA.buyer}
             </Link>
@@ -127,7 +127,7 @@ export function Header({ tone = "light" }: { tone?: "light" | "dark" }) {
                     href="/demo"
                     data-cta="book_call"
                     data-location="mobile-menu"
-                    className="inline-flex min-h-11 items-center justify-center w-full px-4 py-2.5 bg-[#c4460f] text-white hover:bg-[#a83a0b] rounded-full text-[15px] font-medium text-center cursor-pointer transition-colors duration-200"
+                    className="inline-flex min-h-11 items-center justify-center w-full px-4 py-2.5 bg-[#f15d22] text-white hover:bg-[#d94f18] rounded-full text-[15px] font-medium text-center cursor-pointer transition-colors duration-200"
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     {CTA.buyer}
