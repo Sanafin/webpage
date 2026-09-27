@@ -6,6 +6,7 @@ import { Activity, ArrowRight, Coins, ExternalLink, TrendingUp } from "lucide-re
 import { useScrollReveal } from "@/hooks/use-scroll-reveal"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
+import { publications as allPublications } from "@/lib/research"
 
 const pillars = [
   {
@@ -24,7 +25,7 @@ const pillars = [
     title: "Programmatic Trust",
     icon: Coins,
     detail:
-      "Manual verification delays payouts and raises overhead. We deploy automated escrow structures to release funds instantly upon verified clinical thresholds.",
+      "Manual verification delays payouts and raises overhead. Settlement instructions follow verified clinical thresholds, with funds held by a licensed custody partner rather than by Sanafin.",
   },
 ]
 
@@ -69,71 +70,11 @@ const studies = [
   },
 ]
 
-const publications = [
-  {
-    category: "Adoption",
-    papers: [
-      {
-        title: "The Longevity Landscape: Mapping Stakeholder Priorities",
-        authors: "Mekniran W, Giger O, Fleisch E, Kowatsch T, Jovanova M",
-        year: "2025",
-        doi: "10.1186/s12889-025-25498-8",
-      },
-      {
-        title: "Digital health incentives in type-2 diabetes prevention",
-        authors: "Mekniran W, Diethelm W, Stalder V, Fleisch E, Kowatsch T, Jovanova M",
-        year: "2026",
-        doi: "10.1177/20552076261425402",
-      },
-      {
-        title: "EDEN: A Computational Framework to Align Incentives in Aging",
-        authors: "Mekniran W and Kowatsch T",
-        year: "2025",
-        doi: "10.5220/0013359800003911",
-      },
-    ],
-  },
-  {
-    category: "Integration",
-    papers: [
-      {
-        title: "Health Technology Assessment of Swiss Digital Diabetes Screening",
-        authors: "Mekniran W et al.",
-        year: "2026",
-        doi: "10.64898/2026.02.10.26345992",
-      },
-      {
-        title: "Reimagining Preventive Care and Digital Health",
-        authors: "Mekniran W, Kramer J-N., Kowatsch T",
-        year: "2024",
-        doi: "10.5220/0012400300003657",
-      },
-      {
-        title: "A Prevention-First Framework for Noncommunicable Diseases",
-        authors: "Mekniran W, Fleisch E, Kowatsch T, Jovanova M",
-        year: "2026",
-        doi: "10.2139/ssrn.6256938",
-      },
-    ],
-  },
-  {
-    category: "Investment",
-    papers: [
-      {
-        title: "Assessment of B2C Model for Digital Diabetes Screening",
-        authors: "Mekniran W and Kowatsch T",
-        year: "2026",
-        doi: "10.1186/s12913-026-14075-3",
-      },
-      {
-        title: "Scalable Business Models in Digital Healthy Longevity",
-        authors: "Mekniran W and Kowatsch T",
-        year: "2023",
-        doi: "10.5220/0011778400003414",
-      },
-    ],
-  },
-]
+// Publications live in lib/research.ts and are grouped by category here
+const publications = (["Adoption", "Integration", "Investment"] as const).map((category) => ({
+  category,
+  papers: allPublications.filter((p) => p.category === category),
+}))
 
 const edenPrinciples = [
   { letter: "E", label: "Enforceable" },
@@ -184,7 +125,7 @@ export default function EdenFrameworkPage() {
               <div className="flex flex-wrap justify-center gap-3">
                 <a
                   href="#specification"
-                  className="action-primary inline-flex min-h-12 items-center justify-center rounded-[10px] bg-[#14B8A6] px-6 py-3 font-mono text-xs font-bold uppercase tracking-wider text-white hover:bg-[#0f8f81]"
+                  className="action-primary inline-flex min-h-12 items-center justify-center rounded-[10px] bg-[#14B8A6] px-6 py-3 font-mono text-xs font-bold uppercase tracking-wider text-white hover:bg-[#0f766e]"
                 >
                   View Specification
                 </a>
@@ -340,7 +281,7 @@ export default function EdenFrameworkPage() {
                     <div className="divide-y divide-[#efc2a5]/20">
                       {group.papers.map((publication) => (
                         <article key={publication.doi} className="group py-5 first:pt-0">
-                          <h4 className="mb-2 font-serif text-base font-semibold leading-snug tracking-tight text-[#2f241f] transition-colors group-hover:text-[#0f8f81]">
+                          <h4 className="mb-2 font-serif text-base font-semibold leading-snug tracking-tight text-[#2f241f] transition-colors group-hover:text-[#0f766e]">
                             {publication.title}
                           </h4>
                           <p className="mb-3 text-[11px] leading-relaxed text-[#8c6a59]">
@@ -350,7 +291,7 @@ export default function EdenFrameworkPage() {
                             href={`https://doi.org/${publication.doi}`}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="group/link inline-flex items-center gap-1.5 rounded-sm font-mono text-[9px] text-[#0f8f81] hover:text-[#0b6f67]"
+                            className="group/link inline-flex items-center gap-1.5 rounded-sm font-mono text-[9px] text-[#0f766e] hover:text-[#0b6f67]"
                           >
                             DOI: {publication.doi}
                             <ExternalLink className="h-2.5 w-2.5 transition-transform group-hover/link:-translate-y-0.5 group-hover/link:translate-x-0.5" />

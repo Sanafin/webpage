@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pnpm exec tsc --noEmit)",
+      "Bash(npx tsc --noEmit)",
+      "Bash(pnpm lint)",
+      "mcp__Mobbin__search_sections",
+      "mcp__Mobbin__search_screens",
+      "mcp__Mobbin__search_flows",
+      "mcp__Higgsfield__balance",
+      "mcp__Higgsfield__jobs_wait",
+      "mcp__Higgsfield__show_generation_by_ids",
+      "mcp__Higgsfield__show_generations",
+      "mcp__Higgsfield__models_explore",
+      "mcp__github__pull_request_read",
+      "mcp__github__list_commits",
+      "mcp__github__get_check_run",
+      "mcp__Claude_Code_Remote__read_documentation"
+    ]
+  }
+}

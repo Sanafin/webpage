@@ -1,74 +1,59 @@
-import { NextResponse } from 'next/server'
+import { NextResponse } from "next/server"
+import { accessRequestSchema } from "@/lib/schemas"
+import { subscribeToUpdates } from "@/lib/klaviyo"
+import { clientKey, isRateLimited } from "@/lib/rate-limit"
+
+// Product-updates subscription (marketing consent). Logs carry outcome codes only.
+
+function log(outcome: string, status: number, started: number) {
+  console.log(JSON.stringify({ route: "request-access", outcome, status, ms: Date.now() - started }))
+}
 
 export async function POST(request: Request) {
-  try {
-    const { email } = await request.json()
+  const started = Date.now()
 
-    if (!email) {
-      return NextResponse.json({ error: 'Email is required' }, { status: 400 })
-    }
-
-    const klaviyoApiKey = process.env.KLAVIYO_PRIVATE_API_KEY
-    const klaviyoListId = process.env.KLAVIYO_LIST_ID
-
-    if (!klaviyoApiKey || !klaviyoListId) {
-      console.error('[Sanafin] Klaviyo credentials are not configured in environment variables')
-      return NextResponse.json({ error: 'Server misconfiguration' }, { status: 500 })
-    }
-
-    const klaviyoRes = await fetch('https://a.klaviyo.com/api/profile-subscription-bulk-create-jobs/', {
-      method: 'POST',
-      headers: {
-        'Authorization': `Klaviyo-API-Key ${klaviyoApiKey}`,
-        'Content-Type': 'application/json',
-        'Accept': 'application/json',
-        'revision': '2026-04-15',
-      },
-      body: JSON.stringify({
-        data: {
-          type: 'profile-subscription-bulk-create-job',
-          attributes: {
-            custom_source: 'Marketing Waitlist Form',
-            profiles: {
-              data: [
-                {
-                  type: 'profile',
-                  attributes: {
-                    email: email,
-                    subscriptions: {
-                      email: {
-                        marketing: {
-                          consent: 'SUBSCRIBED',
-                        },
-                      },
-                    },
-                  }
-                }
-              ]
-            }
-          },
-          relationships: {
-            list: {
-              data: {
-                type: 'list',
-                id: klaviyoListId,
-              }
-            }
-          }
-        }
-      }),
-    })
-
-    if (!klaviyoRes.ok) {
-      const errorText = await klaviyoRes.text()
-      console.error('[Sanafin] Klaviyo error response:', errorText)
-      return NextResponse.json({ error: 'Failed to sync with waitlist' }, { status: 500 })
-    }
-
-    console.log('[Sanafin] Successfully queued subscription in Klaviyo for:', email)
-    return NextResponse.json({ success: true })
-  } catch (error) {
-    console.error('[Sanafin] Error:', error)
-    return NextResponse.json({ error: 'Server error' }, { status: 500 })
+  if (isRateLimited(clientKey(request), 10)) {
+    log("rate_limited", 429, started)
+    return NextResponse.json({ error: "rate_limited" }, { status: 429 })
   }
+
+  let body: unknown
+  try {
+    body = await request.json()
+  } catch {
+    log("invalid_json", 400, started)
+    return NextResponse.json({ error: "invalid_request" }, { status: 400 })
+  }
+
+  const parsed = accessRequestSchema.safeParse(body)
+  if (!parsed.success) {
+    log("invalid_fields", 400, started)
+    return NextResponse.json({ error: "invalid_request", fields: parsed.error.flatten().fieldErrors }, { status: 400 })
+  }
+
+  if (parsed.data.website) {
+    log("honeypot", 200, started)
+    return NextResponse.json({ ok: true })
+  }
+
+  const apiKey = process.env.KLAVIYO_PRIVATE_API_KEY
+  const listId = process.env.KLAVIYO_LIST_ID
+  if (!apiKey || !listId) {
+    log("unconfigured", 503, started)
+    return NextResponse.json({ error: "unavailable" }, { status: 503 })
+  }
+
+  try {
+    const res = await subscribeToUpdates(apiKey, listId, parsed.data)
+    if (!res.ok) {
+      log("upstream_error", 502, started)
+      return NextResponse.json({ error: "upstream" }, { status: 502 })
+    }
+  } catch {
+    log("upstream_timeout", 502, started)
+    return NextResponse.json({ error: "upstream" }, { status: 502 })
+  }
+
+  log("ok", 200, started)
+  return NextResponse.json({ ok: true })
 }

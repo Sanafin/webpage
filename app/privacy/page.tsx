@@ -95,7 +95,7 @@ export default function PrivacyPage() {
               <section className="border-t border-[#efc2a5]/20 pt-12">
                 <h2 className="font-serif text-2xl font-semibold tracking-tight text-[#2f241f] mb-4">How Data is Protected</h2>
                 <p className="text-[#8c6a59] leading-relaxed max-w-3xl text-sm">
-                  We secure data using transport-layer encryption (TLS 1.3), encryption-at-rest (AES-256), strict role-based access controls (RBAC), and secure escrow system segmentation. All clinical verification events are de-identified at the source whenever possible, ensuring personal health information is not exposed to financial operators.
+                  We secure data using transport-layer encryption (TLS 1.3), encryption-at-rest (AES-256), strict role-based access controls (RBAC), and segmentation between clinical and financial data. All clinical verification events are de-identified at the source whenever possible, ensuring personal health information is not exposed to financial operators.
                 </p>
               </section>
 
@@ -103,7 +103,7 @@ export default function PrivacyPage() {
               <section className="border-t border-[#efc2a5]/20 pt-12">
                 <h2 className="font-serif text-2xl font-semibold tracking-tight text-[#2f241f] mb-4">Data Sharing & Third Parties</h2>
                 <p className="text-[#8c6a59] leading-relaxed max-w-3xl text-sm">
-                  Sanafin never sells personal or healthcare data. We share data only with authorized escrow bank institutions to route payouts or with neutral clinical verification platforms as specified under active, customer-consented contracting rules.
+                  Sanafin never sells personal or healthcare data. We share data only with the processors needed to run this website and our contracts: Cloudflare (hosting, global network), Klaviyo (form submissions and email, United States, under standard contractual clauses), Doodle (call scheduling) and, where a contract requires it, the licensed custody partner named in that contract. Clinical data is pseudonymised before verification.
                 </p>
               </section>
 

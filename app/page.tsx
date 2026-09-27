@@ -1,37 +1,34 @@
-"use client"
-
-import { useScrollReveal } from "@/hooks/use-scroll-reveal"
 import { Header } from "@/components/header"
 import { Hero } from "@/components/hero"
-import { BackedBy } from "@/components/backed-by"
-import { OutcomeFilm } from "@/components/outcome-film"
-import { EconomicRealitiesTable } from "@/components/economic-realities-table"
+import { Recognition } from "@/components/recognition"
+import { ProblemSection } from "@/components/problem-section"
+import { HowItWorks } from "@/components/how-it-works"
 import { WhyNowSection } from "@/components/why-now-section"
-import { ProductBento } from "@/components/product-bento"
-import { PilotWorksSection } from "@/components/pilot-works-section"
-import { FrameworkSection } from "@/components/framework-section"
+import { OutcomeStudio } from "@/components/outcome-studio"
+import { ExampleContracts } from "@/components/example-contracts"
 import { TeamSection } from "@/components/team-section"
+import { InvestorSection } from "@/components/investor-section"
 import { FAQSection } from "@/components/faq-section"
 import { CTASection } from "@/components/cta-section"
 import { Footer } from "@/components/footer"
 
+// Server component: the hero and every static section render visible HTML with no
+// hydration gate. Interactive islands are client components of their own.
 export default function Home() {
-  useScrollReveal()
-
   return (
     <div className="page-wrapper">
       <div className="page-content">
         <Header />
-        <main className="landing-page">
+        <main id="main" className="landing-page">
           <Hero />
-          <BackedBy />
-          <OutcomeFilm />
-          <EconomicRealitiesTable />
+          <ProblemSection />
           <WhyNowSection />
-          <ProductBento />
-          <PilotWorksSection />
-          <FrameworkSection />
+          <HowItWorks />
+          <OutcomeStudio />
+          <ExampleContracts />
           <TeamSection />
+          <Recognition />
+          <InvestorSection />
           <FAQSection />
           <CTASection />
         </main>

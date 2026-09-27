@@ -30,7 +30,7 @@ export default function TermsPage() {
               <section className="border border-[#efc2a5]/30 p-8 md:p-10 bg-[#fffaf6] rounded-[10px] shadow-[0_8px_30px_rgba(47,36,31,0.02)] hover:shadow-[0_16px_40px_rgba(47,36,31,0.04)] transition-all duration-300">
                 <h2 className="font-serif text-2xl font-semibold tracking-tight text-[#2f241f] mb-4">Using Sanafin</h2>
                 <p className="text-[#8c6a59] leading-relaxed mb-0 text-sm">
-                  Sanafin provides SaaS infrastructure to structure, deploy, and automate outcome-based healthcare contracts. Our platform integrates smart escrow accounts, data verification feeds, and automated routing pipelines to help health insurers, sponsors, and care teams execute value-based agreements.
+                  Sanafin provides SaaS infrastructure to structure, deploy, and automate outcome-based healthcare contracts. Our platform combines outcome verification, contract logic and settlement instructions so that funders, manufacturers and care teams can execute outcome-conditional agreements. Funds committed under such agreements are held by a licensed custody partner, never by Sanafin.
                 </p>
               </section>
 
@@ -50,7 +50,7 @@ export default function TermsPage() {
                       <SwissCross className="w-2 h-2 text-[#f15d22] mt-1.5 shrink-0" />
                       <div>
                         <strong className="text-[#2f241f] block mb-0.5">Access Scope</strong>
-                        Platform access is granted solely to configure contracts, integrate clinical data sources, and manage escrow accounts.
+                        Platform access is granted solely to configure contracts, integrate clinical data sources, and review verification and settlement records.
                       </div>
                     </li>
                   </ul>
@@ -97,7 +97,7 @@ export default function TermsPage() {
                       <SwissCross className="w-2 h-2 text-[#f15d22] mt-1.5 shrink-0" />
                       <div>
                         <strong className="text-[#2f241f] block mb-0.5">Role-Based Access (RBAC)</strong>
-                        Strict authentication rules govern access to contract rules, escrow balances, and API credentials.
+                        Strict authentication rules govern access to contract rules, settlement records, and API credentials.
                       </div>
                     </li>
                     <li className="flex items-start gap-3">
@@ -121,14 +121,14 @@ export default function TermsPage() {
                       <SwissCross className="w-2 h-2 text-[#f15d22] mt-1.5 shrink-0" />
                       <div>
                         <strong className="text-[#2f241f] block mb-0.5">Regulatory Alignment</strong>
-                        Designed to meet the operational standards of GDPR (Europe), DSG (Switzerland), and HIPAA (United States).
+                        Designed to meet the requirements of the Swiss Federal Act on Data Protection (FADP) and the GDPR.
                       </div>
                     </li>
                     <li className="flex items-start gap-3">
                       <SwissCross className="w-2 h-2 text-[#f15d22] mt-1.5 shrink-0" />
                       <div>
                         <strong className="text-[#2f241f] block mb-0.5">Swiss Legal Principles</strong>
-                        Escrow allocations and contract triggers are modeled to reflect the Swiss Code of Obligations.
+                        Conditional commitments and contract triggers are modelled to reflect the Swiss Code of Obligations.
                       </div>
                     </li>
                     <li className="flex items-start gap-3">
@@ -170,7 +170,7 @@ export default function TermsPage() {
                     </p>
                   </div>
                   <div>
-                    <h3 className="font-serif text-base text-[#2f241f] font-semibold tracking-tight mb-2">Escrow Safety</h3>
+                    <h3 className="font-serif text-base text-[#2f241f] font-semibold tracking-tight mb-2">Custody of funds</h3>
                     <p className="text-xs text-[#8c6a59] leading-relaxed">
                       Funds are routed only upon verified outcome confirmation, preventing unauthorized or early payout release.
                     </p>
@@ -180,9 +180,9 @@ export default function TermsPage() {
 
               {/* Payment Terms */}
               <section className="border-t border-[#efc2a5]/20 pt-12">
-                <h2 className="font-serif text-2xl font-semibold tracking-tight text-[#2f241f] mb-4">Payment & Escrow Terms</h2>
+                <h2 className="font-serif text-2xl font-semibold tracking-tight text-[#2f241f] mb-4">Payment & custody terms</h2>
                 <p className="text-[#8c6a59] leading-relaxed max-w-3xl text-sm">
-                  Platform subscription fees and escrow service charges are defined in executed Statements of Work (SOW) or Order Forms. Escrow deposits are held securely in custody bank accounts and can only be routed according to deterministic, verified contract criteria.
+                  Platform fees are defined in executed Statements of Work (SOW) or Order Forms. Funds committed under an outcome-conditional contract are held by a licensed custody partner and are released or returned only according to the verified contract criteria. Sanafin is not a bank or payment institution and does not hold client funds.
                 </p>
               </section>
 
@@ -214,7 +214,7 @@ export default function TermsPage() {
               <section className="border-t border-[#efc2a5]/20 pt-12">
                 <h2 className="font-serif text-2xl font-semibold tracking-tight text-[#2f241f] mb-4">Termination</h2>
                 <p className="text-[#8c6a59] leading-relaxed max-w-3xl text-sm">
-                  Either party may terminate platform access in accordance with SOW agreements. Upon termination, active escrow balances will be refunded or routed according to the final contract status in the secure auditing registry.
+                  Either party may terminate platform access in accordance with SOW agreements. Upon termination, committed funds are released or returned by the custody partner according to the final verified contract status in the audit record.
                 </p>
               </section>
 

@@ -46,10 +46,21 @@
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   --motion-fast: 180ms;
   --motion-base: 320ms;
+  /* Landing-page palette. Muted text and CTA backgrounds meet WCAG AA on cream. */
+  --ink: #1f1a17;
+  --ink-soft: rgba(31, 26, 23, 0.6);
+  --text-muted: #766d67;
+  --plate: #f5f1ed;
+  --paper: #fbfaf8;
+  --cta: #c4460f;
+  --cta-hover: #a83a0b;
+  --brand-orange: #f15d22;
+  --teal: #14b8a6;
+  --teal-text: #0f766e;
 }
 
 @theme inline {
-  --font-sans: var(--font-sans), 'Gilroy', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-sans: var(--font-sans), 'Geist', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   --font-serif: 'Playfair Display', Georgia, serif;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   --color-background: var(--background);
@@ -621,7 +632,30 @@ footer :is(a, button):focus-visible {
 /* Display type for the landing page: tight geometric sans */
 .font-display {
   font-family: var(--font-sans), system-ui, sans-serif;
-  font-weight: 400;
+  font-weight: 500;
   letter-spacing: -0.035em;
   font-feature-settings: "ss01", "kern";
+}
+
+/* Keyboard users can jump past the header */
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -100%;
+  z-index: 100;
+  border-radius: 9999px;
+  background: var(--ink);
+  color: #fff;
+  padding: 0.6rem 1rem;
+  font-size: 14px;
+}
+.skip-link:focus {
+  top: 1rem;
+  outline: 2px solid var(--teal);
+  outline-offset: 2px;
+}
+
+/* Why-now ruler */
+.ruler-line {
+  background: linear-gradient(to right, transparent, #d9d1ca 6%, #d9d1ca 94%, transparent);
 }
