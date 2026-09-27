@@ -1,6 +1,7 @@
 import Image from "next/image"
 import { ArrowUpRight } from "lucide-react"
 import { Reveal } from "@/components/reveal"
+import { media } from "@/lib/media"
 import { backers, lois, loiLabel } from "@/lib/traction"
 
 // Design partners as hairline rows (a ledger, not a card grid) and recognition as
@@ -10,17 +11,27 @@ export function Recognition() {
   return (
     <section id="traction" aria-labelledby="traction-title" className="relative scroll-mt-24">
       <div className="max-w-7xl mx-auto px-6">
-        <Reveal className="mb-10 grid gap-6 lg:grid-cols-2 lg:gap-16 lg:items-end">
+        <Reveal className="mb-10 grid gap-8 lg:grid-cols-2 lg:gap-16 lg:items-end">
           <div>
             <p className="text-[13px] text-[#766d67] mb-4">Traction</p>
             <h2 id="traction-title" className="font-display text-4xl sm:text-5xl leading-[1.04] text-[#1f1a17]">
               Shaped with Swiss care partners.
             </h2>
+            <p className="mt-6 max-w-md text-base sm:text-lg leading-relaxed text-[#6f6660]">
+              Four organisations have signed letters of intent to validate Sanafin&apos;s workflows, and a clinical proof of
+              concept is running. Partners are anonymised by agreement; signed letters are available to investors under NDA.
+            </p>
           </div>
-          <p className="max-w-md text-base sm:text-lg leading-relaxed text-[#6f6660] lg:pb-2">
-            Four organisations have signed letters of intent to validate Sanafin&apos;s workflows, and a clinical proof of
-            concept is running. Partners are anonymised by agreement; signed letters are available to investors under NDA.
-          </p>
+          {media.partnersStill && (
+            <figure className="overflow-hidden rounded-3xl">
+              <img
+                src={media.partnersStill}
+                alt="Four sealed cream envelopes with brass clips on linen, beside a teal glass marble"
+                className="aspect-[16/9] w-full object-cover"
+                loading="lazy"
+              />
+            </figure>
+          )}
         </Reveal>
 
         <ul className="border-t border-[#ece7e2]">
