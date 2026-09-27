@@ -39,7 +39,7 @@ export function DemoBooking({ initialRole }: { initialRole?: string }) {
   return (
     <section aria-labelledby="demo-booking-title" className="grid gap-6 lg:grid-cols-12">
       <div className="lg:col-span-6">
-        <p className="text-[13px] font-medium text-[#f15d22] mb-4">Discovery call</p>
+        <p className="text-[13px] text-[#766d67] mb-4">Discovery call</p>
         <h1 id="demo-booking-title" className="font-display text-4xl sm:text-5xl leading-[1.04] text-[#1f1a17] mb-5">
           Book a 25-minute discovery call.
         </h1>

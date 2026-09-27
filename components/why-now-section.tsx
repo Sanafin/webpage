@@ -64,7 +64,7 @@ export function WhyNowSection() {
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
           <Reveal className="lg:sticky lg:top-32 lg:self-start">
-            <p className="text-[13px] font-medium text-[#f15d22] mb-4">Why now</p>
+            <p className="text-[13px] text-[#766d67] mb-4">Why now</p>
             <h2 id="why-now-title" className="font-display text-4xl sm:text-5xl leading-[1.04] text-[#1f1a17] mb-6">
               Outcome evidence
               <br />

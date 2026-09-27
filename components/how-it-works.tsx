@@ -153,7 +153,7 @@ export function HowItWorks() {
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
         >
           <div>
-            <p className="text-[13px] font-medium text-[#f15d22] mb-4">How it works</p>
+            <p className="text-[13px] text-[#766d67] mb-4">How it works</p>
             <h2 id="how-title" className="font-display text-4xl sm:text-5xl leading-[1.04] text-[#1f1a17] max-w-3xl">
               First, it refuses to pay.
               <br />

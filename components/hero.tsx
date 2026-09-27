@@ -31,7 +31,7 @@ export function Hero() {
           <h1 className="font-display text-[2.6rem] leading-[1.04] sm:text-[3.6rem] lg:text-[4.3rem] text-[#1f1a17] mb-6">
             Money moves{" "}
             <br className="hidden sm:block" />
-            <span className="text-[#1f1a17]/45">when outcomes do.</span>
+            <span className="font-serif italic font-normal text-[#1f1a17]/55">when outcomes do.</span>
           </h1>
 
           <p className="max-w-2xl text-base sm:text-lg leading-relaxed text-[#6f6660] mb-9">

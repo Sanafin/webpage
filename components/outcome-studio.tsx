@@ -70,7 +70,7 @@ function Tile({
   return (
     <Reveal as="article" delay={delay} className={`flex flex-col rounded-3xl bg-[#f5f1ed] p-6 sm:p-8 ${className}`}>
       <div className="mb-8">
-        <p className="text-[13px] font-medium text-[#f15d22] mb-3">{eyebrow}</p>
+        <p className="text-[13px] text-[#766d67] mb-3">{eyebrow}</p>
         <h3 className="font-display text-2xl sm:text-[1.7rem] text-[#1f1a17] mb-2">{title}</h3>
         <p className="text-[15px] text-[#6f6660] leading-relaxed max-w-md">{body}</p>
       </div>
@@ -85,7 +85,7 @@ export function OutcomeStudio() {
       <div className="max-w-7xl mx-auto px-6">
         <Reveal className="mb-14 flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
           <div className="max-w-2xl">
-            <p className="text-[13px] font-medium text-[#f15d22] mb-4">The product</p>
+            <p className="text-[13px] text-[#766d67] mb-4">The product</p>
             <h2 id="product-title" className="font-display text-4xl sm:text-5xl leading-[1.04] text-[#1f1a17]">
               Sanafin Outcome Studio.
               <br />

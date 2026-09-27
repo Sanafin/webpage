@@ -85,7 +85,7 @@ export function FAQSection() {
     <section id="faq" aria-labelledby="faq-title" className="relative scroll-mt-24">
       <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-[0.8fr_1.2fr] gap-10 lg:gap-20">
         <div>
-          <p className="text-[13px] font-medium text-[#f15d22] mb-4">FAQ</p>
+          <p className="text-[13px] text-[#766d67] mb-4">FAQ</p>
           <h2 id="faq-title" className="font-display text-4xl sm:text-5xl leading-[1.05] text-[#1f1a17] mb-6">
             The questions
             <br />
