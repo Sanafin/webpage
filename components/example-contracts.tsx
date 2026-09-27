@@ -29,14 +29,14 @@ export function ExampleContracts() {
       <div className="max-w-7xl mx-auto px-6">
         <div className="mb-12 grid lg:grid-cols-2 gap-6 lg:gap-16 lg:items-end">
           <div>
-            <p className="text-[13px] font-medium text-[#f15d22] mb-4">Where we start</p>
+            <p className="text-[13px] text-[#766d67] mb-4">Where we start</p>
             <h2 id="examples-title" className="font-display text-4xl sm:text-5xl leading-[1.04] text-[#1f1a17]">
               Metabolic health first.
               <br />
               <span className="text-[#1f1a17]/45">Longevity next.</span>
             </h2>
           </div>
-          <p className="text-[15px] sm:text-base leading-relaxed text-[#766d67] lg:pb-2">
+          <p className="max-w-md text-[15px] sm:text-base leading-relaxed text-[#6f6660] lg:pb-2">
             Measurable endpoints, rising spend and funders already asking for conditional terms. These are example
             contract designs Sanafin can structure today, illustrative rather than customer data.
           </p>
@@ -125,8 +125,8 @@ export function ExampleContracts() {
           </div>
 
           {/* Pilot offer */}
-          <aside className="flex flex-col rounded-3xl border border-[#ece7e2] bg-white p-7 sm:p-8">
-            <p className="text-[13px] font-medium text-[#f15d22] mb-3">Start a pilot</p>
+          <aside className="flex flex-col lg:pl-6 lg:pt-4">
+            <p className="text-[13px] text-[#766d67] mb-3">Start a pilot</p>
             <h3 className="font-display text-2xl sm:text-3xl text-[#1f1a17] mb-6">One funder, one manufacturer, one outcome.</h3>
 
             <p className="text-[13px] text-[#766d67] mb-3">Scope</p>

@@ -44,22 +44,22 @@ export function ProblemSection() {
       <div className="max-w-7xl mx-auto px-6">
         <Reveal className="mb-14 grid gap-6 lg:grid-cols-2 lg:gap-16 lg:items-end">
           <div>
-            <p className="text-[13px] font-medium text-[#f15d22] mb-4">The problem</p>
+            <p className="text-[13px] text-[#766d67] mb-4">The problem</p>
             <h2 id="problem-title" className="font-display text-4xl sm:text-5xl leading-[1.04] text-[#1f1a17]">
               Reimbursement isn&apos;t the hard part any more.
               <br />
               <span className="text-[#1f1a17]/45">Proving the outcome is.</span>
             </h2>
           </div>
-          <p className="text-base sm:text-lg leading-relaxed text-[#6f6660] lg:pb-2">
+          <p className="max-w-md text-base sm:text-lg leading-relaxed text-[#6f6660] lg:pb-2">
             Payers in Germany and Switzerland now ask digital health products to show a measured effect before, and
             after, they are paid. The money to produce that evidence only arrives once the evidence exists.
           </p>
         </Reveal>
 
         <ul className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          {facts.map((f, i) => (
-            <Reveal key={f.value + f.label} as="li" delay={i * 0.08} className="flex min-h-[220px] flex-col justify-between rounded-3xl bg-[#f5f1ed] p-7 sm:p-8">
+          {facts.map((f) => (
+            <li key={f.value + f.label} className="flex min-h-[220px] flex-col justify-between rounded-3xl bg-[#f5f1ed] p-7 sm:p-8">
               <p className="text-[13px] text-[#766d67]">{f.region}</p>
               <div>
                 <p className="font-display text-5xl sm:text-6xl text-[#1f1a17]">
@@ -68,13 +68,13 @@ export function ProblemSection() {
                 </p>
                 <p className="mt-3 text-[15px] leading-snug text-[#6f6660]">{f.label}</p>
               </div>
-            </Reveal>
+            </li>
           ))}
         </ul>
 
-        <Reveal className="mt-4 overflow-hidden rounded-3xl border border-[#ece7e2] bg-white" delay={0.1}>
-          <div className="grid md:grid-cols-2 md:divide-x divide-[#f0ebe6]">
-            <div className="p-7 sm:p-8">
+        <Reveal className="mt-16 border-t border-[#ece7e2] pt-10" delay={0.1}>
+          <div className="grid gap-10 md:grid-cols-2 md:gap-16">
+            <div>
               <p className="text-[13px] text-[#766d67] mb-5">Today</p>
               <ul className="space-y-4">
                 {today.map((t, i) => (
@@ -88,7 +88,7 @@ export function ProblemSection() {
                 ))}
               </ul>
             </div>
-            <div className="border-t border-[#f0ebe6] p-7 sm:p-8 md:border-t-0">
+            <div>
               <p className="text-[13px] text-[#0f766e] mb-5">With Sanafin</p>
               <ul className="space-y-4">
                 {withSanafin.map((t) => (
@@ -104,11 +104,11 @@ export function ProblemSection() {
             <img
               src={media.problemStill}
               alt="A row of small brass tokens, most tipped over, with a single teal marble resting apart from them"
-              className="h-56 w-full object-cover"
+              className="mt-10 h-56 w-full rounded-3xl object-cover"
               loading="lazy"
             />
           )}
-          <p className="border-t border-[#f0ebe6] px-7 py-4 text-[13px] text-[#766d67] sm:px-8">
+          <p className="mt-10 text-[13px] text-[#766d67]">
             Our target: a pilot scoped within two weeks of the first call. A Sanafin target, not a customer result.
           </p>
         </Reveal>

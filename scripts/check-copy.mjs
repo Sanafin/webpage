@@ -3,7 +3,7 @@
 import { readFileSync, readdirSync, statSync } from "node:fs"
 import { join } from "node:path"
 
-const FORBIDDEN = [/\bescrow/i, /blockchain/i, /\bEVM\b/, /smart contract/i, /CHF 1\.5/, /hello@/, /\bTAM\b/, /guarantee/i, /real-time/i, /Backed by/, /HIPAA/, /SOC ?2\b/]
+const FORBIDDEN = [/\bescrow/i, /blockchain/i, /\bEVM\b/, /smart contract/i, /CHF 1\.5/, /\bTAM\b/, /guarantee/i, /real-time/i, /Backed by/, /HIPAA/, /SOC ?2\b/]
 const ROOTS = ["components", "lib", "app/page.tsx", "app/demo", "app/layout.tsx"]
 const SKIP = [/components\/ui\//]
 

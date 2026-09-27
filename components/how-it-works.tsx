@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react"
 import { motion, useInView, useReducedMotion } from "framer-motion"
 import { Pause, Play } from "lucide-react"
 import { acts } from "@/lib/examples"
+import { Certificate } from "@/components/certificate"
 import { media } from "@/lib/media"
 
 // Beats in the marble film, in seconds. The teal marble (patient outcome) is
@@ -153,7 +154,7 @@ export function HowItWorks() {
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
         >
           <div>
-            <p className="text-[13px] font-medium text-[#f15d22] mb-4">How it works</p>
+            <p className="text-[13px] text-[#766d67] mb-4">How it works</p>
             <h2 id="how-title" className="font-display text-4xl sm:text-5xl leading-[1.04] text-[#1f1a17] max-w-3xl">
               First, it refuses to pay.
               <br />
@@ -169,7 +170,7 @@ export function HowItWorks() {
         <Film />
 
         {/* Three acts */}
-        <div className="mt-6 grid gap-4 lg:grid-cols-[0.9fr_1.1fr]">
+        <div className="mt-6 grid gap-4 lg:grid-cols-[0.7fr_1.3fr]">
           <div className="rounded-3xl bg-[#f5f1ed] p-3">
             <ol className="flex flex-col gap-1" role="tablist" aria-label="The three acts">
               {acts.map((a) => {
@@ -203,33 +204,56 @@ export function HowItWorks() {
             id={`act-${act.id}`}
             role="tabpanel"
             aria-labelledby={`act-tab-${act.id}`}
-            className="grid overflow-hidden rounded-3xl border border-[#ece7e2] bg-white sm:grid-cols-[1fr_1.1fr]"
+            className="grid overflow-hidden rounded-3xl bg-[#1a1512] text-white md:grid-cols-[1fr_minmax(280px,0.72fr)]"
           >
-            <div className="relative min-h-[220px] bg-[#ebe4db]">
-              <img
-                src={visual.src ?? media.filmPoster}
-                alt={visual.src ? visual.alt : ""}
-                className="absolute inset-0 h-full w-full object-cover"
-                loading="lazy"
-              />
-            </div>
+            {/* Terminal output, as in the live demo */}
             <div className="p-6 sm:p-7">
-              <p className="text-[15px] leading-relaxed text-[#1f1a17] mb-5">{act.body}</p>
-              <dl className="divide-y divide-[#f0ebe6] rounded-2xl border border-[#f0ebe6] text-[13px]">
-                {act.rows.map(([k, v]) => (
-                  <div key={k} className="flex items-center justify-between gap-4 px-3.5 py-2">
-                    <dt className="text-[#766d67]">{k}</dt>
-                    <dd
-                      className={
-                        v.includes("false") ? "text-[#f15d22]" : v.includes("CHF 180,000") && act.id === "pays" ? "text-[#0f766e]" : "text-[#1f1a17]"
-                      }
-                    >
-                      {v}
-                    </dd>
-                  </div>
-                ))}
-              </dl>
-              <p className="mt-4 text-[12px] text-[#766d67]">Synthetic cohort · illustrative figures</p>
+              <div className="mb-4 flex items-center gap-2 text-[11px] text-white/45">
+                <span className="flex gap-1.5" aria-hidden="true">
+                  <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
+                  <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
+                  <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
+                </span>
+                <span className="font-mono">sanafin verify --contract t2d_programme --cohort {act.id === "tamper" ? "b-edited" : act.id === "pays" ? "b" : "a"}</span>
+              </div>
+              <pre className="overflow-x-auto font-mono text-[12.5px] leading-[1.7] text-white/85">
+                <span className="text-white/45">L4  WZW EVALUATION</span>
+                {"\n"}
+                {act.rows.map(([k, v]) => {
+                  const bad = v.includes("false") || v.includes("insufficient") || (act.id === "refuses" && k === "Released to manufacturer")
+                  const good = v.includes("meets") || v.includes("true") || (act.id === "pays" && v.includes("CHF 180,000"))
+                  return (
+                    <span key={k}>
+                      {"  "}
+                      {k.toLowerCase().padEnd(26, " ")}
+                      <span className={bad ? "text-[#ffab8a]" : good ? "text-[#5eead4]" : "text-white"}>{v}</span>
+                      {"\n"}
+                    </span>
+                  )
+                })}
+                <span className="text-white/45">
+                  {act.id === "refuses" ? "L6  SETTLEMENT          returned_to_funder" : act.id === "pays" ? "L6  SETTLEMENT          instruction_issued · 0.9s" : "L6  RE-VERIFY           from exported file · no server"}
+                </span>
+              </pre>
+              <p className="mt-5 text-[14px] leading-relaxed text-white/75">{act.body}</p>
+            </div>
+            <div className="flex min-w-0 flex-col justify-between gap-5 border-t border-white/10 p-6 md:border-l md:border-t-0 md:p-6">
+              <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">
+                <img
+                  src={visual.src ?? media.filmPoster}
+                  alt={visual.src ? visual.alt : ""}
+                  className="absolute inset-0 h-full w-full object-cover"
+                  loading="lazy"
+                />
+              </div>
+              <Certificate
+                tone="dark"
+                verdict={act.id === "refuses" ? "insufficient" : "meets_wzw"}
+                composite={act.id === "refuses" ? 29 : 99}
+                hash="7aaa8b48615906e0"
+                recomputed={act.id === "tamper" ? "d9b10fb1a02ffb63" : "7aaa8b48615906e0"}
+              />
+              <p className="text-[11.5px] text-white/45">Synthetic cohort · illustrative figures</p>
             </div>
           </div>
         </div>

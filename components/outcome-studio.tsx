@@ -70,7 +70,7 @@ function Tile({
   return (
     <Reveal as="article" delay={delay} className={`flex flex-col rounded-3xl bg-[#f5f1ed] p-6 sm:p-8 ${className}`}>
       <div className="mb-8">
-        <p className="text-[13px] font-medium text-[#f15d22] mb-3">{eyebrow}</p>
+        <p className="text-[13px] text-[#766d67] mb-3">{eyebrow}</p>
         <h3 className="font-display text-2xl sm:text-[1.7rem] text-[#1f1a17] mb-2">{title}</h3>
         <p className="text-[15px] text-[#6f6660] leading-relaxed max-w-md">{body}</p>
       </div>
@@ -85,7 +85,7 @@ export function OutcomeStudio() {
       <div className="max-w-7xl mx-auto px-6">
         <Reveal className="mb-14 flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
           <div className="max-w-2xl">
-            <p className="text-[13px] font-medium text-[#f15d22] mb-4">The product</p>
+            <p className="text-[13px] text-[#766d67] mb-4">The product</p>
             <h2 id="product-title" className="font-display text-4xl sm:text-5xl leading-[1.04] text-[#1f1a17]">
               Sanafin Outcome Studio.
               <br />
@@ -178,7 +178,7 @@ export function OutcomeStudio() {
                 <div key={row.label} className="flex items-center justify-between gap-4 px-4 py-3.5">
                   <span className="truncate text-sm text-[#1f1a17]">{row.label}</span>
                   <div className="flex shrink-0 items-center gap-4">
-                    <span className="text-sm font-medium text-[#1f1a17]">{row.amount}</span>
+                    <span className="font-mono text-sm tabular-nums text-[#1f1a17]">{row.amount}</span>
                     <StatusPill tone={row.status === "Released" ? "orange" : "ink"}>{row.status}</StatusPill>
                   </div>
                 </div>
@@ -187,7 +187,14 @@ export function OutcomeStudio() {
           </Tile>
         </div>
 
-        <div className="mt-12 flex justify-center">
+        <div className="mt-6 flex flex-col gap-4 rounded-3xl border border-[#ece7e2] bg-white px-5 py-4 lg:flex-row lg:items-center lg:justify-between">
+          <p className="text-[14px] text-[#6f6660]">One REST API and one audit chain. Every value is hashed on entry; the certificate is re-computable from the exported file alone.</p>
+          <pre className="max-w-full whitespace-pre-wrap rounded-xl bg-[#1a1512] px-4 py-2.5 font-mono text-[11.5px] leading-relaxed text-white/85 lg:shrink-0">
+            <span className="text-[#5eead4]">POST</span> /v1/verifications <span className="text-white/40">→</span> {`{ "verdict": "meets_wzw", "certificate": "7aaa8b48…" }`}
+          </pre>
+        </div>
+
+        <div className="mt-8 flex justify-center">
           <Link
             href="/demo"
             data-cta="book_call"

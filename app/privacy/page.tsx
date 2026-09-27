@@ -103,7 +103,7 @@ export default function PrivacyPage() {
               <section className="border-t border-[#efc2a5]/20 pt-12">
                 <h2 className="font-serif text-2xl font-semibold tracking-tight text-[#2f241f] mb-4">Data Sharing & Third Parties</h2>
                 <p className="text-[#8c6a59] leading-relaxed max-w-3xl text-sm">
-                  Sanafin never sells personal or healthcare data. We share data only with the processors needed to run this website and our contracts: Cloudflare (hosting, global network), Plunk (form submissions and transactional email), Doodle (call scheduling) and, where a contract requires it, the licensed custody partner named in that contract. Clinical data is pseudonymised before verification.
+                  Sanafin never sells personal or healthcare data. We share data only with the processors needed to run this website and our contracts: Cloudflare (hosting, global network), Doodle (call scheduling) and, where a contract requires it, the licensed custody partner named in that contract. Clinical data is pseudonymised before verification.
                 </p>
               </section>
 

@@ -2,6 +2,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { AppPreview, MobileContractCard } from "@/components/app-preview"
 import { HeroCtas } from "@/components/hero-ctas"
+import { MomentStrip } from "@/components/moment-strip"
 import { Reveal } from "@/components/reveal"
 import { ScreenFrame } from "@/components/screen-frame"
 import { Laurel } from "@/components/ui/laurel"
@@ -16,7 +17,11 @@ export function Hero() {
 
   return (
     <section id="top" className="relative overflow-hidden bg-[#fbfaf8] pt-36 md:pt-44 !pb-0">
-      <div className="max-w-7xl mx-auto px-6">
+      <div
+        className="pointer-events-none absolute inset-x-0 top-0 h-[720px] blueprint-grid-light [mask-image:radial-gradient(ellipse_70%_60%_at_50%_20%,black_20%,transparent_75%)]"
+        aria-hidden="true"
+      />
+      <div className="relative max-w-7xl mx-auto px-6">
         <div className="mx-auto flex max-w-4xl flex-col items-center text-center">
           <Link
             href="#traction"
@@ -31,7 +36,7 @@ export function Hero() {
           <h1 className="font-display text-[2.6rem] leading-[1.04] sm:text-[3.6rem] lg:text-[4.3rem] text-[#1f1a17] mb-6">
             Money moves{" "}
             <br className="hidden sm:block" />
-            <span className="text-[#1f1a17]/45">when outcomes do.</span>
+            <span className="font-serif italic font-normal text-[#1f1a17]/55">when outcomes do.</span>
           </h1>
 
           <p className="max-w-2xl text-base sm:text-lg leading-relaxed text-[#6f6660] mb-9">
@@ -73,6 +78,9 @@ export function Hero() {
             <ScreenFrame kind="illustrative">
               <MobileContractCard />
             </ScreenFrame>
+          </div>
+          <div className="relative mx-auto mt-6 max-w-4xl">
+            <MomentStrip />
           </div>
         </Reveal>
 

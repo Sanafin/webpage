@@ -1,7 +1,7 @@
 import Image from "next/image"
 import Link from "next/link"
 import { ArrowUpRight, Linkedin } from "lucide-react"
-import { media } from "@/lib/media"
+import { ResearchMedia } from "@/components/research-media"
 import { milestones, publications } from "@/lib/research"
 
 import wasuProfile from "@/components/ui/profiles/wasu_profile.webp"
@@ -78,14 +78,14 @@ export function TeamSection() {
       <div className="max-w-7xl mx-auto px-6">
         <div className="mb-14 grid gap-6 lg:grid-cols-2 lg:gap-16 lg:items-end">
           <div>
-            <p className="text-[13px] font-medium text-[#f15d22] mb-4">Why this team</p>
+            <p className="text-[13px] text-[#766d67] mb-4">Why this team</p>
             <h2 id="team-title" className="font-display text-4xl sm:text-5xl leading-[1.04] text-[#1f1a17]">
               Four years researching why outcome-based payment stalls.
               <br />
               <span className="text-[#1f1a17]/45">Then we built the tool.</span>
             </h2>
           </div>
-          <p className="text-[15px] sm:text-base leading-relaxed text-[#766d67] lg:pb-2">
+          <p className="max-w-md text-[15px] sm:text-base leading-relaxed text-[#6f6660] lg:pb-2">
             Health economics, clinical outcomes and financial engineering in one team, with eight publications behind
             the incentive model, the risk structures and the health economics.
           </p>
@@ -94,7 +94,7 @@ export function TeamSection() {
         {/* Core team */}
         <ul className="grid grid-cols-2 lg:grid-cols-4 gap-4">
           {team.map((person) => (
-            <li key={person.name} className="flex flex-col rounded-3xl bg-[#f5f1ed] p-3">
+            <li key={person.name} className="flex flex-col">
               <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-[#ebe4db]">
                 <Image
                   src={person.photo}
@@ -113,7 +113,7 @@ export function TeamSection() {
                   <Linkedin className="h-3.5 w-3.5" aria-hidden="true" />
                 </a>
               </div>
-              <div className="flex flex-1 flex-col px-2 pt-4 pb-2">
+              <div className="flex flex-1 flex-col pt-4">
                 <h3 className="font-display text-lg sm:text-xl text-[#1f1a17] leading-tight">{person.name}</h3>
                 <p className="text-[13px] text-[#0f766e] mt-0.5 mb-3">{person.title}</p>
                 <p className="text-[14px] leading-snug text-[#1f1a17] mb-2">{person.owns}</p>
@@ -210,10 +210,8 @@ export function TeamSection() {
             </p>
           </div>
 
-          <div className="relative overflow-hidden rounded-3xl bg-[#f5f1ed] p-7 text-[#1f1a17]">
-            {media.researchStill && (
-              <img src={media.researchStill} alt="" className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-30" loading="lazy" />
-            )}
+          <div className="relative overflow-hidden rounded-3xl border border-[#ece7e2] p-7 text-[#1f1a17]">
+            <ResearchMedia />
             <div className="relative">
               <p className="text-[13px] text-[#766d67] mb-5">Milestones</p>
               <ol className="space-y-4">

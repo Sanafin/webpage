@@ -4,17 +4,18 @@
 // product output, and alt text describes the objects.
 
 export const media = {
-  heroPlate: null as string | null,
-  actRefuses: null as string | null,
-  actPays: null as string | null,
-  actTamper: null as string | null,
-  problemStill: null as string | null,
+  heroPlate: "/media/hero-plate.webp" as string | null,
+  actRefuses: "/media/act-refuses.webp" as string | null,
+  actPays: "/media/act-pays.webp" as string | null,
+  actTamper: "/media/act-tamper.webp" as string | null,
+  problemStill: "/media/problem-still.webp" as string | null,
   custodyStill: null as string | null,
-  partnersStill: null as string | null,
+  partnersStill: "/media/partners-still.webp" as string | null,
   researchStill: null as string | null,
-  closingLoop: null as string | null,
-  closingStill: "/media/closing-still.jpg",
-  closingStillMobile: "/media/closing-still-mobile.jpg",
+  researchLoop: null as string | null,
+  closingLoop: "/media/closing-loop.mp4" as string | null,
+  closingStill: "/media/closing-still.jpg" as string | null,
+  closingStillMobile: "/media/closing-still-mobile.jpg" as string | null,
   film: "/media/outcome-marbles.mp4",
   filmPoster: "/media/outcome-marbles-poster.jpg",
 }
