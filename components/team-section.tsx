@@ -1,7 +1,7 @@
 import Image from "next/image"
 import Link from "next/link"
 import { ArrowUpRight, Linkedin } from "lucide-react"
-import { media } from "@/lib/media"
+import { ResearchMedia } from "@/components/research-media"
 import { milestones, publications } from "@/lib/research"
 
 import wasuProfile from "@/components/ui/profiles/wasu_profile.webp"
@@ -211,9 +211,7 @@ export function TeamSection() {
           </div>
 
           <div className="relative overflow-hidden rounded-3xl border border-[#ece7e2] p-7 text-[#1f1a17]">
-            {media.researchStill && (
-              <img src={media.researchStill} alt="" className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-30" loading="lazy" />
-            )}
+            <ResearchMedia />
             <div className="relative">
               <p className="text-[13px] text-[#766d67] mb-5">Milestones</p>
               <ol className="space-y-4">

@@ -4,7 +4,7 @@
 //
 // Name each download after its slot (any of .png .jpg .webp .mp4):
 //   hero-plate, act-refuses, act-pays, act-tamper, problem, custody, partners,
-//   research, og, closing-loop
+//   research, og, closing-loop, research-loop
 // Unknown names are skipped and reported. Existing outputs are overwritten.
 // After running, set the matching entries in lib/media.ts to the printed paths.
 
@@ -23,6 +23,7 @@ const SLOTS = {
   research: { out: "public/media/research-still.webp", width: 1600, quality: 80, key: "researchStill" },
   og: { out: "public/og.jpg", width: 1200, height: 630, jpeg: true, quality: 82, key: null },
   "closing-loop": { out: "public/media/closing-loop.mp4", video: true, key: "closingLoop" },
+  "research-loop": { out: "public/media/research-loop.mp4", video: true, key: "researchLoop" },
 }
 
 const dir = process.argv[2]

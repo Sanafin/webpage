@@ -12,6 +12,7 @@ export const media = {
   custodyStill: null as string | null,
   partnersStill: null as string | null,
   researchStill: null as string | null,
+  researchLoop: null as string | null,
   closingLoop: null as string | null,
   closingStill: "/media/closing-still.jpg",
   closingStillMobile: "/media/closing-still-mobile.jpg",
