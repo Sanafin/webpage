@@ -17,9 +17,11 @@ export function Recognition() {
       <div className="max-w-7xl mx-auto px-6">
         <div className="mb-12 grid gap-6 lg:grid-cols-2 lg:gap-16 lg:items-end">
           <div>
-            <p className="text-[13px] font-medium text-[#c4460f] mb-4">Traction</p>
+            <p className="text-[13px] font-medium text-[#f15d22] mb-4">Traction</p>
             <h2 id="traction-title" className="font-display text-4xl sm:text-5xl leading-[1.04] text-[#1f1a17]">
-              Shaped with Swiss care partners.
+              Shaped with
+              <br />
+              <span className="text-[#1f1a17]/45">Swiss care partners.</span>
             </h2>
           </div>
           <p className="text-[15px] sm:text-base leading-relaxed text-[#766d67] lg:pb-2">
@@ -34,7 +36,7 @@ export function Recognition() {
             const Icon = kindIcon[loi.kind]
             return (
               <li key={loi.partnerType} className="flex flex-col rounded-3xl bg-[#f5f1ed] p-6">
-                <p className="font-mono text-[10.5px] uppercase tracking-[0.14em] text-[#766d67] mb-5">
+                <p className="text-[12px] text-[#766d67] mb-5">
                   Letter of intent{loi.signed ? ` · signed ${loi.signed}` : " · signed"}
                 </p>
                 <div className="mb-6 flex items-start gap-3">
@@ -69,7 +71,7 @@ export function Recognition() {
               <li key={b.name} className="flex flex-col justify-between gap-6 rounded-3xl border border-[#ece7e2] bg-white p-6">
                 <Image src={b.logo} alt={b.name} className="h-8 w-auto self-start object-contain" style={{ width: "auto" }} />
                 <div>
-                  <p className="font-mono text-[10.5px] uppercase tracking-[0.14em] text-[#766d67]">
+                  <p className="text-[12px] text-[#766d67]">
                     {b.relationship}
                     {b.year ? ` · ${b.year}` : ""}
                   </p>

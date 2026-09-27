@@ -632,7 +632,7 @@ footer :is(a, button):focus-visible {
 /* Display type for the landing page: tight geometric sans */
 .font-display {
   font-family: var(--font-sans), system-ui, sans-serif;
-  font-weight: 500;
+  font-weight: 400;
   letter-spacing: -0.035em;
   font-feature-settings: "ss01", "kern";
 }

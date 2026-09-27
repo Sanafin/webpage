@@ -1,9 +1,11 @@
 import Link from "next/link"
 import { Activity, ArrowUpRight, FlaskConical, Pill, Smartphone, Stethoscope, Watch } from "lucide-react"
+import { Reveal } from "@/components/reveal"
 import { example } from "@/lib/examples"
 
-// Sanafin Outcome Studio in five stages. Each tile is a compact micro-UI built from
-// the shared example dataset; a real screenshot can replace any tile's body later.
+// Sanafin Outcome Studio as a four-tile bento (the layout the previous version
+// used), covering all five stages: Monitor lives inside Collect as a status strip.
+// Every value is from the shared example dataset and labelled illustrative.
 
 const sources = [
   { label: "Care app", icon: Smartphone },
@@ -16,12 +18,8 @@ const sources = [
 
 function StatusPill({ tone, children }: { tone: "teal" | "orange" | "ink"; children: React.ReactNode }) {
   const cls =
-    tone === "teal"
-      ? "bg-[#14B8A6]/15 text-[#0f766e]"
-      : tone === "orange"
-        ? "bg-[#f15d22]/15 text-[#c4460f]"
-        : "bg-[#1f1a17]/8 text-[#1f1a17]"
-  return <span className={`rounded-full px-2.5 py-1 font-mono text-[10px] font-semibold uppercase tracking-wider ${cls}`}>{children}</span>
+    tone === "teal" ? "bg-[#14B8A6]/15 text-[#0f766e]" : tone === "orange" ? "bg-[#f15d22]/15 text-[#f15d22]" : "bg-[#1f1a17]/8 text-[#1f1a17]"
+  return <span className={`rounded-full px-2.5 py-1 text-[11px] font-medium ${cls}`}>{children}</span>
 }
 
 function TrendChart() {
@@ -43,8 +41,8 @@ function TrendChart() {
           <stop offset="100%" stopColor="#14B8A6" stopOpacity="0" />
         </linearGradient>
       </defs>
-      <line x1="0" x2={w} y1={y(example.target)} y2={y(example.target)} stroke="#c4460f" strokeWidth="1" strokeDasharray="4 4" opacity="0.8" />
-      <text x={w} y={y(example.target) - 6} textAnchor="end" fill="#c4460f" fontSize="9" fontFamily="ui-monospace, monospace">
+      <line x1="0" x2={w} y1={y(example.target)} y2={y(example.target)} stroke="#f15d22" strokeWidth="1" strokeDasharray="4 4" opacity="0.8" />
+      <text x={w} y={y(example.target) - 6} textAnchor="end" fill="#f15d22" fontSize="9" fontFamily="ui-monospace, monospace">
         TARGET −0.5 pp ({example.target}%)
       </text>
       <path d={area} fill="url(#studio-trend-fill)" />
@@ -54,145 +52,147 @@ function TrendChart() {
   )
 }
 
-const stages = [
-  {
-    n: "01",
-    name: "Collect",
-    title: "The data you already send a payer.",
-    body: "FHIR R4 or CSV intake, consent check, baseline capture. No new instrumentation, no new data contract.",
-  },
-  {
-    n: "02",
-    name: "Monitor",
-    title: "A longitudinal stream, with guardrails.",
-    body: "Biomarkers over time, dropout SLAs and evidence gaps surfaced early, before anyone commits to a threshold that cannot be met.",
-  },
-  {
-    n: "03",
-    name: "Verify",
-    title: "Checked against the contract, WZW-native.",
-    body: "Effectiveness, appropriateness and economic efficiency scored under Art. 32 KVG, pass or fail against the pre-agreed threshold.",
-  },
-  {
-    n: "04",
-    name: "Finance",
-    title: "Funds committed up front, held by a custody partner.",
-    body: "Pay-for-performance, shared savings or bundled terms, with the funder's money placed with a licensed custodian. Sanafin never holds funds.",
-  },
-  {
-    n: "05",
-    name: "Settle",
-    title: "Released when the threshold is met.",
-    body: "One settlement instruction, a conformant Swiss invoice and a signed audit record that either side can re-compute.",
-  },
-]
+function Tile({
+  className = "",
+  eyebrow,
+  title,
+  body,
+  children,
+  delay = 0,
+}: {
+  className?: string
+  eyebrow: string
+  title: string
+  body: string
+  children: React.ReactNode
+  delay?: number
+}) {
+  return (
+    <Reveal as="article" delay={delay} className={`flex flex-col rounded-3xl bg-[#f5f1ed] p-6 sm:p-8 ${className}`}>
+      <div className="mb-8">
+        <p className="text-[13px] font-medium text-[#f15d22] mb-3">{eyebrow}</p>
+        <h3 className="font-display text-2xl sm:text-[1.7rem] text-[#1f1a17] mb-2">{title}</h3>
+        <p className="text-[15px] text-[#6f6660] leading-relaxed max-w-md">{body}</p>
+      </div>
+      <div className="mt-auto">{children}</div>
+    </Reveal>
+  )
+}
 
 export function OutcomeStudio() {
   return (
     <section id="product" aria-labelledby="product-title" className="relative scroll-mt-24 bg-[#fbfaf8]">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="mb-12 flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
+        <Reveal className="mb-14 flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
           <div className="max-w-2xl">
-            <p className="text-[13px] font-medium text-[#c4460f] mb-4">The product</p>
-            <h2 id="product-title" className="font-display text-4xl sm:text-5xl md:text-6xl leading-[1.04] text-[#1f1a17]">
-              Sanafin Outcome Studio. Five stages, one API.
+            <p className="text-[13px] font-medium text-[#f15d22] mb-4">The product</p>
+            <h2 id="product-title" className="font-display text-4xl sm:text-5xl leading-[1.04] text-[#1f1a17]">
+              Sanafin Outcome Studio.
+              <br />
+              <span className="text-[#1f1a17]/45">Five stages, one API.</span>
             </h2>
           </div>
-          <p className="max-w-sm text-[15px] leading-relaxed text-[#766d67] lg:pb-2">
-            Whatever a provider already ships to a payer is the input. Example values throughout are illustrative.
-          </p>
-        </div>
+          <p className="text-[13px] text-[#766d67] lg:text-right">Example values · illustrative</p>
+        </Reveal>
 
         <div className="grid grid-cols-1 lg:grid-cols-6 gap-4">
-          {/* 01 Collect */}
-          <article className="lg:col-span-3 flex flex-col rounded-3xl bg-[#f5f1ed] p-6 sm:p-8">
-            <StageHead s={stages[0]} />
-            <ul className="mt-auto grid grid-cols-2 sm:grid-cols-3 gap-2">
-              {sources.map(({ label, icon: Icon }) => (
-                <li key={label} className="flex items-center gap-2 rounded-xl border border-[#ece7e2] bg-white px-3 py-2.5 text-xs text-[#1f1a17]">
-                  <Icon className="h-3.5 w-3.5 text-[#14B8A6] shrink-0" aria-hidden="true" />
-                  <span className="truncate">{label}</span>
-                </li>
-              ))}
-            </ul>
-          </article>
-
-          {/* 02 Monitor */}
-          <article className="lg:col-span-3 flex flex-col rounded-3xl bg-[#f5f1ed] p-6 sm:p-8">
-            <StageHead s={stages[1]} />
-            <div className="mt-auto rounded-2xl border border-[#ece7e2] bg-white p-4">
-              <div className="flex items-center justify-between mb-3">
-                <span className="text-[12px] text-[#766d67]">{example.programme} · {example.cohort} patients</span>
-                <StatusPill tone="ink">Month 5</StatusPill>
-              </div>
-              <dl className="grid grid-cols-3 gap-3 text-xs">
-                {[
-                  ["Enrolled", "100"],
-                  ["Active", "94"],
-                  ["Evidence gaps", "2"],
-                ].map(([k, v]) => (
-                  <div key={k} className="rounded-xl bg-[#fbfaf8] px-3 py-2.5">
-                    <dt className="text-[#766d67]">{k}</dt>
-                    <dd className="mt-0.5 text-[15px] font-medium text-[#1f1a17]">{v}</dd>
-                  </div>
+          {/* 01 Collect + 02 Monitor */}
+          <Tile
+            className="lg:col-span-4"
+            eyebrow="01 · Collect  ·  02 · Monitor"
+            title="The data you already send a payer, watched over time."
+            body="FHIR R4 or CSV intake, consent check, baseline capture. Then a longitudinal biomarker stream with dropout guardrails, so evidence gaps show up before anyone commits to a threshold that cannot be met."
+          >
+            <div className="grid gap-4 sm:grid-cols-[1fr_auto_1fr] sm:items-center">
+              <ul className="grid grid-cols-2 gap-2">
+                {sources.map(({ label, icon: Icon }) => (
+                  <li key={label} className="flex items-center gap-2 rounded-xl border border-[#ece7e2] bg-white px-3 py-2.5 text-xs text-[#1f1a17]">
+                    <Icon className="h-3.5 w-3.5 text-[#14B8A6] shrink-0" aria-hidden="true" />
+                    <span className="truncate">{label}</span>
+                  </li>
                 ))}
-              </dl>
+              </ul>
+              <div className="hidden sm:block h-px w-12 bg-gradient-to-r from-[#14B8A6]/10 via-[#14B8A6]/60 to-[#f15d22]/70" aria-hidden="true" />
+              <div className="rounded-2xl border border-[#f15d22]/30 bg-white p-4 sm:p-5">
+                <div className="flex items-center justify-between mb-3">
+                  <span className="text-[12px] font-medium text-[#1f1a17]">{example.programme}</span>
+                  <StatusPill tone="ink">Month 5</StatusPill>
+                </div>
+                <dl className="space-y-2 text-xs">
+                  {[
+                    ["Enrolled", String(example.cohort)],
+                    ["Active", "94"],
+                    ["Evidence gaps", "2"],
+                    ["Data freshness", "Live"],
+                  ].map(([k, v]) => (
+                    <div key={k} className="flex items-center justify-between gap-3">
+                      <dt className="text-[#6f6660]">{k}</dt>
+                      <dd className="font-medium text-[#1f1a17]">{v}</dd>
+                    </div>
+                  ))}
+                </dl>
+              </div>
             </div>
-          </article>
+          </Tile>
 
           {/* 03 Verify */}
-          <article className="lg:col-span-2 flex flex-col rounded-3xl bg-[#f5f1ed] p-6 sm:p-8">
-            <StageHead s={stages[2]} />
-            <div className="mt-auto rounded-2xl border border-[#ece7e2] bg-white p-4">
+          <Tile className="lg:col-span-2" eyebrow="03 · Verify" title="Checked against the contract." body="WZW-native scoring under Art. 32 KVG, pass or fail against the pre-agreed threshold." delay={0.1}>
+            <div className="rounded-2xl border border-[#ece7e2] bg-white p-4">
               <div className="flex items-baseline justify-between mb-3">
-                <span className="text-[12px] text-[#766d67]">HbA1c · 6 months</span>
+                <span className="text-[12px] text-[#6f6660]">HbA1c · 6 months</span>
                 <StatusPill tone="teal">Pass · {example.delta}</StatusPill>
               </div>
               <TrendChart />
             </div>
-          </article>
+          </Tile>
 
           {/* 04 Finance */}
-          <article className="lg:col-span-2 flex flex-col rounded-3xl bg-[#f5f1ed] p-6 sm:p-8">
-            <StageHead s={stages[3]} />
-            <pre className="mt-auto overflow-x-auto rounded-2xl border border-[#ece7e2] bg-white p-4 font-mono text-[11px] leading-relaxed text-[#1f1a17]/80">
+          <Tile
+            className="lg:col-span-2"
+            eyebrow="04 · Finance"
+            title="Committed up front, held by a custodian."
+            body="Pay-for-performance, shared savings or bundled terms. The funder's money sits with a licensed custody partner; Sanafin never holds funds."
+            delay={0.15}
+          >
+            <pre className="overflow-x-auto rounded-2xl border border-[#ece7e2] bg-white p-4 font-mono text-[11px] leading-relaxed text-[#1f1a17]/80">
 {`contract `}<span className="text-[#0f766e]">t2d_programme</span>{`
-  committed  `}<span className="text-[#c4460f]">CHF 180,000</span>{`
+  committed  `}<span className="text-[#f15d22]">CHF 180,000</span>{`
   held_by    licensed_custodian
   when       `}<span className="text-[#6f6660]">hba1c.delta</span>{` <= -0.5
   at         month = 6
-  release    `}<span className="text-[#c4460f]">CHF 60,000</span>{`
-  else       return_to_funder
-`}
+  release    `}<span className="text-[#f15d22]">CHF 60,000</span>{`
+  else       return_to_funder`}
             </pre>
-          </article>
+          </Tile>
 
           {/* 05 Settle */}
-          <article className="lg:col-span-2 flex flex-col rounded-3xl bg-[#f5f1ed] p-6 sm:p-8">
-            <StageHead s={stages[4]} />
-            <div className="mt-auto rounded-2xl border border-[#ece7e2] bg-white divide-y divide-[#f0ebe6]">
+          <Tile
+            className="lg:col-span-4"
+            eyebrow="05 · Settle"
+            title="Released when the threshold is met."
+            body="One settlement instruction, a conformant Swiss invoice and a signed audit record. Unmet milestones return to the funder; either side can re-compute the certificate from the exported file alone."
+            delay={0.2}
+          >
+            <div className="rounded-2xl border border-[#ece7e2] bg-white divide-y divide-[#f0ebe6]">
               {example.milestones.map((row) => (
-                <div key={row.label} className="flex items-center justify-between gap-3 px-4 py-3">
-                  <span className="truncate text-[13px] text-[#1f1a17]">{row.label}</span>
-                  <div className="flex shrink-0 items-center gap-3">
-                    <span className="text-[13px] font-medium text-[#1f1a17]">{row.amount}</span>
+                <div key={row.label} className="flex items-center justify-between gap-4 px-4 py-3.5">
+                  <span className="truncate text-sm text-[#1f1a17]">{row.label}</span>
+                  <div className="flex shrink-0 items-center gap-4">
+                    <span className="text-sm font-medium text-[#1f1a17]">{row.amount}</span>
                     <StatusPill tone={row.status === "Released" ? "orange" : "ink"}>{row.status}</StatusPill>
                   </div>
                 </div>
               ))}
             </div>
-          </article>
+          </Tile>
         </div>
 
-        <div className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 rounded-3xl border border-[#ece7e2] bg-white px-6 py-5">
-          <p className="text-[14px] text-[#6f6660]">
-            One REST API and one audit chain. Every value is hashed on entry and the certificate is re-computable from the exported file alone.
-          </p>
+        <div className="mt-12 flex justify-center">
           <Link
             href="/demo"
             data-cta="book_call"
             data-location="product"
-            className="inline-flex shrink-0 min-h-11 items-center gap-1.5 rounded-full bg-[#f1ece7] px-6 py-2.5 text-[15px] font-medium text-[#1f1a17] transition-colors hover:bg-[#e9e2db]"
+            className="inline-flex min-h-11 items-center gap-1.5 rounded-full bg-[#f1ece7] px-6 py-2.5 text-[15px] font-medium text-[#1f1a17] transition-colors hover:bg-[#e9e2db]"
           >
             See it on your data
             <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
@@ -200,17 +200,5 @@ export function OutcomeStudio() {
         </div>
       </div>
     </section>
-  )
-}
-
-function StageHead({ s }: { s: (typeof stages)[number] }) {
-  return (
-    <div className="mb-6">
-      <p className="text-[12px] font-medium text-[#c4460f] mb-3">
-        <span className="font-mono">{s.n}</span> · {s.name}
-      </p>
-      <h3 className="font-display text-xl sm:text-2xl text-[#1f1a17] mb-2">{s.title}</h3>
-      <p className="text-[14px] text-[#6f6660] leading-relaxed">{s.body}</p>
-    </div>
   )
 }

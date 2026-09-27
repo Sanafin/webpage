@@ -19,7 +19,7 @@ function Ctas() {
           href="/demo"
           data-cta="book_call"
           data-location="hero"
-          className="inline-flex min-h-11 items-center justify-center rounded-full bg-[#c4460f] px-6 py-2.5 text-[15px] font-medium text-white shadow-[0_8px_24px_-8px_rgba(241,93,34,0.7)] transition-colors hover:bg-[#a83a0b]"
+          className="inline-flex min-h-11 items-center justify-center rounded-full bg-[#f15d22] px-6 py-2.5 text-[15px] font-medium text-white shadow-[0_8px_24px_-8px_rgba(241,93,34,0.7)] transition-colors hover:bg-[#d94f18]"
         >
           {CTA.buyer}
         </Link>
@@ -73,7 +73,7 @@ export function HeroCtas() {
     <Suspense
       fallback={
         <div className="flex flex-col sm:flex-row items-start gap-3">
-          <span className="inline-flex min-h-11 items-center rounded-full bg-[#c4460f] px-6 py-2.5 text-[15px] font-medium text-white">{CTA.buyer}</span>
+          <span className="inline-flex min-h-11 items-center rounded-full bg-[#f15d22] px-6 py-2.5 text-[15px] font-medium text-white">{CTA.buyer}</span>
         </div>
       }
     >

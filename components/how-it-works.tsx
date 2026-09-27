@@ -153,9 +153,11 @@ export function HowItWorks() {
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
         >
           <div>
-            <p className="text-[13px] font-medium text-[#c4460f] mb-4">How it works</p>
-            <h2 id="how-title" className="font-display text-4xl sm:text-5xl md:text-6xl leading-[1.04] text-[#1f1a17] max-w-3xl">
+            <p className="text-[13px] font-medium text-[#f15d22] mb-4">How it works</p>
+            <h2 id="how-title" className="font-display text-4xl sm:text-5xl leading-[1.04] text-[#1f1a17] max-w-3xl">
               First, it refuses to pay.
+              <br />
+              <span className="text-[#1f1a17]/45">Then it pays. Then it proves it.</span>
             </h2>
           </div>
           <p className="max-w-sm text-[15px] leading-relaxed text-[#766d67] md:pb-2">
@@ -185,7 +187,7 @@ export function HowItWorks() {
                         selected ? "bg-white shadow-[0_1px_2px_rgba(47,36,31,0.06)]" : "hover:bg-white/60"
                       }`}
                     >
-                      <span className={`mt-1 font-mono text-[11px] ${selected ? "text-[#c4460f]" : "text-[#766d67]"}`}>{a.number}</span>
+                      <span className={`mt-1 text-[12px] ${selected ? "text-[#f15d22]" : "text-[#766d67]"}`}>{a.number}</span>
                       <span>
                         <span className="block font-display text-xl text-[#1f1a17]">{a.title}</span>
                         <span className="mt-1 block text-[14px] text-[#766d67]">{a.lead}</span>
@@ -204,21 +206,22 @@ export function HowItWorks() {
             className="grid overflow-hidden rounded-3xl border border-[#ece7e2] bg-white sm:grid-cols-[1fr_1.1fr]"
           >
             <div className="relative min-h-[220px] bg-[#ebe4db]">
-              {visual.src ? (
-                <img src={visual.src} alt={visual.alt} className="absolute inset-0 h-full w-full object-cover" loading="lazy" />
-              ) : (
-                <div className="absolute inset-0 bg-gradient-to-br from-[#efe8df] to-[#e4dbcf]" aria-hidden="true" />
-              )}
+              <img
+                src={visual.src ?? media.filmPoster}
+                alt={visual.src ? visual.alt : ""}
+                className="absolute inset-0 h-full w-full object-cover"
+                loading="lazy"
+              />
             </div>
             <div className="p-6 sm:p-7">
               <p className="text-[15px] leading-relaxed text-[#1f1a17] mb-5">{act.body}</p>
-              <dl className="divide-y divide-[#f0ebe6] rounded-2xl border border-[#f0ebe6] font-mono text-[12px]">
+              <dl className="divide-y divide-[#f0ebe6] rounded-2xl border border-[#f0ebe6] text-[13px]">
                 {act.rows.map(([k, v]) => (
                   <div key={k} className="flex items-center justify-between gap-4 px-3.5 py-2">
                     <dt className="text-[#766d67]">{k}</dt>
                     <dd
                       className={
-                        v.includes("false") ? "text-[#c4460f]" : v.includes("CHF 180,000") && act.id === "pays" ? "text-[#0f766e]" : "text-[#1f1a17]"
+                        v.includes("false") ? "text-[#f15d22]" : v.includes("CHF 180,000") && act.id === "pays" ? "text-[#0f766e]" : "text-[#1f1a17]"
                       }
                     >
                       {v}
@@ -236,7 +239,7 @@ export function HowItWorks() {
           {flow.map((f, i) => (
             <li key={f.who} className="relative rounded-2xl bg-[#fbfaf8] px-4 py-4">
               <p className="text-[12px] font-medium text-[#1f1a17] mb-1">
-                <span className="mr-2 font-mono text-[11px] text-[#766d67]">{i + 1}</span>
+                <span className="mr-2 text-[12px] text-[#766d67]">{i + 1}</span>
                 {f.who}
               </p>
               <p className="text-[13px] leading-snug text-[#6f6660]">{f.what}</p>
