@@ -4,8 +4,7 @@
 // product output, and alt text describes the objects.
 
 export const media = {
-  // Scale and book stills retired (they read as a law firm); minimal replacements pending.
-  heroPlate: null as string | null,
+  heroPlate: "/media/hero-plate.webp" as string | null,
   actRefuses: "/media/act-refuses.webp" as string | null,
   actPays: "/media/act-pays.webp" as string | null,
   actTamper: "/media/act-tamper.webp" as string | null,
@@ -14,9 +13,9 @@ export const media = {
   partnersStill: "/media/partners-still.webp" as string | null,
   researchStill: null as string | null,
   researchLoop: null as string | null,
-  closingLoop: null as string | null,
-  closingStill: null as string | null,
-  closingStillMobile: null as string | null,
+  closingLoop: "/media/closing-loop.mp4" as string | null,
+  closingStill: "/media/closing-still.jpg" as string | null,
+  closingStillMobile: "/media/closing-still-mobile.jpg" as string | null,
   film: "/media/outcome-marbles.mp4",
   filmPoster: "/media/outcome-marbles-poster.jpg",
 }
