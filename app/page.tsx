@@ -3,6 +3,7 @@ import { Hero } from "@/components/hero"
 import { Recognition } from "@/components/recognition"
 import { ProblemSection } from "@/components/problem-section"
 import { HowItWorks } from "@/components/how-it-works"
+import { FounderNote } from "@/components/founder-note"
 import { WhyNowSection } from "@/components/why-now-section"
 import { OutcomeStudio } from "@/components/outcome-studio"
 import { ExampleContracts } from "@/components/example-contracts"
@@ -24,6 +25,7 @@ export default function Home() {
           <ProblemSection />
           <WhyNowSection />
           <HowItWorks />
+          <FounderNote />
           <OutcomeStudio />
           <ExampleContracts />
           <TeamSection />

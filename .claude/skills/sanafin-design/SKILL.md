@@ -46,6 +46,9 @@ Rules:
 6. Right-column paragraphs are capped at `max-w-md` (≈ 60ch). Headings wrap to at most three lines at 1280 px.
 7. Whitespace does the grouping before borders do; borders before backgrounds; backgrounds before shadows.
 8. Icons are used only when they carry meaning a word cannot (sources, LinkedIn). Decorative lucide icons are removed.
+9. **Fintech-in-healthcare texture.** Every screen carries one technical artefact that could only come from this product: a ledger with tabular mono figures, the verification certificate, the terminal output of a verification run, an API response, a clinical value with its threshold. Calm layout is not the same as a brochure; without these the page stops feeling like software.
+10. **A face early.** A real person appears within the first three screens (founder note, portrait beside a quote from the deck). Team cards alone, seven screens down, do not give the company a face.
+11. One dark technical panel per page is allowed and encouraged (the terminal); it is the product's voice, not a decoration.
 
 ## 3. Honesty rules (enforced by `scripts/check-copy.mjs`)
 
