@@ -15,6 +15,8 @@ export const site = {
   linkedin: "https://linkedin.com/company/sanafin",
   careers: "https://wellfound.com/company/sanafin",
   ceo: { name: "Wasu Mekniran", firstName: "Wasu", title: "CEO" },
+  // Public address, also on the imprint. Deck requests and contact go here.
+  contactEmail: "hello@sanafin.tech",
   // Owner input: legal entity, street and UID replace this line when supplied.
   legalLine: "Sanafin · Switzerland",
 } as const
@@ -32,7 +34,6 @@ export const FORBIDDEN_COPY = [
   "EVM",
   "smart contract",
   "CHF 1.5",
-  "hello@",
   "TAM",
   "guarantee",
   "real-time",

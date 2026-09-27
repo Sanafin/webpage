@@ -2,61 +2,58 @@
 
 import { useState } from "react"
 import Link from "next/link"
-import { ArrowRight, Check } from "lucide-react"
+import { ArrowRight, Check, Mail } from "lucide-react"
 import { deckRequestSchema } from "@/lib/schemas"
 import { CTA, site } from "@/lib/site"
 
+// No server, no third-party service: the form composes a pre-filled email to the
+// founders and opens the visitor's mail app. The CEO replies with the deck.
+
 type Fields = "name" | "firm" | "email"
 
-const errorCopy: Record<string, string> = {
-  rate_limited: "Too many requests from this network. Please try again in a minute.",
-  unavailable: "The form is temporarily unavailable. Please try again shortly, or connect with us on LinkedIn.",
-  upstream: "We couldn't record your request just now. Please try again in a moment.",
-  network: "Network error. Please check your connection and try again.",
+export function buildDeckMailto(values: { name: string; firm: string; email: string; note?: string }, source: string): string {
+  const subject = `Deck request: ${values.name}, ${values.firm}`
+  const lines = [
+    `Hello Wasu,`,
+    ``,
+    `I would like to receive the Sanafin deck.`,
+    ``,
+    `Name: ${values.name}`,
+    `Firm: ${values.firm}`,
+    `Email: ${values.email}`,
+    values.note?.trim() ? `Note: ${values.note.trim()}` : null,
+    ``,
+    `Sent from sanafin.tech (${source})`,
+  ].filter((l): l is string => l !== null)
+  return `mailto:${site.contactEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines.join("\n"))}`
 }
 
 export function DeckRequestForm({ source = "investors" }: { source?: "investors" | "demo" | "closing" }) {
-  const [values, setValues] = useState({ name: "", firm: "", email: "", note: "", website: "" })
+  const [values, setValues] = useState({ name: "", firm: "", email: "", note: "" })
   const [fieldErrors, setFieldErrors] = useState<Partial<Record<Fields, string>>>({})
-  const [status, setStatus] = useState<"idle" | "loading" | "done">("idle")
-  const [error, setError] = useState("")
+  const [sent, setSent] = useState(false)
 
   function validateField(field: Fields) {
     const result = deckRequestSchema.shape[field].safeParse(values[field])
     setFieldErrors((e) => ({ ...e, [field]: result.success ? undefined : result.error.issues[0]?.message }))
   }
 
-  async function handleSubmit(e: React.FormEvent) {
+  function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
-    setError("")
-    const parsed = deckRequestSchema.safeParse({ ...values, source })
+    const parsed = deckRequestSchema.safeParse(values)
     if (!parsed.success) {
       const errs = parsed.error.flatten().fieldErrors
       setFieldErrors({ name: errs.name?.[0], firm: errs.firm?.[0], email: errs.email?.[0] })
       return
     }
-    setStatus("loading")
-    try {
-      const res = await fetch("/api/request-deck", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(parsed.data),
-      })
-      if (res.ok) {
-        setStatus("done")
-        window.dispatchEvent(new CustomEvent("sanafin:track", { detail: { name: "deck_form_success", props: { source } } }))
-      } else {
-        const data = await res.json().catch(() => ({}))
-        setError(errorCopy[data.error] ?? errorCopy.upstream)
-        setStatus("idle")
-      }
-    } catch {
-      setError(errorCopy.network)
-      setStatus("idle")
-    }
+    window.dispatchEvent(new CustomEvent("sanafin:track", { detail: { name: "deck_request_compose", props: { source } } }))
+    window.location.href = buildDeckMailto(parsed.data, source)
+    setSent(true)
   }
 
-  if (status === "done") {
+  const mailto = buildDeckMailto(values, source)
+
+  if (sent) {
     const first = values.name.trim().split(/\s+/)[0]
     return (
       <div role="status" className="rounded-3xl bg-white p-7 shadow-[0_1px_2px_rgba(47,36,31,0.06)]">
@@ -65,7 +62,19 @@ export function DeckRequestForm({ source = "investors" }: { source?: "investors"
           Thank you{first ? `, ${first}` : ""}.
         </p>
         <p className="mt-2 text-[15px] leading-relaxed text-[#1f1a17]">
-          {site.ceo.firstName} will send the deck to <span className="font-medium">{values.email.trim()}</span> personally within one working day.
+          Your mail app should have opened with the request ready to send. {site.ceo.firstName} replies personally with the deck
+          within one working day.
+        </p>
+        <p className="mt-3 text-[13px] leading-relaxed text-[#766d67]">
+          Nothing opened?{" "}
+          <a href={mailto} className="text-[#1f1a17] underline decoration-[#d9d1ca] underline-offset-4 hover:decoration-[#1f1a17]">
+            Open the email again
+          </a>{" "}
+          or write to{" "}
+          <a href={`mailto:${site.contactEmail}`} className="text-[#1f1a17] underline decoration-[#d9d1ca] underline-offset-4 hover:decoration-[#1f1a17]">
+            {site.contactEmail}
+          </a>
+          .
         </p>
         <ul className="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-[14px]">
           <li>
@@ -89,7 +98,7 @@ export function DeckRequestForm({ source = "investors" }: { source?: "investors"
     }`
 
   return (
-    <form onSubmit={handleSubmit} aria-busy={status === "loading"} noValidate className="rounded-3xl bg-white p-6 sm:p-7 shadow-[0_1px_2px_rgba(47,36,31,0.06)]">
+    <form onSubmit={handleSubmit} noValidate className="rounded-3xl bg-white p-6 sm:p-7 shadow-[0_1px_2px_rgba(47,36,31,0.06)]">
       <div className="grid gap-4 sm:grid-cols-2">
         <div>
           <label htmlFor={`deck-name-${source}`} className="mb-1.5 block text-[13px] font-medium text-[#1f1a17]">
@@ -175,36 +184,19 @@ export function DeckRequestForm({ source = "investors" }: { source?: "investors"
         />
       </div>
 
-      {/* Honeypot */}
-      <div className="absolute -left-[9999px] top-auto h-px w-px overflow-hidden" aria-hidden="true">
-        <label htmlFor={`deck-website-${source}`}>Website</label>
-        <input id={`deck-website-${source}`} name="website" tabIndex={-1} autoComplete="off" value={values.website} onChange={(e) => setValues((v) => ({ ...v, website: e.target.value }))} />
-      </div>
-
       <button
         type="submit"
-        disabled={status === "loading"}
         data-cta="request_deck_submit"
         data-location={source}
-        className="mt-5 inline-flex min-h-11 w-full items-center justify-center gap-1.5 rounded-full bg-[#1f1a17] px-6 py-2.5 text-[15px] font-medium text-white transition-colors hover:bg-[#3a322d] disabled:cursor-not-allowed disabled:opacity-60"
+        className="mt-5 inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-full bg-[#1f1a17] px-6 py-2.5 text-[15px] font-medium text-white transition-colors hover:bg-[#3a322d]"
       >
-        {status === "loading" ? "Sending…" : CTA.investor}
-        {status !== "loading" && <ArrowRight className="h-4 w-4" aria-hidden="true" />}
+        <Mail className="h-4 w-4" aria-hidden="true" />
+        {CTA.investor}
       </button>
 
-      {error && (
-        <p role="alert" className="mt-3 text-[13px] text-[#c4460f]">
-          {error}
-        </p>
-      )}
-
       <p className="mt-4 text-[12px] leading-relaxed text-[#766d67]">
-        Sent personally by {site.ceo.name}, {site.ceo.title}, within one working day. No mailing lists. We use your details only to
-        send the deck and follow up.{" "}
-        <Link href="/privacy" className="underline decoration-[#d9d1ca] underline-offset-2 hover:text-[#1f1a17]">
-          Privacy policy
-        </Link>
-        .
+        Opens a pre-filled email in your mail app. {site.ceo.name}, {site.ceo.title}, replies personally within one working day with a
+        view-only link. No mailing lists; your details go nowhere else.
       </p>
     </form>
   )

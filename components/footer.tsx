@@ -2,7 +2,6 @@ import Link from "next/link"
 import Image from "next/image"
 import { ArrowUpRight, Linkedin } from "lucide-react"
 import { SourcesList } from "@/components/fn"
-import { UpdatesForm } from "@/components/updates-form"
 import { site } from "@/lib/site"
 
 // Footer as a trust ledger: where things are, what is claimed, and who stands
@@ -54,8 +53,18 @@ export function Footer() {
               style={{ height: "32px", width: "auto" }}
             />
             <p className="max-w-sm text-[14px] leading-relaxed text-[#6f6660] mb-6">{site.tagline}</p>
-            <p className="text-[13px] text-[#766d67] mb-3">Product updates</p>
-            <UpdatesForm />
+            <p className="text-[13px] text-[#766d67] mb-3">Contact</p>
+            <p className="text-[14px] leading-relaxed text-[#6f6660]">
+              <a href={`mailto:${site.contactEmail}`} className="text-[#1f1a17] underline decoration-[#d9d1ca] underline-offset-4 hover:decoration-[#1f1a17]">
+                {site.contactEmail}
+              </a>
+              <br />
+              Product updates on{" "}
+              <a href={site.linkedin} target="_blank" rel="noopener noreferrer" className="text-[#1f1a17] underline decoration-[#d9d1ca] underline-offset-4 hover:decoration-[#1f1a17]">
+                LinkedIn
+              </a>
+              .
+            </p>
           </div>
 
           {columns.map((col) => (
