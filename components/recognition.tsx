@@ -49,14 +49,14 @@ export function Recognition() {
               </div>
 
               {/* Track */}
-              <div className="relative" role="img" aria-label={`${loiLabel(loi)}: ${pathway[loi.stage - 1]}, ${loi.status}`}>
+              <div className="relative pb-6" role="img" aria-label={`${loiLabel(loi)}: ${pathway[loi.stage - 1]}, ${loi.status}`}>
                 <div className="grid items-center" style={{ gridTemplateColumns: `repeat(${n}, minmax(0, 1fr))` }}>
                   {pathway.map((stage, i) => {
                     const idx = i + 1
                     const reached = idx < loi.stage
                     const current = idx === loi.stage
                     return (
-                      <div key={stage} className="relative flex h-8 items-center">
+                      <div key={stage} className="relative flex h-6 items-center">
                         {/* segment line */}
                         {idx < n && (
                         <span
@@ -78,7 +78,7 @@ export function Recognition() {
                           aria-hidden="true"
                         />
                         {current && (
-                          <span className="absolute left-6 top-1/2 -translate-y-1/2 whitespace-nowrap rounded-full bg-[#14b8a6]/10 px-2.5 py-1 text-[11.5px] font-medium text-[#0f766e]">
+                          <span className="absolute left-0 top-full mt-2 hidden whitespace-nowrap text-[12px] font-medium text-[#0f766e] md:block">
                             {loi.status}
                           </span>
                         )}
@@ -86,7 +86,7 @@ export function Recognition() {
                     )
                   })}
                 </div>
-                <p className="mt-2 text-[12px] text-[#766d67] md:hidden">
+                <p className="mt-7 text-[12px] text-[#766d67] md:hidden">
                   {pathway[loi.stage - 1]} · {loi.status}
                 </p>
               </div>
