@@ -32,7 +32,7 @@ export const acts = [
     number: "01",
     title: "First, it refuses to pay.",
     lead: "The cohort misses the pre-agreed threshold.",
-    body: "One hundred patients, CHF 180,000 committed by the funder before the first enrolment. The composite score comes in at 29 against a cut-off of 75, so nothing is released and the settlement instruction returns the money to the funder.",
+    body: "One hundred patients, CHF 180,000 committed before the first enrolment. The composite comes in at 29 against a cut-off of 75. Nothing is released; the money returns to the funder.",
     rows: [
       ["Wirksamkeit", "54 / 100"],
       ["Zweckmässigkeit", "34 / 100"],
@@ -48,7 +48,7 @@ export const acts = [
     number: "02",
     title: "Then it pays, in one block.",
     lead: "Same contract, same cut-off. Only the patients changed.",
-    body: "The composite score reaches 99. The funder knows the amount the moment the last patient is measured, not four months later, and the manufacturer receives one settlement instruction with a fingerprint their auditor can keep.",
+    body: "The composite reaches 99. The funder knows the amount the moment the last patient is measured. The manufacturer gets one settlement instruction with a fingerprint its auditor can keep.",
     rows: [
       ["Composite", "99 / 100 · meets WZW"],
       ["Average HbA1c change", "−1.3 pp"],
@@ -63,7 +63,7 @@ export const acts = [
     number: "03",
     title: "Then it catches us tampering.",
     lead: "One value in a hundred, edited by 0.1.",
-    body: "The verdict and the score do not change, but the fingerprint does. Anyone holding the exported file can re-run the check on their own machine, with no Sanafin server involved. Neither side has to trust us.",
+    body: "Same verdict, same score, different fingerprint. Anyone with the exported file can re-run the check on their own machine. Neither side has to trust us.",
     rows: [
       ["Verdict matches", "true"],
       ["Composite matches", "true"],

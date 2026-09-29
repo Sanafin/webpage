@@ -27,15 +27,15 @@ const facts = [
 ]
 
 const today = [
-  "Evidence is assembled by hand for each payer, at CHF 100k to 250k a project.",
-  "Switzerland has no trial phase: no payer money moves before a listing exists.",
-  "The verdict lives in a consultant's spreadsheet that nobody else can re-run.",
+  "Evidence assembled by hand, per payer, at CHF 100k to 250k a project.",
+  "No Swiss trial phase: no payer money before a listing.",
+  "The verdict lives in a spreadsheet nobody else can re-run.",
 ]
 
 const withSanafin = [
-  "A funder commits money to the outcome up front, held by a licensed custody partner.",
-  "The result is verified against the pre-agreed threshold with WZW-native scoring.",
-  "Either side can re-compute the proof from the exported file alone.",
+  "A funder commits money up front, held by a licensed custody partner.",
+  "The result is verified against the threshold with WZW-native scoring.",
+  "Either side re-computes the proof from the exported file.",
 ]
 
 export function ProblemSection() {
@@ -52,8 +52,8 @@ export function ProblemSection() {
             </h2>
           </div>
           <p className="max-w-md text-base sm:text-lg leading-relaxed text-[#6f6660] lg:pb-2">
-            Payers in Germany and Switzerland now ask digital health products to show a measured effect before, and
-            after, they are paid. The money to produce that evidence only arrives once the evidence exists.
+            Payers now ask digital health products to prove a measured effect before they pay. The money to produce
+            that evidence only arrives once the evidence exists.
           </p>
         </Reveal>
 

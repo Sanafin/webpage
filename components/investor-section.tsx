@@ -8,14 +8,13 @@ import { lois } from "@/lib/traction"
 const chips = [
   `${publications.length} publications, CEO first author`,
   `${lois.length} signed LOIs with Swiss care partners`,
-  "Innosuisse-funded Innovation Booster award",
-  "Team from ETH Zurich · Imperial · HSG · Dr. med.",
+  "Innovation Booster award winner",
 ]
 
 const inTheDeck = [
-  "Why now: MiGeL Chapter 40, § 134 SGB V and the 31 December 2026 evidence deadline",
-  "How verification, custody and settlement work, end to end, with the three-act demo",
-  "Traction, team, research and the next eighteen months",
+  "Why now: MiGeL Ch. 40, § 134 SGB V, the 31 Dec 2026 deadline",
+  "How verification, custody and settlement work",
+  "Traction, team, research, the next 18 months",
 ]
 
 export function InvestorSection() {
@@ -30,10 +29,8 @@ export function InvestorSection() {
               <span className="text-[#1f1a17]/45"> outcome-conditional healthcare payments.</span>
             </h2>
             <p className="text-[15px] sm:text-base leading-relaxed text-[#6f6660] mb-8 max-w-xl">
-              Sanafin is a pre-seed company built on ETH Zurich and HSG research, starting with Swiss digital health
-              manufacturers and the insurers, employers and hospitals who fund their evidence. If you invest in
-              European digital health or fintech infrastructure, request the deck and Wasu will send it to you
-              personally.
+              Pre-seed, built on ETH Zurich and HSG research. First market: Swiss digital health manufacturers and
+              the funders behind their evidence. Request the deck and Wasu sends it personally.
             </p>
 
             <ul className="mb-8 flex flex-wrap gap-2">

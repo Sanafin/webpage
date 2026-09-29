@@ -10,14 +10,14 @@ import { contracts } from "@/lib/examples"
 // structures, not customer data; clinical thresholds are footnoted.
 
 const pilot = {
-  scope: ["One funder with a named budget owner", "One manufacturer with a defined outcome", "One cohort, one pre-agreed threshold"],
+  scope: ["One funder, one manufacturer", "One cohort, one pre-agreed threshold"],
   timeline: [
     ["Day 0", "Discovery call"],
     ["Week 1", "Data connected, threshold agreed"],
     ["Week 2", "Rules live, first verification report"],
     ["Months 3–12", "Milestones verified and settled"],
   ],
-  fit: ["You are heading for a MiGeL Ch. 40 listing or a German DiGA price negotiation", "A funder is willing to commit money against a measurable outcome", "Your programme already produces biomarker or claims data"],
+  fit: ["You are heading for a MiGeL Ch. 40 listing or a DiGA price negotiation", "A funder will commit money against a measurable outcome", "Your programme already produces biomarker or claims data"],
 }
 
 export function ExampleContracts() {
@@ -37,8 +37,7 @@ export function ExampleContracts() {
             </h2>
           </div>
           <p className="max-w-md text-[15px] sm:text-base leading-relaxed text-[#6f6660] lg:pb-2">
-            Measurable endpoints, rising spend and funders already asking for conditional terms. These are example
-            contract designs Sanafin can structure today, illustrative rather than customer data.
+            Measurable endpoints, rising spend, funders already asking for conditional terms. Example contract designs, not customer data.
           </p>
         </div>
 
@@ -169,7 +168,7 @@ export function ExampleContracts() {
                 Scope a pilot on a call
                 <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </Link>
-              <p className="text-center text-[12px] text-[#766d67]">Commercials are discussed on the call. NDA on request.</p>
+              <p className="text-center text-[12px] text-[#766d67]">Commercials on the call · NDA on request</p>
             </div>
           </aside>
         </div>

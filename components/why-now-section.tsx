@@ -10,7 +10,7 @@ const events = [
     region: "Germany",
     stat: "≥ 20%",
     title: "Outcome-linked pricing became law",
-    body: "At least 20% of a prescription app's reimbursement price must depend on measured performance. § 134 SGB V applies to agreements from 1 January 2026; BfArM describes new agreements from 1 July 2026. Germany's own payer report notes no product has implemented one yet.",
+    body: "At least 20% of a prescription app's price must now depend on measured performance (§ 134 SGB V). No product has implemented it yet.",
     sources: [
       ["sgb5-134", "§ 134 SGB V"],
       ["bfarm-digig", "BfArM"],
@@ -23,7 +23,7 @@ const events = [
     region: "Switzerland",
     stat: "TARDOC",
     title: "Cost containment becomes the organising principle",
-    body: "The new outpatient tariff and flat rates replaced TARMED, alongside a mandatory electronic invoice standard. Every new digital service has to fit this rail.",
+    body: "TARDOC and flat rates replaced TARMED, with a mandatory electronic invoice standard. Every new digital service has to fit this rail.",
     sources: [["tardoc", "OAAT"]],
     past: true,
   },
@@ -32,7 +32,7 @@ const events = [
     region: "Switzerland",
     stat: "MiGeL Ch. 40",
     title: "A reimbursement path opens, with a proof requirement",
-    body: "Product group 40 opened for digital health applications. The first listing, a digital CBT programme, was admitted under evaluation only; applicants are judged on effectiveness, appropriateness and economic efficiency.",
+    body: "Product group 40 opened for digital health applications. The first listing was admitted under evaluation only, judged on effectiveness, appropriateness and economy.",
     sources: [["migel-40", "FOPH · MiGeL"]],
     past: true,
   },
@@ -41,7 +41,7 @@ const events = [
     region: "Switzerland",
     stat: "Evidence due",
     title: "The federal question on dGA cost-effectiveness closes",
-    body: "That first admission runs under evaluation to 31 December 2026. Whatever evidence exists by then sets the bar for everyone who follows.",
+    body: "The first admission's evaluation ends. Whatever evidence exists by then sets the bar for everyone who follows.",
     sources: [["migel-40", "FOPH · MiGeL"]],
     past: false,
   },
@@ -50,7 +50,7 @@ const events = [
     region: "European Union",
     stat: "EHDS",
     title: "Health data becomes portable",
-    body: "The European Health Data Space regulation entered into force in March 2025. It applies in stages from 2027, with patient summaries from 2029.",
+    body: "The European Health Data Space applies in stages from 2027, patient summaries from 2029.",
     sources: [["ehds", "EUR-Lex"]],
     past: false,
   },
@@ -71,8 +71,7 @@ export function WhyNowSection() {
               <span className="text-[#1f1a17]/45">stopped being optional.</span>
             </h2>
             <p className="max-w-md text-base sm:text-lg leading-relaxed text-[#6f6660]">
-              In Europe&apos;s two largest German-speaking health markets, reimbursement moved from paying for access to
-              paying for results, with dates attached. Today that proof is produced by hand, one contract at a time.
+              Germany and Switzerland moved from paying for access to paying for results, with dates attached. Today that proof is still produced by hand.
             </p>
           </Reveal>
 
