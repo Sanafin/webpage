@@ -92,7 +92,10 @@ export function OutcomeStudio() {
               <span className="text-[#1f1a17]/45">Five stages, one API.</span>
             </h2>
           </div>
-          <p className="text-[13px] text-[#766d67] lg:text-right">Example values · illustrative</p>
+          <div className="flex items-end gap-6 lg:flex-col lg:items-end">
+            <img src="/media/sanafin-cube.webp" alt="" className="h-24 w-auto sm:h-32 lg:h-40 drop-shadow-[0_18px_30px_rgba(241,93,34,0.18)]" loading="lazy" />
+            <p className="text-[13px] text-[#766d67] lg:text-right">Example values · illustrative</p>
+          </div>
         </Reveal>
 
         <div className="grid grid-cols-1 lg:grid-cols-6 gap-4">
@@ -101,7 +104,7 @@ export function OutcomeStudio() {
             className="lg:col-span-4"
             eyebrow="01 · Collect  ·  02 · Monitor"
             title="The data you already send a payer, watched over time."
-            body="FHIR R4 or CSV intake, consent check, baseline capture. Then a longitudinal biomarker stream with dropout guardrails, so evidence gaps show up before anyone commits to a threshold that cannot be met."
+            body="FHIR R4 or CSV intake, consent check, baseline. Then a biomarker stream with dropout guardrails, so evidence gaps show before anyone commits to a threshold."
           >
             <div className="grid gap-4 sm:grid-cols-[1fr_auto_1fr] sm:items-center">
               <ul className="grid grid-cols-2 gap-2">
@@ -151,7 +154,7 @@ export function OutcomeStudio() {
             className="lg:col-span-2"
             eyebrow="04 · Finance"
             title="Committed up front, held by a custodian."
-            body="Pay-for-performance, shared savings or bundled terms. The funder's money sits with a licensed custody partner; Sanafin never holds funds."
+            body="Pay-for-performance, shared savings or bundled terms. Funds sit with a licensed custody partner, never with Sanafin."
             delay={0.15}
           >
             <pre className="overflow-x-auto rounded-2xl border border-[#ece7e2] bg-white p-4 font-mono text-[11px] leading-relaxed text-[#1f1a17]/80">
@@ -170,7 +173,7 @@ export function OutcomeStudio() {
             className="lg:col-span-4"
             eyebrow="05 · Settle"
             title="Released when the threshold is met."
-            body="One settlement instruction, a conformant Swiss invoice and a signed audit record. Unmet milestones return to the funder; either side can re-compute the certificate from the exported file alone."
+            body="One settlement instruction, a Swiss-conformant invoice, a signed audit record. Unmet milestones return to the funder."
             delay={0.2}
           >
             <div className="rounded-2xl border border-[#ece7e2] bg-white divide-y divide-[#f0ebe6]">
@@ -188,7 +191,7 @@ export function OutcomeStudio() {
         </div>
 
         <div className="mt-6 flex flex-col gap-4 rounded-3xl border border-[#ece7e2] bg-white px-5 py-4 lg:flex-row lg:items-center lg:justify-between">
-          <p className="text-[14px] text-[#6f6660]">One REST API and one audit chain. Every value is hashed on entry; the certificate is re-computable from the exported file alone.</p>
+          <p className="text-[14px] text-[#6f6660]">One REST API, one audit chain. Every value hashed on entry; the certificate re-computable from the exported file.</p>
           <pre className="max-w-full whitespace-pre-wrap rounded-xl bg-[#1a1512] px-4 py-2.5 font-mono text-[11.5px] leading-relaxed text-white/85 lg:shrink-0">
             <span className="text-[#5eead4]">POST</span> /v1/verifications <span className="text-white/40">→</span> {`{ "verdict": "meets_wzw", "certificate": "7aaa8b48…" }`}
           </pre>

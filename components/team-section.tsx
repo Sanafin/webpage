@@ -20,21 +20,13 @@ const team = [
     name: "Wasu Mekniran",
     title: "CEO",
     owns: "Owns the verification model and the payer conversations.",
-    credential: "PhD in healthcare financing, ETH Zurich · MBA · researcher at HSG · first author on the EDEN papers",
+    credential: "PhD in healthcare financing, ETH Zurich · researcher at HSG · first author on the EDEN papers",
     photo: wasuProfile,
     linkedin: "https://www.linkedin.com/in/wasumekniran/",
   },
   {
-    name: "Djata Sigam",
-    title: "CTO",
-    owns: "Owns Outcome Studio, the audit chain and settlement.",
-    credential: "MSc Mathematics, Imperial College London & ETH Zurich · 8+ years building fintech software",
-    photo: djataProfile,
-    linkedin: "https://www.linkedin.com/in/djata-s-478631134/",
-  },
-  {
     name: "Susanne Oudbier",
-    title: "Medical Officer",
+    title: "Chief Medical Officer",
     owns: "Owns outcome definitions and clinical sign-off.",
     credential: "MD PhD · resident physician at HOCH Ostschweiz",
     photo: susanProfile,
@@ -47,6 +39,14 @@ const team = [
     credential: "MSc Quantitative Finance, UZH/ETH",
     photo: anejProfile,
     linkedin: "https://www.linkedin.com/in/anej-rozman/",
+  },
+  {
+    name: "Djata Sigam",
+    title: "Software Engineer",
+    owns: "Builds Outcome Studio, the audit chain and settlement.",
+    credential: "MSc Mathematics, Imperial College London and ETH Zurich · 8+ years of fintech software",
+    photo: djataProfile,
+    linkedin: "https://www.linkedin.com/in/djata-s-478631134/",
   },
 ]
 

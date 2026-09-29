@@ -7,11 +7,11 @@ export function Fn({ id, className = "" }: { id: string; className?: string }) {
   const n = sourceNumber(id)
   const s = getSource(id)
   return (
-    <sup className={`ml-0.5 align-super text-[0.42em] font-medium leading-none ${className}`}>
+    <sup className={`ml-px align-super text-[0.34em] font-normal leading-none ${className}`}>
       <a
         href={`#src-${n}`}
         aria-label={`Source ${n}: ${s.label}`}
-        className="rounded-sm text-[#c4460f] no-underline hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#14b8a6]"
+        className="rounded-sm text-[#a39a93] no-underline hover:text-[#1f1a17] hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#14b8a6]"
       >
         {n}
       </a>
