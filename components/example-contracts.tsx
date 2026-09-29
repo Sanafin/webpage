@@ -1,12 +1,9 @@
-"use client"
-
-import { useState } from "react"
 import Link from "next/link"
 import { ArrowRight, Check } from "lucide-react"
 import { Fn } from "@/components/fn"
 import { contracts } from "@/lib/examples"
 
-// One tabbed example contract at a time, next to the pilot offer. Illustrative
+// One example contract, the type 2 diabetes case, next to the pilot offer. Illustrative
 // structures, not customer data; clinical thresholds are footnoted.
 
 const pilot = {
@@ -21,8 +18,7 @@ const pilot = {
 }
 
 export function ExampleContracts() {
-  const [active, setActive] = useState<(typeof contracts)[number]["id"]>(contracts[0].id)
-  const c = contracts.find((x) => x.id === active) ?? contracts[0]
+  const c = contracts[0]
 
   return (
     <section id="examples" aria-labelledby="examples-title" className="relative scroll-mt-24">
@@ -37,36 +33,14 @@ export function ExampleContracts() {
             </h2>
           </div>
           <p className="max-w-md text-[15px] sm:text-base leading-relaxed text-[#6f6660] lg:pb-2">
-            Measurable endpoints, rising spend, funders already asking for conditional terms. Example contract designs, not customer data.
+            Measurable endpoints, rising spend, funders already asking for conditional terms. One example contract design, not customer data.
           </p>
         </div>
 
         <div className="grid gap-4 lg:grid-cols-[1.1fr_0.9fr]">
           {/* Tabbed contract */}
-          <div className="rounded-3xl bg-[#f5f1ed] p-3">
-            <div role="tablist" aria-label="Example contracts" className="flex flex-wrap gap-1 p-1">
-              {contracts.map((x) => {
-                const selected = x.id === active
-                return (
-                  <button
-                    key={x.id}
-                    type="button"
-                    role="tab"
-                    id={`contract-tab-${x.id}`}
-                    aria-selected={selected}
-                    aria-controls={`contract-${x.id}`}
-                    onClick={() => setActive(x.id)}
-                    className={`rounded-full px-4 py-2 text-[14px] transition-colors ${
-                      selected ? "bg-[#1f1a17] text-white" : "text-[#1f1a17] hover:bg-white"
-                    }`}
-                  >
-                    {x.name}
-                  </button>
-                )
-              })}
-            </div>
-
-            <div id={`contract-${c.id}`} role="tabpanel" aria-labelledby={`contract-tab-${c.id}`} className="mt-2 rounded-2xl bg-white p-6 shadow-[0_1px_2px_rgba(47,36,31,0.05)]">
+          <div className="self-start">
+            <div className="rounded-3xl border border-[#ece7e2] bg-white p-6 sm:p-7">
               <p className="text-[12px] text-[#766d67] mb-1">Example contract · illustrative</p>
               <h3 className="font-display text-2xl text-[#1f1a17] mb-1">{c.name}</h3>
               <p className="text-[14px] text-[#6f6660] mb-6">{c.population}</p>
