@@ -28,6 +28,9 @@ export type Loi = {
   focus: string
   signed?: string // "Jun 2026"
   status: string
+  // Where the partnership stands on the shared pathway: 1 letter of intent,
+  // 2 proof of concept, 3 implementation, 4 scale.
+  stage: 1 | 2 | 3 | 4
 }
 
 // Programmes and awards that support Sanafin. Only list what can be shown publicly.
@@ -76,7 +79,8 @@ export const lois: Loi[] = [
     country: "Switzerland",
     focus: "Diabetes care proof of concept",
     signed: "Jun 2026",
-    status: "Proof of concept running to Oct 2026",
+    status: "Running to Oct 2026",
+    stage: 2,
   },
   {
     partnerType: "Swiss digital health company",
@@ -86,6 +90,7 @@ export const lois: Loi[] = [
     country: "Switzerland",
     focus: "Digital-health partner in the proof of concept",
     status: "Active",
+    stage: 2,
   },
   {
     partnerType: "University longevity medicine centre",
@@ -94,6 +99,7 @@ export const lois: Loi[] = [
     country: "Switzerland",
     focus: "Workflow validation",
     status: "Scoping",
+    stage: 1,
   },
   {
     partnerType: "Preventive health provider",
@@ -102,8 +108,11 @@ export const lois: Loi[] = [
     country: "Switzerland",
     focus: "Workflow validation",
     status: "Scoping",
+    stage: 1,
   },
 ]
+
+export const pathway = ["Letter of intent", "Proof of concept", "Implementation", "Scale"] as const
 
 export function loiLabel(loi: Loi): string {
   return loi.named && loi.name ? loi.name : loi.partnerType

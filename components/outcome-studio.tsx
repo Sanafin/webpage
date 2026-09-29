@@ -81,8 +81,15 @@ function Tile({
 
 export function OutcomeStudio() {
   return (
-    <section id="product" aria-labelledby="product-title" className="relative scroll-mt-24 bg-[#fbfaf8]">
-      <div className="max-w-7xl mx-auto px-6">
+    <section id="product" aria-labelledby="product-title" className="relative scroll-mt-24 overflow-hidden bg-[#fbfaf8]">
+      <img
+        src="/media/sanafin-cube.webp"
+        alt=""
+        aria-hidden="true"
+        className="pointer-events-none absolute -top-10 right-[-6%] w-[42vw] max-w-[560px] opacity-[0.26] lg:right-0 lg:top-[-6rem]"
+        loading="lazy"
+      />
+      <div className="relative max-w-7xl mx-auto px-6">
         <Reveal className="mb-14 flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
           <div className="max-w-2xl">
             <p className="text-[13px] text-[#766d67] mb-4">The product</p>
@@ -92,10 +99,7 @@ export function OutcomeStudio() {
               <span className="text-[#1f1a17]/45">Five stages, one API.</span>
             </h2>
           </div>
-          <div className="flex items-end gap-6 lg:flex-col lg:items-end">
-            <img src="/media/sanafin-cube.webp" alt="" className="h-24 w-auto sm:h-32 lg:h-40 drop-shadow-[0_18px_30px_rgba(241,93,34,0.18)]" loading="lazy" />
-            <p className="text-[13px] text-[#766d67] lg:text-right">Example values · illustrative</p>
-          </div>
+          <p className="text-[13px] text-[#766d67] lg:text-right">Example values · illustrative</p>
         </Reveal>
 
         <div className="grid grid-cols-1 lg:grid-cols-6 gap-4">
