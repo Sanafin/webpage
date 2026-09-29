@@ -7,7 +7,6 @@ import { Reveal } from "@/components/reveal"
 import { ScreenFrame } from "@/components/screen-frame"
 import { media } from "@/lib/media"
 import { backers, lois } from "@/lib/traction"
-import innoBooster from "@/components/ui/logo/innobooster.png"
 
 // Centred hero, Stripe/Mixpanel pattern: claim, two CTAs, one proof line, then the
 // product floating on a soft glow with the recognition row beneath. Rendered on
@@ -23,14 +22,8 @@ export function Hero() {
       />
       <div className="relative max-w-7xl mx-auto px-6">
         <div className="mx-auto flex max-w-4xl flex-col items-center text-center">
-          <Link
-            href="#traction"
-            className="mb-8 inline-flex items-center gap-2.5 rounded-full border border-[#e9e4df] bg-white py-1.5 pl-2 pr-4 text-[13px] text-[#6f6660] transition-colors hover:border-[#d9d1ca] hover:text-[#1f1a17]"
-          >
-            <Image src={innoBooster} alt="" className="h-5 w-auto" style={{ width: "auto" }} />
-            <span className="h-3.5 w-px bg-[#e9e4df]" aria-hidden="true" />
-            <span className="hidden sm:inline">Innovation Booster Sustainable Digital Finance · Winner</span>
-            <span className="sm:hidden">Innovation Booster winner</span>
+          <Link href="#traction" className="mb-7 text-[13px] text-[#766d67] transition-colors hover:text-[#1f1a17]">
+            Winner, Innovation Booster Sustainable Digital Finance
           </Link>
 
           <h1 className="font-display text-[2.6rem] leading-[1.04] sm:text-[3.6rem] lg:text-[4.3rem] text-[#1f1a17] mb-6">
@@ -58,8 +51,8 @@ export function Hero() {
         </div>
 
         {/* Product on a soft glow */}
-        <Reveal className="relative mx-auto mt-16 md:mt-20 max-w-5xl pb-6 md:pb-8" delay={0.15}>
-          <div className="pointer-events-none absolute -inset-x-24 -top-16 -bottom-6 overflow-hidden rounded-[48px]" aria-hidden="true">
+        <Reveal className="relative mx-auto mt-12 md:mt-14 max-w-5xl pb-5 md:pb-6" delay={0.15}>
+          <div className="pointer-events-none absolute -inset-x-6 -top-6 -bottom-5 overflow-hidden rounded-[32px] md:-inset-x-10 md:-top-8" aria-hidden="true">
             {media.heroPlate ? (
               <img src={media.heroPlate} alt="" className="h-full w-full object-cover opacity-90" />
             ) : (

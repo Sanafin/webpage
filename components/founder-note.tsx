@@ -11,39 +11,35 @@ import stagePhoto from "@/public/media/stage-sic.webp"
 export function FounderNote() {
   return (
     <section id="founders" aria-labelledby="founder-note-title" className="relative !py-0">
-      <div className="max-w-7xl mx-auto px-6">
-        <Reveal className="grid items-center gap-8 border-y border-[#ece7e2] py-12 md:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] md:gap-14 md:py-16">
-          <figure className="relative overflow-hidden rounded-3xl bg-[#ebe4db]">
-            <Image
-              src={stagePhoto}
-              alt={`${site.ceo.name} presenting Sanafin on stage at the Swiss Innovation Challenge`}
-              width={1400}
-              height={1575}
-              sizes="(min-width: 768px) 40vw, 100vw"
-              className="aspect-[4/3] w-full object-cover object-[60%_center] md:aspect-[5/4]"
-            />
-            <figcaption className="absolute bottom-3 left-3 rounded-full bg-white/85 px-3 py-1 text-[11px] text-[#1f1a17] backdrop-blur">
-              Swiss Innovation Challenge, on stage
-            </figcaption>
-          </figure>
-          <div>
+      <div className="max-w-7xl mx-auto px-6 py-6">
+        <Reveal className="relative overflow-hidden rounded-[32px] bg-[#f5f1ed] px-6 py-14 md:px-14 md:py-20">
+          <Image
+            src={stagePhoto}
+            alt=""
+            aria-hidden="true"
+            fill
+            sizes="(min-width: 1280px) 1280px, 100vw"
+            className="pointer-events-none object-cover object-[60%_45%] opacity-[0.3] saturate-[0.6]"
+          />
+          <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,#f5f1ed_0%,rgba(245,241,237,0.92)_40%,rgba(245,241,237,0.2)_100%)]" aria-hidden="true" />
+          <div className="relative max-w-3xl">
             <blockquote>
-              <p id="founder-note-title" className="font-serif text-2xl italic leading-snug text-[#1f1a17] sm:text-3xl md:text-[2.1rem]">
+              <p id="founder-note-title" className="font-serif text-2xl italic leading-snug text-[#1f1a17] sm:text-3xl md:text-[2.3rem]">
                 “If the system cannot say no, its yes is worth nothing. Every buyer in this market has already seen a demo that
                 only ever says yes.”
               </p>
-              <footer className="mt-5 flex items-center gap-3 text-[14px] text-[#766d67]">
-                <span className="relative h-9 w-9 shrink-0 overflow-hidden rounded-full bg-[#ebe4db]">
-                  <Image src={wasuProfile} alt="" fill sizes="36px" className="object-cover object-top" />
+              <footer className="mt-6 flex items-center gap-3 text-[14px] text-[#766d67]">
+                <span className="relative h-10 w-10 shrink-0 overflow-hidden rounded-full bg-[#ebe4db]">
+                  <Image src={wasuProfile} alt="" fill sizes="40px" className="object-cover object-top" />
                 </span>
                 <span>
-                  <span className="text-[#1f1a17]">{site.ceo.name}</span>, {site.ceo.title} · PhD in healthcare financing, ETH Zurich
+                  <span className="text-[#1f1a17]">{site.ceo.name}</span>, {site.ceo.title} · on stage at the Swiss Innovation Challenge
                 </span>
               </footer>
             </blockquote>
             <Link
               href="#team"
-              className="mt-6 inline-flex items-center gap-1.5 text-[14px] text-[#1f1a17] underline decoration-[#d9d1ca] underline-offset-4 hover:decoration-[#1f1a17]"
+              className="mt-7 inline-flex items-center gap-1.5 text-[14px] text-[#1f1a17] underline decoration-[#d9d1ca] underline-offset-4 hover:decoration-[#1f1a17]"
             >
               Meet the team
               <ArrowRight className="h-4 w-4" aria-hidden="true" />
