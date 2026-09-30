@@ -15,17 +15,13 @@ export function Hero() {
   const heroBackers = backers.filter((b) => b.inHero)
 
   return (
-    <section id="top" className="relative overflow-hidden bg-[#fbfaf8] pt-36 md:pt-44 !pb-0">
+    <section id="top" className="relative overflow-hidden bg-[#fbfaf8] pt-28 md:pt-40 !pb-0">
       <div
         className="pointer-events-none absolute inset-x-0 top-0 h-[720px] blueprint-grid-light [mask-image:radial-gradient(ellipse_70%_60%_at_50%_20%,black_20%,transparent_75%)]"
         aria-hidden="true"
       />
       <div className="relative max-w-7xl mx-auto px-6">
         <div className="mx-auto flex max-w-4xl flex-col items-center text-center">
-          <Link href="#traction" className="mb-7 text-[13px] text-[#766d67] transition-colors hover:text-[#1f1a17]">
-            Winner, Innovation Booster Sustainable Digital Finance
-          </Link>
-
           <h1 className="font-display text-[2.6rem] leading-[1.04] sm:text-[3.6rem] lg:text-[4.3rem] text-[#1f1a17] mb-6">
             Money moves{" "}
             <br className="hidden sm:block" />
@@ -72,7 +68,7 @@ export function Hero() {
               <MobileContractCard />
             </ScreenFrame>
           </div>
-          <div className="relative mx-auto mt-6 max-w-4xl">
+          <div className="relative mx-auto mt-6 hidden max-w-4xl md:block">
             <MomentStrip />
           </div>
         </Reveal>
@@ -82,8 +78,11 @@ export function Hero() {
           <p className="text-[12px] text-[#766d67]">Recognised by Swiss innovation programmes · Research from ETH Zurich and HSG</p>
           <ul className="flex flex-wrap items-center justify-center gap-x-12 gap-y-4">
             {heroBackers.map((b) => (
-              <li key={b.name} className="flex items-center">
+              <li key={b.name} className="flex flex-col items-center gap-2">
                 <Image src={b.logo} alt={b.name} className="h-7 w-auto object-contain opacity-80" style={{ width: "auto" }} />
+                <span className={`text-[11px] ${b.relationship === "Award" ? "font-medium text-[#1f1a17]" : "text-[#766d67]"}`}>
+                  {b.relationship === "Award" ? "Winner" : b.relationship}
+                </span>
               </li>
             ))}
           </ul>

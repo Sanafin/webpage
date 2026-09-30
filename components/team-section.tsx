@@ -1,8 +1,7 @@
 import Image from "next/image"
 import Link from "next/link"
 import { ArrowUpRight, Linkedin } from "lucide-react"
-import { ResearchMedia } from "@/components/research-media"
-import { milestones, publications } from "@/lib/research"
+import { publications } from "@/lib/research"
 
 import wasuProfile from "@/components/ui/profiles/wasu_profile.webp"
 import susanProfile from "@/components/ui/profiles/susan_profile.webp"
@@ -167,8 +166,8 @@ export function TeamSection() {
           </ul>
         </div>
 
-        {/* Research + milestones */}
-        <div className="mt-14 grid gap-4 lg:grid-cols-[1.2fr_0.8fr]">
+        {/* Research */}
+        <div className="mt-14">
           <div className="rounded-3xl border border-[#ece7e2] bg-white p-7">
             <div className="mb-5 flex items-end justify-between gap-4">
               <div>
@@ -181,7 +180,7 @@ export function TeamSection() {
               </Link>
             </div>
             <ol className="divide-y divide-[#f0ebe6]">
-              {publications.slice(0, 5).map((p) => (
+              {publications.slice(0, 3).map((p) => (
                 <li key={p.doi} className="grid gap-1 py-3 sm:grid-cols-[3.5rem_1fr_auto] sm:items-baseline sm:gap-4">
                   <span className="font-mono text-[12px] text-[#766d67]">{p.year}</span>
                   <span>
@@ -210,20 +209,6 @@ export function TeamSection() {
             </p>
           </div>
 
-          <div className="relative overflow-hidden rounded-3xl border border-[#ece7e2] p-7 text-[#1f1a17]">
-            <ResearchMedia />
-            <div className="relative">
-              <p className="text-[13px] text-[#766d67] mb-5">Milestones</p>
-              <ol className="space-y-4">
-                {milestones.map((m) => (
-                  <li key={m.date + m.label} className="grid grid-cols-[6rem_1fr] gap-3">
-                    <span className="text-[13px] text-[#766d67]">{m.date}</span>
-                    <span className="text-[14px] leading-snug">{m.label}</span>
-                  </li>
-                ))}
-              </ol>
-            </div>
-          </div>
         </div>
       </div>
     </section>

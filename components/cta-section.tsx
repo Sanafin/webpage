@@ -20,7 +20,7 @@ export function CTASection() {
             <div className="grid gap-4 md:grid-cols-2 md:max-w-3xl">
               <div className="flex flex-col rounded-3xl bg-white/90 p-6 backdrop-blur">
                 <p className="text-[13px] text-[#766d67] mb-2">Manufacturers, insurers, hospitals</p>
-                <p className="text-[17px] leading-snug text-[#1f1a17] mb-5">Design your first outcome-conditional contract in a 25-minute call.</p>
+                <p className="flex-1 text-[17px] leading-snug text-[#1f1a17] mb-5">Design your first outcome-conditional contract in a 25-minute call.</p>
                 <Link
                   href="/demo"
                   data-cta="book_call"
@@ -29,12 +29,12 @@ export function CTASection() {
                 >
                   {CTA.buyer}
                 </Link>
-                <p className="mt-3 text-center text-[12px] text-[#766d67]">Talk to a founder · reply within one working day · NDA on request</p>
+                <p className="mt-3 text-center text-[12px] text-[#766d67]">Reply within one working day · NDA on request</p>
               </div>
 
               <div className="flex flex-col rounded-3xl bg-white/90 p-6 backdrop-blur">
                 <p className="text-[13px] text-[#766d67] mb-2">Investors</p>
-                <p className="text-[17px] leading-snug text-[#1f1a17] mb-5">Investing in Swiss digital health or fintech infrastructure?</p>
+                <p className="flex-1 text-[17px] leading-snug text-[#1f1a17] mb-5">Investing in Swiss digital health or fintech infrastructure?</p>
                 <Link
                   href="#investors"
                   data-cta="request_deck"

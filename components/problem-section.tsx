@@ -46,9 +46,9 @@ export function ProblemSection() {
           <div>
             <p className="text-[13px] text-[#766d67] mb-4">The problem</p>
             <h2 id="problem-title" className="font-display text-4xl sm:text-5xl leading-[1.04] text-[#1f1a17]">
-              Reimbursement isn&apos;t the hard part any more.
+              Reimbursement now depends on proof.
               <br />
-              <span className="text-[#1f1a17]/45">Proving the outcome is.</span>
+              <span className="text-[#1f1a17]/45">Proof is still built by hand.</span>
             </h2>
           </div>
           <p className="max-w-md text-base sm:text-lg leading-relaxed text-[#6f6660] lg:pb-2">
@@ -104,13 +104,10 @@ export function ProblemSection() {
             <img
               src={media.problemStill}
               alt="A row of small brass tokens, most tipped over, with a single teal marble resting apart from them"
-              className="mt-10 h-56 w-full rounded-3xl object-cover"
+              className="mt-10 hidden h-56 w-full rounded-3xl object-cover md:block"
               loading="lazy"
             />
           )}
-          <p className="mt-10 text-[13px] text-[#766d67]">
-            Our target: a pilot scoped within two weeks of the first call. A Sanafin target, not a customer result.
-          </p>
         </Reveal>
       </div>
     </section>

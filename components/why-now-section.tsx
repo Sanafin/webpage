@@ -45,15 +45,6 @@ const events = [
     sources: [["migel-40", "FOPH · MiGeL"]],
     past: false,
   },
-  {
-    date: "2027",
-    region: "European Union",
-    stat: "EHDS",
-    title: "Health data becomes portable",
-    body: "The European Health Data Space applies in stages from 2027, patient summaries from 2029.",
-    sources: [["ehds", "EUR-Lex"]],
-    past: false,
-  },
 ] as const
 
 export function WhyNowSection() {
