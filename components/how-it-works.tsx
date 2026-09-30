@@ -131,12 +131,6 @@ function Film() {
   )
 }
 
-const flow = [
-  { who: "Funder", what: "commits funds to an outcome before the programme runs" },
-  { who: "Custody partner", what: "holds the funds. Licensed; never Sanafin" },
-  { who: "Sanafin", what: "verifies the result against the threshold, WZW-native" },
-  { who: "Settlement", what: "released to the manufacturer on pass, returned to the funder on fail" },
-]
 
 export function HowItWorks() {
   const [active, setActive] = useState<(typeof acts)[number]["id"]>("refuses")
@@ -258,18 +252,6 @@ export function HowItWorks() {
           </div>
         </div>
 
-        {/* Money flow */}
-        <ol className="mt-6 grid gap-3 rounded-3xl border border-[#ece7e2] bg-white p-3 sm:grid-cols-4">
-          {flow.map((f, i) => (
-            <li key={f.who} className="relative rounded-2xl bg-[#fbfaf8] px-4 py-4">
-              <p className="text-[12px] font-medium text-[#1f1a17] mb-1">
-                <span className="mr-2 text-[12px] text-[#766d67]">{i + 1}</span>
-                {f.who}
-              </p>
-              <p className="text-[13px] leading-snug text-[#6f6660]">{f.what}</p>
-            </li>
-          ))}
-        </ol>
       </div>
     </section>
   )

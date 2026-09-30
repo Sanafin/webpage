@@ -5,11 +5,6 @@ import { lois } from "@/lib/traction"
 // The page's number-one job. Plain language about what Sanafin is and what the deck
 // covers, no round size, no financials, and a three-field form.
 
-const chips = [
-  `${publications.length} publications, CEO first author`,
-  `${lois.length} signed LOIs with Swiss care partners`,
-  "Innovation Booster award winner",
-]
 
 const inTheDeck = [
   "Why now: MiGeL Ch. 40, § 134 SGB V, the 31 Dec 2026 deadline",
@@ -32,14 +27,6 @@ export function InvestorSection() {
               Pre-seed, built on ETH Zurich and HSG research. First market: Swiss digital health manufacturers and
               the funders behind their evidence. Request the deck and Wasu sends it personally.
             </p>
-
-            <ul className="mb-8 flex flex-wrap gap-2">
-              {chips.map((c) => (
-                <li key={c} className="rounded-full bg-white px-3 py-1.5 text-[12.5px] text-[#1f1a17] shadow-[0_1px_2px_rgba(47,36,31,0.05)]">
-                  {c}
-                </li>
-              ))}
-            </ul>
 
             <p className="text-[13px] text-[#766d67] mb-3">What&apos;s in the deck</p>
             <ol className="space-y-2.5">

@@ -80,13 +80,14 @@ export const acts = [
 export const contracts = [
   {
     id: "t2d",
-    name: "Type 2 diabetes",
-    population: "100 patients on a digital therapy programme",
+    name: "Type 2 diabetes screening",
+    population: "1,000 adults at risk, screened digitally",
     duration: "12 months",
     committed: "CHF 180,000",
-    sources: ["Care app", "Lab HbA1c", "CGM"],
+    sources: ["Screening app", "Lab HbA1c", "EHR · FHIR R4"],
     targets: [
-      { label: "HbA1c reduction", threshold: "≥ 0.5 pp at month 6" },
+      { label: "Screening completed", threshold: "≥ 60% of invited by month 3" },
+      { label: "HbA1c reduction in confirmed cases", threshold: "≥ 0.5 pp at month 6" },
       { label: "Remission (optional bonus)", threshold: "HbA1c < 6.5% for ≥ 3 months off medication", sourceId: "ada-remission" },
     ],
     milestones: [
