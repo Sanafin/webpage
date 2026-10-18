@@ -14,19 +14,19 @@ const groups = [
     faqs: [
       {
         q: "How do I trust the measurement?",
-        a: "The evaluation is independent of both the payer and the provider. It scores the outcome on cost-effectiveness criteria built on the Swiss WZW standard, the methodology is published, and every verdict comes with an audit record either side can re-run on its own machine from the exported file.",
+        a: "The check is independent of both the payer and the provider. It scores the result against the Swiss WZW standard for cost-effectiveness, and the method is published. Every verdict comes with an audit record. Either side can re-run it on their own computer.",
       },
       {
         q: "Who holds the money, and in what currency?",
-        a: "A licensed custody partner. You pay in your own currency; the funds are held by the custodian and only leave when Sanafin issues a payment instruction on a verified pass. Nothing touches speculative assets, and Sanafin never holds funds and is not a bank or payment institution.",
+        a: "A licensed custody partner holds it, in your own currency. The money leaves only when Sanafin confirms a verified pass. Sanafin never holds funds and is not a bank.",
       },
       {
         q: "What is the regulatory set-up?",
-        a: "A pilot is structured as outcome-based procurement: you buy a verified result instead of a service. How the money is held and paid is kept separate from the healthcare regulation of the care itself, and each programme is reviewed with regulatory counsel before production use.",
+        a: "A pilot is a purchase of results, not of services. How the money is held is kept separate from the rules that govern the care itself. Each programme is reviewed with regulatory counsel before it goes live.",
       },
       {
         q: "How do you prevent gaming or selection bias?",
-        a: "The threshold, cohort definition and data sources are fixed before enrolment, every value is fingerprinted on entry, and the verdict is re-computable offline. Changing one value after the fact changes the fingerprint, which either side can detect without trusting Sanafin.",
+        a: "The target, the patient group and the data sources are fixed before anyone enrols. Every value is stamped on entry, and the verdict can be recomputed offline. Change one value later and the stamp no longer matches. Either side can spot that without trusting Sanafin.",
       },
     ],
   },
@@ -36,19 +36,19 @@ const groups = [
     faqs: [
       {
         q: "What does Sanafin cost?",
-        a: "A platform licence, a per-patient fee on enrolment into an outcome-linked pathway, and a success fee on verified outcomes. The first pilot is a fixed price agreed on the call.",
+        a: "A platform licence, a fee per enrolled patient, and a fee per verified outcome. The first pilot is a fixed price agreed on the call.",
       },
       {
         q: "What happens when data is missing or a patient drops out?",
-        a: "Dropout and data-freshness rules are part of the contract. Monitoring surfaces gaps early, and unmet or unverifiable milestones are held or returned to the payer rather than paid on trust.",
+        a: "Rules for dropouts and stale data are part of the contract. Gaps show up early. A milestone that cannot be verified is held or returned to the payer, never paid on trust.",
       },
       {
         q: "How fast can a pilot start?",
-        a: "Our target is a scoped pilot within two weeks of the first call: data connected in week one, rules live with a first verification report in week two. Going live depends on data access and the payer's sign-off.",
+        a: "Our target is two weeks from the first call. Week one: data connected. Week two: rules live and a first verification report. Going live depends on data access and the payer's sign-off.",
       },
       {
         q: "Where is data hosted and who can see it?",
-        a: "Hosting region is agreed per contract. Data is pseudonymised for verification, access is role-based, and both parties receive the same audit record.",
+        a: "The hosting region is agreed per contract. Data is pseudonymised before verification. Access is by role, and both sides get the same audit record.",
       },
     ],
   },
@@ -58,15 +58,15 @@ const groups = [
     faqs: [
       {
         q: "Why start with metabolic health in Switzerland?",
-        a: "Metabolic disease is the largest, best-measured and most medication-cost-sensitive chronic target, and Swiss reimbursement is among the strictest bars in Europe. A template that clears it is a credential everywhere else. The contract itself is pathway- and jurisdiction-agnostic: the same four fields describe a German app price, a US chronic-care threshold or a medicine rebate.",
+        a: "Metabolic disease is the largest and best-measured chronic condition, and its drug costs are rising fastest. Swiss reimbursement is among the strictest in Europe. A contract that clears it is a credential everywhere else. The same four fields describe a German app price, a US chronic-care target or a medicine rebate.",
       },
       {
         q: "Why not Lyfegen, EY or a rebate platform?",
-        a: "Each covers one third of the workflow: evidence, contract logic or payment. Rebate platforms move money only as a claw-back inside an existing commercial relationship. Sanafin combines independent evaluation, a reusable contract template and payment release in one layer, with proofs anyone can re-run.",
+        a: "Each covers one third of the job: evidence, contract logic or payment. Rebate platforms only claw money back inside an existing deal. Sanafin combines the independent check, a reusable contract and the payment release in one layer, with proofs anyone can re-run.",
       },
       {
         q: "What is the traction today?",
-        a: "Four signed letters of intent with Swiss care partners, a diabetes-care proof of concept with a Swiss cantonal hospital, now in implementation, eight publications behind the model, and non-dilutive support from Innosuisse-funded programmes. No payer has committed money and no fee has been tested yet. The next milestones are one payer with a named budget owner and the first CHF committed conditionally.",
+        a: "Four signed letters of intent with Swiss care partners. A diabetes proof of concept with a Swiss cantonal hospital, now being implemented. Eight publications behind the model, and grant support from Innosuisse-funded programmes. No payer has committed money yet and no fee has been tested. Next milestones: one payer with a named budget owner, and the first francs committed.",
       },
       {
         q: "How do I get the deck?",

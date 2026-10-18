@@ -17,7 +17,7 @@ export function Hero() {
   const heroBackers = backers.filter((b) => b.inHero && b.relationship !== "Award")
 
   return (
-    <section id="top" className="relative overflow-hidden bg-[#fbfaf8] pt-28 md:pt-40 !pb-0">
+    <section id="top" className="relative overflow-hidden bg-[#fbfaf8] !pt-[8.75rem] !pb-0">
       <div
         className="pointer-events-none absolute inset-x-0 top-0 h-[720px] blueprint-grid-light [mask-image:radial-gradient(ellipse_70%_60%_at_50%_20%,black_20%,transparent_75%)]"
         aria-hidden="true"
@@ -30,23 +30,19 @@ export function Hero() {
             from anywhere.
           </h1>
 
-          <p className="max-w-2xl text-base sm:text-lg leading-relaxed text-[#6f6660] mb-9">
-            Sanafin lets any payer, anywhere, buy verified health outcomes. The money is committed up front and
-            released only when an independent evaluation confirms the result.
+          <p className="max-w-xl text-base sm:text-lg leading-relaxed text-[#6f6660] mb-9">
+            The payer sets the money aside up front. It is paid out only when an independent check confirms the care
+            worked.
           </p>
 
           <div className="flex flex-col items-center">
             <HeroCtas />
           </div>
 
-          <p data-proof-row className="mt-7 text-[13px] text-[#766d67]">
+          <p data-proof-row className="mt-6 text-[13px] text-[#766d67]">
             Started with metabolic health in Switzerland ·{" "}
             <Link href="#traction" className="underline decoration-[#d9d1ca] underline-offset-4 hover:text-[#1f1a17]">
               {lois.length} signed letters of intent
-            </Link>{" "}
-            ·{" "}
-            <Link href="#recognition" className="underline decoration-[#d9d1ca] underline-offset-4 hover:text-[#1f1a17]">
-              Winner, Innovation Booster
             </Link>
           </p>
 

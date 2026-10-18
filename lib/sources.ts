@@ -14,6 +14,16 @@ export type Source = {
 
 export const sources: Source[] = [
   {
+    id: "direct-trial",
+    label: "DiRECT trial, UK primary care: 68 of 149 participants (46%) in type 2 diabetes remission at 12 months on a formula-diet weight-management programme (Lean et al., Lancet 2018; Lancet Diabetes Endocrinol 2019). Swiss basic insurance pays per service (TARDOC) and per pack (FOPH list of specialities)",
+    href: "https://doi.org/10.1016/S0140-6736(17)33102-1",
+  },
+  {
+    id: "okp-premiums",
+    label: "FOPH — average monthly basic-insurance premium CHF 128 in 1996 (statistics of mandatory health insurance) and CHF 412 for 2027 (press release of 29 September 2026); 3.2× over the period, still paid per service",
+    href: "https://www.bag.admin.ch/bag/de/home/versicherungen/krankenversicherung/krankenversicherung-versicherer-aufsicht/praemien.html",
+  },
+  {
     id: "idf-atlas",
     label: "International Diabetes Federation, IDF Diabetes Atlas, 11th edition (2025): diabetes accounted for USD 1.015 trillion of health expenditure in 2024, 12% of global health expenditure, adults aged 20–79",
     href: "https://diabetesatlas.org/",
@@ -130,9 +140,10 @@ export const sources: Source[] = [
 // Sources cited on the landing page, in order of first appearance, top to bottom.
 // Citing a source that is missing here fails the build, so add it in reading order.
 export const cited = [
-  "idf-atlas", // Problem
+  "direct-trial", // Why we exist
+  "okp-medicines", // Problem
   "glp1-discontinuation",
-  "diga-repayment",
+  "okp-premiums",
   "sgb5-134", // Any care, anywhere
   "kvg-52b",
   "cms-access",

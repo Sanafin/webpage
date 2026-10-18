@@ -1,26 +1,34 @@
 import { Fn } from "@/components/fn"
 import { Reveal } from "@/components/reveal"
 
-// The problem in one sentence and three numbers: payers buy activity, and the most
-// expensive, best-measured chronic disease shows what that costs. A short stat row
-// with no cards; the remedy is told by the four pictures in How it works. Every figure
-// carries a footnote into lib/sources.ts or is labelled as a Sanafin estimate.
+// The problem as the deck tells it: one line, three people, three numbers. Each figure
+// sits under the photo of the person it happens to, so the statistic has a face before
+// it has a caption. Photos are stock, posed by models, and say so once in the caption.
 
 const facts = [
   {
-    value: "12%",
-    label: "of global health spending goes on diabetes alone: over USD 1 trillion in 2024.",
-    sourceId: "idf-atlas",
+    photo: "/media/problem-pharmacy.webp",
+    alt: "A pharmacist handing a medicine pack to an older woman at the counter",
+    eyebrow: "Medicines",
+    value: "CHF 9.7bn",
+    label: "a year on medicines, with rebates chased afterwards",
+    sourceId: "okp-medicines",
   },
   {
+    photo: "/media/problem-scale.webp",
+    alt: "A woman in a bathrobe standing on a scale at home",
+    eyebrow: "Weight-loss GLP-1",
     value: "52%",
-    label: "of GLP-1 patients stop within twelve months. The payer has already paid for the prescriptions.",
+    label: "stop treatment within a year, and it is tracked by hand",
     sourceId: "glp1-discontinuation",
   },
   {
-    value: "EUR 25m+",
-    label: "in German health-app repayments is now at risk, because the apps were paid before any proof of benefit.",
-    sourceId: "diga-repayment",
+    photo: "/media/problem-bills.webp",
+    alt: "A couple at the kitchen table going through bills with a laptop and calculator",
+    eyebrow: "Basic insurance premiums",
+    value: "3.2×",
+    label: "premium rise since 1996, still paid per visit, not per result",
+    sourceId: "okp-premiums",
   },
 ]
 
@@ -28,22 +36,23 @@ export function ProblemSection() {
   return (
     <section id="problem" aria-labelledby="problem-title" className="relative scroll-mt-24">
       <div className="max-w-7xl mx-auto px-6">
-        <Reveal className="mb-14 grid gap-6 lg:grid-cols-2 lg:gap-16 lg:items-end">
-          <div>
-            <h2 id="problem-title" className="font-display text-4xl sm:text-5xl leading-[1.04] text-[#1f1a17]">
-              Payers pay for activity, not for results.
-            </h2>
-          </div>
-          <p className="max-w-md text-base sm:text-lg leading-relaxed text-[#6f6660] lg:pb-2">
-            Insurers, employers, governments and reinsurers fund chronic metabolic disease visit by visit and
-            prescription by prescription. Whether anyone got healthier does not change what they pay.
+        <Reveal className="mb-12 max-w-3xl">
+          <h2 id="problem-title" className="font-display text-4xl sm:text-5xl leading-[1.04] text-[#1f1a17]">
+            Money can&apos;t tell valuable care from merely billable care.
+          </h2>
+          <p className="mt-5 max-w-xl text-base sm:text-lg text-[#6f6660]">
+            Whether patients get healthier doesn&apos;t change the bill. Everyone pays for that.
           </p>
         </Reveal>
 
-        <ul className="grid grid-cols-1 gap-10 border-t border-[#ece7e2] pt-10 md:grid-cols-3 md:gap-12">
+        <ul className="grid grid-cols-1 gap-x-8 gap-y-10 md:grid-cols-3">
           {facts.map((f) => (
             <li key={f.value}>
-              <p className="font-display text-5xl sm:text-6xl text-[#1f1a17]">{f.value}</p>
+              <div className="relative aspect-[8/5] overflow-hidden rounded-2xl bg-[#ebe4db]">
+                <img src={f.photo} alt={f.alt} className="h-full w-full object-cover" loading="lazy" />
+              </div>
+              <p className="mt-6 text-[12px] font-medium uppercase tracking-[0.14em] text-[#766d67]">{f.eyebrow}</p>
+              <p className="mt-2 font-display text-5xl tabular-nums text-[#1f1a17] sm:text-6xl">{f.value}</p>
               <p className="mt-3 max-w-xs text-[15px] leading-snug text-[#6f6660]">
                 {f.label}
                 <Fn id={f.sourceId} />
@@ -51,7 +60,7 @@ export function ProblemSection() {
             </li>
           ))}
         </ul>
-
+        <p className="mt-8 text-[12px] text-[#766d67]">Photos posed by models.</p>
       </div>
     </section>
   )

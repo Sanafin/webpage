@@ -50,7 +50,7 @@ const fields = ["Payer", "Pathway", "Threshold", "Price per verified unit"]
 const signals = [
   { region: "Germany", text: "App prices tied to performance", sourceId: "sgb5-134" },
   { region: "Switzerland", text: "Outcome rebates on medicines", sourceId: "kvg-52b" },
-  { region: "United States", text: "Chronic care paid on HbA1c and weight", sourceId: "cms-access" },
+  { region: "United States", text: "Chronic care paid on blood sugar and weight", sourceId: "cms-access" },
 ]
 
 // A gentle arc between two map points, bowed upwards
@@ -72,8 +72,8 @@ export function AnywhereSection() {
             The care changes. The contract stays.
           </h2>
           <p className="text-base sm:text-lg leading-relaxed text-[#6f6660]">
-            One template, four fields, no local claims system or bank required. A payer in Zurich, Riyadh or São Paulo
-            funds the same verified pathway in its own currency.
+            One contract template with four fields. No local claims system or bank needed. A payer in Zurich, Riyadh or
+            São Paulo funds the same care in its own currency.
           </p>
         </Reveal>
 

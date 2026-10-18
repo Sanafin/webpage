@@ -46,3 +46,25 @@ export function AwardBadge({ className = "", zoom = 1 }: { className?: string; z
     </a>
   )
 }
+
+// The win as an announcement bar across the top of the page (Wellfound pattern):
+// one dark line above the header, the stamp, one sentence, one link.
+export function AwardBar() {
+  return (
+    <a
+      href="/#recognition"
+      className="group flex h-10 items-center justify-center gap-2.5 bg-[#1f1a17] px-4 text-[12.5px] text-white/75 transition-colors hover:text-white sm:text-[13px]"
+    >
+      <Image src={stamp} alt="" className="h-5 w-5 shrink-0" />
+      <span className="truncate">
+        <span className="font-medium text-white">Winner</span>
+        <span className="hidden sm:inline"> of the Innovation Booster Sustainable Digital Finance, powered by Innosuisse</span>
+        <span className="sm:hidden"> · Innovation Booster</span>
+      </span>
+      <span className="hidden shrink-0 items-center gap-1 rounded-full border border-white/20 px-2.5 py-0.5 text-[12px] text-white transition-colors group-hover:border-white/40 sm:inline-flex">
+        Learn more
+        <span aria-hidden="true">→</span>
+      </span>
+    </a>
+  )
+}

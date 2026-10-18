@@ -195,8 +195,8 @@ export function DeckRequestForm({ source = "investors" }: { source?: "investors"
       </button>
 
       <p className="mt-4 text-[12px] leading-relaxed text-[#766d67]">
-        Opens a pre-filled email in your mail app. {site.ceo.name}, {site.ceo.title}, replies personally within one working day with a
-        view-only link. No mailing lists; your details go nowhere else.
+        Opens a pre-filled email in your mail app. {site.ceo.firstName}, the {site.ceo.title}, replies personally within one working
+        day with a view-only link. No mailing list.
       </p>
     </form>
   )

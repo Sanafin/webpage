@@ -40,7 +40,7 @@ export function ExampleContracts() {
           <h2 id="examples-title" className="font-display text-4xl sm:text-5xl leading-[1.04] text-[#1f1a17] mb-4">
             One pathway, written once.
           </h2>
-          <p className="text-base sm:text-lg leading-relaxed text-[#6f6660]">Metabolic health first. Every next payer reuses the contract.</p>
+          <p className="text-base sm:text-lg leading-relaxed text-[#6f6660]">Metabolic health first. Every new payer reuses the same contract.</p>
         </div>
 
         <div className="grid gap-4 lg:grid-cols-2">
@@ -95,7 +95,7 @@ export function ExampleContracts() {
               </div>
             </div>
             <div className="px-2 pt-2">
-              <p className="text-[17px] leading-snug text-[#1f1a17]">Paid on verified HbA1c, weight and drug-cost changes.</p>
+              <p className="text-[17px] leading-snug text-[#1f1a17]">Paid on verified changes in blood sugar, weight and drug cost.</p>
               <p className="mt-1 text-[13px] text-[#766d67]">Illustrative contract. Anything not verified goes back to the payer.</p>
             </div>
           </div>
@@ -129,8 +129,8 @@ export function ExampleContracts() {
             </div>
             <div className="flex flex-wrap items-end justify-between gap-4 px-2 pt-2">
               <div>
-                <p className="text-[17px] leading-snug text-[#1f1a17]">Live in two weeks, our target.</p>
-                <p className="mt-1 text-[13px] text-[#766d67]">Commercials on the call · NDA on request</p>
+                <p className="text-[17px] leading-snug text-[#1f1a17]">Our target: live in two weeks.</p>
+                <p className="mt-1 text-[13px] text-[#766d67]">Pricing on the call · NDA on request</p>
               </div>
               <Link
                 href="/demo"

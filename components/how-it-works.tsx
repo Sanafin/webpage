@@ -8,9 +8,9 @@ import { media } from "@/lib/media"
 // Beats in the marble film, in seconds. The teal marble (patient outcome) is
 // weighed at the gate, the gate opens, and the orange marble (payment) rolls out.
 const beats = [
-  { until: 2.2, label: "Outcome verified", detail: "Checked against the pre-agreed threshold", tone: "teal" },
-  { until: 3.1, label: "Threshold met", detail: "WZW-native scoring passes the cut-off", tone: "ink" },
-  { until: Infinity, label: "Settlement instructed", detail: "Custody partner releases the funds, with a replayable proof", tone: "orange" },
+  { until: 2.2, label: "Outcome verified", detail: "Checked against the agreed target", tone: "teal" },
+  { until: 3.1, label: "Threshold met", detail: "The score clears the cut-off", tone: "ink" },
+  { until: Infinity, label: "Payment instructed", detail: "The custodian pays out. Anyone can re-run the proof.", tone: "orange" },
 ] as const
 
 const toneClass = {
@@ -177,10 +177,10 @@ function Glyph({ step }: { step: 0 | 1 | 2 | 3 }) {
 }
 
 const steps = [
-  { title: "Payer commits", body: "A capped budget, held by a licensed custodian." },
-  { title: "Care is delivered", body: "Any provider, any pathway, measured as usual." },
-  { title: "Outcome verified", body: "Independent evaluation against a threshold set up front." },
-  { title: "Payment released", body: "Only on a pass. A miss returns the money." },
+  { title: "Payer commits", body: "A fixed budget, held by a licensed custodian." },
+  { title: "Care is delivered", body: "Any provider, any treatment. Results are measured as usual." },
+  { title: "Outcome verified", body: "An independent check compares the result to a target agreed up front." },
+  { title: "Payment released", body: "Pass: the provider is paid. Miss: the money goes back to the payer." },
 ] as const
 
 export function HowItWorks() {

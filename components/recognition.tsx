@@ -17,13 +17,11 @@ export function Recognition() {
         <Reveal className="mb-12 grid gap-6 lg:grid-cols-2 lg:gap-16 lg:items-end">
           <div>
             <h2 id="traction-title" className="font-display text-4xl sm:text-5xl leading-[1.04] text-[#1f1a17]">
-              Proven first on metabolic health, in Switzerland.
+              Proven first in Swiss metabolic health.
             </h2>
           </div>
           <p className="max-w-md text-base sm:text-lg leading-relaxed text-[#6f6660] lg:pb-2">
-            Swiss reimbursement is among the strictest in Europe, so we started there: published cost-effectiveness
-            research on diabetes, then a diabetes-care proof of concept with a Swiss hospital, now in implementation. Partners anonymised by
-            agreement; letters available to investors under NDA.
+            Swiss reimbursement is among Europe&apos;s strictest, so we started here.
           </p>
         </Reveal>
 
@@ -96,9 +94,10 @@ export function Recognition() {
             </li>
           ))}
         </ul>
+        <p className="mt-2 text-[12px] text-[#766d67]">Partner names withheld by agreement · letters shared with investors under NDA</p>
 
         <div className="mt-14 grid gap-6 border-t border-[#ece7e2] pt-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,2fr)] lg:gap-10">
-          <p className="text-[13px] text-[#766d67]">Research behind the template · ETH Zurich and HSG</p>
+          <p className="text-[13px] text-[#766d67]">Research · ETH Zurich and HSG</p>
           <ul className="divide-y divide-[#ece7e2]">
             {metabolicResearch.map((p) => (
               <li key={p.doi} className="py-3 first:pt-0">
