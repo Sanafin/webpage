@@ -2,9 +2,10 @@ import type { StaticImageData } from "next/image"
 
 import innoboosterLogo from "@/components/ui/logo/innobooster.png"
 import innosuisseCoachingLogo from "@/components/ui/logo/innosuisse-initial-coaching.png"
-import kickfoundationLogo from "@/components/ui/logo/kickfoundation_pos_farbe.png"
+import talentkickLogo from "@/components/ui/logo/talentkick.png"
 import sicLogo from "@/components/ui/logo/SIC-logo.png"
 import sftaLogo from "@/components/ui/logo/sfta_logo.png"
+import shsLogo from "@/components/ui/logo/shs_logo.svg"
 
 export type Backer = {
   name: string
@@ -59,8 +60,8 @@ export const backers: Backer[] = [
     logoClass: "h-[68px]",
   },
   {
-    name: "Kick Foundation",
-    logo: kickfoundationLogo,
+    name: "Talent Kick",
+    logo: talentkickLogo,
     relationship: "Programme",
     description: "Start-up programme participation.",
     inHero: true,
@@ -73,12 +74,22 @@ export const backers: Backer[] = [
     inHero: true,
   },
   {
-    name: "Swiss FinTech Association",
+    name: "Swiss Finance + Technology Association",
     shortName: "SFTA",
     logo: sftaLogo,
     relationship: "Membership",
     description: "Member. Open verification thread with insurers.",
     sourceUrl: "https://swissfintech.org/",
+    inHero: true,
+  },
+  {
+    name: "Swiss Healthcare Startups",
+    shortName: "SHS",
+    logo: shsLogo,
+    relationship: "Membership",
+    description: "Member of the Swiss Healthcare Startups community.",
+    sourceUrl: "https://www.swisshealthcarestartups.com/",
+    inHero: true,
   },
 ]
 
