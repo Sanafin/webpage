@@ -4,6 +4,7 @@ import innoboosterLogo from "@/components/ui/logo/innobooster.png"
 import talentkickLogo from "@/components/ui/logo/talentkick.png"
 import sicLogo from "@/components/ui/logo/SIC-logo.png"
 import sftaLogo from "@/components/ui/logo/sfta_logo.png"
+import shsLogo from "@/components/ui/logo/shs_logo.svg"
 
 export type Backer = {
   name: string
@@ -65,6 +66,15 @@ export const backers: Backer[] = [
     relationship: "Membership",
     description: "Member. Open verification thread with insurers.",
     sourceUrl: "https://swissfintech.org/",
+    inHero: true,
+  },
+  {
+    name: "Swiss Healthcare Startups",
+    shortName: "SHS",
+    logo: shsLogo,
+    relationship: "Membership",
+    description: "Member of the Swiss Healthcare Startups community.",
+    sourceUrl: "https://www.swisshealthcarestartups.com/",
     inHero: true,
   },
 ]
