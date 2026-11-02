@@ -13,7 +13,7 @@ import { backers, lois } from "@/lib/traction"
 // product floating on a soft glow with the recognition row beneath. Rendered on
 // the server so the headline and CTAs are in the first HTML.
 export function Hero() {
-  // The award is the emblem; the row lists the programmes behind it
+  // The awards are the emblems; the row lists the programmes behind them
   const heroBackers = backers.filter((b) => b.inHero && b.relationship !== "Award")
 
   return (
@@ -81,7 +81,10 @@ export function Hero() {
           id="recognition"
           className="mx-auto mt-14 flex max-w-5xl scroll-mt-28 flex-col items-center gap-8 border-t border-[#ece7e2] pt-10 md:mt-16 md:flex-row md:items-center md:justify-center md:gap-12"
         >
-          <AwardBadge zoom={0.72} className="shrink-0" />
+          <div className="flex shrink-0 items-center gap-5">
+            <AwardBadge award="ventureKick" zoom={0.72} />
+            <AwardBadge award="innovationBooster" zoom={0.72} />
+          </div>
           <span className="hidden h-24 w-px bg-[#ece7e2] md:block" aria-hidden="true" />
           <div className="flex flex-col items-center gap-5 md:items-start">
             <p className="text-center text-[12px] text-[#766d67] md:text-left">

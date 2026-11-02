@@ -1,6 +1,7 @@
 import type { StaticImageData } from "next/image"
 
 import innoboosterLogo from "@/components/ui/logo/innobooster.png"
+import venturekickLogo from "@/components/ui/logo/venturekick-claim.png"
 import innosuisseCoachingLogo from "@/components/ui/logo/innosuisse-initial-coaching.png"
 import talentkickLogo from "@/components/ui/logo/talentkick.png"
 import sicLogo from "@/components/ui/logo/SIC-logo.png"
@@ -39,6 +40,14 @@ export type Loi = {
 
 // Programmes and awards that support Sanafin. Only list what can be shown publicly.
 export const backers: Backer[] = [
+  {
+    name: "Venture Kick",
+    logo: venturekickLogo,
+    relationship: "Award",
+    description: "Stage 1 winner. Kick Foundation initiative for Swiss science-based start-ups.",
+    sourceUrl: "https://www.venturekick.ch/",
+    inHero: true,
+  },
   {
     name: "Innovation Booster Sustainable Digital Finance",
     shortName: "Innovation Booster",
