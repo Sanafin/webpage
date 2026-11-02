@@ -1,336 +1,148 @@
-"use client"
-
-import Link from "next/link"
-import { motion } from "framer-motion"
-import { Activity, ArrowRight, Coins, ExternalLink, TrendingUp } from "lucide-react"
-import { useScrollReveal } from "@/hooks/use-scroll-reveal"
+import { ArrowUpRight } from "lucide-react"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
-import { publications as allPublications } from "@/lib/research"
+import { CTASection } from "@/components/cta-section"
+import { Reveal } from "@/components/reveal"
+import { publications } from "@/lib/research"
 
-const pillars = [
-  {
-    title: "Clinical Validation",
-    icon: Activity,
-    detail:
-      "Interventions fail without patient compliance. We ingest digital biomarker streams directly to verify real-world adherence and clinical benefit.",
-  },
-  {
-    title: "Economic Alignment",
-    icon: TrendingUp,
-    detail:
-      "Conflicting budget timelines stall preventive care. We synchronize payout structures to match clinical benefit timelines with payer ROI.",
-  },
-  {
-    title: "Programmatic Trust",
-    icon: Coins,
-    detail:
-      "Manual verification delays payouts and raises overhead. Settlement instructions follow verified clinical thresholds, with funds held by a licensed custody partner rather than by Sanafin.",
-  },
-]
+// The research behind Sanafin, as a calm index (Cartesia / OpenAI research pattern):
+// a short intro with the numbers, the four EDEN principles, the four phases, then
+// every publication grouped by year. Same tokens and closing band as the landing page.
 
-const protocolPhases = [
-  {
-    r: "Reach",
-    def: "Time-to-Screen",
-    desc: "Identifying clinical risk profiles using digital and lab metrics.",
-  },
-  {
-    r: "Retain",
-    def: "Time-to-Habit",
-    desc: "Securing patient compliance and behavioral habits over critical thresholds.",
-  },
-  {
-    r: "Report",
-    def: "Time-to-Evidence",
-    desc: "Aggregating clinical data feeds for automated programmatic audits.",
-  },
-  {
-    r: "Reimburse",
-    def: "Time-to-Return",
-    desc: "Triggering payouts exactly when economic benefit and ROI are unlocked.",
-  },
-]
-
-const studies = [
-  {
-    id: 1,
-    title: "EDEN I: Behavioral Adherence",
-    desc: "Simulating gamified behavioral incentives to establish viable clinical contract thresholds and avoid unviable outcome targets.",
-  },
-  {
-    id: 2,
-    title: "EDEN II: System Integration",
-    desc: "Connecting digital biomarkers and HL7 laboratory data directly to verify outcomes, eliminating physician administration overhead.",
-  },
-  {
-    id: 3,
-    title: "EDEN III: Actuarial Viability",
-    desc: "Simulating payer discounted cash flow models to demonstrate accelerated break-even points and clear financial ROI.",
-  },
-]
-
-// Publications live in lib/research.ts and are grouped by category here
-const publications = (["Adoption", "Integration", "Investment"] as const).map((category) => ({
-  category,
-  papers: allPublications.filter((p) => p.category === category),
-}))
-
-const edenPrinciples = [
+const principles = [
   { letter: "E", label: "Enforceable" },
   { letter: "D", label: "Deterministic" },
   { letter: "E", label: "Evidence-based" },
   { letter: "N", label: "Neutral" },
 ]
 
-export default function EdenFrameworkPage() {
-  useScrollReveal()
+const phases = [
+  { name: "Reach", line: "Find the people at risk." },
+  { name: "Retain", line: "Keep them in the programme." },
+  { name: "Report", line: "Measure the outcome." },
+  { name: "Reimburse", line: "Pay on the verified result." },
+]
 
+const years = [...new Set(publications.map((p) => p.year))].sort((a, b) => Number(b) - Number(a))
+const span = `${years[years.length - 1]}–${years[0]}`
+
+export default function EdenFrameworkPage() {
   return (
     <div className="page-wrapper">
-      <div className="page-content text-[#2f241f]">
+      <div className="page-content">
         <Header />
 
-        <main className="landing-page">
-          <section id="platform" className="relative overflow-hidden pb-16 pt-40 sm:pb-20 sm:pt-44">
-            <motion.div
-              className="absolute inset-0 pointer-events-none"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 1.2 }}
-              style={{
-                backgroundImage:
-                  "linear-gradient(to right, rgba(210,205,200,0.18) 1px, transparent 1px), linear-gradient(to bottom, rgba(210,205,200,0.18) 1px, transparent 1px)",
-                backgroundSize: "80px 80px",
-                maskImage: "radial-gradient(ellipse 78% 68% at 50% 30%, black 20%, transparent 72%)",
-                WebkitMaskImage: "radial-gradient(ellipse 78% 68% at 50% 30%, black 20%, transparent 72%)",
-              }}
-            />
+        <main id="main" className="landing-page">
+          {/* Intro */}
+          <section className="relative !pt-36 md:!pt-44">
+            <div className="max-w-7xl mx-auto px-6">
+              <Reveal className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr] lg:items-end lg:gap-16">
+                <div>
+                  <p className="text-[13px] text-[#766d67] mb-4">EDEN framework</p>
+                  <h1 className="font-display text-[2.6rem] leading-[1.04] sm:text-[3.6rem] text-[#1f1a17]">
+                    The research behind Sanafin.
+                  </h1>
+                </div>
+                <p className="max-w-md text-base sm:text-lg leading-relaxed text-[#6f6660] lg:pb-2">
+                  EDEN is our framework for paying for prevention on verified outcomes, developed at ETH Zurich and HSG.
+                </p>
+              </Reveal>
 
-            <motion.div
-              className="relative z-10 mx-auto max-w-4xl px-6 text-center"
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
-            >
-              <p className="mb-4 font-mono text-[10px] font-bold uppercase tracking-[0.3em] text-[#14B8A6]">
-                EDEN Framework
-              </p>
-              <h1 className="mx-auto mb-6 max-w-3xl font-serif text-3xl font-medium leading-[1.08] tracking-tight text-[#2f241f] sm:text-5xl md:text-6xl">
-                Scientific infrastructure for <span className="bg-gradient-to-r from-[#ff824c] via-[#f15d22] to-[#d03d00] bg-clip-text font-semibold italic text-transparent">value-based healthcare</span>
-              </h1>
-              <p className="mx-auto mb-8 max-w-2xl text-base leading-relaxed text-[#8c6a59] sm:text-lg">
-                Translating clinical validation into secure financial infrastructure. The EDEN Framework aligns incentives between payers, providers, and patients to scale outcome-based care.
-              </p>
-              <div className="flex flex-wrap justify-center gap-3">
-                <a
-                  href="#specification"
-                  className="action-primary inline-flex min-h-12 items-center justify-center rounded-[10px] bg-[#14B8A6] px-6 py-3 font-mono text-xs font-bold uppercase tracking-wider text-white hover:bg-[#0f766e]"
-                >
-                  View Specification
-                </a>
-                <a
-                  href="#publications"
-                  className="action-secondary inline-flex min-h-12 items-center justify-center rounded-[10px] border border-[#2f241f]/20 bg-transparent px-6 py-3 font-mono text-xs font-bold uppercase tracking-wider text-[#2f241f] hover:border-[#2f241f]/40 hover:bg-[#2f241f]/5"
-                >
+              <dl className="mt-14 grid grid-cols-3 divide-x divide-[#ece7e2] border-y border-[#ece7e2]">
+                {[
+                  [String(publications.length), "publications"],
+                  [span, "research period"],
+                  ["ETH · HSG", "where it was done"],
+                ].map(([value, label]) => (
+                  <div key={label} className="px-4 py-8 text-center sm:py-10">
+                    <dt className="sr-only">{label}</dt>
+                    <dd className="whitespace-nowrap font-display text-2xl tabular-nums text-[#1f1a17] sm:text-5xl">{value}</dd>
+                    <dd className="mt-2 text-[13px] text-[#766d67]">{label}</dd>
+                  </div>
+                ))}
+              </dl>
+            </div>
+          </section>
+
+          {/* Principles and phases */}
+          <section aria-labelledby="eden-how-title">
+            <div className="max-w-7xl mx-auto px-6">
+              <Reveal className="mx-auto mb-12 max-w-2xl text-center">
+                <h2 id="eden-how-title" className="font-display text-4xl sm:text-5xl leading-[1.04] text-[#1f1a17]">
+                  Four principles, four phases.
+                </h2>
+              </Reveal>
+
+              <ul className="grid grid-cols-2 gap-4 md:grid-cols-4">
+                {principles.map((p, i) => (
+                  <li key={`${p.letter}-${i}`} className="rounded-3xl bg-[#f5f1ed] px-6 py-8 text-center">
+                    <p className="font-display text-5xl text-[#1f1a17]">{p.letter}</p>
+                    <p className="mt-2 text-[14px] text-[#6f6660]">{p.label}</p>
+                  </li>
+                ))}
+              </ul>
+
+              <ol className="mt-4 grid gap-4 rounded-3xl border border-[#ece7e2] bg-white p-6 sm:p-8 md:grid-cols-4 md:gap-0 md:divide-x md:divide-[#f0ebe6]">
+                {phases.map((p, i) => (
+                  <li key={p.name} className="md:px-6 md:first:pl-0 md:last:pr-0">
+                    <p className="font-mono text-[11px] text-[#b5aaa0]">0{i + 1}</p>
+                    <p className="mt-1 text-lg font-medium text-[#1f1a17]">{p.name}</p>
+                    <p className="mt-1 text-[14px] text-[#6f6660]">{p.line}</p>
+                  </li>
+                ))}
+              </ol>
+            </div>
+          </section>
+
+          {/* Publications, indexed by year */}
+          <section id="publications" aria-labelledby="publications-title" className="scroll-mt-24">
+            <div className="max-w-7xl mx-auto px-6">
+              <Reveal className="mb-10">
+                <h2 id="publications-title" className="font-display text-4xl sm:text-5xl leading-[1.04] text-[#1f1a17]">
                   Publications
-                </a>
-              </div>
-            </motion.div>
-
-            <div className="reveal relative z-10 mx-auto mt-16 grid max-w-5xl grid-cols-2 border-y border-[#efc2a5]/30 px-6 md:grid-cols-4">
-              {edenPrinciples.map((principle, index) => (
-                <div
-                  key={`${principle.letter}-${principle.label}`}
-                  className={`px-4 py-7 text-center sm:px-6 ${
-                    index === 0
-                      ? ""
-                      : index === 2
-                        ? "md:border-l md:border-[#efc2a5]/30"
-                        : "border-l border-[#efc2a5]/30"
-                  }`}
-                >
-                  <span className="mb-2 block font-serif text-3xl font-semibold text-[#d9480f]">{principle.letter}</span>
-                  <span className="font-mono text-[9px] uppercase tracking-wider text-[#8c6a59]">{principle.label}</span>
-                </div>
-              ))}
-            </div>
-          </section>
-
-          <section className="border-t border-[#efc2a5]/20 bg-transparent">
-            <div className="mx-auto max-w-5xl px-6">
-              <div className="reveal mx-auto mb-14 max-w-3xl text-center">
-                <p className="mb-4 font-mono text-[10px] font-bold uppercase tracking-[0.3em] text-[#14B8A6]">
-                  Underlying Research
-                </p>
-                <h2 className="font-serif text-3xl font-medium leading-[1.1] tracking-tight text-[#2f241f] sm:text-4xl md:text-5xl">
-                  Built at the intersection of medicine and finance
                 </h2>
-              </div>
+              </Reveal>
 
-              <div className="reveal grid border-y border-[#efc2a5]/30 md:grid-cols-3">
-                {pillars.map((pillar, index) => {
-                  const Icon = pillar.icon
-                  return (
-                    <article
-                      key={pillar.title}
-                      className={`group py-8 md:px-8 md:py-10 ${index > 0 ? "border-t border-[#efc2a5]/30 md:border-l md:border-t-0" : ""}`}
-                    >
-                      <div className="mb-6 flex items-center justify-between">
-                        <Icon className={`h-5 w-5 ${index === 1 ? "text-[#d9480f]" : "text-[#14B8A6]"}`} />
-                        <span className="font-mono text-[9px] text-[#b7791f]">0{index + 1}</span>
-                      </div>
-                      <h3 className="mb-3 font-serif text-xl font-semibold tracking-tight text-[#2f241f]">{pillar.title}</h3>
-                      <p className="text-sm leading-relaxed text-[#8c6a59]">{pillar.detail}</p>
-                    </article>
-                  )
-                })}
-              </div>
-            </div>
-          </section>
-
-          <section id="specification" className="relative overflow-hidden border-y border-white/10 bg-gradient-to-br from-[#072520] via-[#0a352e] to-[#041613] text-white scroll-mt-24">
-            <div
-              className="absolute inset-0 pointer-events-none opacity-15"
-              style={{
-                backgroundImage:
-                  "linear-gradient(to right, rgba(20,184,166,0.12) 1px, transparent 1px), linear-gradient(to bottom, rgba(20,184,166,0.12) 1px, transparent 1px)",
-                backgroundSize: "60px 60px",
-                maskImage: "radial-gradient(ellipse 70% 60% at 50% 50%, black, transparent)",
-                WebkitMaskImage: "radial-gradient(ellipse 70% 60% at 50% 50%, black, transparent)",
-              }}
-            />
-
-            <div className="relative z-10 mx-auto max-w-6xl px-6">
-              <div className="reveal mx-auto mb-14 max-w-3xl text-center">
-                <p className="mb-4 font-mono text-[10px] font-bold uppercase tracking-[0.3em] text-[#2dd4bf]">
-                  Operational Standard
-                </p>
-                <h2 className="mb-5 font-serif text-3xl font-medium tracking-tight sm:text-4xl md:text-5xl">The EDEN Protocol</h2>
-                <p className="mx-auto max-w-2xl text-base leading-relaxed text-teal-100/60">
-                  An open standard that converts clinical evidence and economic timelines into code-executable payment contracts.
-                </p>
-              </div>
-
-              <div className="reveal grid border-y border-white/12 sm:grid-cols-2 lg:grid-cols-4">
-                {protocolPhases.map((phase, index) => (
-                  <article
-                    key={phase.r}
-                    className={`group min-h-64 py-8 sm:px-7 ${
-                      index > 0 ? "border-t border-white/12 sm:border-l sm:border-t-0" : ""
-                    } ${index >= 2 ? "sm:border-t lg:border-t-0" : ""}`}
-                  >
-                    <div className="mb-10 flex items-center justify-between">
-                      <span className="font-mono text-xs font-bold text-[#2dd4bf]">0{index + 1}</span>
-                      <span className="font-mono text-[8px] uppercase tracking-wider text-white/30">Phase 0{index + 1}</span>
-                    </div>
-                    <h3 className="mb-2 font-serif text-xl font-semibold tracking-tight">{phase.r}</h3>
-                    <p className="mb-6 font-mono text-[9px] uppercase tracking-wider text-[#2dd4bf]">{phase.def}</p>
-                    <p className="text-sm leading-relaxed text-teal-100/55">{phase.desc}</p>
-                  </article>
+              <div className="border-t border-[#ece7e2]">
+                {years.map((year) => (
+                  <div key={year} className="grid gap-4 border-b border-[#ece7e2] py-8 md:grid-cols-[12rem_1fr] md:gap-10">
+                    <p className="font-display text-4xl text-[#1f1a17]/40">{year}</p>
+                    <ul className="divide-y divide-[#f0ebe6]">
+                      {publications
+                        .filter((p) => p.year === year)
+                        .map((p) => (
+                          <li key={p.doi}>
+                            <a
+                              href={`https://doi.org/${p.doi}`}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="group flex items-start justify-between gap-6 py-4 first:pt-0"
+                            >
+                              <span>
+                                <span className="block text-[17px] leading-snug text-[#1f1a17] group-hover:underline group-hover:decoration-[#d9d1ca] group-hover:underline-offset-4">
+                                  {p.title}
+                                </span>
+                                <span className="mt-1 block text-[13px] text-[#766d67]">
+                                  {p.authors}
+                                  {p.venue ? ` · ${p.venue}` : ""}
+                                </span>
+                              </span>
+                              <ArrowUpRight className="mt-1 h-4 w-4 shrink-0 text-[#766d67] transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" aria-hidden="true" />
+                            </a>
+                          </li>
+                        ))}
+                    </ul>
+                  </div>
                 ))}
               </div>
+              <p className="mt-4 text-[12px] text-[#766d67]">
+                Research carried out by the founding team at ETH Zurich, the University of St. Gallen and HOCH Ostschweiz.
+                Institutions do not endorse Sanafin.
+              </p>
             </div>
           </section>
 
-          <section className="border-b border-[#efc2a5]/20 bg-transparent">
-            <div className="mx-auto max-w-5xl px-6">
-              <div className="reveal mx-auto mb-14 max-w-3xl text-center">
-                <p className="mb-4 font-mono text-[10px] font-bold uppercase tracking-[0.3em] text-[#d9480f]">
-                  Empirical Evidence
-                </p>
-                <h2 className="font-serif text-3xl font-medium tracking-tight text-[#2f241f] sm:text-4xl md:text-5xl">
-                  Validated by the EDEN studies
-                </h2>
-              </div>
-
-              <div className="reveal grid border-y border-[#efc2a5]/30 md:grid-cols-3">
-                {studies.map((study, index) => (
-                  <article
-                    key={study.id}
-                    className={`py-8 md:px-8 md:py-10 ${index > 0 ? "border-t border-[#efc2a5]/30 md:border-l md:border-t-0" : ""}`}
-                  >
-                    <span className="mb-7 block font-mono text-[9px] font-bold uppercase tracking-[0.18em] text-[#b7791f]">
-                      Cohort Testing · 0{study.id}
-                    </span>
-                    <h3 className="mb-4 font-serif text-lg font-semibold leading-snug tracking-tight text-[#2f241f]">{study.title}</h3>
-                    <p className="text-sm leading-relaxed text-[#8c6a59]">{study.desc}</p>
-                  </article>
-                ))}
-              </div>
-            </div>
-          </section>
-
-          <section id="publications" className="bg-white/25 scroll-mt-24">
-            <div className="mx-auto max-w-6xl px-6">
-              <div className="reveal mx-auto mb-14 max-w-3xl text-center">
-                <p className="mb-4 font-mono text-[10px] font-bold uppercase tracking-[0.3em] text-[#14B8A6]">
-                  Research Library
-                </p>
-                <h2 className="font-serif text-3xl font-medium tracking-tight text-[#2f241f] sm:text-4xl md:text-5xl">
-                  Scientific Publications
-                </h2>
-              </div>
-
-              <div className="reveal grid gap-12 lg:grid-cols-3 lg:gap-10">
-                {publications.map((group) => (
-                  <section key={group.category} className="!p-0">
-                    <h3 className="mb-5 border-b border-[#efc2a5]/30 pb-4 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-[#d9480f]">
-                      {group.category}
-                    </h3>
-                    <div className="divide-y divide-[#efc2a5]/20">
-                      {group.papers.map((publication) => (
-                        <article key={publication.doi} className="group py-5 first:pt-0">
-                          <h4 className="mb-2 font-serif text-base font-semibold leading-snug tracking-tight text-[#2f241f] transition-colors group-hover:text-[#0f766e]">
-                            {publication.title}
-                          </h4>
-                          <p className="mb-3 text-[11px] leading-relaxed text-[#8c6a59]">
-                            {publication.authors} ({publication.year})
-                          </p>
-                          <a
-                            href={`https://doi.org/${publication.doi}`}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="group/link inline-flex items-center gap-1.5 rounded-sm font-mono text-[9px] text-[#0f766e] hover:text-[#0b6f67]"
-                          >
-                            DOI: {publication.doi}
-                            <ExternalLink className="h-2.5 w-2.5 transition-transform group-hover/link:-translate-y-0.5 group-hover/link:translate-x-0.5" />
-                          </a>
-                        </article>
-                      ))}
-                    </div>
-                  </section>
-                ))}
-              </div>
-            </div>
-          </section>
-
-          <section className="relative overflow-hidden bg-transparent">
-            <div className="mx-auto max-w-4xl px-6">
-              <div className="reveal relative overflow-hidden rounded-[32px] border border-white/10 bg-gradient-to-br from-[#f06634] via-[#e2531e] to-[#b83305] px-6 py-14 text-center text-white shadow-[0_32px_64px_-12px_rgba(226,83,30,0.12)] sm:px-12 sm:py-16">
-                <div className="absolute -right-40 -top-40 h-96 w-96 rounded-full bg-white/10 blur-3xl" />
-                <div className="absolute -bottom-40 -left-40 h-96 w-96 rounded-full bg-white/5 blur-3xl" />
-                <div className="relative z-10 mx-auto max-w-2xl">
-                  <p className="mb-4 font-mono text-[10px] font-bold uppercase tracking-[0.3em] text-orange-100/80">
-                    Practitioner Infrastructure
-                  </p>
-                  <h2 className="mb-5 font-serif text-3xl font-medium leading-[1.1] tracking-tight sm:text-4xl md:text-5xl">
-                    From research to operational infrastructure
-                  </h2>
-                  <p className="mx-auto mb-8 max-w-xl text-base leading-relaxed text-orange-50/80">
-                    Bridge the gap between clinical evidence and financial execution. Start designing secure, automated value-based healthcare contracts.
-                  </p>
-                  <Link
-                    href="/#contact"
-                    className="action-inverse inline-flex min-h-12 items-center gap-2 rounded-[10px] bg-white px-7 py-3 font-mono text-xs font-bold uppercase tracking-wider text-[#b83305] hover:bg-orange-50"
-                  >
-                    Join waiting list
-                    <ArrowRight className="h-4 w-4" />
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </section>
+          <CTASection />
         </main>
 
         <Footer />

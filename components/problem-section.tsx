@@ -1,114 +1,66 @@
 import { Fn } from "@/components/fn"
 import { Reveal } from "@/components/reveal"
-import { media } from "@/lib/media"
 
-// Three sourced facts, then one calm comparison. Every figure carries a footnote
-// into lib/sources.ts or is labelled as a Sanafin estimate.
+// The problem as the deck tells it: one line, three people, three numbers. Each figure
+// sits under the photo of the person it happens to, so the statistic has a face before
+// it has a caption. Photos are stock, posed by models, and say so once in the caption.
 
 const facts = [
   {
-    value: "7 of 8",
-    label: "published Swiss decisions on digital health applications rejected, all on effectiveness",
-    sourceId: "foph-dga-decisions",
-    region: "Switzerland · MiGeL Ch. 40",
+    photo: "/media/problem-pharmacy.webp",
+    alt: "A pharmacist handing a medicine pack to an older woman at the counter",
+    eyebrow: "Medicines",
+    value: "CHF 9.7bn",
+    label: "a year on medicines, with rebates chased afterwards",
+    sourceId: "okp-medicines",
   },
   {
-    value: "22%",
-    label: "of prescription apps ever admitted in Germany struck off for failing to prove a positive care effect",
-    sourceId: "diga-report",
-    region: "Germany · DiGA 2020–2025",
+    photo: "/media/problem-scale.webp",
+    alt: "A woman in a bathrobe standing on a scale at home",
+    eyebrow: "Weight-loss GLP-1",
+    value: "52%",
+    label: "stop treatment within a year, and it is tracked by hand",
+    sourceId: "glp1-discontinuation",
   },
   {
-    value: "EUR 400 m",
-    label: "paid by German statutory insurers for prescription apps, with a 59% average price cut at negotiation",
-    sourceId: "diga-report",
-    region: "Germany · DiGA 2020–2025",
+    photo: "/media/problem-bills.webp",
+    alt: "A couple at the kitchen table going through bills with a laptop and calculator",
+    eyebrow: "Basic insurance premiums",
+    value: "3.2×",
+    label: "premium rise since 1996, still paid per visit, not per result",
+    sourceId: "okp-premiums",
   },
-]
-
-const today = [
-  "Evidence assembled by hand, per payer, at CHF 100k to 250k a project.",
-  "No Swiss trial phase: no payer money before a listing.",
-  "The verdict lives in a spreadsheet nobody else can re-run.",
-]
-
-const withSanafin = [
-  "A funder commits money up front, held by a licensed custody partner.",
-  "The result is verified against the threshold with WZW-native scoring.",
-  "Either side re-computes the proof from the exported file.",
 ]
 
 export function ProblemSection() {
   return (
     <section id="problem" aria-labelledby="problem-title" className="relative scroll-mt-24">
       <div className="max-w-7xl mx-auto px-6">
-        <Reveal className="mb-14 grid gap-6 lg:grid-cols-2 lg:gap-16 lg:items-end">
-          <div>
-            <p className="text-[13px] text-[#766d67] mb-4">The problem</p>
-            <h2 id="problem-title" className="font-display text-4xl sm:text-5xl leading-[1.04] text-[#1f1a17]">
-              Reimbursement now depends on proof.
-              <br />
-              <span className="text-[#1f1a17]/45">Proof is still built by hand.</span>
-            </h2>
-          </div>
-          <p className="max-w-md text-base sm:text-lg leading-relaxed text-[#6f6660] lg:pb-2">
-            Payers now ask digital health products to prove a measured effect before they pay. The money to produce
-            that evidence only arrives once the evidence exists.
+        <Reveal className="mb-12 max-w-3xl">
+          <h2 id="problem-title" className="font-display text-4xl sm:text-5xl leading-[1.04] text-[#1f1a17]">
+            Money can&apos;t tell valuable care from merely billable care.
+          </h2>
+          <p className="mt-5 max-w-xl text-base sm:text-lg text-[#6f6660]">
+            Whether patients get healthier doesn&apos;t change the bill. Everyone pays for that.
           </p>
         </Reveal>
 
-        <ul className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <ul className="grid grid-cols-1 gap-x-8 gap-y-10 md:grid-cols-3">
           {facts.map((f) => (
-            <li key={f.value + f.label} className="flex min-h-[220px] flex-col justify-between rounded-3xl bg-[#f5f1ed] p-7 sm:p-8">
-              <p className="text-[13px] text-[#766d67]">{f.region}</p>
-              <div>
-                <p className="font-display text-5xl sm:text-6xl text-[#1f1a17]">
-                  {f.value}
-                  <Fn id={f.sourceId} />
-                </p>
-                <p className="mt-3 text-[15px] leading-snug text-[#6f6660]">{f.label}</p>
+            <li key={f.value}>
+              <div className="relative aspect-[8/5] overflow-hidden rounded-2xl bg-[#ebe4db]">
+                <img src={f.photo} alt={f.alt} className="h-full w-full object-cover" loading="lazy" />
               </div>
+              <p className="mt-6 text-[12px] font-medium uppercase tracking-[0.14em] text-[#766d67]">{f.eyebrow}</p>
+              <p className="mt-2 font-display text-5xl tabular-nums text-[#1f1a17] sm:text-6xl">{f.value}</p>
+              <p className="mt-3 max-w-xs text-[15px] leading-snug text-[#6f6660]">
+                {f.label}
+                <Fn id={f.sourceId} />
+              </p>
             </li>
           ))}
         </ul>
-
-        <Reveal className="mt-16 border-t border-[#ece7e2] pt-10" delay={0.1}>
-          <div className="grid gap-10 md:grid-cols-2 md:gap-16">
-            <div>
-              <p className="text-[13px] text-[#766d67] mb-5">Today</p>
-              <ul className="space-y-4">
-                {today.map((t, i) => (
-                  <li key={t} className="flex gap-3 text-[15px] sm:text-base leading-snug text-[#1f1a17]">
-                    <span className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#d9d1ca]" aria-hidden="true" />
-                    <span>
-                      {t}
-                      {i === 0 && <Fn id="consultancy-estimate" />}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <p className="text-[13px] text-[#0f766e] mb-5">With Sanafin</p>
-              <ul className="space-y-4">
-                {withSanafin.map((t) => (
-                  <li key={t} className="flex gap-3 text-[15px] sm:text-base leading-snug text-[#1f1a17]">
-                    <span className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#14b8a6]" aria-hidden="true" />
-                    <span>{t}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-          {media.problemStill && (
-            <img
-              src={media.problemStill}
-              alt="A row of small brass tokens, most tipped over, with a single teal marble resting apart from them"
-              className="mt-10 hidden h-56 w-full rounded-3xl object-cover md:block"
-              loading="lazy"
-            />
-          )}
-        </Reveal>
+        <p className="mt-8 text-[12px] text-[#766d67]">Photos posed by models.</p>
       </div>
     </section>
   )

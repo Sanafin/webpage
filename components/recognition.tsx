@@ -1,5 +1,10 @@
+import { ArrowUpRight } from "lucide-react"
 import { Reveal } from "@/components/reveal"
+import { publications } from "@/lib/research"
 import { lois, loiLabel, pathway } from "@/lib/traction"
+
+// The three metabolic-health papers the template is built on, newest first.
+const metabolicResearch = publications.filter((p) => /diabet/i.test(p.title))
 
 // Design partners on one shared pathway, letter of intent → proof of concept →
 // implementation → scale. Each row is a track showing how far that partnership has
@@ -11,14 +16,12 @@ export function Recognition() {
       <div className="max-w-7xl mx-auto px-6">
         <Reveal className="mb-12 grid gap-6 lg:grid-cols-2 lg:gap-16 lg:items-end">
           <div>
-            <p className="text-[13px] text-[#766d67] mb-4">Traction</p>
             <h2 id="traction-title" className="font-display text-4xl sm:text-5xl leading-[1.04] text-[#1f1a17]">
-              Four partners, one pathway.
+              Proven first in Swiss metabolic health.
             </h2>
           </div>
           <p className="max-w-md text-base sm:text-lg leading-relaxed text-[#6f6660] lg:pb-2">
-            From signed letter to proof of concept, into care, across sites. Anonymised by agreement; letters
-            available to investors under NDA.
+            Swiss reimbursement is among Europe&apos;s strictest, so we started here.
           </p>
         </Reveal>
 
@@ -37,7 +40,7 @@ export function Recognition() {
 
         <ul>
           {lois.map((loi) => (
-            <li key={loi.partnerType} className="grid gap-4 border-b border-[#ece7e2] py-6 md:grid-cols-[minmax(0,1.1fr)_minmax(0,2fr)] md:items-center md:gap-10">
+            <li key={loi.partnerType} className="grid gap-4 py-5 md:grid-cols-[minmax(0,1.1fr)_minmax(0,2fr)] md:items-center md:gap-10">
               <div>
                 <p className="text-lg sm:text-xl text-[#1f1a17]">{loiLabel(loi)}</p>
                 <p className="mt-1 text-[13px] text-[#766d67]">
@@ -91,7 +94,30 @@ export function Recognition() {
             </li>
           ))}
         </ul>
+        <p className="mt-2 text-[12px] text-[#766d67]">Partner names withheld by agreement · letters shared with investors under NDA</p>
 
+        <div className="mt-14 grid gap-6 border-t border-[#ece7e2] pt-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,2fr)] lg:gap-10">
+          <p className="text-[13px] text-[#766d67]">Research · ETH Zurich and HSG</p>
+          <ul className="divide-y divide-[#ece7e2]">
+            {metabolicResearch.map((p) => (
+              <li key={p.doi} className="py-3 first:pt-0">
+                <a
+                  href={`https://doi.org/${p.doi}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group inline-flex items-start gap-1 text-[15px] leading-snug text-[#1f1a17] hover:underline hover:decoration-[#d9d1ca] hover:underline-offset-4"
+                >
+                  {p.title}
+                  <ArrowUpRight className="mt-1 h-3.5 w-3.5 shrink-0 text-[#766d67]" aria-hidden="true" />
+                </a>
+                <p className="mt-0.5 text-[13px] text-[#766d67]">
+                  {p.venue ? `${p.venue} · ` : ""}
+                  {p.year}
+                </p>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </section>
   )

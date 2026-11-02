@@ -72,6 +72,6 @@ Rules:
 3. Count orange elements per viewport; more than two means labels are doing layout's job.
 4. Check the first screen: headline, CTAs and proof line above the fold at 1280×800, product frame at least 60 % visible.
 5. Check three Mobbin references for the section you changed (`mcp__Mobbin__search_sections`) and name what they do that the section does not.
-6. Run `node scripts/check-copy.mjs`, `pnpm exec tsc --noEmit`, `pnpm build`.
+6. Run `node scripts/check-copy.mjs`, `npx tsc --noEmit`, `npm run build`.
 
 A change that improves a section but makes it look like its neighbours is not an improvement.

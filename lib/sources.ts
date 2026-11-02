@@ -1,6 +1,7 @@
 // Footnote registry. Every figure on the site points at one of these entries via
-// <Fn id="…" />, and the footer renders the numbered "Notes & sources" list from
-// the same array, so numbering can never drift. Order here = footnote number.
+// <Fn id="…" />. The registry order does not matter: footnote numbers come from
+// `cited` below, which lists the sources in the order they appear on the page, and
+// the footer's "Notes & sources" renders that same list, so numbering cannot drift.
 
 export type Source = {
   id: string
@@ -12,6 +13,21 @@ export type Source = {
 }
 
 export const sources: Source[] = [
+  {
+    id: "direct-trial",
+    label: "DiRECT trial, UK primary care: 68 of 149 participants (46%) in type 2 diabetes remission at 12 months on a formula-diet weight-management programme (Lean et al., Lancet 2018; Lancet Diabetes Endocrinol 2019). Swiss basic insurance pays per service (TARDOC) and per pack (FOPH list of specialities)",
+    href: "https://doi.org/10.1016/S0140-6736(17)33102-1",
+  },
+  {
+    id: "okp-premiums",
+    label: "FOPH — average monthly basic-insurance premium CHF 128 in 1996 (statistics of mandatory health insurance) and CHF 412 for 2027 (press release of 29 September 2026); 3.2× over the period, still paid per service",
+    href: "https://www.bag.admin.ch/bag/de/home/versicherungen/krankenversicherung/krankenversicherung-versicherer-aufsicht/praemien.html",
+  },
+  {
+    id: "idf-atlas",
+    label: "International Diabetes Federation, IDF Diabetes Atlas, 11th edition (2025): diabetes accounted for USD 1.015 trillion of health expenditure in 2024, 12% of global health expenditure, adults aged 20–79",
+    href: "https://diabetesatlas.org/",
+  },
   {
     id: "sgb5-134",
     label: "§ 134 SGB V — from 1 January 2026 at least 20% of a DiGA's reimbursement price must depend on measured performance",
@@ -80,12 +96,67 @@ export const sources: Source[] = [
     label: "Mekniran W et al. Health Technology Assessment of Swiss Digital Diabetes Screening — 40-year Markov model, Swiss payer perspective (medRxiv preprint, February 2026)",
     href: "https://doi.org/10.64898/2026.02.10.26345992",
   },
+  {
+    id: "cms-cgt",
+    label: "CMS Cell and Gene Therapy Access Model — outcomes-based agreements negotiated on behalf of 32 states, the District of Columbia and Puerto Rico; settled by rebate over an eleven-year model period",
+    href: "https://www.cms.gov/priorities/innovation/innovation-models/cgt",
+  },
+  {
+    id: "cms-access",
+    label: "CMS ACCESS (Advancing Chronic Care with Effective, Scalable Solutions) Model — began 5 July 2026 and runs ten years; outcome targets are set on biomarkers such as blood pressure, HbA1c, lipids or weight, or on validated patient-reported outcome measures (PROMs)",
+    href: "https://www.cms.gov/priorities/innovation/innovation-models/access",
+  },
+  {
+    id: "okp-medicines",
+    label: "Mandatory health-insurance (OKP) spend on medicines in 2025: CHF 9.7 bn, about a fifth of all OKP cost (priminfo.admin.ch, FOPH)",
+    href: "https://www.priminfo.admin.ch/",
+  },
+  {
+    id: "kvg-52b",
+    label: "Art. 52b E-KVG — consultation on the second cost-containment package opened 18 February 2026, consolidating the legal basis for price models with reimbursements and extending it to MiGeL and the analysis list. FOPH: \"Das Ziel ist, jährlich rund 350 Millionen Franken einzusparen.\"",
+    href: "https://www.bag.admin.ch/de/newnsb/lCw7tC_x3NSVit2XLLYny",
+  },
+  {
+    id: "glp1-discontinuation",
+    label: "Gasoyan H et al., Changes in weight and glycemic control following obesity treatment with semaglutide or tirzepatide by discontinuation status, Obesity (2025), doi:10.1002/oby.24331. Real-world cohort of 7,881 US adults (Cleveland Clinic, Ohio and Florida). Discontinuation within twelve months: 53.0% on semaglutide (21.6% early, 31.4% late) and 50.6% on tirzepatide (16.4% early, 34.1% late)",
+    href: "https://pmc.ncbi.nlm.nih.gov/articles/PMC12381620/",
+  },
+  {
+    id: "diga-repayment",
+    label: "GKV-Spitzenverband, DiGA-Bericht 2025: more than EUR 25 m of repayment claims at risk on prescription apps paid before proof of benefit, with nine manufacturers insolvent",
+    href: "https://www.gkv-spitzenverband.de/krankenversicherung/digitalisierung/kv_diga/diga.jsp",
+  },
+  {
+    id: "atmp-spend",
+    label: "IQVIA Institute, Strengthening Pathways for Cell and Gene Therapies (March 2024): USD 5.9 bn spent on cell and gene therapies in 2023, up 38% on the year and averaging 65% annual growth over five years; 62% of it in the United States",
+    href: "https://www.iqvia.com/insights/the-iqvia-institute/reports-and-publications/reports/strengthening-pathways-for-cell-and-gene-therapies",
+  },
+  {
+    id: "dtx-study-budgets",
+    label: "Digital-therapeutic study budgets available a year in Switzerland, about CHF 6 m: Sanafin estimate from published FOPH decisions and funder conversations, not third-party research",
+  },
 ]
 
+// Sources cited on the landing page, in order of first appearance, top to bottom.
+// Citing a source that is missing here fails the build, so add it in reading order.
+export const cited = [
+  "direct-trial", // Why we exist
+  "okp-medicines", // Problem
+  "glp1-discontinuation",
+  "okp-premiums",
+  "sgb5-134", // Any care, anywhere
+  "kvg-52b",
+  "cms-access",
+] as const
+
 export function sourceNumber(id: string): number {
-  const i = sources.findIndex((s) => s.id === id)
-  if (i === -1) throw new Error(`Unknown source id: ${id}`)
+  const i = (cited as readonly string[]).indexOf(id)
+  if (i === -1) throw new Error(`Source "${id}" is cited but missing from \`cited\` in lib/sources.ts`)
   return i + 1
+}
+
+export function citedSources(): Source[] {
+  return cited.map((id) => getSource(id))
 }
 
 export function getSource(id: string): Source {

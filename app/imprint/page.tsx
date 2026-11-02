@@ -1,70 +1,47 @@
-"use client"
-
-import { useScrollReveal } from "@/hooks/use-scroll-reveal"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
+import { site } from "@/lib/site"
+
+// Imprint as a plain label / value list (Stripe / Plain legal pattern). The legal
+// entity, street address and UID replace the placeholder values when supplied.
+
+const rows: { label: string; value: React.ReactNode }[] = [
+  { label: "Company name", value: "Sanafin.tech" },
+  { label: "Registered address", value: "St. Gallen, Switzerland" },
+  { label: "Entity type", value: "Swiss technological platform and software operator" },
+  {
+    label: "General inquiries",
+    value: (
+      <>
+        For administrative, commercial, or technical operations, contact{" "}
+        <a href={`mailto:${site.contactEmail}`} className="text-[#1f1a17] underline decoration-[#d9d1ca] underline-offset-4 hover:decoration-[#1f1a17]">
+          {site.contactEmail}
+        </a>
+      </>
+    ),
+  },
+  { label: "Responsible entity", value: "Corporate communications and operational platform management" },
+]
 
 export default function ImprintPage() {
-  useScrollReveal()
-
   return (
     <div className="page-wrapper">
       <div className="page-content">
         <Header />
-        
-        <main className="max-w-5xl mx-auto px-6 py-24 min-h-[70vh]">
-          <div className="reveal">
-            <span className="font-mono text-xs uppercase tracking-widest text-[#14B8A6] font-semibold block mb-4">
-              Transparency
-            </span>
-            <h1 className="font-serif text-4xl md:text-5xl font-medium tracking-tight leading-[1.1] text-[#2f241f] mb-6">
-              Imprint
-            </h1>
-            <p className="text-[#8c6a59] mb-12 text-lg max-w-3xl leading-relaxed">
-              Official company registration and regulatory information for Sanafin.
-            </p>
+        <main id="main" className="max-w-4xl mx-auto px-6 pt-36 md:pt-44 pb-24 min-h-[70vh]">
+          <p className="text-[13px] text-[#766d67] mb-4">Transparency</p>
+          <h1 className="font-display text-[2.6rem] sm:text-[3.4rem] leading-[1.04] text-[#1f1a17]">Imprint</h1>
+          <p className="mt-5 text-lg leading-relaxed text-[#6f6660]">Official company registration and regulatory information for Sanafin.</p>
 
-            <div className="grid md:grid-cols-2 gap-8">
-              {/* Provider Information */}
-              <section className="border border-[#efc2a5]/30 p-8 md:p-10 bg-[#fffaf6] rounded-[10px] shadow-[0_8px_30px_rgba(47,36,31,0.02)] hover:shadow-[0_16px_40px_rgba(47,36,31,0.04)] transition-all duration-300">
-                <h2 className="font-serif text-2xl font-semibold tracking-tight text-[#2f241f] mb-6">Provider Information</h2>
-                <div className="space-y-4 text-xs font-sans text-[#8c6a59] leading-relaxed">
-                  <div>
-                    <strong className="text-[#2f241f] block mb-1">Company Name</strong>
-                    Sanafin.tech
-                  </div>
-                  <div>
-                    <strong className="text-[#2f241f] block mb-1">Registered Address</strong>
-                    St. Gallen, Switzerland
-                  </div>
-                  <div>
-                    <strong className="text-[#2f241f] block mb-1">Entity Type</strong>
-                    Swiss technological platform and software operator
-                  </div>
-                </div>
-              </section>
-
-              {/* Contact & Registration */}
-              <section className="border border-[#efc2a5]/30 p-8 md:p-10 bg-[#fffaf6] rounded-[10px] shadow-[0_8px_30px_rgba(47,36,31,0.02)] hover:shadow-[0_16px_40px_rgba(47,36,31,0.04)] transition-all duration-300">
-                <h2 className="font-serif text-2xl font-semibold tracking-tight text-[#2f241f] mb-6">Contact & Operations</h2>
-                <div className="space-y-4 text-xs font-sans text-[#8c6a59] leading-relaxed">
-                  <div>
-                    <strong className="text-[#2f241f] block mb-1">General Inquiries</strong>
-                    For administrative, commercial, or technical operations, contact:
-                    <a className="text-[#14B8A6] hover:text-[#0D9488] font-mono font-semibold block mt-1 text-sm hover:underline" href="mailto:hello@sanafin.tech">
-                      hello@sanafin.tech
-                    </a>
-                  </div>
-                  <div>
-                    <strong className="text-[#2f241f] block mb-1">Responsible Entity</strong>
-                    Corporate communications and operational platform management
-                  </div>
-                </div>
-              </section>
-            </div>
-          </div>
+          <dl className="mt-12 divide-y divide-[#ece7e2] border-y border-[#ece7e2]">
+            {rows.map((r) => (
+              <div key={r.label} className="grid gap-1 py-5 sm:grid-cols-[14rem_1fr] sm:gap-8">
+                <dt className="text-[14px] text-[#766d67]">{r.label}</dt>
+                <dd className="text-[15.5px] leading-relaxed text-[#1f1a17]">{r.value}</dd>
+              </div>
+            ))}
+          </dl>
         </main>
-        
         <Footer />
       </div>
     </div>

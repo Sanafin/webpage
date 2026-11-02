@@ -1,6 +1,8 @@
 import type { StaticImageData } from "next/image"
 
 import innoboosterLogo from "@/components/ui/logo/innobooster.png"
+import venturekickLogo from "@/components/ui/logo/venturekick-claim.png"
+import innosuisseCoachingLogo from "@/components/ui/logo/innosuisse-initial-coaching.png"
 import talentkickLogo from "@/components/ui/logo/talentkick.png"
 import sicLogo from "@/components/ui/logo/SIC-logo.png"
 import sftaLogo from "@/components/ui/logo/sfta_logo.png"
@@ -17,6 +19,8 @@ export type Backer = {
   sourceUrl?: string
   // Shown in the hero proof row
   inHero?: boolean
+  // Logo height in that row, for lockups that need more room to stay legible
+  logoClass?: string
 }
 
 export type Loi = {
@@ -37,6 +41,14 @@ export type Loi = {
 // Programmes and awards that support Sanafin. Only list what can be shown publicly.
 export const backers: Backer[] = [
   {
+    name: "Venture Kick",
+    logo: venturekickLogo,
+    relationship: "Award",
+    description: "Stage 1 winner. Kick Foundation initiative for Swiss science-based start-ups.",
+    sourceUrl: "https://www.venturekick.ch/",
+    inHero: true,
+  },
+  {
     name: "Innovation Booster Sustainable Digital Finance",
     shortName: "Innovation Booster",
     logo: innoboosterLogo,
@@ -44,6 +56,17 @@ export const backers: Backer[] = [
     description: "Winner. Innosuisse-funded programme, CHF 20,000 non-dilutive.",
     sourceUrl: "https://ibsdf.ch/",
     inHero: true,
+    logoClass: "h-12",
+  },
+  {
+    name: "Innosuisse Initial Coaching",
+    shortName: "Innosuisse",
+    logo: innosuisseCoachingLogo,
+    relationship: "Coaching",
+    description: "Initial Coaching supported by Innosuisse, the Swiss Innovation Agency.",
+    sourceUrl: "https://www.innosuisse.admin.ch/",
+    inHero: true,
+    logoClass: "h-[68px]",
   },
   {
     name: "Talent Kick",
@@ -88,10 +111,10 @@ export const lois: Loi[] = [
     named: false,
     kind: "hospital",
     country: "Switzerland",
-    focus: "Diabetes care proof of concept",
+    focus: "Diabetes care",
     signed: "Jun 2026",
-    status: "Running to Oct 2026",
-    stage: 2,
+    status: "Under way",
+    stage: 3,
   },
   {
     partnerType: "Swiss digital health company",
@@ -99,7 +122,7 @@ export const lois: Loi[] = [
     named: false,
     kind: "digital-health",
     country: "Switzerland",
-    focus: "Digital-health partner in the proof of concept",
+    focus: "Pilot partner",
     status: "Active",
     stage: 2,
   },
@@ -108,7 +131,7 @@ export const lois: Loi[] = [
     named: false,
     kind: "university",
     country: "Switzerland",
-    focus: "Workflow validation",
+    focus: "Validation",
     status: "Scoping",
     stage: 1,
   },
@@ -117,7 +140,7 @@ export const lois: Loi[] = [
     named: false,
     kind: "provider",
     country: "Switzerland",
-    focus: "Workflow validation",
+    focus: "Validation",
     status: "Scoping",
     stage: 1,
   },

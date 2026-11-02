@@ -12,8 +12,8 @@ const columns = [
     title: "Product",
     links: [
       { href: "/#how", label: "How it works" },
-      { href: "/#product", label: "Outcome Studio" },
-      { href: "/#examples", label: "Example contracts" },
+      { href: "/#anywhere", label: "Any care, anywhere" },
+      { href: "/#examples", label: "The metabolic template" },
       { href: "/eden-framework", label: "EDEN framework" },
       { href: "/api-docs", label: "API documentation" },
     ],
@@ -23,7 +23,7 @@ const columns = [
     links: [
       { href: "/#investors", label: "For investors" },
       { href: "/#team", label: "Team" },
-      { href: "/#traction", label: "Partners & recognition" },
+      { href: "/#traction", label: "Evidence & partners" },
       { href: "/demo", label: "Book a discovery call" },
       { href: site.careers, label: "Careers", external: true },
     ],
@@ -38,7 +38,9 @@ const columns = [
   },
 ]
 
-export function Footer() {
+// `sources` shows the numbered notes for the landing page's footnotes; other pages
+// cite nothing, so they get the legal disclaimer alone.
+export function Footer({ sources = false }: { sources?: boolean }) {
   return (
     <footer className="relative z-10 pt-20 pb-10">
       <div className="max-w-7xl mx-auto px-6">
@@ -92,16 +94,20 @@ export function Footer() {
           ))}
         </div>
 
-        <section id="sources" aria-labelledby="sources-title" className="rounded-3xl bg-[#f5f1ed] p-6 sm:p-8 mb-10 scroll-mt-24">
-          <h2 id="sources-title" className="text-[13px] font-medium text-[#1f1a17] mb-4">
-            Notes &amp; sources
-          </h2>
-          <SourcesList />
-          <p className="mt-6 text-[12.5px] leading-relaxed text-[#766d67]">
-            Sanafin is a software provider, not an insurer, bank or payment institution, and does not provide medical
-            advice. Funds committed under an outcome-conditional contract are held by a licensed custody partner, never
-            by Sanafin. Figures on this site are illustrative unless a source is given. Institutions named as research
-            affiliations do not endorse Sanafin.
+        <section id="sources" aria-labelledby={sources ? "sources-title" : undefined} className="rounded-3xl bg-[#f5f1ed] p-6 sm:p-8 mb-10 scroll-mt-24">
+          {sources && (
+            <>
+              <h2 id="sources-title" className="text-[13px] font-medium text-[#1f1a17] mb-4">
+                Notes &amp; sources
+              </h2>
+              <SourcesList />
+            </>
+          )}
+          <p className={`${sources ? "mt-6" : ""} text-[12.5px] leading-relaxed text-[#766d67]`}>
+            Sanafin is a software provider. It is not an insurer, bank or payment institution, and it gives no medical
+            advice. Money committed under an outcome contract is held by a licensed custody partner, never by Sanafin.
+            Figures on this site are illustrative unless a source is given. Institutions named as research affiliations
+            do not endorse Sanafin.
           </p>
         </section>
 

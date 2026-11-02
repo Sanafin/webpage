@@ -45,25 +45,6 @@ function Ctas() {
           </Link>
         )}
       </div>
-      <p className="mt-4 text-[13px] text-[#766d67]">
-        {investorFirst ? (
-          <Link href="#how" className="text-[#1f1a17] underline decoration-[#d9d1ca] underline-offset-4 hover:decoration-[#1f1a17]">
-            See how it works in 8 seconds →
-          </Link>
-        ) : (
-          <>
-            Investor?{" "}
-            <Link
-              href="#investors"
-              data-cta="request_deck"
-              data-location="hero-tertiary"
-              className="text-[#1f1a17] underline decoration-[#d9d1ca] underline-offset-4 hover:decoration-[#1f1a17]"
-            >
-              {CTA.investor} →
-            </Link>
-          </>
-        )}
-      </p>
     </>
   )
 }

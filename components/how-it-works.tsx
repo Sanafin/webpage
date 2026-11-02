@@ -3,16 +3,14 @@
 import { useEffect, useRef, useState } from "react"
 import { motion, useInView, useReducedMotion } from "framer-motion"
 import { Pause, Play } from "lucide-react"
-import { acts } from "@/lib/examples"
-import { Certificate } from "@/components/certificate"
 import { media } from "@/lib/media"
 
 // Beats in the marble film, in seconds. The teal marble (patient outcome) is
 // weighed at the gate, the gate opens, and the orange marble (payment) rolls out.
 const beats = [
-  { until: 2.2, label: "Outcome verified", detail: "Checked against the pre-agreed threshold", tone: "teal" },
-  { until: 3.1, label: "Threshold met", detail: "WZW-native scoring passes the cut-off", tone: "ink" },
-  { until: Infinity, label: "Settlement instructed", detail: "Custody partner releases the funds, with a replayable proof", tone: "orange" },
+  { until: 2.2, label: "Outcome verified", detail: "Checked against the agreed target", tone: "teal" },
+  { until: 3.1, label: "Threshold met", detail: "The score clears the cut-off", tone: "ink" },
+  { until: Infinity, label: "Payment instructed", detail: "The custodian pays out. Anyone can re-run the proof.", tone: "orange" },
 ] as const
 
 const toneClass = {
@@ -21,11 +19,6 @@ const toneClass = {
   orange: "bg-[#f15d22]",
 }
 
-const actMedia = {
-  refuses: { src: media.actRefuses, alt: "A teal marble stopped against a closed brass gate, with an amber marble held back behind it" },
-  pays: { src: media.actPays, alt: "An amber marble rolling out through an open brass gate past a teal marble" },
-  tamper: { src: media.actTamper, alt: "Brass calipers measuring a teal marble beside a graduated brass ruler" },
-} as const
 
 function Film() {
   const sectionRef = useRef<HTMLDivElement>(null)
@@ -132,126 +125,100 @@ function Film() {
 }
 
 
-export function HowItWorks() {
-  const [active, setActive] = useState<(typeof acts)[number]["id"]>("refuses")
-  const act = acts.find((a) => a.id === active) ?? acts[0]
-  const visual = actMedia[act.id]
+// Four steps, one picture each (Wise / Blue Apron pattern). Each glyph is drawn in
+// the brand's ink with one accent, on a 120 × 80 canvas, so the row reads as one set.
+function Glyph({ step }: { step: 0 | 1 | 2 | 3 }) {
+  const ink = "#1f1a17"
+  return (
+    <svg viewBox="0 0 120 80" className="h-auto w-full" aria-hidden="true">
+      {step === 0 && (
+        <g>
+          {/* A budget filled to a dashed cap */}
+          <rect x="40" y="14" width="40" height="56" rx="8" fill="#fff" stroke={ink} strokeOpacity="0.2" />
+          <rect x="44" y="34" width="32" height="32" rx="5" fill="#f15d22" fillOpacity="0.85" />
+          <line x1="30" x2="90" y1="26" y2="26" stroke={ink} strokeWidth="1" strokeDasharray="3 3" />
+          <text x="92" y="29" fontSize="7" fill="#766d67" fontFamily="var(--font-mono, monospace)">cap</text>
+        </g>
+      )}
+      {step === 1 && (
+        <g>
+          {/* A biomarker falling over the months of care */}
+          <line x1="16" x2="104" y1="66" y2="66" stroke={ink} strokeOpacity="0.15" />
+          <path d="M18 22 C 36 24, 44 34, 58 40 S 86 52, 102 54" fill="none" stroke={ink} strokeWidth="1.6" strokeLinecap="round" />
+          {[18, 40, 62, 84, 102].map((x, i) => (
+            <circle key={x} cx={x} cy={[22, 30, 42, 50, 54][i]} r="2.6" fill="#fff" stroke={ink} strokeWidth="1.2" />
+          ))}
+          <text x="18" y="76" fontSize="7" fill="#766d67" fontFamily="var(--font-mono, monospace)">HbA1c · 12 months</text>
+        </g>
+      )}
+      {step === 2 && (
+        <g>
+          {/* The result crosses a threshold fixed in advance */}
+          <line x1="14" x2="106" y1="44" y2="44" stroke="#0f766e" strokeWidth="1" strokeDasharray="3 3" />
+          <path d="M16 26 C 40 28, 54 40, 70 52" fill="none" stroke={ink} strokeOpacity="0.3" strokeWidth="1.6" strokeLinecap="round" />
+          <circle cx="82" cy="40" r="15" fill="#14b8a6" />
+          <path d="M75 40.5 l5 5 l9.5 -10" fill="none" stroke="#fff" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" />
+          <text x="14" y="58" fontSize="7" fill="#0f766e" fontFamily="var(--font-mono, monospace)">threshold</text>
+        </g>
+      )}
+      {step === 3 && (
+        <g>
+          {/* A barrier lifts, and the payment rolls through */}
+          <line x1="12" x2="108" y1="64" y2="64" stroke={ink} strokeOpacity="0.15" />
+          <rect x="34" y="34" width="6" height="30" rx="2" fill={ink} fillOpacity="0.85" />
+          <line x1="37" y1="36" x2="62" y2="10" stroke={ink} strokeOpacity="0.85" strokeWidth="4" strokeLinecap="round" />
+          <circle cx="37" cy="36" r="3.2" fill="#fbfaf8" stroke={ink} strokeWidth="1.2" />
+          <circle cx="66" cy="56" r="8" fill="#f15d22" />
+          <path d="M80 56 h16 m-5 -5 l5 5 l-5 5" fill="none" stroke={ink} strokeOpacity="0.5" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
+        </g>
+      )}
+    </svg>
+  )
+}
 
+const steps = [
+  { title: "Payer commits", body: "A fixed budget, held by a licensed custodian." },
+  { title: "Care is delivered", body: "Any provider, any treatment. Results are measured as usual." },
+  { title: "Outcome verified", body: "An independent check compares the result to a target agreed up front." },
+  { title: "Payment released", body: "Pass: the provider is paid. Miss: the money goes back to the payer." },
+] as const
+
+export function HowItWorks() {
   return (
     <section id="how" aria-labelledby="how-title" className="relative scroll-mt-24">
       <div className="max-w-7xl mx-auto px-6">
         <motion.div
-          className="mb-10 flex flex-col md:flex-row md:items-end md:justify-between gap-4"
+          className="mx-auto mb-12 max-w-2xl text-center"
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
         >
-          <div>
-            <p className="text-[13px] text-[#766d67] mb-4">How it works</p>
-            <h2 id="how-title" className="font-display text-4xl sm:text-5xl leading-[1.04] text-[#1f1a17] max-w-3xl">
-              First, it refuses to pay.
-              <br />
-              <span className="text-[#1f1a17]/45">Then it pays. Then it proves it.</span>
-            </h2>
-          </div>
-          <p className="max-w-sm text-[15px] leading-relaxed text-[#766d67] md:pb-2">
-            A funder will only commit money to an outcome if refusal is genuinely automatic. If the system cannot say
-            no, its yes is worth nothing. Eight seconds of film, then the three moments that matter.
-          </p>
+          <p className="text-[13px] text-[#766d67] mb-4">How it works</p>
+          <h2 id="how-title" className="font-display text-4xl sm:text-5xl leading-[1.04] text-[#1f1a17]">
+            No result, no payment.
+          </h2>
         </motion.div>
 
+        <ol className="relative mb-12 grid grid-cols-2 gap-x-6 gap-y-10 lg:grid-cols-4">
+          {steps.map((s, i) => (
+            <li key={s.title} className="relative flex flex-col items-center text-center">
+              <div className="relative w-full max-w-[220px] rounded-3xl bg-[#f5f1ed] px-5 py-4">
+                <Glyph step={i as 0 | 1 | 2 | 3} />
+              </div>
+              {i < steps.length - 1 && (
+                <span className="absolute -right-[18px] top-[76px] hidden -translate-y-1/2 text-[#b5aaa0] lg:block" aria-hidden="true">
+                  →
+                </span>
+              )}
+              <p className="mt-5 font-mono text-[11px] text-[#766d67]">0{i + 1}</p>
+              <h3 className="mt-1 text-lg font-medium text-[#1f1a17]">{s.title}</h3>
+              <p className="mt-1 max-w-[15rem] text-[14px] leading-snug text-[#6f6660]">{s.body}</p>
+            </li>
+          ))}
+        </ol>
+
         <Film />
-
-        {/* Three acts */}
-        <div className="mt-6 grid gap-4 lg:grid-cols-[0.7fr_1.3fr]">
-          <div className="rounded-3xl bg-[#f5f1ed] p-3">
-            <ol className="flex flex-col gap-1" role="tablist" aria-label="The three acts">
-              {acts.map((a) => {
-                const selected = a.id === active
-                return (
-                  <li key={a.id}>
-                    <button
-                      type="button"
-                      role="tab"
-                      aria-selected={selected}
-                      aria-controls={`act-${a.id}`}
-                      id={`act-tab-${a.id}`}
-                      onClick={() => setActive(a.id)}
-                      className={`flex w-full items-start gap-4 rounded-2xl px-4 py-4 text-left transition-colors ${
-                        selected ? "bg-white shadow-[0_1px_2px_rgba(47,36,31,0.06)]" : "hover:bg-white/60"
-                      }`}
-                    >
-                      <span className={`mt-1 text-[12px] ${selected ? "text-[#f15d22]" : "text-[#766d67]"}`}>{a.number}</span>
-                      <span>
-                        <span className="block font-display text-xl text-[#1f1a17]">{a.title}</span>
-                        <span className="mt-1 block text-[14px] text-[#766d67]">{a.lead}</span>
-                      </span>
-                    </button>
-                  </li>
-                )
-              })}
-            </ol>
-          </div>
-
-          <div
-            id={`act-${act.id}`}
-            role="tabpanel"
-            aria-labelledby={`act-tab-${act.id}`}
-            className="grid overflow-hidden rounded-3xl bg-[#1a1512] text-white md:grid-cols-[1fr_minmax(280px,0.72fr)]"
-          >
-            {/* Terminal output, as in the live demo */}
-            <div className="p-6 sm:p-7">
-              <div className="mb-4 flex items-center gap-2 text-[11px] text-white/45">
-                <span className="flex gap-1.5" aria-hidden="true">
-                  <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
-                  <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
-                  <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
-                </span>
-                <span className="font-mono">sanafin verify --contract t2d_programme --cohort {act.id === "tamper" ? "b-edited" : act.id === "pays" ? "b" : "a"}</span>
-              </div>
-              <pre className="overflow-x-auto font-mono text-[12.5px] leading-[1.7] text-white/85">
-                <span className="text-white/45">L4  WZW EVALUATION</span>
-                {"\n"}
-                {act.rows.map(([k, v]) => {
-                  const bad = v.includes("false") || v.includes("insufficient") || (act.id === "refuses" && k === "Released to manufacturer")
-                  const good = v.includes("meets") || v.includes("true") || (act.id === "pays" && v.includes("CHF 180,000"))
-                  return (
-                    <span key={k}>
-                      {"  "}
-                      {k.toLowerCase().padEnd(26, " ")}
-                      <span className={bad ? "text-[#ffab8a]" : good ? "text-[#5eead4]" : "text-white"}>{v}</span>
-                      {"\n"}
-                    </span>
-                  )
-                })}
-                <span className="text-white/45">
-                  {act.id === "refuses" ? "L6  SETTLEMENT          returned_to_funder" : act.id === "pays" ? "L6  SETTLEMENT          instruction_issued · 0.9s" : "L6  RE-VERIFY           from exported file · no server"}
-                </span>
-              </pre>
-              <p className="mt-5 text-[14px] leading-relaxed text-white/75">{act.body}</p>
-            </div>
-            <div className="flex min-w-0 flex-col justify-between gap-5 border-t border-white/10 p-6 md:border-l md:border-t-0 md:p-6">
-              <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">
-                <img
-                  src={visual.src ?? media.filmPoster}
-                  alt={visual.src ? visual.alt : ""}
-                  className="absolute inset-0 h-full w-full object-cover"
-                  loading="lazy"
-                />
-              </div>
-              <Certificate
-                tone="dark"
-                verdict={act.id === "refuses" ? "insufficient" : "meets_wzw"}
-                composite={act.id === "refuses" ? 29 : 99}
-                hash="7aaa8b48615906e0"
-                recomputed={act.id === "tamper" ? "d9b10fb1a02ffb63" : "7aaa8b48615906e0"}
-              />
-              <p className="text-[11.5px] text-white/45">Synthetic cohort · illustrative figures</p>
-            </div>
-          </div>
-        </div>
-
       </div>
     </section>
   )

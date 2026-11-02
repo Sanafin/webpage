@@ -1,11 +1,11 @@
 import { Header } from "@/components/header"
 import { Hero } from "@/components/hero"
 import { Recognition } from "@/components/recognition"
+import { WhyWeExist } from "@/components/why-we-exist"
 import { ProblemSection } from "@/components/problem-section"
 import { HowItWorks } from "@/components/how-it-works"
 import { FounderNote } from "@/components/founder-note"
-import { WhyNowSection } from "@/components/why-now-section"
-import { OutcomeStudio } from "@/components/outcome-studio"
+import { AnywhereSection } from "@/components/anywhere-section"
 import { ExampleContracts } from "@/components/example-contracts"
 import { TeamSection } from "@/components/team-section"
 import { InvestorSection } from "@/components/investor-section"
@@ -19,22 +19,22 @@ export default function Home() {
   return (
     <div className="page-wrapper">
       <div className="page-content">
-        <Header />
+        <Header announce />
         <main id="main" className="landing-page">
           <Hero />
+          <WhyWeExist />
           <ProblemSection />
-          <WhyNowSection />
           <HowItWorks />
           <FounderNote />
-          <OutcomeStudio />
+          <AnywhereSection />
+          <Recognition />
           <ExampleContracts />
           <TeamSection />
-          <Recognition />
           <InvestorSection />
           <FAQSection />
           <CTASection />
         </main>
-        <Footer />
+        <Footer sources />
       </div>
     </div>
   )

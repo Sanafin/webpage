@@ -1,239 +1,119 @@
-"use client"
+import { LegalDoc, type LegalSection } from "@/components/legal-doc"
+import { site } from "@/lib/site"
 
-import { useScrollReveal } from "@/hooks/use-scroll-reveal"
-import { Header } from "@/components/header"
-import { Footer } from "@/components/footer"
-import { SwissCross } from "@/components/ui/swiss-cross"
+const sections: LegalSection[] = [
+  {
+    id: "using-sanafin",
+    title: "Using Sanafin",
+    body: [
+      "Sanafin provides SaaS infrastructure to structure, deploy, and automate outcome-based healthcare contracts. Our platform combines outcome verification, contract logic and settlement instructions so that funders, manufacturers and care teams can execute outcome-conditional agreements. Funds committed under such agreements are held by a licensed custody partner, never by Sanafin.",
+    ],
+  },
+  {
+    id: "access",
+    title: "Account & access rules",
+    items: [
+      { term: "Authorized credentials", desc: "Users must maintain the confidentiality of all system credentials and API tokens." },
+      { term: "Access scope", desc: "Platform access is granted solely to configure contracts, integrate clinical data sources, and review verification and settlement records." },
+    ],
+  },
+  {
+    id: "responsibilities",
+    title: "User responsibilities",
+    items: [
+      { term: "Accurate thresholds", desc: "Customers are responsible for specifying correct clinical metrics and verification logic in contract models." },
+      { term: "Lawful data sourcing", desc: "You must ensure all digital health data, laboratory results, or clinical evidence feeds are legally obtained." },
+    ],
+  },
+  {
+    id: "security",
+    title: "Security infrastructure",
+    body: ["We secure customer systems and data through institutional-grade controls:"],
+    items: [
+      { term: "End-to-end encryption", desc: "All data is encrypted in transit using TLS 1.3 and at rest with AES-256 keys." },
+      { term: "Role-based access (RBAC)", desc: "Strict authentication rules govern access to contract rules, settlement records, and API credentials." },
+      { term: "De-identification sinks", desc: "Clinical biomarker feeds are pseudonymized at the integration source to protect privacy." },
+    ],
+  },
+  {
+    id: "compliance",
+    title: "Compliance & governance",
+    body: ["Our governance framework is aligned with leading national and global standards:"],
+    items: [
+      { term: "Regulatory alignment", desc: "Designed to meet the requirements of the Swiss Federal Act on Data Protection (FADP) and the GDPR." },
+      { term: "Swiss legal principles", desc: "Conditional commitments and contract triggers are modelled to reflect the Swiss Code of Obligations." },
+      { term: "Audit-ready logs", desc: "Platform activity logs are designed for institutional SOC-2 compliance audits." },
+    ],
+  },
+  {
+    id: "acceptable-use",
+    title: "Acceptable use",
+    body: [
+      "You agree not to bypass security configurations, introduce malicious code, reverse-engineer the contract execution compiler, or attempt to manipulate verification events. Any suspicious activity will result in immediate API suspension.",
+    ],
+  },
+  {
+    id: "risk",
+    title: "Risk management & fallbacks",
+    body: [
+      "We mitigate operational risks through clear contract safety valves and automated fallbacks. Every outcome-based contract structured on Sanafin includes explicit parameters to manage edge cases:",
+    ],
+    items: [
+      { term: "Exception paths", desc: "Predefined logic handles missing data feeds, client dropouts, or temporary connection issues without locking funds." },
+      { term: "Oracle fallbacks", desc: "If primary digital health validation sources fail, secure human-review checkpoints resolve clinical disputes." },
+      { term: "Custody of funds", desc: "Funds are routed only upon verified outcome confirmation, preventing unauthorized or early payout release." },
+    ],
+  },
+  {
+    id: "payment",
+    title: "Payment & custody terms",
+    body: [
+      "Platform fees are defined in executed Statements of Work (SOW) or Order Forms. Funds committed under an outcome-conditional contract are held by a licensed custody partner and are released or returned only according to the verified contract criteria. Sanafin is not a bank or payment institution and does not hold client funds.",
+    ],
+  },
+  {
+    id: "ip",
+    title: "Intellectual property",
+    body: [
+      "Sanafin owns all proprietary software, databases, API designs, and interfaces. Open-source specifications, including the EDEN framework schema, are licensed separately under their respective MIT/standard open licenses.",
+    ],
+  },
+  {
+    id: "verification",
+    title: "Verification transparency",
+    body: [
+      "Transparency is key to eliminating disputes. Sanafin publishes the mathematical algorithms used to verify outcomes and calculate time-value thresholds under the open-source EDEN framework. Payers and providers can inspect and run independent tests on the validation scripts to confirm correctness before deploying them to production.",
+    ],
+  },
+  {
+    id: "liability",
+    title: "Limitations of liability",
+    body: [
+      "Sanafin is a software provider and is not a party to clinical treatment outcomes or care decisions. We do not provide medical or clinical advisory. To the maximum extent permitted by law, Sanafin is not liable for indirect, incidental, or consequential damages resulting from clinical data inaccuracies or verification source failures.",
+    ],
+  },
+  {
+    id: "termination",
+    title: "Termination",
+    body: [
+      "Either party may terminate platform access in accordance with SOW agreements. Upon termination, committed funds are released or returned by the custody partner according to the final verified contract status in the audit record.",
+    ],
+  },
+  {
+    id: "contact",
+    title: "Contact & inquiries",
+    body: ["For legal inquiries, terms compliance, or data security documentation, contact:"],
+    email: site.contactEmail,
+  },
+]
 
 export default function TermsPage() {
-  useScrollReveal()
-
   return (
-    <div className="page-wrapper">
-      <div className="page-content">
-        <Header />
-        
-        <main className="max-w-5xl mx-auto px-6 py-24 min-h-[70vh]">
-          <div className="reveal">
-            <span className="font-mono text-xs uppercase tracking-widest text-[#14B8A6] font-semibold block mb-4">
-              Agreement & Trust
-            </span>
-            <h1 className="font-serif text-4xl md:text-5xl font-medium tracking-tight leading-[1.1] text-[#2f241f] mb-6">
-              Terms of Service & Compliance
-            </h1>
-            <p className="text-[#8c6a59] mb-12 text-lg max-w-3xl leading-relaxed">
-              These terms define the service boundaries, regulatory compliance frameworks, and trust standards between Sanafin and our enterprise partners.
-            </p>
-
-            <div className="space-y-12">
-              {/* Using Sanafin */}
-              <section className="border border-[#efc2a5]/30 p-8 md:p-10 bg-[#fffaf6] rounded-[10px] shadow-[0_8px_30px_rgba(47,36,31,0.02)] hover:shadow-[0_16px_40px_rgba(47,36,31,0.04)] transition-all duration-300">
-                <h2 className="font-serif text-2xl font-semibold tracking-tight text-[#2f241f] mb-4">Using Sanafin</h2>
-                <p className="text-[#8c6a59] leading-relaxed mb-0 text-sm">
-                  Sanafin provides SaaS infrastructure to structure, deploy, and automate outcome-based healthcare contracts. Our platform combines outcome verification, contract logic and settlement instructions so that funders, manufacturers and care teams can execute outcome-conditional agreements. Funds committed under such agreements are held by a licensed custody partner, never by Sanafin.
-                </p>
-              </section>
-
-              {/* Grid: Account Access and User Responsibilities */}
-              <div className="grid md:grid-cols-2 gap-10">
-                <section className="border border-[#efc2a5]/20 p-8 bg-[#fffaf6]/50 rounded-[10px]">
-                  <h2 className="font-serif text-xl font-semibold tracking-tight text-[#2f241f] mb-6">Account & Access Rules</h2>
-                  <ul className="space-y-4 font-sans text-xs text-[#8c6a59] leading-relaxed">
-                    <li className="flex items-start gap-3">
-                      <SwissCross className="w-2 h-2 text-[#f15d22] mt-1.5 shrink-0" />
-                      <div>
-                        <strong className="text-[#2f241f] block mb-0.5">Authorized Credentials</strong>
-                        Users must maintain the confidentiality of all system credentials and API tokens.
-                      </div>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <SwissCross className="w-2 h-2 text-[#f15d22] mt-1.5 shrink-0" />
-                      <div>
-                        <strong className="text-[#2f241f] block mb-0.5">Access Scope</strong>
-                        Platform access is granted solely to configure contracts, integrate clinical data sources, and review verification and settlement records.
-                      </div>
-                    </li>
-                  </ul>
-                </section>
-
-                <section className="border border-[#efc2a5]/20 p-8 bg-[#fffaf6]/50 rounded-[10px]">
-                  <h2 className="font-serif text-xl font-semibold tracking-tight text-[#2f241f] mb-6">User Responsibilities</h2>
-                  <ul className="space-y-4 font-sans text-xs text-[#8c6a59] leading-relaxed">
-                    <li className="flex items-start gap-3">
-                      <SwissCross className="w-2 h-2 text-[#f15d22] mt-1.5 shrink-0" />
-                      <div>
-                        <strong className="text-[#2f241f] block mb-0.5">Accurate Thresholds</strong>
-                        Customers are responsible for specifying correct clinical metrics and verification logic in contract models.
-                      </div>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <SwissCross className="w-2 h-2 text-[#f15d22] mt-1.5 shrink-0" />
-                      <div>
-                        <strong className="text-[#2f241f] block mb-0.5">Lawful Data Sourcing</strong>
-                        You must ensure all digital health data, laboratory results, or clinical evidence feeds are legally obtained.
-                      </div>
-                    </li>
-                  </ul>
-                </section>
-              </div>
-
-              {/* Grid: Security & Compliance */}
-              <div className="grid md:grid-cols-2 gap-10">
-                {/* Security */}
-                <section className="border border-[#efc2a5]/20 p-8 bg-[#fffaf6]/50 rounded-[10px]">
-                  <h2 className="font-serif text-xl font-semibold tracking-tight text-[#2f241f] mb-6">Security Infrastructure</h2>
-                  <p className="text-[#8c6a59] text-xs leading-relaxed mb-4">
-                    We secure customer systems and data through institutional-grade controls:
-                  </p>
-                  <ul className="space-y-4 font-sans text-xs text-[#8c6a59] leading-relaxed">
-                    <li className="flex items-start gap-3">
-                      <SwissCross className="w-2 h-2 text-[#f15d22] mt-1.5 shrink-0" />
-                      <div>
-                        <strong className="text-[#2f241f] block mb-0.5">End-to-End Encryption</strong>
-                        All data is encrypted in transit using TLS 1.3 and at rest with AES-256 keys.
-                      </div>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <SwissCross className="w-2 h-2 text-[#f15d22] mt-1.5 shrink-0" />
-                      <div>
-                        <strong className="text-[#2f241f] block mb-0.5">Role-Based Access (RBAC)</strong>
-                        Strict authentication rules govern access to contract rules, settlement records, and API credentials.
-                      </div>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <SwissCross className="w-2 h-2 text-[#f15d22] mt-1.5 shrink-0" />
-                      <div>
-                        <strong className="text-[#2f241f] block mb-0.5">De-identification Sinks</strong>
-                        Clinical biomarker feeds are pseudonymized at the integration source to protect privacy.
-                      </div>
-                    </li>
-                  </ul>
-                </section>
-
-                {/* Compliance */}
-                <section className="border border-[#efc2a5]/20 p-8 bg-[#fffaf6]/50 rounded-[10px]">
-                  <h2 className="font-serif text-xl font-semibold tracking-tight text-[#2f241f] mb-6">Compliance & Governance</h2>
-                  <p className="text-[#8c6a59] text-xs leading-relaxed mb-4">
-                    Our governance framework is aligned with leading national and global standards:
-                  </p>
-                  <ul className="space-y-4 font-sans text-xs text-[#8c6a59] leading-relaxed">
-                    <li className="flex items-start gap-3">
-                      <SwissCross className="w-2 h-2 text-[#f15d22] mt-1.5 shrink-0" />
-                      <div>
-                        <strong className="text-[#2f241f] block mb-0.5">Regulatory Alignment</strong>
-                        Designed to meet the requirements of the Swiss Federal Act on Data Protection (FADP) and the GDPR.
-                      </div>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <SwissCross className="w-2 h-2 text-[#f15d22] mt-1.5 shrink-0" />
-                      <div>
-                        <strong className="text-[#2f241f] block mb-0.5">Swiss Legal Principles</strong>
-                        Conditional commitments and contract triggers are modelled to reflect the Swiss Code of Obligations.
-                      </div>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <SwissCross className="w-2 h-2 text-[#f15d22] mt-1.5 shrink-0" />
-                      <div>
-                        <strong className="text-[#2f241f] block mb-0.5">Audit-Ready Logs</strong>
-                        Platform activity logs are designed for institutional SOC-2 compliance audits.
-                      </div>
-                    </li>
-                  </ul>
-                </section>
-              </div>
-
-              {/* Acceptable Use */}
-              <section className="border-t border-[#efc2a5]/20 pt-12">
-                <h2 className="font-serif text-2xl font-semibold tracking-tight text-[#2f241f] mb-4">Acceptable Use</h2>
-                <p className="text-[#8c6a59] leading-relaxed max-w-3xl text-sm">
-                  You agree not to bypass security configurations, introduce malicious code, reverse-engineer the contract execution compiler, or attempt to manipulate verification events. Any suspicious activity will result in immediate API suspension.
-                </p>
-              </section>
-
-              {/* Risk Management */}
-              <section className="border-t border-[#efc2a5]/20 pt-12">
-                <h2 className="font-serif text-2xl font-semibold tracking-tight text-[#2f241f] mb-4">Risk Management & Fallbacks</h2>
-                <p className="text-[#8c6a59] leading-relaxed max-w-3xl text-sm mb-6">
-                  We mitigate operational risks through clear contract safety valves and automated fallbacks. Every outcome-based contract structured on Sanafin includes explicit parameters to manage edge cases:
-                </p>
-                <div className="grid sm:grid-cols-3 gap-6">
-                  <div>
-                    <h3 className="font-serif text-base text-[#2f241f] font-semibold tracking-tight mb-2">Exception Paths</h3>
-                    <p className="text-xs text-[#8c6a59] leading-relaxed">
-                      Predefined logic handles missing data feeds, client dropouts, or temporary connection issues without locking funds.
-                    </p>
-                  </div>
-                  <div>
-                    <h3 className="font-serif text-base text-[#2f241f] font-semibold tracking-tight mb-2">Oracle Fallbacks</h3>
-                    <p className="text-xs text-[#8c6a59] leading-relaxed">
-                      If primary digital health validation sources fail, secure human-review checkpoints resolve clinical disputes.
-                    </p>
-                  </div>
-                  <div>
-                    <h3 className="font-serif text-base text-[#2f241f] font-semibold tracking-tight mb-2">Custody of funds</h3>
-                    <p className="text-xs text-[#8c6a59] leading-relaxed">
-                      Funds are routed only upon verified outcome confirmation, preventing unauthorized or early payout release.
-                    </p>
-                  </div>
-                </div>
-              </section>
-
-              {/* Payment Terms */}
-              <section className="border-t border-[#efc2a5]/20 pt-12">
-                <h2 className="font-serif text-2xl font-semibold tracking-tight text-[#2f241f] mb-4">Payment & custody terms</h2>
-                <p className="text-[#8c6a59] leading-relaxed max-w-3xl text-sm">
-                  Platform fees are defined in executed Statements of Work (SOW) or Order Forms. Funds committed under an outcome-conditional contract are held by a licensed custody partner and are released or returned only according to the verified contract criteria. Sanafin is not a bank or payment institution and does not hold client funds.
-                </p>
-              </section>
-
-              {/* Intellectual Property */}
-              <section className="border-t border-[#efc2a5]/20 pt-12">
-                <h2 className="font-serif text-2xl font-semibold tracking-tight text-[#2f241f] mb-4">Intellectual Property</h2>
-                <p className="text-[#8c6a59] leading-relaxed max-w-3xl text-sm">
-                  Sanafin owns all proprietary software, databases, API designs, and interfaces. Open-source specifications, including the EDEN framework schema, are licensed separately under their respective MIT/standard open licenses.
-                </p>
-              </section>
-
-              {/* Verification Transparency */}
-              <section className="border-t border-[#efc2a5]/20 pt-12">
-                <h2 className="font-serif text-2xl font-semibold tracking-tight text-[#2f241f] mb-4">Verification Transparency</h2>
-                <p className="text-[#8c6a59] leading-relaxed max-w-3xl text-sm">
-                  Transparency is key to eliminating disputes. Sanafin publishes the mathematical algorithms used to verify outcomes and calculate time-value thresholds under the open-source EDEN framework. Payers and providers can inspect and run independent tests on the validation scripts to confirm correctness before deploying them to production.
-                </p>
-              </section>
-
-              {/* Limitations of Liability */}
-              <section className="border-t border-[#efc2a5]/20 pt-12">
-                <h2 className="font-serif text-2xl font-semibold tracking-tight text-[#2f241f] mb-4">Limitations of Liability</h2>
-                <p className="text-[#8c6a59] leading-relaxed max-w-3xl text-sm">
-                  Sanafin is a software provider and is not a party to clinical treatment outcomes or care decisions. We do not provide medical or clinical advisory. To the maximum extent permitted by law, Sanafin is not liable for indirect, incidental, or consequential damages resulting from clinical data inaccuracies or verification source failures.
-                </p>
-              </section>
-
-              {/* Termination Conditions */}
-              <section className="border-t border-[#efc2a5]/20 pt-12">
-                <h2 className="font-serif text-2xl font-semibold tracking-tight text-[#2f241f] mb-4">Termination</h2>
-                <p className="text-[#8c6a59] leading-relaxed max-w-3xl text-sm">
-                  Either party may terminate platform access in accordance with SOW agreements. Upon termination, committed funds are released or returned by the custody partner according to the final verified contract status in the audit record.
-                </p>
-              </section>
-
-              {/* Contact */}
-              <section className="border-t border-[#efc2a5]/20 pt-12">
-                <h2 className="font-serif text-2xl font-semibold tracking-tight text-[#2f241f] mb-4">Contact & Inquiries</h2>
-                <p className="text-[#8c6a59] leading-relaxed text-sm">
-                  For legal inquiries, terms compliance, or data security documentation, contact:{" "}
-                  <a className="text-[#14B8A6] hover:text-[#0D9488] font-mono font-semibold hover:underline" href="mailto:hello@sanafin.tech">
-                    hello@sanafin.tech
-                  </a>
-                </p>
-              </section>
-            </div>
-          </div>
-        </main>
-        
-        <Footer />
-      </div>
-    </div>
+    <LegalDoc
+      eyebrow="Agreement & trust"
+      title="Terms of Service & Compliance"
+      intro="These terms define the service boundaries, regulatory compliance frameworks, and trust standards between Sanafin and our enterprise partners."
+      sections={sections}
+    />
   )
 }

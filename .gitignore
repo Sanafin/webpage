@@ -6,4 +6,5 @@ node_modules/
 !.env.example
 *.tsbuildinfo
 cloudflare-env.d.ts
+.wrangler/
 pnpm-lock.yaml

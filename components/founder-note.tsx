@@ -22,7 +22,7 @@ export function FounderNote() {
           <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,#f5f1ed_0%,rgba(245,241,237,0.96)_45%,rgba(245,241,237,0.55)_100%)]" aria-hidden="true" />
           <div className="relative max-w-3xl">
             <blockquote>
-              <p id="founder-note-title" className="font-serif text-2xl italic leading-snug text-[#1f1a17] sm:text-3xl md:text-[2.3rem]">
+              <p id="founder-note-title" className="font-display text-2xl leading-snug text-[#1f1a17] sm:text-3xl md:text-[2.3rem]">
                 “If the system cannot say no, its yes is worth nothing. Every buyer in this market has already seen a demo that
                 only ever says yes.”
               </p>

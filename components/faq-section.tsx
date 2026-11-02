@@ -9,46 +9,46 @@ import { Plus } from "lucide-react"
 
 const groups = [
   {
-    id: "manufacturers",
-    label: "Digital health",
+    id: "payers",
+    label: "Payers",
     faqs: [
       {
-        q: "What does Sanafin cost?",
-        a: "A platform licence, a per-patient fee on enrolment into an outcome-linked pathway, and a success fee on funds recovered when a cohort misses its threshold. The first pilot is a fixed price agreed on the call.",
+        q: "How do I trust the measurement?",
+        a: "The check is independent of both the payer and the provider. It scores the result against the Swiss WZW standard for cost-effectiveness, and the method is published. Every verdict comes with an audit record. Either side can re-run it on their own computer.",
       },
       {
-        q: "How is this different from an HTA consultant or a CRO?",
-        a: "A consultancy appraises evidence by hand, per project; a CRO runs the study but brings no money. Sanafin makes the funding conditional and the verification repeatable: the outcome definition, the threshold and the settlement rule are written once, and the verdict can be re-run by anyone from the exported file.",
+        q: "Who holds the money, and in what currency?",
+        a: "A licensed custody partner holds it, in your own currency. The money leaves only when Sanafin confirms a verified pass. Sanafin never holds funds and is not a bank.",
       },
       {
-        q: "What happens when data is missing or a patient drops out?",
-        a: "Dropout and data-freshness rules are part of the contract. Monitoring surfaces gaps early, and unmet or unverifiable milestones are held or returned to the funder rather than paid on trust.",
+        q: "What is the regulatory set-up?",
+        a: "A pilot is a purchase of results, not of services. How the money is held is kept separate from the rules that govern the care itself. Each programme is reviewed with regulatory counsel before it goes live.",
       },
       {
-        q: "How fast can a pilot start?",
-        a: "Our target is a scoped pilot within two weeks of the first call: data connected in week one, rules live with a first verification report in week two. Going live depends on data access and the funder's sign-off.",
+        q: "How do you prevent gaming or selection bias?",
+        a: "The target, the patient group and the data sources are fixed before anyone enrols. Every value is stamped on entry, and the verdict can be recomputed offline. Change one value later and the stamp no longer matches. Either side can spot that without trusting Sanafin.",
       },
     ],
   },
   {
-    id: "funders",
-    label: "Insurers, employers, hospitals",
+    id: "providers",
+    label: "Care providers",
     faqs: [
       {
-        q: "Who holds the money?",
-        a: "A licensed custody partner. The funder commits funds up front; they are held by the custodian and only leave when Sanafin issues a settlement instruction on a verified pass. Sanafin never holds funds and is not a bank or payment institution.",
+        q: "What does Sanafin cost?",
+        a: "A platform licence, a fee per enrolled patient, and a fee per verified outcome. The first pilot is a fixed price agreed on the call.",
       },
       {
-        q: "Is Sanafin a medical device?",
-        a: "Sanafin does not diagnose or treat. It checks agreed endpoints against contract rules for payment purposes. The classification of each programme under the medical devices ordinance is assessed with regulatory counsel before production use.",
+        q: "What happens when data is missing or a patient drops out?",
+        a: "Rules for dropouts and stale data are part of the contract. Gaps show up early. A milestone that cannot be verified is held or returned to the payer, never paid on trust.",
       },
       {
-        q: "How do you prevent gaming or selection bias?",
-        a: "The threshold, cohort definition and data sources are fixed before enrolment, every value is hashed on entry, and the verdict is re-computable offline. Changing one value after the fact changes the fingerprint, which either side can detect without trusting Sanafin.",
+        q: "How fast can a pilot start?",
+        a: "Our target is two weeks from the first call. Week one: data connected. Week two: rules live and a first verification report. Going live depends on data access and the payer's sign-off.",
       },
       {
         q: "Where is data hosted and who can see it?",
-        a: "Hosting region is agreed per contract, in Switzerland or the EU. Data is pseudonymised for verification, access is role-based, and both parties receive the same audit record.",
+        a: "The hosting region is agreed per contract. Data is pseudonymised before verification. Access is by role, and both sides get the same audit record.",
       },
     ],
   },
@@ -57,16 +57,16 @@ const groups = [
     label: "Investors",
     faqs: [
       {
-        q: "How big is this beyond Swiss digital health?",
-        a: "Switzerland is the proving ground: its reimbursement bar is among the strictest in Europe, and clearing it is the credential. The same conditional-settlement layer applies to German DiGA price components that are now performance-linked by law, and later to gene and cell therapies.",
+        q: "Why start with metabolic health in Switzerland?",
+        a: "Metabolic disease is the largest and best-measured chronic condition, and its drug costs are rising fastest. Swiss reimbursement is among the strictest in Europe. A contract that clears it is a credential everywhere else. The same four fields describe a German app price, a US chronic-care target or a medicine rebate.",
       },
       {
         q: "Why not Lyfegen, EY or a rebate platform?",
-        a: "Each covers one third of the workflow: evidence, contract logic or settlement. Rebate platforms move money only as a claw-back inside an existing commercial relationship, which a pre-listing manufacturer does not have. Sanafin combines verification, contract logic and settlement in one reusable layer, with proofs anyone can re-run.",
+        a: "Each covers one third of the job: evidence, contract logic or payment. Rebate platforms only claw money back inside an existing deal. Sanafin combines the independent check, a reusable contract and the payment release in one layer, with proofs anyone can re-run.",
       },
       {
         q: "What is the traction today?",
-        a: "Four signed letters of intent with Swiss care partners, a clinical proof of concept running with a Swiss hospital to October 2026, eight publications behind the model, and non-dilutive support from Innosuisse-funded programmes. The next milestones are one funder with a named budget owner and the first CHF committed conditionally.",
+        a: "Four signed letters of intent with Swiss care partners. A diabetes proof of concept with a Swiss cantonal hospital, now being implemented. Eight publications behind the model, and grant support from Innosuisse-funded programmes. No payer has committed money yet and no fee has been tested. Next milestones: one payer with a named budget owner, and the first francs committed.",
       },
       {
         q: "How do I get the deck?",
@@ -78,7 +78,7 @@ const groups = [
 ] as const
 
 export function FAQSection() {
-  const [active, setActive] = useState<(typeof groups)[number]["id"]>("manufacturers")
+  const [active, setActive] = useState<(typeof groups)[number]["id"]>("payers")
   const group = groups.find((g) => g.id === active) ?? groups[0]
 
   return (
@@ -87,9 +87,7 @@ export function FAQSection() {
         <div>
           <p className="text-[13px] text-[#766d67] mb-4">FAQ</p>
           <h2 id="faq-title" className="font-display text-4xl sm:text-5xl leading-[1.05] text-[#1f1a17] mb-6">
-            The questions
-            <br />
-            <span className="text-[#1f1a17]/45">each side asks first.</span>
+            The questions each side asks first.
           </h2>
           <p className="text-[15px] text-[#766d67] leading-relaxed max-w-sm mb-8">
             Anything else?{" "}

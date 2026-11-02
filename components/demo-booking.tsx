@@ -10,27 +10,18 @@ import wasuProfile from "@/components/ui/profiles/wasu_profile.webp"
 // Light booking page in the landing-page system. Visitors pick who they are; the
 // scheduler stays on Doodle for now, and investors are routed to the deck form.
 
+// Ids stay stable for outreach links (?role=…); labels follow the payer story.
 const roles = [
-  { id: "manufacturer", label: "Digital health manufacturer" },
-  { id: "funder", label: "Insurer or employer" },
-  { id: "provider", label: "Hospital or provider" },
+  { id: "funder", label: "Insurer, employer or public payer" },
+  { id: "provider", label: "Care provider" },
+  { id: "manufacturer", label: "Digital health company" },
   { id: "investor", label: "Investor" },
   { id: "other", label: "Other" },
 ] as const
 
 type Role = (typeof roles)[number]["id"]
 
-const agenda = [
-  "Your programme, the outcome it can prove and who would fund it",
-  "What an outcome-conditional contract would look like on your data",
-  "Whether a two-week pilot makes sense, and what it needs",
-]
-
-const next = [
-  ["Day 0", "25-minute call with a founder"],
-  ["Week 1", "Data connected, threshold agreed"],
-  ["Week 2", "Rules live, first verification report"],
-]
+const agenda = ["The outcome your programme can prove", "What the contract would look like", "Whether a pilot fits"]
 
 export function DemoBooking({ initialRole }: { initialRole?: string }) {
   const valid = roles.find((r) => r.id === initialRole)?.id
@@ -38,18 +29,37 @@ export function DemoBooking({ initialRole }: { initialRole?: string }) {
 
   return (
     <section aria-labelledby="demo-booking-title" className="grid gap-6 lg:grid-cols-12">
+      {/* Calendly pattern: host first, then the meeting, its format, and three points */}
       <div className="lg:col-span-6">
-        <p className="text-[13px] text-[#766d67] mb-4">Discovery call</p>
-        <h1 id="demo-booking-title" className="font-display text-4xl sm:text-5xl leading-[1.04] text-[#1f1a17] mb-5">
-          Book a 25-minute discovery call.
-        </h1>
-        <p className="max-w-xl text-base sm:text-[17px] leading-relaxed text-[#6f6660] mb-8">
-          A working session, not a pitch. We map your programme onto an outcome-conditional contract and tell you
-          honestly whether a pilot fits.
-        </p>
+        <div className="flex items-center gap-3">
+          <span className="relative h-12 w-12 shrink-0 overflow-hidden rounded-full bg-[#ebe4db]">
+            <Image src={wasuProfile} alt="" fill sizes="48px" className="object-cover object-top" />
+          </span>
+          <div>
+            <p className="text-[15px] font-medium text-[#1f1a17]">{site.ceo.name}</p>
+            <p className="text-[13px] text-[#766d67]">{site.ceo.title}, Sanafin</p>
+          </div>
+        </div>
 
-        <p className="text-[13px] text-[#766d67] mb-3">What we&apos;ll cover</p>
-        <ul className="mb-8 space-y-2.5">
+        <h1 id="demo-booking-title" className="mt-8 font-display text-4xl sm:text-5xl leading-[1.04] text-[#1f1a17]">
+          Book a discovery call.
+        </h1>
+
+        <ul className="mt-5 flex flex-wrap gap-2 text-[13px] text-[#1f1a17]">
+          <li className="inline-flex items-center gap-1.5 rounded-full bg-[#f5f1ed] px-3 py-1.5">
+            <Clock className="h-3.5 w-3.5 text-[#0f766e]" aria-hidden="true" />
+            25 minutes
+          </li>
+          <li className="inline-flex items-center gap-1.5 rounded-full bg-[#f5f1ed] px-3 py-1.5">
+            <Video className="h-3.5 w-3.5 text-[#0f766e]" aria-hidden="true" />
+            Video call
+          </li>
+          <li className="rounded-full bg-[#f5f1ed] px-3 py-1.5">NDA on request</li>
+        </ul>
+
+        <p className="mt-6 max-w-md text-base sm:text-[17px] leading-relaxed text-[#6f6660]">A working session, not a pitch.</p>
+
+        <ul className="mt-6 space-y-2.5">
           {agenda.map((a) => (
             <li key={a} className="flex gap-3 text-[15px] leading-snug text-[#1f1a17]">
               <Check className="mt-0.5 h-4 w-4 shrink-0 text-[#0f766e]" aria-hidden="true" />
@@ -57,34 +67,6 @@ export function DemoBooking({ initialRole }: { initialRole?: string }) {
             </li>
           ))}
         </ul>
-
-        <p className="text-[13px] text-[#766d67] mb-3">Who you&apos;ll talk to</p>
-        <div className="mb-8 flex items-center gap-4 rounded-3xl bg-[#f5f1ed] p-4">
-          <span className="relative h-14 w-14 shrink-0 overflow-hidden rounded-2xl bg-[#ebe4db]">
-            <Image src={wasuProfile} alt={site.ceo.name} fill sizes="56px" className="object-cover object-top" />
-          </span>
-          <div>
-            <p className="text-[15px] font-medium text-[#1f1a17]">{site.ceo.name}</p>
-            <p className="text-[13px] text-[#6f6660]">{site.ceo.title} · PhD in healthcare financing, ETH Zurich · researcher at HSG</p>
-          </div>
-        </div>
-
-        <p className="text-[13px] text-[#766d67] mb-3">What happens next</p>
-        <ol className="divide-y divide-[#ece7e2] rounded-2xl border border-[#ece7e2]">
-          {next.map(([when, what]) => (
-            <li key={when} className="flex items-center gap-4 px-4 py-2.5 text-[14px]">
-              <span className="w-16 shrink-0 font-mono text-[12px] text-[#766d67]">{when}</span>
-              <span className="text-[#1f1a17]">{what}</span>
-            </li>
-          ))}
-        </ol>
-
-        <figure className="mt-8 overflow-hidden rounded-3xl bg-[#f5f1ed] p-4 pb-0">
-          <img src="/media/demo-window.svg" alt="Outcome Studio concept: a dashboard with an outcome-contract panel" className="w-full" loading="lazy" />
-          <figcaption className="sr-only">Illustrative concept, not live data</figcaption>
-        </figure>
-        <p className="mt-2 text-[12px] text-[#766d67]">Outcome Studio · illustrative concept, not live data</p>
-        <p className="mt-4 text-[12.5px] text-[#766d67]">Timeline is our target. NDA on request; nothing you share is used outside this conversation.</p>
       </div>
 
       <aside className="lg:col-span-6 lg:pl-6">
@@ -138,16 +120,6 @@ export function DemoBooking({ initialRole }: { initialRole?: string }) {
                   <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
                 </a>
                 <p className="mt-3 text-center text-[12px] text-[#766d67]">Opens our scheduling page in a new tab.</p>
-                <div className="mt-6 grid grid-cols-2 gap-3 text-[13px] text-[#6f6660]">
-                  <div className="flex items-center gap-2">
-                    <Clock className="h-4 w-4 text-[#0f766e]" aria-hidden="true" />
-                    25 minutes
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Video className="h-4 w-4 text-[#0f766e]" aria-hidden="true" />
-                    Video call
-                  </div>
-                </div>
               </div>
               {!role && <p className="mt-3 text-[12px] text-[#766d67]">Picking a role helps us prepare; it is optional.</p>}
             </>

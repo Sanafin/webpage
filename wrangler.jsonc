@@ -13,6 +13,10 @@
     {
       "pattern": "sanafin.tech",
       "custom_domain": true
+    },
+    {
+      "pattern": "www.sanafin.tech",
+      "custom_domain": true
     }
   ],
   "assets": {

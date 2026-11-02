@@ -1,6 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
-import { ArrowUpRight, Linkedin } from "lucide-react"
+import { Linkedin } from "lucide-react"
 import { publications } from "@/lib/research"
 
 import wasuProfile from "@/components/ui/profiles/wasu_profile.webp"
@@ -10,40 +10,36 @@ import djataProfile from "@/components/ui/profiles/djata_profile.webp"
 import ajinthaProfile from "@/components/ui/profiles/ajintha_profile.webp"
 import niklausProfile from "@/components/ui/profiles/niklaus_profile.webp"
 
-// Why this team: one line of founder-market fit, four people with what they own
-// and one checkable credential each, advisors as equal rows, and the research the
+// Why this team: one line of founder-market fit, four people with one checkable
+// credential each, advisors as equal rows, and the research the
 // product is built on. Institutions are affiliations, not endorsements.
 
 const team = [
   {
-    name: "Wasu Mekniran",
+    name: "Dr. Wasu Mekniran",
     title: "CEO",
-    owns: "Owns the verification model and the payer conversations.",
-    credential: "PhD in healthcare financing, ETH Zurich · researcher at HSG · first author on the EDEN papers",
+    credential: "PhD healthcare financing · **ETH Zurich**",
     photo: wasuProfile,
     linkedin: "https://www.linkedin.com/in/wasumekniran/",
   },
   {
-    name: "Susanne Oudbier",
+    name: "Dr. Susanne Oudbier",
     title: "Chief Medical Officer",
-    owns: "Owns outcome definitions and clinical sign-off.",
-    credential: "MD PhD · resident physician at HOCH Ostschweiz",
+    credential: "MD PhD · **HOCH Ostschweiz**",
     photo: susanProfile,
     linkedin: "https://www.linkedin.com/in/susanoudbier/",
   },
   {
     name: "Anej Rozman",
     title: "Quantitative Scientist",
-    owns: "Owns the risk and health-economic models.",
-    credential: "MSc Quantitative Finance, UZH/ETH",
+    credential: "MSc Quant Finance · **UZH / ETH**",
     photo: anejProfile,
     linkedin: "https://www.linkedin.com/in/anej-rozman/",
   },
   {
     name: "Djata Sigam",
     title: "Software Engineer",
-    owns: "Builds Outcome Studio, the audit chain and settlement.",
-    credential: "MSc Mathematics, Imperial College London and ETH Zurich · 8+ years of fintech software",
+    credential: "MSc Maths · **Imperial**, **ETH** · 8 yrs fintech",
     photo: djataProfile,
     linkedin: "https://www.linkedin.com/in/djata-s-478631134/",
   },
@@ -51,25 +47,47 @@ const team = [
 
 const advisors = [
   {
-    name: "Ajintha Pathmanathan",
+    name: "Dr. Ajintha Pathmanathan",
     role: "Clinical advisor",
-    facts: ["Dr. med., MPH", "20+ years of medical leadership across UK, US and Australian systems"],
+    facts: ["MD, MPH", "20+ years of medical leadership across UK, US and Australian systems"],
     photo: ajinthaProfile,
     linkedin: "https://www.linkedin.com/in/ajintha-p-02177750/",
   },
   {
     name: "Niklaus Neddermann",
     role: "Financial advisor",
-    facts: ["CEO of a FINMA-licensed asset manager", "Formerly Julius Bär and the Swiss National Bank"],
+    facts: ["CEO of a FINMA-licensed asset manager", "Formerly **Julius Bär** and the **Swiss National Bank**"],
     photo: niklausProfile,
     linkedin: "https://www.linkedin.com/in/nneddermann/",
   },
   {
     name: "Prof. Dr. Thomas Giroux",
     role: "Academic advisor",
-    facts: ["Professor for Sustainable Finance, D-MTEC, ETH Zurich"],
+    facts: ["Professor for Sustainable Finance, D-MTEC, **ETH Zurich**"],
   },
 ]
+
+// Institutions in **bold** (Linear pattern), so the credentials scan at a glance.
+function Rich({ text }: { text: string }) {
+  return (
+    <>
+      {text.split("**").map((part, i) =>
+        i % 2 ? (
+          <strong key={i} className="font-medium text-[#1f1a17]">
+            {part}
+          </strong>
+        ) : (
+          part
+        ),
+      )}
+    </>
+  )
+}
+
+// Where the team and advisors trained and worked: set as quiet monotone wordmarks
+// (small caps, letter-spaced, one grey), never the institutions' own logos, so
+// nothing reads as an endorsement.
+const institutions = ["ETH Zurich", "HSG", "UZH", "Imperial College London", "HOCH", "Julius Bär", "Swiss National Bank"]
 
 export function TeamSection() {
   return (
@@ -79,14 +97,16 @@ export function TeamSection() {
           <div>
             <p className="text-[13px] text-[#766d67] mb-4">Why this team</p>
             <h2 id="team-title" className="font-display text-4xl sm:text-5xl leading-[1.04] text-[#1f1a17]">
-              Four years researching why outcome-based payment stalls.
-              <br />
-              <span className="text-[#1f1a17]/45">Then we built the tool.</span>
+              We researched why payers don&apos;t pay for outcomes. Then we built Sanafin.
             </h2>
           </div>
           <p className="max-w-md text-[15px] sm:text-base leading-relaxed text-[#6f6660] lg:pb-2">
-            Health economics, clinical outcomes and financial engineering in one team, with eight publications behind
-            the incentive model, the risk structures and the health economics.
+            Health economics, medicine and financial engineering from <strong className="font-medium text-[#1f1a17]">ETH Zurich</strong>,{" "}
+            <strong className="font-medium text-[#1f1a17]">HSG</strong> and <strong className="font-medium text-[#1f1a17]">Imperial</strong>.{" "}
+            <Link href="/eden-framework" className="text-[#1f1a17] underline decoration-[#d9d1ca] underline-offset-4 hover:decoration-[#1f1a17]">
+              {publications.length} publications
+            </Link>{" "}
+            stand behind the model.
           </p>
         </div>
 
@@ -97,7 +117,7 @@ export function TeamSection() {
               <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-[#ebe4db]">
                 <Image
                   src={person.photo}
-                  alt={person.name}
+                  alt=""
                   fill
                   sizes="(max-width: 1024px) 50vw, 25vw"
                   className="object-cover object-top"
@@ -114,9 +134,10 @@ export function TeamSection() {
               </div>
               <div className="flex flex-1 flex-col pt-4">
                 <h3 className="font-display text-lg sm:text-xl text-[#1f1a17] leading-tight">{person.name}</h3>
-                <p className="text-[13px] text-[#0f766e] mt-0.5 mb-3">{person.title}</p>
-                <p className="text-[14px] leading-snug text-[#1f1a17] mb-2">{person.owns}</p>
-                <p className="text-[12.5px] leading-snug text-[#766d67]">{person.credential}</p>
+                <p className="text-[13px] text-[#0f766e] mt-0.5 mb-2">{person.title}</p>
+                <p className="text-[13px] leading-snug text-[#766d67]">
+                  <Rich text={person.credential} />
+                </p>
               </div>
             </li>
           ))}
@@ -145,7 +166,9 @@ export function TeamSection() {
                 </div>
                 <ul className="flex flex-wrap gap-x-4 gap-y-1 text-[13.5px] text-[#6f6660]">
                   {a.facts.map((f) => (
-                    <li key={f}>{f}</li>
+                    <li key={f}>
+                      <Rich text={f} />
+                    </li>
                   ))}
                 </ul>
                 {a.linkedin ? (
@@ -166,49 +189,17 @@ export function TeamSection() {
           </ul>
         </div>
 
-        {/* Research */}
-        <div className="mt-14">
-          <div className="rounded-3xl border border-[#ece7e2] bg-white p-7">
-            <div className="mb-5 flex items-end justify-between gap-4">
-              <div>
-                <p className="text-[13px] text-[#766d67] mb-1">Selected research</p>
-                <p className="font-display text-2xl text-[#1f1a17]">{publications.length} publications, CEO first author</p>
-              </div>
-              <Link href="/eden-framework" className="hidden sm:inline-flex items-center gap-1 text-[13px] text-[#1f1a17] underline decoration-[#d9d1ca] underline-offset-4 hover:decoration-[#1f1a17]">
-                EDEN framework
-                <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
-              </Link>
-            </div>
-            <ol className="divide-y divide-[#f0ebe6]">
-              {publications.slice(0, 3).map((p) => (
-                <li key={p.doi} className="grid gap-1 py-3 sm:grid-cols-[3.5rem_1fr_auto] sm:items-baseline sm:gap-4">
-                  <span className="font-mono text-[12px] text-[#766d67]">{p.year}</span>
-                  <span>
-                    <span className="block text-[14px] leading-snug text-[#1f1a17]">{p.title}</span>
-                    <span className="block text-[12px] text-[#766d67]">
-                      {p.authors}
-                      {p.venue ? ` · ${p.venue}` : ""}
-                    </span>
-                  </span>
-                  <a
-                    href={`https://doi.org/${p.doi}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-0.5 font-mono text-[11px] text-[#766d67] hover:text-[#1f1a17]"
-                    aria-label={`DOI ${p.doi}`}
-                  >
-                    DOI
-                    <ArrowUpRight className="h-3 w-3" aria-hidden="true" />
-                  </a>
-                </li>
-              ))}
-            </ol>
-            <p className="mt-5 text-[12px] leading-relaxed text-[#766d67]">
-              Research carried out by the founding team at ETH Zurich, the University of St. Gallen and HOCH Ostschweiz.
-              Institutions do not endorse Sanafin.
-            </p>
-          </div>
-
+        {/* Where the team trained and worked */}
+        <div className="mt-12 flex flex-col items-center gap-4 text-center">
+          <p className="text-[12px] text-[#766d67]">Team and advisors trained and worked at</p>
+          <ul className="flex flex-wrap items-center justify-center gap-x-5 gap-y-3 lg:gap-x-0">
+            {institutions.map((name, i) => (
+              <li key={name} className="flex items-center">
+                {i > 0 && <span className="mx-4 hidden h-4 w-px bg-[#d9d1ca] lg:block" aria-hidden="true" />}
+                <span className="text-[12px] font-semibold uppercase tracking-[0.16em] text-[#1f1a17]/45 sm:text-[13px]">{name}</span>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </section>

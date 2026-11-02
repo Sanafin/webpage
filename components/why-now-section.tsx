@@ -4,13 +4,24 @@ import { getSource } from "@/lib/sources"
 
 // Dated, sourced regulatory events on one vertical timeline (Wise pattern), with a
 // "Today" marker between the events that have happened and the one still to come.
+// Three jurisdictions and four asset classes, because the breadth is the argument:
+// each of them wrote the condition into law and left the settlement out.
 const events = [
+  {
+    date: "Mar 2025",
+    region: "United States",
+    stat: "32 states",
+    title: "CMS negotiated outcomes for gene therapy",
+    body: "CMS negotiates outcomes-based agreements for 32 states, DC and Puerto Rico. It settles by rebate, over eleven years.",
+    sources: [["cms-cgt", "CMS · CGT Access Model"]],
+    past: true,
+  },
   {
     date: "Jan 2026",
     region: "Germany",
     stat: "≥ 20%",
-    title: "Outcome-linked pricing became law",
-    body: "At least 20% of a prescription app's price must now depend on measured performance (§ 134 SGB V). No product has implemented it yet.",
+    title: "Outcome-linked pricing became law for apps",
+    body: "At least 20% of an app's price must depend on measured performance (§ 134 SGB V). How it settles is left to the parties. No product has done it yet.",
     sources: [
       ["sgb5-134", "§ 134 SGB V"],
       ["bfarm-digig", "BfArM"],
@@ -19,12 +30,12 @@ const events = [
     past: true,
   },
   {
-    date: "Jan 2026",
+    date: "Feb 2026",
     region: "Switzerland",
-    stat: "TARDOC",
-    title: "Cost containment becomes the organising principle",
-    body: "TARDOC and flat rates replaced TARMED, with a mandatory electronic invoice standard. Every new digital service has to fit this rail.",
-    sources: [["tardoc", "OAAT"]],
+    stat: "CHF 350M",
+    title: "A legal basis for outcome rebates on medicines opened",
+    body: "Art. 52b E-KVG went to consultation with CHF 350M of annual savings attached — the first Swiss rule tying a medicine's price to the result.",
+    sources: [["kvg-52b", "Art. 52b E-KVG"]],
     past: true,
   },
   {
@@ -32,17 +43,26 @@ const events = [
     region: "Switzerland",
     stat: "MiGeL Ch. 40",
     title: "A reimbursement path opens, with a proof requirement",
-    body: "Product group 40 opened for digital health applications. The first listing was admitted under evaluation only, judged on effectiveness, appropriateness and economy.",
+    body: "Product group 40 opened for digital health applications. The first listing was admitted under evaluation only, to 31 December 2026.",
     sources: [["migel-40", "FOPH · MiGeL"]],
     past: true,
   },
   {
-    date: "31 Dec 2026",
-    region: "Switzerland",
+    date: "Jul 2026",
+    region: "United States",
+    stat: "Thresholds",
+    title: "Chronic care payment tied to measured results",
+    body: "The CMS ACCESS model starts. Payment depends on the share of patients meeting biomarker or PROM thresholds — well beyond drugs and devices.",
+    sources: [["cms-access", "CMS · ACCESS model"]],
+    past: true,
+  },
+  {
+    date: "15 Apr 2027",
+    region: "Germany",
     stat: "Evidence due",
-    title: "The federal question on dGA cost-effectiveness closes",
-    body: "The first admission's evaluation ends. Whatever evidence exists by then sets the bar for everyone who follows.",
-    sources: [["migel-40", "FOPH · MiGeL"]],
+    title: "The first outcome data falls due",
+    body: "Fifteen months after the pricing rule, the first performance data is due. The deadlines do not line up, and nothing holds the money in between.",
+    sources: [["sgb5-134", "§ 134 SGB V"]],
     past: false,
   },
 ] as const
@@ -57,12 +77,13 @@ export function WhyNowSection() {
           <Reveal className="lg:sticky lg:top-32 lg:self-start">
             <p className="text-[13px] text-[#766d67] mb-4">Why now</p>
             <h2 id="why-now-title" className="font-display text-4xl sm:text-5xl leading-[1.04] text-[#1f1a17] mb-6">
-              Outcome evidence
+              Three jurisdictions wrote the rule.
               <br />
-              <span className="text-[#1f1a17]/45">stopped being optional.</span>
+              <span className="text-[#1f1a17]/45">None built the settlement.</span>
             </h2>
             <p className="max-w-md text-base sm:text-lg leading-relaxed text-[#6f6660]">
-              Germany and Switzerland moved from paying for access to paying for results, with dates attached. Today that proof is still produced by hand.
+              In two years the US, Germany and Switzerland moved from paying for access to paying for results —
+              gene therapy, apps, medicines, chronic care. Every one wrote the condition and left out the settlement.
             </p>
           </Reveal>
 

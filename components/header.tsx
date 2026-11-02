@@ -6,16 +6,18 @@ import { useState, useEffect } from "react"
 import { Menu, X } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
 import { CTA } from "@/lib/site"
+import { AwardBar } from "@/components/award-badge"
 
 const navLinks = [
   { href: "/#how", label: "How it works" },
-  { href: "/#product", label: "Product" },
-  { href: "/#why-now", label: "Why now" },
+  { href: "/#anywhere", label: "Anywhere" },
+  { href: "/#traction", label: "Evidence" },
   { href: "/#team", label: "Team" },
   { href: "/#faq", label: "FAQ" },
 ]
 
-export function Header({ tone = "light" }: { tone?: "light" | "dark" }) {
+// `announce` adds the award bar above the header; it folds away once the page scrolls.
+export function Header({ tone = "light", announce = false }: { tone?: "light" | "dark"; announce?: boolean }) {
   const dark = tone === "dark"
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
@@ -41,6 +43,11 @@ export function Header({ tone = "light" }: { tone?: "light" | "dark" }) {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50">
+      {announce && (
+        <div className={`overflow-hidden transition-[height] duration-300 ${isScrolled ? "h-0" : "h-10"}`} aria-hidden={isScrolled}>
+          <AwardBar />
+        </div>
+      )}
       <div
         className={`transition-all duration-300 ${
           isScrolled
