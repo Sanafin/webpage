@@ -23,8 +23,7 @@ export function FounderNote() {
           <div className="relative max-w-3xl">
             <blockquote>
               <p id="founder-note-title" className="font-display text-2xl leading-snug text-[#1f1a17] sm:text-3xl md:text-[2.3rem]">
-                “If the system cannot say no, its yes is worth nothing. Every buyer in this market has already seen a demo that
-                only ever says yes.”
+                “Everyone has seen the demo that always says yes. We built the one that can say no.”
               </p>
               <footer className="mt-6 flex items-center gap-3 text-[14px] text-[#766d67]">
                 <span className="relative h-10 w-10 shrink-0 overflow-hidden rounded-full bg-[#ebe4db]">
