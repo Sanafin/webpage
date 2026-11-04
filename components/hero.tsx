@@ -90,11 +90,10 @@ export function Hero() {
             <p className="text-center text-[12px] text-[#766d67] md:text-left">
               Supported by Swiss innovation programmes · Research from ETH Zurich and HSG
             </p>
-            <ul className="flex flex-wrap items-end justify-center gap-x-10 gap-y-6 md:justify-start">
+            <ul className="flex flex-wrap items-center justify-center gap-x-10 gap-y-6 md:justify-start">
               {heroBackers.map((b) => (
-                <li key={b.name} className="flex flex-col items-center gap-2">
+                <li key={b.name} className="flex items-center">
                   <Image src={b.logo} alt={b.name} className={`${b.logoClass ?? "h-8"} w-auto object-contain opacity-90`} style={{ width: "auto" }} />
-                  <span className="text-[11px] text-[#766d67]">{b.relationship}</span>
                 </li>
               ))}
             </ul>

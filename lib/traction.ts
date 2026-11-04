@@ -7,6 +7,7 @@ import talentkickLogo from "@/components/ui/logo/talentkick.png"
 import sicLogo from "@/components/ui/logo/SIC-logo.png"
 import sftaLogo from "@/components/ui/logo/sfta_logo.png"
 import shsLogo from "@/components/ui/logo/shs_logo.svg"
+import sphLogo from "@/components/ui/logo/student-project-house.png"
 
 export type Backer = {
   name: string
@@ -65,7 +66,7 @@ export const backers: Backer[] = [
     relationship: "Coaching",
     description: "Initial Coaching supported by Innosuisse, the Swiss Innovation Agency.",
     sourceUrl: "https://www.innosuisse.admin.ch/",
-    inHero: true,
+    inHero: false,
     logoClass: "h-[68px]",
   },
   {
@@ -73,14 +74,14 @@ export const backers: Backer[] = [
     logo: talentkickLogo,
     relationship: "Programme",
     description: "Start-up programme participation.",
-    inHero: true,
+    inHero: false,
   },
   {
     name: "SIC",
     logo: sicLogo,
     relationship: "Programme",
     description: "Programme participation.",
-    inHero: true,
+    inHero: false,
   },
   {
     name: "Swiss Finance + Technology Association",
@@ -99,6 +100,17 @@ export const backers: Backer[] = [
     description: "Member of the Swiss Healthcare Startups community.",
     sourceUrl: "https://www.swisshealthcarestartups.com/",
     inHero: true,
+  },
+  // Keep last: the funders come first, this is the small print of the row.
+  {
+    name: "Student Project House, ETH Zurich and University of St.Gallen",
+    shortName: "Student Project House",
+    logo: sphLogo,
+    relationship: "Programme",
+    description: "Member of the Student Project House of ETH Zurich and the University of St.Gallen.",
+    sourceUrl: "https://sph.ethz.ch/",
+    inHero: true,
+    logoClass: "h-6",
   },
 ]
 
