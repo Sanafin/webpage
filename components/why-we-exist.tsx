@@ -26,9 +26,8 @@ export function WhyWeExist() {
             <div className="max-w-xl">
               <p className="mb-5 text-[13px] text-white/55">Why we exist</p>
               <h2 id="why-title" className="font-display text-[1.9rem] leading-[1.12] sm:text-[2.4rem] md:text-[2.7rem]">
-                Give 100 people with type 2 diabetes a diet programme and{" "}
-                <span className="text-[#5eead4]">46</span> are in remission a year later. Yet insurance pays for every pill and
-                visit, not for the remission.
+                <span className="text-[#5eead4]">46</span> of 100 people beat type 2 diabetes with diet. Insurance still pays for
+                pills, not for health.
                 <Fn id="direct-trial" className="text-white/40" />
               </h2>
               <p className="mt-9 font-display text-2xl leading-snug text-[#5eead4] sm:text-[1.9rem]">
@@ -40,7 +39,7 @@ export function WhyWeExist() {
               <div
                 className="grid grid-cols-10 gap-x-2.5 gap-y-2 sm:gap-x-3 sm:gap-y-2.5"
                 role="img"
-                aria-label={`${REMISSION} of 100 people in remission after one year`}
+                aria-label={`${REMISSION} of 100 people beat type 2 diabetes within a year`}
               >
                 {Array.from({ length: 100 }, (_, i) => {
                   const inRemission = i < REMISSION
@@ -53,7 +52,7 @@ export function WhyWeExist() {
                 })}
               </div>
               <figcaption className="mt-5 text-[14px] text-white/70">
-                <span className="font-medium text-[#5eead4] tabular-nums">{REMISSION} of 100</span> in remission after one year
+                <span className="font-medium text-[#5eead4] tabular-nums">{REMISSION} of 100</span> beat type 2 diabetes within a year
               </figcaption>
             </figure>
           </div>
