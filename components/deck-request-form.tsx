@@ -28,7 +28,7 @@ export function buildDeckMailto(values: { name: string; firm: string; email: str
   return `mailto:${site.contactEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines.join("\n"))}`
 }
 
-export function DeckRequestForm({ source = "investors" }: { source?: "investors" | "demo" | "closing" }) {
+export function DeckRequestForm({ source = "investors" }: { source?: "investors" | "call" | "closing" }) {
   const [values, setValues] = useState({ name: "", firm: "", email: "", note: "" })
   const [fieldErrors, setFieldErrors] = useState<Partial<Record<Fields, string>>>({})
   const [sent, setSent] = useState(false)

@@ -133,7 +133,7 @@ export function ExampleContracts() {
                 <p className="mt-1 text-[13px] text-[#766d67]">Pricing on the call · NDA on request</p>
               </div>
               <Link
-                href="/demo"
+                href="/call"
                 data-cta="book_call"
                 data-location="pilot"
                 className="inline-flex min-h-10 items-center gap-1.5 rounded-full bg-[#1f1a17] px-5 py-2 text-[14px] font-medium text-white transition-colors hover:bg-[#3a322d]"

@@ -1,6 +1,8 @@
 // One illustrative dataset, used by the hero preview, the three acts, the product
 // tiles and the example contracts, so the numbers agree everywhere. Every value is
-// synthetic and every surface that shows it says so.
+// synthetic and every surface that shows it says so. Scores and settlement amounts
+// come from the same verification run as lib/demo/fixtures.json (synthetic cohort,
+// 2026-09-24), so the landing page and the /demo walkthrough tell one story.
 
 export const example = {
   programme: "Type 2 diabetes digital programme",
@@ -11,6 +13,9 @@ export const example = {
   duration: "12 months",
   // WZW composite score out of 100 and the pre-agreed release cut-off
   cutoff: 75,
+  composite: 83,
+  // Audit hash of the run that produced the composite (first 16 hex chars shown)
+  hash: "3e266bf198c1bd4e",
   threshold: { label: "HbA1c reduction", value: "≥ 0.5 pp at month 6" },
   // HbA1c (%) over six months, ending below the contract target
   trend: [7.6, 7.5, 7.4, 7.25, 7.15, 7.0, 6.95],
@@ -32,12 +37,12 @@ export const acts = [
     number: "01",
     title: "First, it refuses to pay.",
     lead: "The cohort misses the pre-agreed threshold.",
-    body: "One hundred patients, CHF 180,000 committed before the first enrolment. The composite comes in at 29 against a cut-off of 75. Nothing is released; the money returns to the payer.",
+    body: "One hundred patients, CHF 180,000 committed before the first enrolment. Scored over a five-year horizon the composite comes in at 50 against a cut-off of 75. Nothing is released; the money returns to the payer.",
     rows: [
-      ["Wirksamkeit", "54 / 100"],
-      ["Zweckmässigkeit", "34 / 100"],
+      ["Wirksamkeit", "57 / 100"],
+      ["Zweckmässigkeit", "93 / 100"],
       ["Wirtschaftlichkeit", "0 / 100"],
-      ["Composite", "29 / 100 · insufficient"],
+      ["Composite", "50 / 100 · insufficient"],
       ["Released to provider", "CHF 0"],
       ["Returned to payer", "CHF 180,000"],
     ],
@@ -47,13 +52,14 @@ export const acts = [
     id: "pays",
     number: "02",
     title: "Then it pays, in one block.",
-    lead: "Same contract, same cut-off. Only the patients changed.",
-    body: "The composite reaches 99. The payer knows the amount the moment the last patient is measured. The provider gets one payment instruction with a fingerprint its auditor can keep.",
+    lead: "Same contract, same cut-off. Only the evaluation horizon changed.",
+    body: "The composite reaches 83. The payer knows the amount the moment the last patient is measured. The provider gets one payment instruction with a fingerprint its auditor can keep; what was not earned goes back.",
     rows: [
-      ["Composite", "99 / 100 · meets WZW"],
-      ["Average HbA1c change", "−1.3 pp"],
+      ["Composite", "83 / 100 · meets WZW"],
+      ["Average HbA1c change", "−1.1 pp"],
       ["Verdict", "Threshold met"],
-      ["Released to provider", "CHF 180,000"],
+      ["Released to provider", "CHF 169,038"],
+      ["Returned to payer", "CHF 10,962"],
       ["Time from last measurement", "about a second"],
     ],
     tone: "orange",
@@ -68,7 +74,7 @@ export const acts = [
       ["Verdict matches", "true"],
       ["Composite matches", "true"],
       ["Audit hash matches", "false"],
-      ["Certificate", "7aaa8b48…"],
+      ["Certificate", "3e266bf198c1…"],
       ["Recomputed", "d9b10fb1…"],
     ],
     tone: "teal",

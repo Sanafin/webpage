@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import { useSearchParams } from "next/navigation"
 import Image from "next/image"
 import { ArrowUpRight, Check, Clock, Video } from "lucide-react"
 import { DeckRequestForm } from "@/components/deck-request-form"
@@ -23,12 +24,23 @@ type Role = (typeof roles)[number]["id"]
 
 const agenda = ["The outcome your programme can prove", "What the contract would look like", "Whether a pilot fits"]
 
-export function DemoBooking({ initialRole }: { initialRole?: string }) {
+// `readRoleFromUrl` reads ?role= (kept stable for outreach links) on the client, so the
+// page stays prerendered. Render without it inside the Suspense fallback.
+export function CallBooking({ readRoleFromUrl = false }: { readRoleFromUrl?: boolean }) {
+  return readRoleFromUrl ? <RoleFromUrl /> : <CallBookingInner />
+}
+
+function RoleFromUrl() {
+  const params = useSearchParams()
+  return <CallBookingInner initialRole={params.get("role") ?? undefined} />
+}
+
+function CallBookingInner({ initialRole }: { initialRole?: string }) {
   const valid = roles.find((r) => r.id === initialRole)?.id
   const [role, setRole] = useState<Role | null>(valid ?? null)
 
   return (
-    <section aria-labelledby="demo-booking-title" className="grid gap-6 lg:grid-cols-12">
+    <section aria-labelledby="call-booking-title" className="grid gap-6 lg:grid-cols-12">
       {/* Calendly pattern: host first, then the meeting, its format, and three points */}
       <div className="lg:col-span-6">
         <div className="flex items-center gap-3">
@@ -41,7 +53,7 @@ export function DemoBooking({ initialRole }: { initialRole?: string }) {
           </div>
         </div>
 
-        <h1 id="demo-booking-title" className="mt-8 font-display text-4xl sm:text-5xl leading-[1.04] text-[#1f1a17]">
+        <h1 id="call-booking-title" className="mt-8 font-display text-4xl sm:text-5xl leading-[1.04] text-[#1f1a17]">
           Book a discovery call.
         </h1>
 
@@ -99,7 +111,7 @@ export function DemoBooking({ initialRole }: { initialRole?: string }) {
               <p className="text-[13px] font-medium text-[#1f1a17] mb-3">
                 <span className="font-mono text-[12px] text-[#766d67] mr-2">2</span>Investors get the deck first; a call follows if useful.
               </p>
-              <DeckRequestForm source="demo" />
+              <DeckRequestForm source="call" />
             </>
           ) : (
             <>
@@ -112,7 +124,7 @@ export function DemoBooking({ initialRole }: { initialRole?: string }) {
                   target="_blank"
                   rel="noopener noreferrer"
                   data-cta="doodle_open"
-                  data-location="demo"
+                  data-location="call"
                   data-audience={role ?? "unset"}
                   className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-[#f15d22] px-6 py-3 text-[15px] font-medium text-white shadow-[0_8px_24px_-8px_rgba(241,93,34,0.7)] transition-colors hover:bg-[#d94f18]"
                 >

@@ -143,9 +143,9 @@ export function AppPreview() {
           {/* Verification row */}
           <div className="mt-4 grid grid-cols-3 gap-3">
             {[
-              { label: "WZW composite", value: "99 / 100", icon: FileCheck2 },
+              { label: "WZW composite", value: `${example.composite} / 100`, icon: FileCheck2 },
               { label: "Release cut-off", value: `${example.cutoff} / 100`, icon: ShieldCheck },
-              { label: "Audit hash", value: "7aaa8b48…", icon: Layers },
+              { label: "Audit hash", value: `${example.hash.slice(0, 8)}…`, icon: Layers },
             ].map(({ label, value, icon: Icon }) => (
               <div key={label} className="rounded-xl border border-[#f0ebe6] px-3 py-2.5">
                 <p className="flex items-center gap-1.5 text-[10px] sm:text-[11px] text-[#766d67]">

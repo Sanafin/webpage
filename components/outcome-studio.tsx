@@ -196,13 +196,13 @@ export function OutcomeStudio() {
         <div className="mt-6 flex flex-col gap-4 rounded-3xl border border-[#ece7e2] bg-white px-5 py-4 lg:flex-row lg:items-center lg:justify-between">
           <p className="text-[14px] text-[#6f6660]">One REST API, one audit chain. Every value hashed on entry; the certificate re-computable from the exported file.</p>
           <pre className="max-w-full whitespace-pre-wrap rounded-xl bg-[#1a1512] px-4 py-2.5 font-mono text-[11.5px] leading-relaxed text-white/85 lg:shrink-0">
-            <span className="text-[#5eead4]">POST</span> /v1/verifications <span className="text-white/40">→</span> {`{ "verdict": "meets_wzw", "certificate": "7aaa8b48…" }`}
+            <span className="text-[#5eead4]">POST</span> /v1/verifications <span className="text-white/40">→</span> {`{ "verdict": "meets_wzw", "certificate": "${example.hash.slice(0, 8)}…" }`}
           </pre>
         </div>
 
         <div className="mt-8 flex justify-center">
           <Link
-            href="/demo"
+            href="/call"
             data-cta="book_call"
             data-location="product"
             className="inline-flex min-h-11 items-center gap-1.5 rounded-full bg-[#f1ece7] px-6 py-2.5 text-[15px] font-medium text-[#1f1a17] transition-colors hover:bg-[#e9e2db]"

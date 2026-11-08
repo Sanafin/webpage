@@ -8,3 +8,5 @@ node_modules/
 cloudflare-env.d.ts
 .wrangler/
 pnpm-lock.yaml
+.dev.vars*
+!.dev.vars.example

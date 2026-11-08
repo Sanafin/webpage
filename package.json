@@ -16,6 +16,7 @@
     "upload": "opennextjs-cloudflare build && opennextjs-cloudflare upload",
     "cf-typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts",
     "check-copy": "node scripts/check-copy.mjs",
+    "build:fixtures": "node scripts/build-demo-fixtures.mjs",
     "check-sources": "node scripts/check-sources.mjs",
     "prebuild": "node scripts/check-copy.mjs"
   },

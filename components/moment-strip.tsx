@@ -19,7 +19,7 @@ const steps = [
     icon: Check,
     label: "Verified against contract",
     value: example.delta,
-    meta: `threshold ${example.threshold.value} · WZW ${99}/100`,
+    meta: `threshold ${example.threshold.value} · WZW ${example.composite}/100`,
     tone: "teal",
   },
   {

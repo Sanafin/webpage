@@ -1,129 +1,8 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react"
-import { motion, useInView, useReducedMotion } from "framer-motion"
-import { Pause, Play } from "lucide-react"
-import { media } from "@/lib/media"
-
-// Beats in the marble film, in seconds. The teal marble (patient outcome) is
-// weighed at the gate, the gate opens, and the orange marble (payment) rolls out.
-const beats = [
-  { until: 2.2, label: "Outcome verified", detail: "Checked against the agreed target", tone: "teal" },
-  { until: 3.1, label: "Threshold met", detail: "The score clears the cut-off", tone: "ink" },
-  { until: Infinity, label: "Payment instructed", detail: "The custodian pays out. Anyone can re-run the proof.", tone: "orange" },
-] as const
-
-const toneClass = {
-  teal: "bg-[#14B8A6]",
-  ink: "bg-[#1f1a17]",
-  orange: "bg-[#f15d22]",
-}
-
-
-function Film() {
-  const sectionRef = useRef<HTMLDivElement>(null)
-  const videoRef = useRef<HTMLVideoElement>(null)
-  const isInView = useInView(sectionRef, { margin: "-120px" })
-  const shouldReduceMotion = useReducedMotion()
-  const [beat, setBeat] = useState(shouldReduceMotion ? beats.length - 1 : 0)
-  const [paused, setPaused] = useState(false)
-
-  // Only play while on screen; respect reduced motion by showing the poster
-  useEffect(() => {
-    const video = videoRef.current
-    if (!video || shouldReduceMotion || paused) return
-    if (isInView) {
-      video.play().catch(() => {})
-    } else {
-      video.pause()
-    }
-  }, [isInView, shouldReduceMotion, paused])
-
-  function handleTimeUpdate() {
-    const t = videoRef.current?.currentTime ?? 0
-    const next = beats.findIndex((b) => t < b.until)
-    if (next !== beat) setBeat(next)
-  }
-
-  function togglePause() {
-    const video = videoRef.current
-    if (!video) return
-    if (paused) {
-      setPaused(false)
-      video.play().catch(() => {})
-    } else {
-      setPaused(true)
-      video.pause()
-    }
-  }
-
-  return (
-    <div ref={sectionRef} className="relative overflow-hidden rounded-3xl bg-[#efebe6] shadow-[0_40px_100px_-50px_rgba(47,36,31,0.5)]">
-      <video
-        ref={videoRef}
-        className="block aspect-[4/5] sm:aspect-video max-h-[60vh] w-full object-cover"
-        src={media.film}
-        poster={media.filmPoster}
-        muted
-        loop
-        playsInline
-        preload="metadata"
-        onTimeUpdate={handleTimeUpdate}
-        aria-label="A teal marble is weighed at a brass gate, which opens and releases an orange marble"
-      />
-
-      <div className="pointer-events-none absolute left-4 top-4 sm:left-6 sm:top-6 flex flex-wrap gap-2">
-        <span className="inline-flex items-center gap-2 rounded-full bg-white/85 px-3 py-1.5 text-[12px] font-medium text-[#1f1a17] backdrop-blur">
-          <span className="h-2.5 w-2.5 rounded-full bg-[#14B8A6]" aria-hidden="true" />
-          Teal marble = patient outcome
-        </span>
-        <span className="inline-flex items-center gap-2 rounded-full bg-white/85 px-3 py-1.5 text-[12px] font-medium text-[#1f1a17] backdrop-blur">
-          <span className="h-2.5 w-2.5 rounded-full bg-[#f15d22]" aria-hidden="true" />
-          Orange marble = payment
-        </span>
-      </div>
-
-      <button
-        type="button"
-        onClick={togglePause}
-        aria-pressed={paused}
-        aria-label={paused ? "Play the film" : "Pause the film"}
-        className="absolute right-4 top-4 sm:right-6 sm:top-6 flex h-9 w-9 items-center justify-center rounded-full bg-white/85 text-[#1f1a17] backdrop-blur transition-colors hover:bg-white"
-      >
-        {paused ? <Play className="h-4 w-4 fill-current" aria-hidden="true" /> : <Pause className="h-4 w-4 fill-current" aria-hidden="true" />}
-      </button>
-
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/45 via-black/10 to-transparent p-4 sm:p-6 pt-20">
-        <ol className="flex flex-col sm:flex-row gap-2 sm:gap-3">
-          {beats.map((b, i) => {
-            const active = i === beat
-            const done = i < beat
-            return (
-              <li
-                key={b.label}
-                className={`${active ? "flex" : "hidden sm:flex"} items-center gap-3 rounded-2xl px-4 py-3 backdrop-blur-md transition-all duration-500 ${
-                  active ? "bg-white text-[#1f1a17] shadow-lg" : "bg-white/15 text-white/80"
-                }`}
-              >
-                <span className="relative flex h-2.5 w-2.5 shrink-0">
-                  {active && !shouldReduceMotion && (
-                    <span className={`absolute inline-flex h-full w-full animate-ping rounded-full opacity-60 ${toneClass[b.tone]}`} />
-                  )}
-                  <span className={`relative inline-flex h-2.5 w-2.5 rounded-full ${active || done ? toneClass[b.tone] : "bg-white/50"}`} />
-                </span>
-                <span>
-                  <span className="block text-[14px] font-medium leading-tight">{b.label}</span>
-                  <span className={`block text-[12px] ${active ? "text-[#6f6660]" : "text-white/60"}`}>{b.detail}</span>
-                </span>
-              </li>
-            )
-          })}
-        </ol>
-      </div>
-    </div>
-  )
-}
-
+import { motion } from "framer-motion"
+import Link from "next/link"
+import { Walkthrough } from "@/components/demo/walkthrough"
 
 // Four steps, one picture each (Wise / Blue Apron pattern). Each glyph is drawn in
 // the brand's ink with one accent, on a 120 × 80 canvas, so the row reads as one set.
@@ -218,7 +97,13 @@ export function HowItWorks() {
           ))}
         </ol>
 
-        <Film />
+        <Walkthrough compact />
+        <p className="mt-4 text-center text-[13px] text-[#766d67]">
+          Figures from one verification run on a synthetic cohort.{" "}
+          <Link href="/demo" className="text-link">
+            See the full walkthrough
+          </Link>
+        </p>
       </div>
     </section>
   )

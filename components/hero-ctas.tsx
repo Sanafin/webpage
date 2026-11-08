@@ -16,7 +16,7 @@ function Ctas() {
     <>
       <div className="flex flex-col sm:flex-row items-start gap-3">
         <Link
-          href="/demo"
+          href="/call"
           data-cta="book_call"
           data-location="hero"
           className="inline-flex min-h-11 items-center justify-center rounded-full bg-[#f15d22] px-6 py-2.5 text-[15px] font-medium text-white shadow-[0_8px_24px_-8px_rgba(241,93,34,0.7)] transition-colors hover:bg-[#d94f18]"
@@ -41,7 +41,7 @@ function Ctas() {
             className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-[#f1ece7] px-6 py-2.5 text-[15px] font-medium text-[#1f1a17] transition-colors hover:bg-[#e9e2db]"
           >
             <Play className="h-3.5 w-3.5 fill-current" aria-hidden="true" />
-            See how it works · 8 s
+            See how it works · 32 s
           </Link>
         )}
       </div>
