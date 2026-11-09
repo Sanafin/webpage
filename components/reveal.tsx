@@ -9,16 +9,19 @@ export function Reveal({
   className = "",
   delay = 0,
   as = "div",
+  style,
 }: {
   children: React.ReactNode
   className?: string
   delay?: number
   as?: "div" | "li" | "article" | "section"
+  style?: React.CSSProperties
 }) {
   const Tag = motion[as]
   return (
     <Tag
       className={className}
+      style={style}
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-80px" }}

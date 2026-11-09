@@ -3,8 +3,8 @@ import Link from "next/link"
 import { AppPreview, MobileContractCard } from "@/components/app-preview"
 import { AwardBadge } from "@/components/award-badge"
 import { HeroCtas } from "@/components/hero-ctas"
+import { HeroCopy, HeroStage } from "@/components/hero-stage"
 import { MomentStrip } from "@/components/moment-strip"
-import { Reveal } from "@/components/reveal"
 import { ScreenFrame } from "@/components/screen-frame"
 import { media } from "@/lib/media"
 import { backers, lois } from "@/lib/traction"
@@ -23,7 +23,7 @@ export function Hero() {
         aria-hidden="true"
       />
       <div className="relative max-w-7xl mx-auto px-6">
-        <div className="mx-auto flex max-w-4xl flex-col items-center text-center">
+        <HeroCopy className="mx-auto flex max-w-4xl flex-col items-center text-center">
           <h1 className="font-display text-[2.6rem] leading-[1.04] sm:text-[3.6rem] lg:text-[4.3rem] text-[#1f1a17] mb-6">
             Pay for verified care,{" "}
             <br className="hidden sm:block" />
@@ -45,11 +45,10 @@ export function Hero() {
               {lois.length} signed letters of intent
             </Link>
           </p>
+        </HeroCopy>
 
-        </div>
-
-        {/* Product on a soft glow */}
-        <Reveal className="relative mx-auto mt-12 md:mt-14 max-w-5xl pb-5 md:pb-6" delay={0.15}>
+        {/* Product on a soft glow: tilted up out of the page, it settles flat as it scrolls to centre */}
+        <HeroStage className="relative mx-auto mt-12 md:mt-14 max-w-5xl pb-5 md:pb-6">
           <div className="pointer-events-none absolute -inset-x-6 -top-6 -bottom-5 overflow-hidden rounded-[32px] md:-inset-x-10 md:-top-8" aria-hidden="true">
             {media.heroPlate ? (
               <img src={media.heroPlate} alt="" className="h-full w-full object-cover opacity-90" />
@@ -73,7 +72,7 @@ export function Hero() {
           <div className="relative mx-auto mt-6 hidden max-w-4xl md:block">
             <MomentStrip />
           </div>
-        </Reveal>
+        </HeroStage>
 
         {/* Recognition: the award emblem leads, the programmes follow (Intercom / Vanta
             pattern: badges grouped with recognition, not floated over the hero) */}

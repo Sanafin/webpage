@@ -2,6 +2,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { Linkedin } from "lucide-react"
 import { publications } from "@/lib/research"
+import { Words } from "@/components/fx"
 
 import wasuProfile from "@/components/ui/profiles/wasu_profile.webp"
 import susanProfile from "@/components/ui/profiles/susan_profile.webp"
@@ -97,7 +98,7 @@ export function TeamSection() {
           <div>
             <p className="text-[13px] text-[#766d67] mb-4">Why this team</p>
             <h2 id="team-title" className="font-display text-4xl sm:text-5xl leading-[1.04] text-[#1f1a17]">
-              We researched why payers don&apos;t pay for outcomes. Then we built Sanafin.
+              <Words text="We researched why payers don't pay for outcomes. Then we built Sanafin." />
             </h2>
           </div>
           <p className="max-w-md text-[15px] sm:text-base leading-relaxed text-[#6f6660] lg:pb-2">

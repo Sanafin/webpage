@@ -1,5 +1,6 @@
 import { ArrowUpRight } from "lucide-react"
 import { Reveal } from "@/components/reveal"
+import { Words } from "@/components/fx"
 import { publications } from "@/lib/research"
 import { lois, loiLabel, pathway } from "@/lib/traction"
 
@@ -17,7 +18,7 @@ export function Recognition() {
         <Reveal className="mb-12 grid gap-6 lg:grid-cols-2 lg:gap-16 lg:items-end">
           <div>
             <h2 id="traction-title" className="font-display text-4xl sm:text-5xl leading-[1.04] text-[#1f1a17]">
-              Proven first in Swiss metabolic health.
+              <Words text="Proven first in Swiss metabolic health." />
             </h2>
           </div>
           <p className="max-w-md text-base sm:text-lg leading-relaxed text-[#6f6660] lg:pb-2">
@@ -39,8 +40,8 @@ export function Recognition() {
         </div>
 
         <ul>
-          {lois.map((loi) => (
-            <li key={loi.partnerType} className="grid gap-4 py-5 md:grid-cols-[minmax(0,1.1fr)_minmax(0,2fr)] md:items-center md:gap-10">
+          {lois.map((loi, i) => (
+            <Reveal as="li" key={loi.partnerType} delay={i * 0.1} className="grid gap-4 py-5 md:grid-cols-[minmax(0,1.1fr)_minmax(0,2fr)] md:items-center md:gap-10">
               <div>
                 <p className="text-lg sm:text-xl text-[#1f1a17]">{loiLabel(loi)}</p>
                 <p className="mt-1 text-[13px] text-[#766d67]">
@@ -91,7 +92,7 @@ export function Recognition() {
                   {pathway[loi.stage - 1]} · {loi.status}
                 </p>
               </div>
-            </li>
+            </Reveal>
           ))}
         </ul>
         <p className="mt-2 text-[12px] text-[#766d67]">Partner names withheld by agreement · letters shared with investors under NDA</p>

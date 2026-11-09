@@ -1,6 +1,8 @@
 "use client"
 
-import { motion } from "framer-motion"
+import { useRef } from "react"
+import { motion, useReducedMotion, useScroll, useSpring, useTransform, type MotionValue } from "framer-motion"
+import { Words } from "@/components/fx"
 import Link from "next/link"
 import { Walkthrough } from "@/components/demo/walkthrough"
 
@@ -62,7 +64,32 @@ const steps = [
   { title: "Payment released", body: "Pass: the provider is paid. Miss: the money goes back to the payer." },
 ] as const
 
+// One step on the rail: it brightens as the scroll progress passes it.
+function Step({ s, i, progress }: { s: (typeof steps)[number]; i: number; progress: MotionValue<number> }) {
+  const start = i / steps.length
+  const opacity = useTransform(progress, [start, start + 0.18], [0.3, 1])
+  const y = useTransform(progress, [start, start + 0.18], [18, 0])
+  return (
+    <motion.li style={{ opacity, y }} className="relative flex flex-col items-center text-center">
+      <div className="relative w-full max-w-[220px] rounded-3xl bg-[#f5f1ed] px-5 py-4">
+        <Glyph step={i as 0 | 1 | 2 | 3} />
+      </div>
+      <p className="mt-5 font-mono text-[11px] text-[#766d67]">0{i + 1}</p>
+      <h3 className="mt-1 text-lg font-medium text-[#1f1a17]">{s.title}</h3>
+      <p className="mt-1 max-w-[15rem] text-[14px] leading-snug text-[#6f6660]">{s.body}</p>
+    </motion.li>
+  )
+}
+
 export function HowItWorks() {
+  const railRef = useRef<HTMLOListElement>(null)
+  const reduce = useReducedMotion()
+  // The rail fills, and the steps light up, as the row crosses the middle of the viewport
+  const { scrollYProgress } = useScroll({ target: railRef, offset: ["start 92%", "end 55%"] })
+  const sprung = useSpring(scrollYProgress, { stiffness: 120, damping: 28, mass: 0.6 })
+  const progress = useTransform(sprung, (v) => (reduce ? 1 : v))
+  const scaleX = useTransform(progress, [0, 1], [0, 1])
+
   return (
     <section id="how" aria-labelledby="how-title" className="relative scroll-mt-24">
       <div className="max-w-7xl mx-auto px-6">
@@ -75,25 +102,17 @@ export function HowItWorks() {
         >
           <p className="text-[13px] text-[#766d67] mb-4">How it works</p>
           <h2 id="how-title" className="font-display text-4xl sm:text-5xl leading-[1.04] text-[#1f1a17]">
-            No result, no payment.
+            <Words text="No result, no payment." />
           </h2>
         </motion.div>
 
-        <ol className="relative mb-12 grid grid-cols-2 gap-x-6 gap-y-10 lg:grid-cols-4">
+        <ol ref={railRef} className="relative mb-12 grid grid-cols-2 gap-x-6 gap-y-10 lg:grid-cols-4">
+          {/* The rail behind the four pictures, drawn left to right by the scroll */}
+          <div className="pointer-events-none absolute left-[12.5%] right-[12.5%] top-[76px] hidden h-px bg-[#e6dfd8] lg:block" aria-hidden="true">
+            <motion.div style={{ scaleX, transformOrigin: "0 50%" }} className="h-full w-full bg-gradient-to-r from-[#f15d22] via-[#14b8a6] to-[#f15d22]" />
+          </div>
           {steps.map((s, i) => (
-            <li key={s.title} className="relative flex flex-col items-center text-center">
-              <div className="relative w-full max-w-[220px] rounded-3xl bg-[#f5f1ed] px-5 py-4">
-                <Glyph step={i as 0 | 1 | 2 | 3} />
-              </div>
-              {i < steps.length - 1 && (
-                <span className="absolute -right-[18px] top-[76px] hidden -translate-y-1/2 text-[#b5aaa0] lg:block" aria-hidden="true">
-                  →
-                </span>
-              )}
-              <p className="mt-5 font-mono text-[11px] text-[#766d67]">0{i + 1}</p>
-              <h3 className="mt-1 text-lg font-medium text-[#1f1a17]">{s.title}</h3>
-              <p className="mt-1 max-w-[15rem] text-[14px] leading-snug text-[#6f6660]">{s.body}</p>
-            </li>
+            <Step key={s.title} s={s} i={i} progress={progress} />
           ))}
         </ol>
 

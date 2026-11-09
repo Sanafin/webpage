@@ -1,5 +1,6 @@
 import { Fn } from "@/components/fn"
 import { Reveal } from "@/components/reveal"
+import { DrawPath, Pop, Words } from "@/components/fx"
 import world from "@/lib/world-dots.json"
 
 // The punch line as a picture: one contract template on a dotted world map (Wise /
@@ -69,7 +70,7 @@ export function AnywhereSection() {
       <div className="max-w-7xl mx-auto px-6">
         <Reveal className="mx-auto mb-12 max-w-2xl text-center">
           <h2 id="anywhere-title" className="font-display text-4xl sm:text-5xl leading-[1.04] text-[#1f1a17] mb-5">
-            The care changes. The contract stays.
+            <Words text="The care changes. The contract stays." />
           </h2>
           <p className="text-base sm:text-lg leading-relaxed text-[#6f6660]">
             One contract template with four fields. No local claims system or bank needed. A payer in Zurich, Riyadh or
@@ -90,32 +91,43 @@ export function AnywhereSection() {
               <g fill="none" stroke="#1f1a17" strokeOpacity="0.4" strokeWidth="0.18" strokeDasharray="0.6 0.6">
                 {pins
                   .filter((p) => Math.abs(world.pins[p.key][0] - origin[0]) > 6)
-                  .map((p) => (
-                    <path key={p.key} d={arc(origin, world.pins[p.key])} />
+                  .map((p, i) => (
+                    <DrawPath key={p.key} d={arc(origin, world.pins[p.key])} delay={0.3 + i * 0.12} duration={1.6} />
                   ))}
               </g>
-              {pins.map((p) => {
+              {pins.map((p, i) => {
                 const [x, y] = world.pins[p.key]
+                const delay = p.kind === "live" ? 0 : 0.5 + i * 0.12
                 if (p.kind === "live")
                   return (
-                    <g key={p.key}>
+                    <Pop key={p.key} delay={delay}>
                       <circle cx={x} cy={y} r={1.8} fill="#14b8a6" fillOpacity="0.2" />
                       <circle cx={x} cy={y} r={0.75} fill="#14b8a6" />
-                    </g>
+                    </Pop>
                   )
-                if (p.kind === "network") return <circle key={p.key} cx={x} cy={y} r={0.55} fill="#1f1a17" />
-                return <circle key={p.key} cx={x} cy={y} r={0.6} fill="#fbfaf8" stroke="#1f1a17" strokeWidth="0.22" />
+                if (p.kind === "network")
+                  return (
+                    <Pop key={p.key} delay={delay}>
+                      <circle cx={x} cy={y} r={0.55} fill="#1f1a17" />
+                    </Pop>
+                  )
+                return (
+                  <Pop key={p.key} delay={delay}>
+                    <circle cx={x} cy={y} r={0.6} fill="#fbfaf8" stroke="#1f1a17" strokeWidth="0.22" />
+                  </Pop>
+                )
               })}
             </svg>
 
             {/* Labels as HTML so they stay crisp and readable at any width */}
-            {pins.map((p) => {
+            {pins.map((p, i) => {
               const [x, y] = world.pins[p.key]
               const live = p.kind === "live"
               return (
-                <div
+                <Reveal
                   key={p.key}
                   className={`absolute ${sideClass[p.side]}`}
+                  delay={live ? 0.2 : 0.7 + i * 0.12}
                   style={{ left: `${(x / width) * 100}%`, top: `${(y / height) * 100}%` }}
                 >
                   <div className={`whitespace-nowrap rounded-xl px-2 py-1 shadow-[0_6px_20px_-10px_rgba(47,36,31,0.35)] sm:px-2.5 sm:py-1.5 ${live ? "bg-[#1f1a17] text-white" : "bg-white text-[#1f1a17]"}`}>
@@ -124,7 +136,7 @@ export function AnywhereSection() {
                       <p className={`hidden text-[11.5px] leading-tight sm:block ${live ? "text-[#5eead4]" : "text-[#766d67]"}`}>{p.note}</p>
                     )}
                   </div>
-                </div>
+                </Reveal>
               )
             })}
             </div>
