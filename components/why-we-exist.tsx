@@ -1,18 +1,18 @@
 import { Fn } from "@/components/fn"
-import { Reveal } from "@/components/reveal"
 import { DotGrid } from "@/components/dot-grid"
-import { Parallax } from "@/components/fx"
+import { Parallax, ScrubWords, Settle } from "@/components/fx"
 
 // Why we exist, lifted from the deck: one patient, one number, one sentence. The only
 // dark band on the page. The 100-dot grid is the artefact: 46 teal, 54 muted, read
-// left to right, so the figure is seen before it is read.
+// left to right, so the figure is seen before it is read. The band settles into place
+// with the scroll, and the teal line lights up word by word as it is scrolled past.
 const REMISSION = 46
 
 export function WhyWeExist() {
   return (
     <section id="why" aria-labelledby="why-title" className="relative !py-0">
       <div className="max-w-7xl mx-auto px-6 py-6">
-        <Reveal className="relative overflow-hidden rounded-[32px] bg-[#1f1a17] text-white">
+        <Settle className="relative overflow-hidden rounded-[32px] bg-[#1f1a17] text-white">
           <Parallax className="absolute -inset-y-10 inset-x-0" from={-28} to={28}>
             <img
               src="/media/why-patient.webp"
@@ -35,7 +35,7 @@ export function WhyWeExist() {
                 <Fn id="direct-trial" className="text-white/40" />
               </h2>
               <p className="mt-9 font-display text-2xl leading-snug text-[#5eead4] sm:text-[1.9rem]">
-                We fight for patients whose best care never gets paid for.
+                <ScrubWords text="We fight for patients whose best care never gets paid for." />
               </p>
             </div>
 
@@ -46,7 +46,7 @@ export function WhyWeExist() {
               </figcaption>
             </figure>
           </div>
-        </Reveal>
+        </Settle>
       </div>
     </section>
   )

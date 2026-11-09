@@ -4,7 +4,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { useState, useEffect } from "react"
 import { Menu, X } from "lucide-react"
-import { motion, AnimatePresence } from "framer-motion"
+import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "framer-motion"
 import { CTA } from "@/lib/site"
 import { AwardBar } from "@/components/award-badge"
 
@@ -23,13 +23,9 @@ export function Header({ tone = "light", announce = false }: { tone?: "light" | 
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20)
-    }
-    window.addEventListener("scroll", handleScroll, { passive: true })
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+  // One shared scroll value, read on motion's frame loop rather than a scroll listener
+  const { scrollY } = useScroll()
+  useMotionValueEvent(scrollY, "change", (y) => setIsScrolled(y > 20))
 
   useEffect(() => {
     if (!mobileMenuOpen) return

@@ -2,13 +2,16 @@ import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 import { ClosingMedia } from "@/components/closing-media"
 import { CTA } from "@/lib/site"
+import { Reveal } from "@/components/reveal"
+import { Settle } from "@/components/fx"
 
-// Closing band: two equal cards, one per audience, on the still-life world.
+// Closing band: two equal cards, one per audience, on the still-life world. The band
+// settles into place with the scroll and the two cards follow it up.
 export function CTASection() {
   return (
     <section id="contact" aria-labelledby="closing-title" className="relative z-10 scroll-mt-24">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="relative overflow-hidden rounded-[32px] bg-[#ebe4db]">
+        <Settle className="relative overflow-hidden rounded-[32px] bg-[#ebe4db]">
           <ClosingMedia />
           <div className="pointer-events-none absolute inset-0 hidden md:block bg-gradient-to-r from-[#ebe4db] via-[#ebe4db]/80 to-[#ebe4db]/20" aria-hidden="true" />
 
@@ -19,7 +22,7 @@ export function CTASection() {
             <p className="mb-8 max-w-md text-base text-[#6f6660]">Switzerland first. Then every health system.</p>
 
             <div className="grid gap-4 md:grid-cols-2 md:max-w-3xl">
-              <div className="flex flex-col rounded-3xl bg-white/90 p-6 backdrop-blur">
+              <Reveal className="flex flex-col rounded-3xl bg-white/90 p-6 backdrop-blur" delay={0.1}>
                 <p className="text-[13px] text-[#766d67] mb-2">Payers and care providers</p>
                 <p className="flex-1 text-[17px] leading-snug text-[#1f1a17] mb-5">Scope a pilot in a 25-minute call: one payer, one patient group, one treatment.</p>
                 <Link
@@ -31,9 +34,9 @@ export function CTASection() {
                   {CTA.buyer}
                 </Link>
                 <p className="mt-3 text-center text-[12px] text-[#766d67]">Reply within one working day · NDA on request</p>
-              </div>
+              </Reveal>
 
-              <div className="flex flex-col rounded-3xl bg-white/90 p-6 backdrop-blur">
+              <Reveal className="flex flex-col rounded-3xl bg-white/90 p-6 backdrop-blur" delay={0.22}>
                 <p className="text-[13px] text-[#766d67] mb-2">Investors</p>
                 <p className="flex-1 text-[17px] leading-snug text-[#1f1a17] mb-5">Investing in healthcare payments or fintech infrastructure?</p>
                 <Link
@@ -46,10 +49,10 @@ export function CTASection() {
                   <ArrowRight className="h-4 w-4" aria-hidden="true" />
                 </Link>
                 <p className="mt-3 text-center text-[12px] text-[#766d67]">Sent personally by the CEO · view-only link</p>
-              </div>
+              </Reveal>
             </div>
           </div>
-        </div>
+        </Settle>
       </div>
     </section>
   )

@@ -1,6 +1,6 @@
 import { ArrowUpRight } from "lucide-react"
 import { Reveal } from "@/components/reveal"
-import { Words } from "@/components/fx"
+import { Grow, Words } from "@/components/fx"
 import { publications } from "@/lib/research"
 import { lois, loiLabel, pathway } from "@/lib/traction"
 
@@ -9,7 +9,8 @@ const metabolicResearch = publications.filter((p) => /diabet/i.test(p.title))
 
 // Design partners on one shared pathway, letter of intent → proof of concept →
 // implementation → scale. Each row is a track showing how far that partnership has
-// come. Names stay anonymised under NDA; recognition is one quiet logo row.
+// come, and each track draws itself in stage by stage on first view. Names stay
+// anonymised under NDA; recognition is one quiet logo row.
 export function Recognition() {
   const n = pathway.length
   return (
@@ -40,8 +41,8 @@ export function Recognition() {
         </div>
 
         <ul>
-          {lois.map((loi, i) => (
-            <Reveal as="li" key={loi.partnerType} delay={i * 0.1} className="grid gap-4 py-5 md:grid-cols-[minmax(0,1.1fr)_minmax(0,2fr)] md:items-center md:gap-10">
+          {lois.map((loi, rowIndex) => (
+            <Reveal as="li" key={loi.partnerType} delay={rowIndex * 0.1} className="grid gap-4 py-5 md:grid-cols-[minmax(0,1.1fr)_minmax(0,2fr)] md:items-center md:gap-10">
               <div>
                 <p className="text-lg sm:text-xl text-[#1f1a17]">{loiLabel(loi)}</p>
                 <p className="mt-1 text-[13px] text-[#766d67]">
@@ -61,12 +62,19 @@ export function Recognition() {
                       <div key={stage} className="relative flex h-6 items-center">
                         {/* segment line */}
                         {idx < n && (
-                        <span
-                          className={`absolute inset-y-1/2 left-0 right-0 h-px -translate-y-1/2 ${
-                            idx < loi.stage ? "bg-[#14b8a6]" : idx === loi.stage ? "bg-gradient-to-r from-[#14b8a6] to-[#ece7e2]" : "bg-[#ece7e2]"
-                          }`}
-                          aria-hidden="true"
-                        />
+                          <>
+                            <span className="absolute inset-y-1/2 left-0 right-0 h-px -translate-y-1/2 bg-[#ece7e2]" aria-hidden="true" />
+                            {/* The reached part of the track draws itself in, one stage after the other */}
+                            {idx <= loi.stage && (
+                              <Grow
+                                className={`absolute inset-y-1/2 left-0 right-0 h-px -translate-y-1/2 ${
+                                  idx < loi.stage ? "bg-[#14b8a6]" : "bg-gradient-to-r from-[#14b8a6] to-[#ece7e2]"
+                                }`}
+                                delay={0.25 + rowIndex * 0.1 + i * 0.22}
+                                duration={0.6}
+                              />
+                            )}
+                          </>
                         )}
                         {/* node */}
                         <span

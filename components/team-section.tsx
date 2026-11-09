@@ -2,7 +2,8 @@ import Image from "next/image"
 import Link from "next/link"
 import { Linkedin } from "lucide-react"
 import { publications } from "@/lib/research"
-import { Words } from "@/components/fx"
+import { Words, Zoom } from "@/components/fx"
+import { Reveal } from "@/components/reveal"
 
 import wasuProfile from "@/components/ui/profiles/wasu_profile.webp"
 import anejProfile from "@/components/ui/profiles/anej_profile.webp"
@@ -12,7 +13,8 @@ import niklausProfile from "@/components/ui/profiles/niklaus_profile.webp"
 
 // Why this team: one line of founder-market fit, three people with one checkable
 // credential each, advisors as equal rows, and the research the
-// product is built on. Institutions are affiliations, not endorsements.
+// product is built on. Institutions are affiliations, not endorsements. Portraits
+// ease out of a slight zoom as the row appears; advisors follow one by one.
 
 const team = [
   {
@@ -105,16 +107,18 @@ export function TeamSection() {
 
         {/* Core team */}
         <ul className="grid grid-cols-2 gap-4 lg:grid-cols-3">
-          {team.map((person) => (
-            <li key={person.name} className="flex flex-col">
+          {team.map((person, i) => (
+            <Reveal as="li" key={person.name} delay={i * 0.1} className="flex flex-col">
               <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-[#ebe4db]">
-                <Image
-                  src={person.photo}
-                  alt=""
-                  fill
-                  sizes="(max-width: 1024px) 50vw, 33vw"
-                  className="object-cover object-top"
-                />
+                <Zoom className="absolute inset-0" delay={i * 0.1}>
+                  <Image
+                    src={person.photo}
+                    alt=""
+                    fill
+                    sizes="(max-width: 1024px) 50vw, 33vw"
+                    className="object-cover object-top"
+                  />
+                </Zoom>
                 <a
                   href={person.linkedin}
                   target="_blank"
@@ -132,7 +136,7 @@ export function TeamSection() {
                   <Rich text={person.credential} />
                 </p>
               </div>
-            </li>
+            </Reveal>
           ))}
         </ul>
 
@@ -140,8 +144,8 @@ export function TeamSection() {
         <div className="mt-10">
           <p className="text-[13px] text-[#766d67] mb-3">Advisory board</p>
           <ul className="divide-y divide-[#ece7e2] border-y border-[#ece7e2]">
-            {advisors.map((a) => (
-              <li key={a.name} className="grid gap-2 py-4 sm:grid-cols-[16rem_1fr_auto] sm:items-center sm:gap-6">
+            {advisors.map((a, i) => (
+              <Reveal as="li" key={a.name} delay={i * 0.08} className="grid gap-2 py-4 sm:grid-cols-[16rem_1fr_auto] sm:items-center sm:gap-6">
                 <div className="flex items-center gap-3">
                   {a.photo ? (
                     <span className="relative h-10 w-10 overflow-hidden rounded-full bg-[#ebe4db]">
@@ -177,7 +181,7 @@ export function TeamSection() {
                 ) : (
                   <span className="hidden sm:block h-9 w-9" aria-hidden="true" />
                 )}
-              </li>
+              </Reveal>
             ))}
           </ul>
         </div>
