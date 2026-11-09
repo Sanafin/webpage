@@ -13,7 +13,6 @@ const columns = [
     links: [
       { href: "/#how", label: "How it works" },
       { href: "/#anywhere", label: "Any care, anywhere" },
-      { href: "/#examples", label: "The metabolic template" },
       { href: "/eden-framework", label: "EDEN framework" },
       { href: "/demo", label: "Product walkthrough" },
       { href: "/api-docs", label: "API documentation" },
