@@ -46,9 +46,11 @@ export function FilmBand({ children }: { children: ReactNode }) {
   const copyOpacity = useTransform(scrollYProgress, [0, 0.18], [0, 1])
   const copyY = useTransform(scrollYProgress, [0, 0.18], [24, 0])
 
+  // The scroll target must be mounted in both branches, or useScroll has nothing to
+  // measure before the viewport check resolves.
   if (!scrub) {
     return (
-      <div className="relative overflow-hidden rounded-[32px] bg-[#f5f1ed] px-6 py-14 md:px-14 md:py-20">
+      <div ref={ref} className="relative overflow-hidden rounded-[32px] bg-[#f5f1ed] px-6 py-14 md:px-14 md:py-20">
         <img
           src={media.filmScrubPoster ?? media.closingStill ?? undefined}
           alt=""
