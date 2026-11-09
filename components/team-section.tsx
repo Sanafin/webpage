@@ -10,7 +10,7 @@ import djataProfile from "@/components/ui/profiles/djata_profile.webp"
 import ajinthaProfile from "@/components/ui/profiles/ajintha_profile.webp"
 import niklausProfile from "@/components/ui/profiles/niklaus_profile.webp"
 
-// Why this team: one line of founder-market fit, four people with one checkable
+// Why this team: one line of founder-market fit, three people with one checkable
 // credential each, advisors as equal rows, and the research the
 // product is built on. Institutions are affiliations, not endorsements.
 
