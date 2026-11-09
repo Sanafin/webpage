@@ -6,12 +6,12 @@ import { site } from "@/lib/site"
 import wasuProfile from "@/components/ui/profiles/wasu_profile.webp"
 
 // A face and a voice right after the mechanism: the CEO's own line from the deck on the
-// linen still, so the world stays consistent.
+// linen still. The whole block pulls up into place as it scrolls into view.
 export function FounderNote() {
   return (
     <section id="founders" aria-labelledby="founder-note-title" className="relative !py-0">
       <div className="max-w-7xl mx-auto px-6 py-6">
-        <Reveal className="relative overflow-hidden rounded-[32px] bg-[#f5f1ed] px-6 py-14 md:px-14 md:py-20">
+        <Reveal y={56} className="relative overflow-hidden rounded-[32px] bg-[#f5f1ed] px-6 py-14 md:px-14 md:py-20">
           <img
             src="/media/closing-still.jpg"
             alt=""

@@ -4,10 +4,10 @@ import { ShieldCheck } from "lucide-react"
 // from the exported file. Synthetic values; every surface that shows it says so.
 export function Certificate({
   verdict = "meets_wzw",
-  composite = 99,
+  composite = 83,
   cutoff = 75,
-  hash = "7aaa8b48615906e0",
-  recomputed = "7aaa8b48615906e0",
+  hash = "3e266bf198c1bd4e",
+  recomputed = "3e266bf198c1bd4e",
   tone = "light",
   className = "",
 }: {
@@ -42,9 +42,9 @@ export function Certificate({
           {composite} / 100 <span className={dark ? "text-white/45" : "text-[#766d67]"}>cutoff {cutoff}</span>
         </dd>
         <dt className={dark ? "text-white/45" : "text-[#766d67]"}>certificate</dt>
-        <dd className="truncate">{hash.slice(0, 12)}…</dd>
+        <dd className="min-w-0 truncate">{hash.slice(0, 12)}…</dd>
         <dt className={dark ? "text-white/45" : "text-[#766d67]"}>recomputed</dt>
-        <dd className={`truncate ${matches ? "" : dark ? "text-[#ffab8a]" : "text-[#c4460f]"}`}>
+        <dd className={`min-w-0 truncate ${matches ? "" : dark ? "text-[#ffab8a]" : "text-[#c4460f]"}`}>
           {recomputed.slice(0, 12)}… {matches ? "· match" : "· mismatch"}
         </dd>
       </dl>

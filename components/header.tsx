@@ -10,6 +10,7 @@ import { AwardBar } from "@/components/award-badge"
 
 const navLinks = [
   { href: "/#how", label: "How it works" },
+  { href: "/demo", label: "See it work" },
   { href: "/#anywhere", label: "Anywhere" },
   { href: "/#traction", label: "Evidence" },
   { href: "/#team", label: "Team" },
@@ -88,7 +89,7 @@ export function Header({ tone = "light", announce = false }: { tone?: "light" | 
               For investors
             </Link>
             <Link
-              href="/demo"
+              href="/call"
               data-cta="book_call"
               data-location="header"
               className="px-4 py-2 text-white rounded-full text-[14px] font-medium cursor-pointer transition-colors duration-200 bg-[#f15d22] hover:bg-[#d94f18]"
@@ -131,7 +132,7 @@ export function Header({ tone = "light", announce = false }: { tone?: "light" | 
                 ))}
                 <div className="pt-4">
                   <Link
-                    href="/demo"
+                    href="/call"
                     data-cta="book_call"
                     data-location="mobile-menu"
                     className="inline-flex min-h-11 items-center justify-center w-full px-4 py-2.5 bg-[#f15d22] text-white hover:bg-[#d94f18] rounded-full text-[15px] font-medium text-center cursor-pointer transition-colors duration-200"

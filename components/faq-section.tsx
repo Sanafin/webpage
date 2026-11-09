@@ -91,7 +91,7 @@ export function FAQSection() {
           </h2>
           <p className="text-[15px] text-[#766d67] leading-relaxed max-w-sm mb-8">
             Anything else?{" "}
-            <Link href="/demo" className="text-[#1f1a17] underline decoration-[#d9d1ca] underline-offset-4 hover:decoration-[#1f1a17]">
+            <Link href="/call" className="text-[#1f1a17] underline decoration-[#d9d1ca] underline-offset-4 hover:decoration-[#1f1a17]">
               Book a discovery call
             </Link>{" "}
             and we&apos;ll walk you through it.

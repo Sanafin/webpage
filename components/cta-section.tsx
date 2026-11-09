@@ -23,7 +23,7 @@ export function CTASection() {
                 <p className="text-[13px] text-[#766d67] mb-2">Payers and care providers</p>
                 <p className="flex-1 text-[17px] leading-snug text-[#1f1a17] mb-5">Scope a pilot in a 25-minute call: one payer, one patient group, one treatment.</p>
                 <Link
-                  href="/demo"
+                  href="/call"
                   data-cta="book_call"
                   data-location="closing"
                   className="mt-auto inline-flex min-h-11 items-center justify-center rounded-full bg-[#f15d22] px-6 py-2.5 text-[15px] font-medium text-white shadow-[0_8px_24px_-8px_rgba(241,93,34,0.7)] transition-colors hover:bg-[#d94f18]"

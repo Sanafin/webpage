@@ -6,7 +6,6 @@ import { ProblemSection } from "@/components/problem-section"
 import { HowItWorks } from "@/components/how-it-works"
 import { FounderNote } from "@/components/founder-note"
 import { AnywhereSection } from "@/components/anywhere-section"
-import { ExampleContracts } from "@/components/example-contracts"
 import { TeamSection } from "@/components/team-section"
 import { InvestorSection } from "@/components/investor-section"
 import { FAQSection } from "@/components/faq-section"
@@ -28,7 +27,6 @@ export default function Home() {
           <FounderNote />
           <AnywhereSection />
           <Recognition />
-          <ExampleContracts />
           <TeamSection />
           <InvestorSection />
           <FAQSection />
