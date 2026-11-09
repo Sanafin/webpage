@@ -1,17 +1,26 @@
 import Image from "next/image"
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
-import { FilmBand } from "@/components/film-band"
+import { Reveal } from "@/components/reveal"
 import { site } from "@/lib/site"
 import wasuProfile from "@/components/ui/profiles/wasu_profile.webp"
 
-// A face and a voice right after the mechanism: the CEO's own line from the deck over
-// the marble-run film, which plays with the scroll on desktop and is a still on phones.
+// A face and a voice right after the mechanism: the CEO's own line from the deck on the
+// linen still. The whole block pulls up into place as it scrolls into view.
 export function FounderNote() {
   return (
     <section id="founders" aria-labelledby="founder-note-title" className="relative !py-0">
       <div className="max-w-7xl mx-auto px-6 py-6">
-        <FilmBand>
+        <Reveal y={56} className="relative overflow-hidden rounded-[32px] bg-[#f5f1ed] px-6 py-14 md:px-14 md:py-20">
+          <img
+            src="/media/closing-still.jpg"
+            alt=""
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-0 h-full w-full object-cover object-[80%_center] opacity-90"
+            loading="lazy"
+          />
+          <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,#f5f1ed_0%,rgba(245,241,237,0.96)_45%,rgba(245,241,237,0.55)_100%)]" aria-hidden="true" />
+          <div className="relative max-w-3xl">
             <blockquote>
               <p id="founder-note-title" className="font-display text-2xl leading-snug text-[#1f1a17] sm:text-3xl md:text-[2.3rem]">
                 “Everyone has seen the demo that always says yes. We built the one that can say no.”
@@ -32,7 +41,8 @@ export function FounderNote() {
               Meet the team
               <ArrowRight className="h-4 w-4" aria-hidden="true" />
             </Link>
-        </FilmBand>
+          </div>
+        </Reveal>
       </div>
     </section>
   )

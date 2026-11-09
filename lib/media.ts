@@ -17,9 +17,5 @@ export const media = {
   closingStill: "/media/closing-still.jpg" as string | null,
   closingStillMobile: "/media/closing-still-mobile.jpg" as string | null,
   film: "/media/outcome-marbles.mp4",
-  // Same film re-encoded with a keyframe every 4 frames so the founder band can
-  // seek to any point as the visitor scrolls
-  filmScrub: "/media/outcome-marbles-scrub.mp4" as string | null,
-  filmScrubPoster: "/media/outcome-marbles-scrub-poster.jpg" as string | null,
   filmPoster: "/media/outcome-marbles-poster.jpg",
 }
