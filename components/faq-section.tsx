@@ -3,6 +3,7 @@
 import { useState } from "react"
 import Link from "next/link"
 import { Plus } from "lucide-react"
+import { motion } from "framer-motion"
 
 // Objections by persona. Answers marked with a trailing note are drafted for the
 // founders to confirm before launch; none makes a claim the deck does not.
@@ -109,11 +110,20 @@ export function FAQSection() {
                   aria-selected={selected}
                   aria-controls={`faq-panel-${g.id}`}
                   onClick={() => setActive(g.id)}
-                  className={`rounded-full px-4 py-2 text-[14px] transition-colors ${
-                    selected ? "bg-[#1f1a17] text-white" : "bg-[#f5f1ed] text-[#1f1a17] hover:bg-[#ece7e2]"
+                  className={`relative rounded-full px-4 py-2 text-[14px] transition-colors duration-300 ${
+                    selected ? "text-white" : "bg-[#f5f1ed] text-[#1f1a17] hover:bg-[#ece7e2]"
                   }`}
                 >
-                  {g.label}
+                  {/* The dark pill slides between tabs instead of jumping */}
+                  {selected && (
+                    <motion.span
+                      layoutId="faq-tab-pill"
+                      className="absolute inset-0 rounded-full bg-[#1f1a17]"
+                      transition={{ type: "spring", stiffness: 420, damping: 36 }}
+                      aria-hidden="true"
+                    />
+                  )}
+                  <span className="relative">{g.label}</span>
                 </button>
               )
             })}
