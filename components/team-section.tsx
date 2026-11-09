@@ -5,7 +5,6 @@ import { publications } from "@/lib/research"
 import { Words } from "@/components/fx"
 
 import wasuProfile from "@/components/ui/profiles/wasu_profile.webp"
-import susanProfile from "@/components/ui/profiles/susan_profile.webp"
 import anejProfile from "@/components/ui/profiles/anej_profile.webp"
 import djataProfile from "@/components/ui/profiles/djata_profile.webp"
 import ajinthaProfile from "@/components/ui/profiles/ajintha_profile.webp"
@@ -22,13 +21,6 @@ const team = [
     credential: "PhD healthcare financing · **ETH Zurich**",
     photo: wasuProfile,
     linkedin: "https://www.linkedin.com/in/wasumekniran/",
-  },
-  {
-    name: "Dr. Susanne Oudbier",
-    title: "Chief Medical Officer",
-    credential: "MD PhD · **HOCH Ostschweiz**",
-    photo: susanProfile,
-    linkedin: "https://www.linkedin.com/in/susanoudbier/",
   },
   {
     name: "Anej Rozman",
@@ -112,7 +104,7 @@ export function TeamSection() {
         </div>
 
         {/* Core team */}
-        <ul className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+        <ul className="grid grid-cols-2 gap-4 lg:grid-cols-3">
           {team.map((person) => (
             <li key={person.name} className="flex flex-col">
               <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-[#ebe4db]">
@@ -120,7 +112,7 @@ export function TeamSection() {
                   src={person.photo}
                   alt=""
                   fill
-                  sizes="(max-width: 1024px) 50vw, 25vw"
+                  sizes="(max-width: 1024px) 50vw, 33vw"
                   className="object-cover object-top"
                 />
                 <a
