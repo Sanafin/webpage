@@ -5,7 +5,7 @@ import Image from "next/image"
 import { useState, useEffect } from "react"
 import { Menu, X } from "lucide-react"
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "framer-motion"
-import { CTA } from "@/lib/site"
+import { CTA, studio } from "@/lib/site"
 import { AwardBar } from "@/components/award-badge"
 
 const navLinks = [
@@ -76,6 +76,14 @@ export function Header({ tone = "light", announce = false }: { tone?: "light" | 
           </nav>
 
           <div className="hidden md:flex items-center gap-5">
+            <a
+              href={studio.login}
+              data-cta="studio_login"
+              data-location="header"
+              className={`nav-link text-[14px] ${dark ? "text-[#fffaf6]/70 hover:text-[#fffaf6]" : "text-[#1f1a17]/70 hover:text-[#1f1a17]"}`}
+            >
+              {CTA.login}
+            </a>
             <Link
               href="/#investors"
               data-cta="request_deck"
@@ -126,6 +134,14 @@ export function Header({ tone = "light", announce = false }: { tone?: "light" | 
                     {link.label}
                   </Link>
                 ))}
+                <a
+                  href={studio.login}
+                  data-cta="studio_login"
+                  data-location="mobile-menu"
+                  className="block rounded-lg px-3 py-3 text-[15px] text-[#1f1a17]/80 hover:text-[#1f1a17] hover:bg-[#f3efeb] transition-colors"
+                >
+                  {CTA.login} to Outcome Studio
+                </a>
                 <div className="pt-4">
                   <Link
                     href="/call"
