@@ -21,10 +21,20 @@ export const site = {
   legalLine: "Sanafin · Switzerland",
 } as const
 
-// Exactly two calls to action exist on the site. Never introduce a third label.
+// Two sales calls to action (buyer, investor) plus the product itself: Outcome Studio is live, so the
+// page links straight into it. Do not introduce further labels.
 export const CTA = {
   buyer: "Book a discovery call",
   investor: "Request the deck",
+  studio: "Try Outcome Studio",
+  login: "Log in",
+} as const
+
+// The live product. The landing page only links here; sign-up and sign-in happen in the studio.
+export const studio = {
+  url: "https://studio.sanafin.tech",
+  start: "https://studio.sanafin.tech/start",
+  login: "https://studio.sanafin.tech/login",
 } as const
 
 // Words that must never appear in public copy. Enforced by scripts/check-copy.mjs.

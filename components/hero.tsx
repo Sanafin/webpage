@@ -1,6 +1,5 @@
 import Image from "next/image"
 import Link from "next/link"
-import { AppPreview, MobileContractCard } from "@/components/app-preview"
 import { AwardBadge } from "@/components/award-badge"
 import { HeroCtas } from "@/components/hero-ctas"
 import { HeroCopy, HeroStage } from "@/components/hero-stage"
@@ -8,6 +7,9 @@ import { MomentStrip } from "@/components/moment-strip"
 import { ScreenFrame } from "@/components/screen-frame"
 import { media } from "@/lib/media"
 import { backers, lois } from "@/lib/traction"
+import { studio } from "@/lib/site"
+
+const studioCaption = "Outcome Studio, live at studio.sanafin.tech. Product screenshot with synthetic test data."
 
 // Centred hero, Stripe/Mixpanel pattern: claim, two CTAs, one proof line, then the
 // product floating on a soft glow with the recognition row beneath. Rendered on
@@ -59,16 +61,30 @@ export function Hero() {
               </>
             )}
           </div>
-          <div className="relative hidden md:block">
-            <ScreenFrame kind="illustrative" hideCaption>
-              <AppPreview />
+          {/* The live product, not a mock: a pathway in Outcome Studio (studio.sanafin.tech) with synthetic test data */}
+          <a href={studio.start} data-cta="try_studio" data-location="hero-screenshot" className="relative hidden md:block rounded-[18px]">
+            <ScreenFrame kind="product" caption={studioCaption} hideCaption>
+              <img
+                src="/media/studio-pathway.webp"
+                alt="Sanafin Outcome Studio: a diabetes prevention pathway with two target outcomes, their payment terms and the five steps from build to pilot"
+                width={2048}
+                height={1280}
+                className="block h-auto w-full"
+                fetchPriority="high"
+              />
             </ScreenFrame>
-          </div>
-          <div className="relative md:hidden mx-auto max-w-sm">
-            <ScreenFrame kind="illustrative">
-              <MobileContractCard />
+          </a>
+          <a href={studio.start} data-cta="try_studio" data-location="hero-screenshot" className="relative md:hidden mx-auto block max-w-sm rounded-[18px]">
+            <ScreenFrame kind="product" caption={studioCaption} hideCaption>
+              <img
+                src="/media/studio-pathway-mobile.webp"
+                alt="Sanafin Outcome Studio on a phone: a diabetes prevention pathway and its next step"
+                width={780}
+                height={1093}
+                className="block h-auto w-full"
+              />
             </ScreenFrame>
-          </div>
+          </a>
           <div className="relative mx-auto mt-6 hidden max-w-4xl md:block">
             <MomentStrip />
           </div>
