@@ -1,35 +1,24 @@
-"use client"
-
-import { motion } from "framer-motion"
-
-// Gentle fade-up on first view. Server components wrap their blocks in this;
-// MotionConfig in the root layout disables it for reduced-motion users.
+// Used to fade blocks up as they scrolled into view. The taste skill, Emil Kowalski's
+// rules and the Vercel guidelines all ask for no reveal on every section: content is
+// there when the visitor arrives, and motion is kept for the hero entrance and the
+// few places where it explains something. The component stays so callers keep
+// their markup; the extra props are accepted and ignored.
 export function Reveal({
   children,
   className = "",
-  delay = 0,
   as = "div",
   style,
-  y = 20,
 }: {
   children: React.ReactNode
   className?: string
   delay?: number
   as?: "div" | "li" | "article" | "section"
   style?: React.CSSProperties
-  /** How far the block travels up as it appears, in px */
   y?: number
 }) {
-  const Tag = motion[as]
+  const Tag = as
   return (
-    <Tag
-      className={className}
-      style={style}
-      initial={{ opacity: 0, y }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-80px" }}
-      transition={{ delay, duration: y > 20 ? 0.9 : 0.7, ease: [0.16, 1, 0.3, 1] }}
-    >
+    <Tag className={className} style={style}>
       {children}
     </Tag>
   )

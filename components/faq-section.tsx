@@ -90,7 +90,7 @@ export function FAQSection() {
           <h2 id="faq-title" className="font-display text-4xl sm:text-5xl leading-[1.05] text-[#1f1a17] mb-6">
             The questions each side asks first.
           </h2>
-          <p className="text-[15px] text-[#6f6660] leading-relaxed max-w-sm mb-8">
+          <p className="text-[15px] text-[#574e48] leading-relaxed max-w-sm mb-8">
             Anything else?{" "}
             <Link href="/call" className="text-[#1f1a17] underline decoration-[#d9d1ca] underline-offset-4 hover:decoration-[#1f1a17]">
               Book a discovery call
@@ -137,7 +137,7 @@ export function FAQSection() {
                 <h3 className="text-[17px] sm:text-lg font-medium text-[#1f1a17] leading-snug">{faq.q}</h3>
                 <Plus className="h-5 w-5 shrink-0 text-[#6f6660] transition-transform duration-300 group-open/details:rotate-45" aria-hidden="true" />
               </summary>
-              <p className="pb-6 pr-10 text-[15px] leading-relaxed text-[#6f6660]">
+              <p className="pb-6 pr-10 text-[15px] leading-relaxed text-[#574e48]">
                 {faq.a}
                 {"link" in faq && faq.link ? (
                   <>

@@ -100,7 +100,7 @@ export function AppPreview() {
                   </p>
                   <p className="mt-1 text-2xl sm:text-[28px] font-medium tracking-tight text-[#1f1a17]">
                     {example.milestones[0].amount}
-                    <span className="text-base text-[#6f6660]"> of {example.committed}</span>
+                    <span className="text-base text-[#574e48]"> of {example.committed}</span>
                   </p>
                 </div>
                 <span className="rounded-md bg-[#14B8A6]/10 px-2 py-1 text-[12px] font-medium text-[#0f766e]">Month 6 · threshold met</span>

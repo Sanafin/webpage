@@ -188,7 +188,7 @@ export function DeckRequestForm({ source = "investors" }: { source?: "investors"
         type="submit"
         data-cta="request_deck_submit"
         data-location={source}
-        className="mt-5 inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-full bg-[#1f1a17] px-6 py-2.5 text-[15px] font-medium text-white transition-colors hover:bg-[#3a322d]"
+        className="mt-5 inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-full bg-[#1f1a17] px-6 py-2.5 text-[15px] font-medium text-white press hover:bg-[#3a322d]"
       >
         <Mail className="h-4 w-4" aria-hidden="true" />
         {CTA.investor}

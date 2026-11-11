@@ -49,7 +49,7 @@ export function ActSettle({ t, contract, compact = false }: { t: number; contrac
           <h3 className="mt-3 font-display text-[1.75rem] sm:text-[2.2rem] leading-[1.06] text-[#1f1a17]">
             {released ? "Payment is released, in one block." : "Nothing is released. The money goes back."}
           </h3>
-          <p className="mt-3 max-w-md text-[15px] leading-relaxed text-[#6f6660]">
+          <p className="mt-3 max-w-md text-[15px] leading-relaxed text-[#574e48]">
             {released ? "What was earned goes to the provider. What was not goes back to the payer. Both hold the same receipt." : "The custody partner returns the full amount to the payer. One receipt, no dispute."}
           </p>
           <ol className="mt-6 space-y-2.5" aria-label="Settlement states">
@@ -80,7 +80,7 @@ export function ActSettle({ t, contract, compact = false }: { t: number; contrac
         <h2 className="mt-3 font-display text-[1.75rem] sm:text-[2.2rem] leading-[1.06] text-[#1f1a17]">
           {released ? "Payment is released, in one block." : "Nothing is released. The money goes back."}
         </h2>
-        <p className="mt-3 max-w-md text-[15px] leading-relaxed text-[#6f6660]">
+        <p className="mt-3 max-w-md text-[15px] leading-relaxed text-[#574e48]">
           {released
             ? "The custody partner receives one instruction. What was earned goes to the provider; what was not goes back to the payer. Both sides hold the same receipt."
             : "The composite stayed below the cut-off, so the custody partner returns the full amount to the payer. No invoice, no dispute, one receipt."}
@@ -92,7 +92,7 @@ export function ActSettle({ t, contract, compact = false }: { t: number; contrac
           const on = i < reached
           const dot = st.tone === "teal" ? "bg-[#14b8a6]" : st.tone === "orange" ? "bg-[#f15d22]" : "bg-[#1f1a17]"
           return (
-            <li key={st.label} className={`relative rounded-2xl border px-4 py-3.5 transition-all duration-500 ${on ? "border-[#e6dfd8] bg-white" : "border-transparent bg-[#f5f1ed]/60 opacity-60"}`}>
+            <li key={st.label} className={`relative rounded-2xl border px-4 py-3.5 transition-[opacity,background-color,border-color] duration-500 ${on ? "border-[#e6dfd8] bg-white" : "border-transparent bg-[#f5f1ed]/60 opacity-60"}`}>
               <div className="flex items-center gap-2.5">
                 <span className={`h-2.5 w-2.5 rounded-full ${on ? dot : "bg-[#d9d1ca]"}`} aria-hidden="true" />
                 <span className="text-[14px] font-medium text-[#1f1a17]">{st.label}</span>
@@ -135,7 +135,7 @@ export function ActSettle({ t, contract, compact = false }: { t: number; contrac
           </dl>
         </div>
 
-        <div className={`lg:col-span-5 transition-all duration-700 ${showOrder ? "translate-y-0 opacity-100" : "translate-y-2 opacity-0"}`}>
+        <div className={`lg:col-span-5 transition-[opacity,transform] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${showOrder ? "translate-y-0 opacity-100" : "translate-y-2 opacity-0"}`}>
           {released && po ? (
             <div className="rounded-3xl border border-[#ece7e2] bg-white p-5">
               <div className="flex items-start justify-between gap-3">

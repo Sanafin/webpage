@@ -46,7 +46,7 @@ export function Header({ tone = "light", announce = false }: { tone?: "light" | 
         </div>
       )}
       <div
-        className={`transition-all duration-300 ${
+        className={`transition-[background-color,border-color,padding] duration-300 ${
           isScrolled
             ? dark
               ? "bg-[#120d0b]/92 backdrop-blur-md border-b border-white/10 py-3"
@@ -96,7 +96,7 @@ export function Header({ tone = "light", announce = false }: { tone?: "light" | 
               href="/call"
               data-cta="book_call"
               data-location="header"
-              className="px-4 py-2 text-white rounded-full text-[14px] font-medium cursor-pointer transition-colors duration-200 bg-[#d1480f] hover:bg-[#b23d0c]"
+              className="px-4 py-2 text-white rounded-full text-[14px] font-medium cursor-pointer press bg-[#d1480f] hover:bg-[#b23d0c]"
             >
               {CTA.buyer}
             </Link>
@@ -147,7 +147,7 @@ export function Header({ tone = "light", announce = false }: { tone?: "light" | 
                     href="/call"
                     data-cta="book_call"
                     data-location="mobile-menu"
-                    className="inline-flex min-h-11 items-center justify-center w-full px-4 py-2.5 bg-[#d1480f] text-white hover:bg-[#b23d0c] rounded-full text-[15px] font-medium text-center cursor-pointer transition-colors duration-200"
+                    className="inline-flex min-h-11 items-center justify-center w-full px-4 py-2.5 bg-[#d1480f] text-white hover:bg-[#b23d0c] rounded-full text-[15px] font-medium text-center cursor-pointer press"
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     {CTA.buyer}

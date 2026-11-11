@@ -81,7 +81,7 @@ export function WhyNowSection() {
               <br />
               <span className="text-[#1f1a17]/55">None built the settlement.</span>
             </h2>
-            <p className="max-w-md text-base sm:text-lg leading-relaxed text-[#6f6660]">
+            <p className="max-w-md text-base sm:text-lg leading-relaxed text-[#574e48]">
               In two years the US, Germany and Switzerland moved from paying for access to paying for results —
               gene therapy, apps, medicines, chronic care. Every one wrote the condition and left out the settlement.
             </p>
@@ -109,7 +109,7 @@ export function WhyNowSection() {
                   <div className="grid gap-4 sm:grid-cols-[1fr_auto] sm:items-start">
                     <div>
                       <h3 className="text-xl sm:text-2xl font-medium leading-snug text-[#1f1a17] mb-2">{e.title}</h3>
-                      <p className="text-[15px] leading-relaxed text-[#6f6660] mb-3">{e.body}</p>
+                      <p className="text-[15px] leading-relaxed text-[#574e48] mb-3">{e.body}</p>
                       <ul className="flex flex-wrap gap-x-4 gap-y-1">
                         {e.sources.map(([id, label]) => {
                           const s = getSource(id)

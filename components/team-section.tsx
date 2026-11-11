@@ -95,7 +95,7 @@ export function TeamSection() {
               <Words text="We researched why payers don't pay for outcomes. Then we built Sanafin." />
             </h2>
           </div>
-          <p className="max-w-md text-[15px] sm:text-base leading-relaxed text-[#6f6660] lg:pb-2">
+          <p className="max-w-md text-[15px] sm:text-base leading-relaxed text-[#574e48] lg:pb-2">
             Health economics, medicine and financial engineering from <strong className="font-medium text-[#1f1a17]">ETH Zurich</strong>,{" "}
             <strong className="font-medium text-[#1f1a17]">HSG</strong> and <strong className="font-medium text-[#1f1a17]">Imperial</strong>.{" "}
             <Link href="/eden-framework" className="text-[#1f1a17] underline decoration-[#d9d1ca] underline-offset-4 hover:decoration-[#1f1a17]">

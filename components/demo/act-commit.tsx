@@ -28,7 +28,7 @@ export function ActCommit({ t, data, compact = false }: { t: number; data: Walkt
         <div className="lg:col-span-5">
           <p className="text-[13px] text-[#6f6660]">01 · Commit</p>
           <h3 className="mt-3 font-display text-[1.75rem] sm:text-[2.2rem] leading-[1.06] text-[#1f1a17]">The payer commits first.</h3>
-          <p className="mt-3 max-w-md text-[15px] leading-relaxed text-[#6f6660]">The whole budget is set aside before the first patient enrols. The terms cannot change after that.</p>
+          <p className="mt-3 max-w-md text-[15px] leading-relaxed text-[#574e48]">The whole budget is set aside before the first patient enrols. The terms cannot change after that.</p>
           <dl className="mt-6 divide-y divide-[#ece7e2] border-y border-[#ece7e2]">
             {few.map(([k, v], i) => (
               <div key={k} className={`grid grid-cols-[110px_1fr] gap-4 py-3 text-[14px] transition-opacity duration-500 ${i < shownFew ? "opacity-100" : "opacity-0"}`}>
@@ -74,7 +74,7 @@ export function ActCommit({ t, data, compact = false }: { t: number; data: Walkt
       <div className="lg:col-span-5">
         <p className="text-[13px] text-[#6f6660]">01 · Commit</p>
         <h2 className="mt-3 font-display text-[1.75rem] sm:text-[2.2rem] leading-[1.06] text-[#1f1a17]">The payer commits first.</h2>
-        <p className="mt-3 max-w-md text-[15px] leading-relaxed text-[#6f6660]">
+        <p className="mt-3 max-w-md text-[15px] leading-relaxed text-[#574e48]">
           A health insurer sets aside the whole budget before the first patient enrols. The terms are written once and cannot change after that.
         </p>
         <dl className="mt-8 divide-y divide-[#ece7e2] border-y border-[#ece7e2]">

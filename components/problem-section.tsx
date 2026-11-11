@@ -44,7 +44,7 @@ export function ProblemSection() {
           <h2 id="problem-title" className="font-display text-4xl sm:text-5xl leading-[1.04] text-[#1f1a17]">
             <Words text="Money can't tell valuable care from merely billable care." />
           </h2>
-          <p className="mt-5 max-w-xl text-base sm:text-lg text-[#6f6660]">
+          <p className="mt-5 max-w-xl text-base sm:text-lg text-[#574e48]">
             Whether patients get healthier doesn&apos;t change the bill. Everyone pays for that.
           </p>
         </Reveal>
@@ -58,10 +58,10 @@ export function ProblemSection() {
                 </Parallax>
               </div>
               <p className="mt-6 text-[12px] font-medium uppercase tracking-[0.14em] text-[#6f6660]">{f.eyebrow}</p>
-              <p className="mt-2 font-display text-5xl tabular-nums text-[#1f1a17] sm:text-6xl">
+              <p className="mt-2 font-display text-4xl tabular-nums text-[#1f1a17] sm:text-5xl">
                 <CountUp {...f.count} duration={1.6 + i * 0.2} />
               </p>
-              <p className="mt-3 max-w-xs text-[15px] leading-snug text-[#6f6660]">
+              <p className="mt-3 max-w-xs text-[15px] leading-snug text-[#574e48]">
                 {f.label}
                 <Fn id={f.sourceId} />
               </p>

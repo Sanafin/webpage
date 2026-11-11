@@ -72,7 +72,7 @@ export function AnywhereSection() {
           <h2 id="anywhere-title" className="font-display text-4xl sm:text-5xl leading-[1.04] text-[#1f1a17] mb-5">
             <Words text="The care changes. The contract stays." />
           </h2>
-          <p className="text-base sm:text-lg leading-relaxed text-[#6f6660]">
+          <p className="text-base sm:text-lg leading-relaxed text-[#574e48]">
             One contract template with four fields. No local claims system or bank needed. A payer in Zurich, Riyadh or
             São Paulo funds the same care in its own currency.
           </p>

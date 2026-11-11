@@ -33,7 +33,7 @@ export function ActVerify({ t, contract, scenario, onScenario, compact = false }
         <div className="lg:col-span-5">
           <p className="text-[13px] text-[#6f6660]">03 · Verify</p>
           <h3 className="mt-3 font-display text-[1.75rem] sm:text-[2.2rem] leading-[1.06] text-[#1f1a17]">An independent check scores the outcome.</h3>
-          <p className="mt-3 max-w-md text-[15px] leading-relaxed text-[#6f6660]">Same inputs, same verdict, on any machine. The hash proves it.</p>
+          <p className="mt-3 max-w-md text-[15px] leading-relaxed text-[#574e48]">Same inputs, same verdict, on any machine. The hash proves it.</p>
           <div className="mt-6 flex items-end gap-4">
             <div>
               <p className="text-[13px] text-[#6f6660]">Composite · cut-off {contract.cutoff}</p>
@@ -42,7 +42,7 @@ export function ActVerify({ t, contract, scenario, onScenario, compact = false }
                 <span className="text-[#1f1a17]/35"> / 100</span>
               </p>
             </div>
-            <div className={`pb-1 transition-all duration-500 ${stamped ? "scale-100 opacity-100" : "scale-90 opacity-0"}`}>
+            <div className={`pb-1 transition-[opacity,transform] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${stamped ? "scale-100 opacity-100" : "scale-[0.96] opacity-0"}`}>
               <Pill tone={meets ? "teal" : "orange"}>{meets ? "threshold met" : "insufficient"}</Pill>
             </div>
           </div>
@@ -59,7 +59,7 @@ export function ActVerify({ t, contract, scenario, onScenario, compact = false }
           <p className="text-[13px] text-[#6f6660]">03 · Verify</p>
           <h2 className="mt-3 font-display text-[1.75rem] sm:text-[2.2rem] leading-[1.06] text-[#1f1a17]">An independent evaluation scores the cohort.</h2>
         </div>
-        <p className="max-w-md text-[15px] leading-relaxed text-[#6f6660] lg:col-span-4">
+        <p className="max-w-md text-[15px] leading-relaxed text-[#574e48] lg:col-span-4">
           The engine applies the Swiss WZW criteria the contract was written against. Same inputs, same verdict, on any machine; the hash proves it.
         </p>
         <div role="radiogroup" aria-label="Scenario" className="inline-flex justify-self-start rounded-full bg-[#f5f1ed] p-1 text-[13px] lg:col-span-3 lg:justify-self-end">
@@ -114,7 +114,7 @@ export function ActVerify({ t, contract, scenario, onScenario, compact = false }
                 <p className="text-[13px] text-[#6f6660]">Composite · cut-off {contract.cutoff}</p>
                 <p className="mt-1 font-display text-[2.2rem] leading-none tracking-tight text-[#1f1a17] tabular-nums">{formatInt(composite)}</p>
               </div>
-              <div className={`transition-all duration-500 ${stamped ? "scale-100 opacity-100" : "scale-90 opacity-0"}`}>
+              <div className={`transition-[opacity,transform] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${stamped ? "scale-100 opacity-100" : "scale-[0.96] opacity-0"}`}>
                 <Pill tone={meets ? "teal" : "orange"}>{meets ? "meets WZW" : "insufficient"}</Pill>
               </div>
             </div>

@@ -51,7 +51,7 @@ export function MarketLadder() {
               <span className="text-[#1f1a17]/55">three sizes of money.</span>
             </h2>
           </div>
-          <p className="max-w-md text-base sm:text-lg leading-relaxed text-[#6f6660] lg:pb-2">
+          <p className="max-w-md text-base sm:text-lg leading-relaxed text-[#574e48] lg:pb-2">
             The money waits for the outcome, whatever the outcome is about. We start where proof is cheapest and
             move to where paying first costs the most.
           </p>

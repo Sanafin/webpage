@@ -22,7 +22,7 @@ export function Recognition() {
               <Words text="Proven first in Swiss metabolic health." />
             </h2>
           </div>
-          <p className="max-w-md text-base sm:text-lg leading-relaxed text-[#6f6660] lg:pb-2">
+          <p className="max-w-md text-base sm:text-lg leading-relaxed text-[#574e48] lg:pb-2">
             Swiss reimbursement is among Europe&apos;s strictest, so we started here.
           </p>
         </Reveal>

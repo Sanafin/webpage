@@ -27,7 +27,7 @@ export function ActCare({ t, monthly, patients, rules, compact = false }: { t: n
         <div className="lg:col-span-5">
           <p className="text-[13px] text-[#6f6660]">02 · Care is delivered</p>
           <h3 className="mt-3 font-display text-[1.75rem] sm:text-[2.2rem] leading-[1.06] text-[#1f1a17]">Six months of evidence arrive.</h3>
-          <p className="mt-3 max-w-md text-[15px] leading-relaxed text-[#6f6660]">Lab results, CGM data and weight come in from the clinic as usual. Nobody is paid yet.</p>
+          <p className="mt-3 max-w-md text-[15px] leading-relaxed text-[#574e48]">Lab results, CGM data and weight come in from the clinic as usual. Nobody is paid yet.</p>
           <dl className="mt-6 grid grid-cols-2 gap-6">
             {stats.slice(0, 2).map((s) => (
               <div key={s.label}>
@@ -62,7 +62,7 @@ export function ActCare({ t, monthly, patients, rules, compact = false }: { t: n
         <div className="lg:col-span-5">
           <p className="text-[13px] text-[#6f6660]">02 · Care is delivered</p>
           <h2 className="mt-3 font-display text-[1.75rem] sm:text-[2.2rem] leading-[1.06] text-[#1f1a17]">Six months of evidence arrive.</h2>
-          <p className="mt-3 max-w-md text-[15px] leading-relaxed text-[#6f6660]">
+          <p className="mt-3 max-w-md text-[15px] leading-relaxed text-[#574e48]">
             Lab HbA1c, CGM time in range, weight and session logs come in as FHIR resources. Nobody is paid yet; every value is stamped on entry.
           </p>
         </div>

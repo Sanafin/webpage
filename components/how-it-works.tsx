@@ -69,10 +69,9 @@ const steps = [
 // timeline and not as a second card grid after the problem section.
 function Step({ s, i, progress }: { s: (typeof steps)[number]; i: number; progress: MotionValue<number> }) {
   const start = i / steps.length
-  const opacity = useTransform(progress, [start, start + 0.18], [0.35, 1])
   const fill = useTransform(progress, [start, start + 0.25], [0, 1])
   return (
-    <motion.li style={{ opacity }} className="relative flex flex-col">
+    <li className="relative flex flex-col">
       <div className="h-[78px] w-[118px] -ml-2 sm:h-[96px] sm:w-[144px]">
         <Glyph step={i as 0 | 1 | 2 | 3} />
       </div>
@@ -82,8 +81,8 @@ function Step({ s, i, progress }: { s: (typeof steps)[number]; i: number; progre
       </div>
       <p className="mt-5 font-mono text-[12px] text-[#6f6660]">0{i + 1}</p>
       <h3 className="mt-1 text-lg font-medium text-[#1f1a17]">{s.title}</h3>
-      <p className="mt-1.5 max-w-[16rem] text-[15px] leading-snug text-[#6f6660]">{s.body}</p>
-    </motion.li>
+      <p className="mt-1.5 max-w-[16rem] text-[15px] leading-snug text-[#574e48]">{s.body}</p>
+    </li>
   )
 }
 
@@ -98,18 +97,12 @@ export function HowItWorks() {
   return (
     <section id="how" aria-labelledby="how-title" className="relative scroll-mt-24">
       <div className="max-w-7xl mx-auto px-6">
-        <motion.div
-          className="mx-auto mb-12 max-w-2xl text-center"
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-        >
+        <div className="mx-auto mb-12 max-w-2xl text-center">
           <p className="text-[13px] text-[#6f6660] mb-4">How it works</p>
           <h2 id="how-title" className="font-display text-4xl sm:text-5xl leading-[1.04] text-[#1f1a17]">
             <Words text="No result, no payment." />
           </h2>
-        </motion.div>
+        </div>
 
         <ol ref={railRef} className="relative mb-14 grid grid-cols-2 gap-x-6 gap-y-12 lg:grid-cols-4 lg:gap-x-8">
           {steps.map((s, i) => (
