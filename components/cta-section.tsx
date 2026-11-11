@@ -17,27 +17,27 @@ export function CTASection() {
 
           <div className="relative px-5 py-8 sm:px-8 md:px-12 md:py-16">
             <h2 id="closing-title" className="font-display text-3xl sm:text-4xl md:text-[2.75rem] leading-[1.1] text-[#1f1a17] mb-3 max-w-2xl">
-              Paying for what helps patients, <span className="text-[#1f1a17]/45">not for what gets billed.</span>
+              Paying for what helps patients, <span className="text-[#1f1a17]/55">not for what gets billed.</span>
             </h2>
-            <p className="mb-8 max-w-md text-base text-[#6f6660]">Switzerland first. Then every health system.</p>
+            <p className="mb-8 max-w-md text-base text-[#675e58]">Switzerland first. Then every health system.</p>
 
             <div className="grid gap-4 md:grid-cols-2 md:max-w-3xl">
               <Reveal className="flex flex-col rounded-3xl bg-white/90 p-6 backdrop-blur" delay={0.1}>
-                <p className="text-[13px] text-[#766d67] mb-2">Payers and care providers</p>
+                <p className="text-[13px] text-[#6f6660] mb-2">Payers and care providers</p>
                 <p className="flex-1 text-[17px] leading-snug text-[#1f1a17] mb-5">Scope a pilot in a 25-minute call: one payer, one patient group, one treatment.</p>
                 <Link
                   href="/call"
                   data-cta="book_call"
                   data-location="closing"
-                  className="mt-auto inline-flex min-h-11 items-center justify-center rounded-full bg-[#f15d22] px-6 py-2.5 text-[15px] font-medium text-white shadow-[0_8px_24px_-8px_rgba(241,93,34,0.7)] transition-colors hover:bg-[#d94f18]"
+                  className="mt-auto inline-flex min-h-11 items-center justify-center rounded-full bg-[#d1480f] px-6 py-2.5 text-[15px] font-medium text-white shadow-[0_8px_24px_-8px_rgba(209,72,15,0.55)] transition-colors hover:bg-[#b23d0c]"
                 >
                   {CTA.buyer}
                 </Link>
-                <p className="mt-3 text-center text-[12px] text-[#766d67]">Reply within one working day · NDA on request</p>
+                <p className="mt-3 text-center text-[12px] text-[#6f6660]">Reply within one working day · NDA on request</p>
               </Reveal>
 
               <Reveal className="flex flex-col rounded-3xl bg-white/90 p-6 backdrop-blur" delay={0.22}>
-                <p className="text-[13px] text-[#766d67] mb-2">Investors</p>
+                <p className="text-[13px] text-[#6f6660] mb-2">Investors</p>
                 <p className="flex-1 text-[17px] leading-snug text-[#1f1a17] mb-5">Investing in healthcare payments or fintech infrastructure?</p>
                 <Link
                   href="/#investors"
@@ -48,7 +48,7 @@ export function CTASection() {
                   {CTA.investor}
                   <ArrowRight className="h-4 w-4" aria-hidden="true" />
                 </Link>
-                <p className="mt-3 text-center text-[12px] text-[#766d67]">Sent personally by the CEO · view-only link</p>
+                <p className="mt-3 text-center text-[12px] text-[#6f6660]">Sent personally by the CEO · view-only link</p>
               </Reveal>
             </div>
           </div>

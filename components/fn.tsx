@@ -8,11 +8,11 @@ export function Fn({ id, className = "" }: { id: string; className?: string }) {
   const n = sourceNumber(id)
   const s = getSource(id)
   return (
-    <sup className={`ml-0.5 align-super text-[10px] font-normal leading-none tracking-normal ${className}`}>
+    <sup className={`ml-0.5 align-super text-[12px] font-normal leading-none tracking-normal ${className}`}>
       <a
         href={`#src-${n}`}
         aria-label={`Source ${n}: ${s.label}`}
-        className="rounded-sm text-[#a39a93] tabular-nums no-underline hover:text-[#1f1a17] hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#14b8a6]"
+        className="relative rounded-sm text-[#766d67] before:absolute before:-inset-x-2 before:-inset-y-1.5 before:content-[''] tabular-nums no-underline hover:text-[#1f1a17] hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#14b8a6]"
       >
         {n}
       </a>
@@ -23,7 +23,7 @@ export function Fn({ id, className = "" }: { id: string; className?: string }) {
 // The numbered list in the footer: only the sources cited on the page, in reading order.
 export function SourcesList() {
   return (
-    <ol className="grid gap-x-10 gap-y-3 text-[12.5px] leading-relaxed text-[#766d67] md:grid-cols-2">
+    <ol className="grid gap-x-10 gap-y-3 text-[12.5px] leading-relaxed text-[#6f6660] md:grid-cols-2">
       {citedSources().map((s, i) => (
         <li key={s.id} id={`src-${i + 1}`} className="flex gap-2.5 scroll-mt-28">
           <span className="w-5 shrink-0 tabular-nums text-[#1f1a17]">{i + 1}.</span>

@@ -75,11 +75,11 @@ export function WhyNowSection() {
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
           <Reveal className="lg:sticky lg:top-32 lg:self-start">
-            <p className="text-[13px] text-[#766d67] mb-4">Why now</p>
+            <p className="text-[13px] text-[#6f6660] mb-4">Why now</p>
             <h2 id="why-now-title" className="font-display text-4xl sm:text-5xl leading-[1.04] text-[#1f1a17] mb-6">
               Three jurisdictions wrote the rule.
               <br />
-              <span className="text-[#1f1a17]/45">None built the settlement.</span>
+              <span className="text-[#1f1a17]/55">None built the settlement.</span>
             </h2>
             <p className="max-w-md text-base sm:text-lg leading-relaxed text-[#6f6660]">
               In two years the US, Germany and Switzerland moved from paying for access to paying for results —
@@ -93,7 +93,7 @@ export function WhyNowSection() {
                 {i === todayIndex && (
                   <div className="relative mb-8 flex items-center gap-3" aria-label="Today, September 2026">
                     <span className="absolute -left-[41px] sm:-left-[49px] h-4 w-4 rounded-full border-4 border-[#fbfaf8] bg-[#14b8a6]" aria-hidden="true" />
-                    <span className="rounded-full bg-[#14b8a6] px-2.5 py-0.5 text-[11px] font-medium uppercase tracking-wider text-white">Today</span>
+                    <span className="rounded-full bg-[#14b8a6] px-2.5 py-0.5 text-[12px] font-medium uppercase tracking-wider text-white">Today</span>
                     <span className="h-px flex-1 bg-[#14b8a6]/30" aria-hidden="true" />
                   </div>
                 )}
@@ -119,7 +119,7 @@ export function WhyNowSection() {
                                 href={s.href ?? "#sources"}
                                 target={s.href ? "_blank" : undefined}
                                 rel={s.href ? "noopener noreferrer" : undefined}
-                                className="inline-flex items-center gap-0.5 text-[12.5px] text-[#766d67] underline decoration-[#e3dcd5] underline-offset-2 hover:text-[#1f1a17]"
+                                className="inline-flex items-center gap-0.5 text-[12.5px] text-[#6f6660] underline decoration-[#e3dcd5] underline-offset-2 hover:text-[#1f1a17]"
                               >
                                 {label}
                                 <ArrowUpRight className="h-3 w-3" aria-hidden="true" />

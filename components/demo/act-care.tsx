@@ -25,15 +25,15 @@ export function ActCare({ t, monthly, patients, rules, compact = false }: { t: n
     return (
       <div className="grid gap-8 lg:grid-cols-12 lg:items-center [&>*]:min-w-0">
         <div className="lg:col-span-5">
-          <p className="text-[13px] text-[#766d67]">02 · Care is delivered</p>
+          <p className="text-[13px] text-[#6f6660]">02 · Care is delivered</p>
           <h3 className="mt-3 font-display text-[1.75rem] sm:text-[2.2rem] leading-[1.06] text-[#1f1a17]">Six months of evidence arrive.</h3>
           <p className="mt-3 max-w-md text-[15px] leading-relaxed text-[#6f6660]">Lab results, CGM data and weight come in from the clinic as usual. Nobody is paid yet.</p>
           <dl className="mt-6 grid grid-cols-2 gap-6">
             {stats.slice(0, 2).map((s) => (
               <div key={s.label}>
-                <dt className="text-[13px] text-[#766d67]">{s.label}</dt>
+                <dt className="text-[13px] text-[#6f6660]">{s.label}</dt>
                 <dd className="mt-1 font-display text-[2rem] leading-none tracking-tight text-[#1f1a17] tabular-nums">{s.value}</dd>
-                <dd className="mt-1.5 font-mono text-[11.5px] text-[#766d67]">{s.note}</dd>
+                <dd className="mt-1.5 font-mono text-[12px] text-[#6f6660]">{s.note}</dd>
               </div>
             ))}
           </dl>
@@ -41,12 +41,12 @@ export function ActCare({ t, monthly, patients, rules, compact = false }: { t: n
         <div className="rounded-3xl border border-[#ece7e2] bg-white p-5 sm:p-6 lg:col-span-7">
           <div className="flex items-baseline justify-between gap-3">
             <p className="text-[13px] text-[#1f1a17]">Cohort mean HbA1c</p>
-            <p className="shrink-0 text-right font-mono text-[11.5px] text-[#766d67]">
+            <p className="shrink-0 text-right font-mono text-[12px] text-[#6f6660]">
               {formatInt(cur.n)} measured · M{m}
             </p>
           </div>
           <Hba1cChart monthly={monthly} progress={pos / months} threshold={rules[0].target} />
-          <div className="mt-2 flex justify-between font-mono text-[10.5px] text-[#766d67]">
+          <div className="mt-2 flex justify-between font-mono text-[12px] text-[#6f6660]">
             {monthly.map((p) => (
               <span key={p.month}>M{p.month}</span>
             ))}
@@ -60,7 +60,7 @@ export function ActCare({ t, monthly, patients, rules, compact = false }: { t: n
     <div>
       <div className="grid gap-8 lg:grid-cols-12 lg:items-end [&>*]:min-w-0">
         <div className="lg:col-span-5">
-          <p className="text-[13px] text-[#766d67]">02 · Care is delivered</p>
+          <p className="text-[13px] text-[#6f6660]">02 · Care is delivered</p>
           <h2 className="mt-3 font-display text-[1.75rem] sm:text-[2.2rem] leading-[1.06] text-[#1f1a17]">Six months of evidence arrive.</h2>
           <p className="mt-3 max-w-md text-[15px] leading-relaxed text-[#6f6660]">
             Lab HbA1c, CGM time in range, weight and session logs come in as FHIR resources. Nobody is paid yet; every value is stamped on entry.
@@ -69,9 +69,9 @@ export function ActCare({ t, monthly, patients, rules, compact = false }: { t: n
         <dl className="grid gap-6 sm:grid-cols-3 lg:col-span-7">
           {stats.map((s) => (
             <div key={s.label}>
-              <dt className="text-[13px] text-[#766d67]">{s.label}</dt>
+              <dt className="text-[13px] text-[#6f6660]">{s.label}</dt>
               <dd className="mt-1 font-display text-[2rem] sm:text-[2.4rem] leading-none tracking-tight text-[#1f1a17] tabular-nums">{s.value}</dd>
-              <dd className="mt-1.5 font-mono text-[11.5px] text-[#766d67]">{s.note}</dd>
+              <dd className="mt-1.5 font-mono text-[12px] text-[#6f6660]">{s.note}</dd>
             </div>
           ))}
         </dl>
@@ -81,12 +81,12 @@ export function ActCare({ t, monthly, patients, rules, compact = false }: { t: n
         <div className="rounded-3xl border border-[#ece7e2] bg-white p-5 sm:p-6 lg:col-span-7">
           <div className="flex items-baseline justify-between gap-3">
             <p className="text-[13px] text-[#1f1a17]">Cohort mean HbA1c</p>
-            <p className="shrink-0 text-right font-mono text-[11.5px] text-[#766d67]">
+            <p className="shrink-0 text-right font-mono text-[12px] text-[#6f6660]">
               {formatInt(cur.n)} measured · M{m}
             </p>
           </div>
           <Hba1cChart monthly={monthly} progress={pos / months} threshold={rules[0].target} />
-          <div className="mt-2 flex justify-between font-mono text-[10.5px] text-[#766d67]">
+          <div className="mt-2 flex justify-between font-mono text-[12px] text-[#6f6660]">
             {monthly.map((p) => (
               <span key={p.month}>M{p.month}</span>
             ))}
@@ -114,13 +114,13 @@ export function ActCare({ t, monthly, patients, rules, compact = false }: { t: n
               ],
             }))}
           />
-          <p className="mt-3 flex items-center justify-between text-[12px] text-[#766d67]">
+          <p className="mt-3 flex items-center justify-between text-[12px] text-[#6f6660]">
             <span>
               {measured} of {patients.length} final measurements received
             </span>
             <span>source · fhir</span>
           </p>
-          <p className="mt-1 text-[12px] text-[#766d67]">Synthetic cohort · example data</p>
+          <p className="mt-1 text-[12px] text-[#6f6660]">Synthetic cohort · example data</p>
         </div>
       </div>
     </div>
@@ -156,7 +156,7 @@ export function Hba1cChart({ monthly, progress, threshold }: { monthly: MonthlyP
         </linearGradient>
       </defs>
       <line x1="0" x2={w} y1={y(baseline)} y2={y(baseline)} stroke="#1f1a17" strokeOpacity="0.15" strokeWidth="1" />
-      <text x="0" y={y(baseline) - 5} fill="#766d67" fontSize="10" fontFamily="var(--font-mono, ui-monospace, monospace)">
+      <text x="0" y={y(baseline) - 5} fill="#6f6660" fontSize="10" fontFamily="var(--font-mono, ui-monospace, monospace)">
         baseline {baseline.toFixed(2)} %
       </text>
       <line x1="0" x2={w} y1={y(target)} y2={y(target)} stroke="#f15d22" strokeWidth="1" strokeDasharray="4 4" opacity="0.85" />

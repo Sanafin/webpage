@@ -86,11 +86,11 @@ export function FAQSection() {
     <section id="faq" aria-labelledby="faq-title" className="relative scroll-mt-24">
       <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-[0.8fr_1.2fr] gap-10 lg:gap-20">
         <div>
-          <p className="text-[13px] text-[#766d67] mb-4">FAQ</p>
+          <p className="text-[13px] text-[#6f6660] mb-4">FAQ</p>
           <h2 id="faq-title" className="font-display text-4xl sm:text-5xl leading-[1.05] text-[#1f1a17] mb-6">
             The questions each side asks first.
           </h2>
-          <p className="text-[15px] text-[#766d67] leading-relaxed max-w-sm mb-8">
+          <p className="text-[15px] text-[#6f6660] leading-relaxed max-w-sm mb-8">
             Anything else?{" "}
             <Link href="/call" className="text-[#1f1a17] underline decoration-[#d9d1ca] underline-offset-4 hover:decoration-[#1f1a17]">
               Book a discovery call
@@ -110,7 +110,7 @@ export function FAQSection() {
                   aria-selected={selected}
                   aria-controls={`faq-panel-${g.id}`}
                   onClick={() => setActive(g.id)}
-                  className={`relative rounded-full px-4 py-2 text-[14px] transition-colors duration-300 ${
+                  className={`relative min-h-11 rounded-full px-4 py-2 text-[14px] transition-colors duration-300 ${
                     selected ? "text-white" : "bg-[#f5f1ed] text-[#1f1a17] hover:bg-[#ece7e2]"
                   }`}
                 >
@@ -135,7 +135,7 @@ export function FAQSection() {
             <details key={faq.q} className="group/details">
               <summary className="flex cursor-pointer list-none items-center justify-between gap-6 py-6 [&::-webkit-details-marker]:hidden">
                 <h3 className="text-[17px] sm:text-lg font-medium text-[#1f1a17] leading-snug">{faq.q}</h3>
-                <Plus className="h-5 w-5 shrink-0 text-[#766d67] transition-transform duration-300 group-open/details:rotate-45" aria-hidden="true" />
+                <Plus className="h-5 w-5 shrink-0 text-[#6f6660] transition-transform duration-300 group-open/details:rotate-45" aria-hidden="true" />
               </summary>
               <p className="pb-6 pr-10 text-[15px] leading-relaxed text-[#6f6660]">
                 {faq.a}

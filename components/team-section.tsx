@@ -90,7 +90,7 @@ export function TeamSection() {
       <div className="max-w-7xl mx-auto px-6">
         <div className="mb-14 grid gap-6 lg:grid-cols-2 lg:gap-16 lg:items-end">
           <div>
-            <p className="text-[13px] text-[#766d67] mb-4">Why this team</p>
+            <p className="text-[13px] text-[#6f6660] mb-4">Why this team</p>
             <h2 id="team-title" className="font-display text-4xl sm:text-5xl leading-[1.04] text-[#1f1a17]">
               <Words text="We researched why payers don't pay for outcomes. Then we built Sanafin." />
             </h2>
@@ -123,7 +123,7 @@ export function TeamSection() {
                   href={person.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="absolute right-3 bottom-3 flex h-9 w-9 items-center justify-center rounded-lg bg-[#1f1a17]/85 text-white backdrop-blur transition-colors hover:bg-[#0a66c2]"
+                  className="absolute right-3 bottom-3 flex h-11 w-11 items-center justify-center rounded-lg bg-[#1f1a17]/85 text-white backdrop-blur transition-colors hover:bg-[#0a66c2]"
                   aria-label={`${person.name} on LinkedIn`}
                 >
                   <Linkedin className="h-3.5 w-3.5" aria-hidden="true" />
@@ -132,7 +132,7 @@ export function TeamSection() {
               <div className="flex flex-1 flex-col pt-4">
                 <h3 className="font-display text-lg sm:text-xl text-[#1f1a17] leading-tight">{person.name}</h3>
                 <p className="text-[13px] text-[#0f766e] mt-0.5 mb-2">{person.title}</p>
-                <p className="text-[13px] leading-snug text-[#766d67]">
+                <p className="text-[13px] leading-snug text-[#6f6660]">
                   <Rich text={person.credential} />
                 </p>
               </div>
@@ -142,7 +142,7 @@ export function TeamSection() {
 
         {/* Advisors */}
         <div className="mt-10">
-          <p className="text-[13px] text-[#766d67] mb-3">Advisory board</p>
+          <p className="text-[13px] text-[#6f6660] mb-3">Advisory board</p>
           <ul className="divide-y divide-[#ece7e2] border-y border-[#ece7e2]">
             {advisors.map((a, i) => (
               <Reveal as="li" key={a.name} delay={i * 0.08} className="grid gap-2 py-4 sm:grid-cols-[16rem_1fr_auto] sm:items-center sm:gap-6">
@@ -152,7 +152,7 @@ export function TeamSection() {
                       <Image src={a.photo} alt="" fill sizes="40px" className="object-cover object-top" />
                     </span>
                   ) : (
-                    <span className="flex h-10 w-10 items-center justify-center rounded-full bg-[#ebe4db] text-[13px] font-medium text-[#766d67]" aria-hidden="true">
+                    <span className="flex h-10 w-10 items-center justify-center rounded-full bg-[#ebe4db] text-[13px] font-medium text-[#6f6660]" aria-hidden="true">
                       {a.name.split(" ").slice(-1)[0][0]}
                     </span>
                   )}
@@ -173,7 +173,7 @@ export function TeamSection() {
                     href={a.linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hidden sm:flex h-9 w-9 items-center justify-center rounded-full border border-[#e9e4df] text-[#766d67] hover:text-[#1f1a17]"
+                    className="hidden sm:flex h-9 w-9 items-center justify-center rounded-full border border-[#e9e4df] text-[#6f6660] hover:text-[#1f1a17]"
                     aria-label={`${a.name} on LinkedIn`}
                   >
                     <Linkedin className="h-3.5 w-3.5" aria-hidden="true" />
@@ -188,12 +188,12 @@ export function TeamSection() {
 
         {/* Where the team trained and worked */}
         <div className="mt-12 flex flex-col items-center gap-4 text-center">
-          <p className="text-[12px] text-[#766d67]">Team and advisors trained and worked at</p>
+          <p className="text-[12px] text-[#6f6660]">Team and advisors trained and worked at</p>
           <ul className="flex flex-wrap items-center justify-center gap-x-5 gap-y-3 lg:gap-x-0">
             {institutions.map((name, i) => (
               <li key={name} className="flex items-center">
                 {i > 0 && <span className="mx-4 hidden h-4 w-px bg-[#d9d1ca] lg:block" aria-hidden="true" />}
-                <span className="text-[12px] font-semibold uppercase tracking-[0.16em] text-[#1f1a17]/45 sm:text-[13px]">{name}</span>
+                <span className="text-[12px] font-semibold uppercase tracking-[0.16em] text-[#6f6660] sm:text-[13px]">{name}</span>
               </li>
             ))}
           </ul>

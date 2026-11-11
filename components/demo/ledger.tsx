@@ -26,7 +26,7 @@ export function Ledger({
       <table className="w-full border-collapse whitespace-nowrap text-[12.5px]">
         {caption && <caption className="sr-only">{caption}</caption>}
         <thead>
-          <tr className="border-b border-[#f0ebe6] text-[11px] uppercase tracking-wider text-[#766d67]">
+          <tr className="border-b border-[#f0ebe6] text-[12px] uppercase tracking-wider text-[#6f6660]">
             {columns.map((c, i) => (
               <th key={c} scope="col" className={`px-4 ${pad} font-medium ${align[i] === "right" ? "text-right" : "text-left"}`}>
                 {c}
@@ -37,7 +37,7 @@ export function Ledger({
         <tbody className="divide-y divide-[#f0ebe6]">
           {rows.map((r) => {
             const tone =
-              r.tone === "teal" ? "text-[#0f766e]" : r.tone === "orange" ? "text-[#c4460f]" : r.tone === "muted" ? "text-[#766d67]" : "text-[#1f1a17]"
+              r.tone === "teal" ? "text-[#0f766e]" : r.tone === "orange" ? "text-[#c4460f]" : r.tone === "muted" ? "text-[#6f6660]" : "text-[#1f1a17]"
             return (
               <tr key={r.key} className={tone}>
                 {r.cells.map((c, i) => (
@@ -61,7 +61,7 @@ export function Pill({ tone, children }: { tone: "teal" | "orange" | "ink" | "mu
       : tone === "orange"
         ? "bg-[#f15d22]/15 text-[#c4460f]"
         : tone === "muted"
-          ? "bg-[#f5f1ed] text-[#766d67]"
+          ? "bg-[#f5f1ed] text-[#6f6660]"
           : "bg-[#1f1a17]/8 text-[#1f1a17]"
-  return <span className={`inline-flex items-center rounded-full px-2.5 py-1 text-[11px] font-medium ${cls}`}>{children}</span>
+  return <span className={`inline-flex items-center rounded-full px-2.5 py-1 text-[12px] font-medium ${cls}`}>{children}</span>
 }

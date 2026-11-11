@@ -46,14 +46,14 @@ export function ScreenFrame({
             <span className="h-2.5 w-2.5 rounded-full bg-[#e9e4df]" />
             <span className="h-2.5 w-2.5 rounded-full bg-[#e9e4df]" />
           </span>
-          <span className="inline-flex min-w-0 items-center gap-1.5 truncate rounded-md bg-white px-2 py-0.5 text-[11px] text-[#766d67] ring-1 ring-[#ece7e2]">
+          <span className="inline-flex min-w-0 items-center gap-1.5 truncate rounded-md bg-white px-2 py-0.5 text-[12px] text-[#6f6660] ring-1 ring-[#ece7e2]">
             <span className={`h-1.5 w-1.5 shrink-0 rounded-full ${kind === "product" ? "bg-[#14b8a6]" : "bg-[#f15d22]"}`} aria-hidden="true" />
             <span className="truncate">{barLabel[kind]}</span>
           </span>
         </div>
         {children}
       </div>
-      <figcaption className={`mt-3 text-[12px] text-[#766d67] ${hideCaption ? "sr-only" : ""}`}>
+      <figcaption className={`mt-3 text-[12px] text-[#6f6660] ${hideCaption ? "sr-only" : ""}`}>
         {caption ?? captionLabel[kind]}
       </figcaption>
     </figure>

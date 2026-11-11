@@ -19,7 +19,7 @@ const sources = [
 function StatusPill({ tone, children }: { tone: "teal" | "orange" | "ink"; children: React.ReactNode }) {
   const cls =
     tone === "teal" ? "bg-[#14B8A6]/15 text-[#0f766e]" : tone === "orange" ? "bg-[#f15d22]/15 text-[#f15d22]" : "bg-[#1f1a17]/8 text-[#1f1a17]"
-  return <span className={`rounded-full px-2.5 py-1 text-[11px] font-medium ${cls}`}>{children}</span>
+  return <span className={`rounded-full px-2.5 py-1 text-[12px] font-medium ${cls}`}>{children}</span>
 }
 
 function TrendChart() {
@@ -70,7 +70,7 @@ function Tile({
   return (
     <Reveal as="article" delay={delay} className={`flex flex-col rounded-3xl bg-[#f5f1ed] p-6 sm:p-8 ${className}`}>
       <div className="mb-8">
-        <p className="text-[13px] text-[#766d67] mb-3">{eyebrow}</p>
+        <p className="text-[13px] text-[#6f6660] mb-3">{eyebrow}</p>
         <h3 className="font-display text-2xl sm:text-[1.7rem] text-[#1f1a17] mb-2">{title}</h3>
         <p className="text-[15px] text-[#6f6660] leading-relaxed max-w-md">{body}</p>
       </div>
@@ -92,11 +92,11 @@ export function OutcomeStudio() {
             loading="lazy"
           />
           <div className="relative max-w-2xl">
-            <p className="text-[13px] text-[#766d67] mb-4">The product</p>
+            <p className="text-[13px] text-[#6f6660] mb-4">The product</p>
             <h2 id="product-title" className="font-display text-4xl sm:text-5xl leading-[1.04] text-[#1f1a17]">
               Sanafin Outcome Studio.
               <br />
-              <span className="text-[#1f1a17]/45">Five stages, one API.</span>
+              <span className="text-[#1f1a17]/55">Five stages, one API.</span>
             </h2>
           </div>
         </Reveal>
@@ -160,7 +160,7 @@ export function OutcomeStudio() {
             body="Pay-for-performance, shared savings or bundled terms. Funds sit with a licensed custody partner, never with Sanafin."
             delay={0.15}
           >
-            <pre className="overflow-x-auto rounded-2xl border border-[#ece7e2] bg-white p-4 font-mono text-[11px] leading-relaxed text-[#1f1a17]/80">
+            <pre className="overflow-x-auto rounded-2xl border border-[#ece7e2] bg-white p-4 font-mono text-[12px] leading-relaxed text-[#1f1a17]/80">
 {`contract `}<span className="text-[#0f766e]">t2d_programme</span>{`
   committed  `}<span className="text-[#f15d22]">CHF 180,000</span>{`
   held_by    licensed_custodian
@@ -195,7 +195,7 @@ export function OutcomeStudio() {
 
         <div className="mt-6 flex flex-col gap-4 rounded-3xl border border-[#ece7e2] bg-white px-5 py-4 lg:flex-row lg:items-center lg:justify-between">
           <p className="text-[14px] text-[#6f6660]">One REST API, one audit chain. Every value hashed on entry; the certificate re-computable from the exported file.</p>
-          <pre className="max-w-full whitespace-pre-wrap rounded-xl bg-[#1a1512] px-4 py-2.5 font-mono text-[11.5px] leading-relaxed text-white/85 lg:shrink-0">
+          <pre className="max-w-full whitespace-pre-wrap rounded-xl bg-[#1a1512] px-4 py-2.5 font-mono text-[12px] leading-relaxed text-white/85 lg:shrink-0">
             <span className="text-[#5eead4]">POST</span> /v1/verifications <span className="text-white/40">→</span> {`{ "verdict": "meets_wzw", "certificate": "${example.hash.slice(0, 8)}…" }`}
           </pre>
         </div>

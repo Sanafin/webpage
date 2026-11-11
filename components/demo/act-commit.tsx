@@ -26,13 +26,13 @@ export function ActCommit({ t, data, compact = false }: { t: number; data: Walkt
     return (
       <div className="grid gap-8 lg:grid-cols-12 lg:items-center [&>*]:min-w-0">
         <div className="lg:col-span-5">
-          <p className="text-[13px] text-[#766d67]">01 · Commit</p>
+          <p className="text-[13px] text-[#6f6660]">01 · Commit</p>
           <h3 className="mt-3 font-display text-[1.75rem] sm:text-[2.2rem] leading-[1.06] text-[#1f1a17]">The payer commits first.</h3>
           <p className="mt-3 max-w-md text-[15px] leading-relaxed text-[#6f6660]">The whole budget is set aside before the first patient enrols. The terms cannot change after that.</p>
           <dl className="mt-6 divide-y divide-[#ece7e2] border-y border-[#ece7e2]">
             {few.map(([k, v], i) => (
               <div key={k} className={`grid grid-cols-[110px_1fr] gap-4 py-3 text-[14px] transition-opacity duration-500 ${i < shownFew ? "opacity-100" : "opacity-0"}`}>
-                <dt className="text-[#766d67]">{k}</dt>
+                <dt className="text-[#6f6660]">{k}</dt>
                 <dd className="text-[#1f1a17]">{v}</dd>
               </div>
             ))}
@@ -42,20 +42,20 @@ export function ActCommit({ t, data, compact = false }: { t: number; data: Walkt
           <div className="rounded-3xl border border-[#ece7e2] bg-white p-6 sm:p-7">
             <div className="flex flex-wrap items-start justify-between gap-4">
               <div>
-                <p className="text-[13px] text-[#766d67]">Committed</p>
+                <p className="text-[13px] text-[#6f6660]">Committed</p>
                 <p className="mt-1 font-display text-[2.6rem] sm:text-[3.2rem] leading-none tracking-tight text-[#1f1a17] tabular-nums">CHF {formatInt(amount)}</p>
               </div>
               <Pill tone={held ? "teal" : "muted"}>{held ? "held by custodian" : "pending"}</Pill>
             </div>
             <div className={`mt-6 overflow-hidden rounded-2xl border border-[#ece7e2] bg-[#fbfaf8] transition-opacity duration-500 ${held ? "opacity-100" : "opacity-40"}`}>
-              <div className="flex items-center justify-between border-b border-[#f0ebe6] px-4 py-2 font-mono text-[11px] text-[#766d67]">
+              <div className="flex items-center justify-between gap-3 border-b border-[#f0ebe6] px-4 py-2 font-mono text-[12px] text-[#6f6660]">
                 <span className="flex items-center gap-2">
                   <span className="rounded bg-[#14b8a6]/15 px-1.5 py-0.5 font-semibold text-[#0f766e]">POST</span>
                   /v1/commitments
                 </span>
-                <span className={held ? "text-[#0f766e]" : ""}>{held ? "201 Created" : "…"}</span>
+                <span className={`whitespace-nowrap ${held ? "text-[#0f766e]" : ""}`}>{held ? "201 Created" : "…"}</span>
               </div>
-              <pre className="overflow-x-auto px-4 py-3 font-mono text-[11.5px] leading-[1.65] text-[#1f1a17]">{`{
+              <pre tabIndex={0} aria-label="API response" className="overflow-x-auto rounded-b-xl px-4 focus-visible:outline-2 focus-visible:outline-[#14b8a6] py-3 font-mono text-[12px] leading-[1.65] text-[#1f1a17]">{`{
   "status": "${held ? "held_by_custodian" : "pending"}",
   "committed_amount": ${held ? data.committedChf : 0},
   "custodian": "licensed custody partner",
@@ -72,7 +72,7 @@ export function ActCommit({ t, data, compact = false }: { t: number; data: Walkt
   return (
     <div className="grid gap-10 lg:grid-cols-12 lg:items-start [&>*]:min-w-0">
       <div className="lg:col-span-5">
-        <p className="text-[13px] text-[#766d67]">01 · Commit</p>
+        <p className="text-[13px] text-[#6f6660]">01 · Commit</p>
         <h2 className="mt-3 font-display text-[1.75rem] sm:text-[2.2rem] leading-[1.06] text-[#1f1a17]">The payer commits first.</h2>
         <p className="mt-3 max-w-md text-[15px] leading-relaxed text-[#6f6660]">
           A health insurer sets aside the whole budget before the first patient enrols. The terms are written once and cannot change after that.
@@ -80,7 +80,7 @@ export function ActCommit({ t, data, compact = false }: { t: number; data: Walkt
         <dl className="mt-8 divide-y divide-[#ece7e2] border-y border-[#ece7e2]">
           {terms.map(([k, v], i) => (
             <div key={k} className={`grid grid-cols-[120px_1fr] gap-4 py-3 text-[14px] transition-opacity duration-500 ${i < shownTerms ? "opacity-100" : "opacity-0"}`}>
-              <dt className="text-[#766d67]">{k}</dt>
+              <dt className="text-[#6f6660]">{k}</dt>
               <dd className="text-[#1f1a17]">{v}</dd>
             </div>
           ))}
@@ -91,7 +91,7 @@ export function ActCommit({ t, data, compact = false }: { t: number; data: Walkt
         <div className="rounded-3xl border border-[#ece7e2] bg-white p-6 sm:p-8">
           <div className="flex flex-wrap items-start justify-between gap-4">
             <div>
-              <p className="text-[13px] text-[#766d67]">Committed</p>
+              <p className="text-[13px] text-[#6f6660]">Committed</p>
               <p className="mt-1 font-display text-[2.6rem] sm:text-[3.4rem] leading-none tracking-tight text-[#1f1a17] tabular-nums">
                 CHF {formatInt(amount)}
               </p>
@@ -101,11 +101,11 @@ export function ActCommit({ t, data, compact = false }: { t: number; data: Walkt
 
           <div className="mt-8 grid gap-4 md:grid-cols-2 [&>*]:min-w-0">
             <div className="overflow-hidden rounded-2xl border border-[#ece7e2] bg-[#fbfaf8]">
-              <div className="flex items-center gap-2 border-b border-[#f0ebe6] px-4 py-2 font-mono text-[11px] text-[#766d67]">
+              <div className="flex items-center gap-2 border-b border-[#f0ebe6] px-4 py-2 font-mono text-[12px] text-[#6f6660]">
                 <span className="rounded bg-[#14b8a6]/15 px-1.5 py-0.5 font-semibold text-[#0f766e]">POST</span>
                 /v1/commitments
               </div>
-              <pre className="overflow-x-auto px-4 py-3 font-mono text-[11.5px] leading-[1.65] text-[#1f1a17]">{`{
+              <pre tabIndex={0} aria-label="API response" className="overflow-x-auto rounded-b-xl px-4 focus-visible:outline-2 focus-visible:outline-[#14b8a6] py-3 font-mono text-[12px] leading-[1.65] text-[#1f1a17]">{`{
   "contract_id": "con_t2d_reversal_2024",
   "committed_amount": ${data.committedChf},
   "currency": "CHF",
@@ -119,11 +119,11 @@ export function ActCommit({ t, data, compact = false }: { t: number; data: Walkt
 }`}</pre>
             </div>
             <div className={`overflow-hidden rounded-2xl border border-[#ece7e2] bg-[#fbfaf8] transition-opacity duration-500 ${held ? "opacity-100" : "opacity-40"}`}>
-              <div className="flex items-center justify-between border-b border-[#f0ebe6] px-4 py-2 font-mono text-[11px] text-[#766d67]">
+              <div className="flex items-center justify-between gap-3 border-b border-[#f0ebe6] px-4 py-2 font-mono text-[12px] text-[#6f6660]">
                 <span>response</span>
-                <span className={held ? "text-[#0f766e]" : ""}>{held ? "201 Created" : "…"}</span>
+                <span className={`whitespace-nowrap ${held ? "text-[#0f766e]" : ""}`}>{held ? "201 Created" : "…"}</span>
               </div>
-              <pre className="overflow-x-auto px-4 py-3 font-mono text-[11.5px] leading-[1.65] text-[#1f1a17]">{`{
+              <pre tabIndex={0} aria-label="API response" className="overflow-x-auto rounded-b-xl px-4 focus-visible:outline-2 focus-visible:outline-[#14b8a6] py-3 font-mono text-[12px] leading-[1.65] text-[#1f1a17]">{`{
   "id": "cmt_8f3a1c",
   "status": "${held ? "held_by_custodian" : "pending"}",
   "committed_amount": ${held ? data.committedChf : 0},
@@ -133,7 +133,7 @@ export function ActCommit({ t, data, compact = false }: { t: number; data: Walkt
 }`}</pre>
             </div>
           </div>
-          <p className="mt-4 text-[12px] text-[#766d67]">Synthetic cohort · example data · identifiers are fictional</p>
+          <p className="mt-4 text-[12px] text-[#6f6660]">Synthetic cohort · example data · identifiers are fictional</p>
         </div>
       </div>
     </div>

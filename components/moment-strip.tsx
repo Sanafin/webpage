@@ -46,9 +46,9 @@ export function MomentStrip() {
                 <Icon className="h-3.5 w-3.5" aria-hidden="true" />
               </span>
               <div className="min-w-0">
-                <p className="text-[12px] text-[#766d67]">{s.label}</p>
+                <p className="text-[12px] text-[#6f6660]">{s.label}</p>
                 <p className={`font-mono text-[15px] tabular-nums ${accent}`}>{s.value}</p>
-                <p className="truncate font-mono text-[10.5px] text-[#766d67]">{s.meta}</p>
+                <p className="truncate font-mono text-[12px] text-[#6f6660]">{s.meta}</p>
               </div>
             </div>
             {i < steps.length - 1 && (
