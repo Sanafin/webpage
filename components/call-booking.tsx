@@ -69,7 +69,7 @@ function CallBookingInner({ initialRole }: { initialRole?: string }) {
           <li className="rounded-full bg-[#f5f1ed] px-3 py-1.5">NDA on request</li>
         </ul>
 
-        <p className="mt-6 max-w-md text-base sm:text-[17px] leading-relaxed text-[#6f6660]">A working session, not a pitch.</p>
+        <p className="mt-6 max-w-md text-base sm:text-[17px] leading-relaxed text-[#574e48]">A working session, not a pitch.</p>
 
         <ul className="mt-6 space-y-2.5">
           {agenda.map((a) => (
@@ -126,7 +126,7 @@ function CallBookingInner({ initialRole }: { initialRole?: string }) {
                   data-cta="doodle_open"
                   data-location="call"
                   data-audience={role ?? "unset"}
-                  className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-[#d1480f] px-6 py-3 text-[15px] font-medium text-white shadow-[0_8px_24px_-8px_rgba(209,72,15,0.55)] transition-colors hover:bg-[#b23d0c]"
+                  className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-[#d1480f] px-6 py-3 text-[15px] font-medium text-white shadow-[0_8px_24px_-8px_rgba(209,72,15,0.55)] press hover:bg-[#b23d0c]"
                 >
                   Choose a time
                   <ArrowUpRight className="h-4 w-4" aria-hidden="true" />

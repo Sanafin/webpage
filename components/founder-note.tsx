@@ -28,7 +28,7 @@ export function FounderNote() {
                 <p id="founder-note-title" className="font-display text-2xl leading-snug text-balance text-[#1f1a17] sm:text-3xl md:text-[2.2rem] md:leading-[1.2]">
                   “Everyone has seen the demo that always says yes. We built the one that can say no.”
                 </p>
-                <footer className="mt-7 text-[15px] leading-relaxed text-[#6f6660]">
+                <footer className="mt-7 text-[15px] leading-relaxed text-[#574e48]">
                   <span className="block font-medium text-[#1f1a17]">{site.ceo.name}</span>
                   {site.ceo.title} · PhD in healthcare financing, ETH Zurich
                 </footer>

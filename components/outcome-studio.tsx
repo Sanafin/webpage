@@ -72,7 +72,7 @@ function Tile({
       <div className="mb-8">
         <p className="text-[13px] text-[#6f6660] mb-3">{eyebrow}</p>
         <h3 className="font-display text-2xl sm:text-[1.7rem] text-[#1f1a17] mb-2">{title}</h3>
-        <p className="text-[15px] text-[#6f6660] leading-relaxed max-w-md">{body}</p>
+        <p className="text-[15px] text-[#574e48] leading-relaxed max-w-md">{body}</p>
       </div>
       <div className="mt-auto">{children}</div>
     </Reveal>

@@ -19,7 +19,7 @@ function Ctas() {
           href="/call"
           data-cta="book_call"
           data-location="hero"
-          className="inline-flex min-h-11 items-center justify-center rounded-full bg-[#d1480f] px-6 py-2.5 text-[15px] font-medium text-white shadow-[0_8px_24px_-8px_rgba(209,72,15,0.55)] transition-colors hover:bg-[#b23d0c]"
+          className="inline-flex min-h-11 items-center justify-center rounded-full bg-[#d1480f] px-6 py-2.5 text-[15px] font-medium text-white shadow-[0_8px_24px_-8px_rgba(209,72,15,0.55)] press hover:bg-[#b23d0c]"
         >
           {CTA.buyer}
         </Link>
@@ -28,7 +28,7 @@ function Ctas() {
             href="#investors"
             data-cta="request_deck"
             data-location="hero"
-            className="inline-flex min-h-11 items-center justify-center gap-1.5 rounded-full bg-[#f1ece7] px-6 py-2.5 text-[15px] font-medium text-[#1f1a17] transition-colors hover:bg-[#e9e2db]"
+            className="inline-flex min-h-11 items-center justify-center gap-1.5 rounded-full bg-[#f1ece7] px-6 py-2.5 text-[15px] font-medium text-[#1f1a17] press hover:bg-[#e9e2db]"
           >
             {CTA.investor}
             <ArrowRight className="h-4 w-4" aria-hidden="true" />
@@ -38,7 +38,7 @@ function Ctas() {
             href={studio.start}
             data-cta="try_studio"
             data-location="hero"
-            className="inline-flex min-h-11 items-center justify-center gap-1.5 rounded-full bg-[#f1ece7] px-6 py-2.5 text-[15px] font-medium text-[#1f1a17] transition-colors hover:bg-[#e9e2db]"
+            className="inline-flex min-h-11 items-center justify-center gap-1.5 rounded-full bg-[#f1ece7] px-6 py-2.5 text-[15px] font-medium text-[#1f1a17] press hover:bg-[#e9e2db]"
           >
             {CTA.studio}
             <ArrowRight className="h-4 w-4" aria-hidden="true" />

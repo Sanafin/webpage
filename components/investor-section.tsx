@@ -23,7 +23,7 @@ export function InvestorSection() {
             <h2 id="investors-title" className="font-display text-4xl sm:text-5xl leading-[1.04] text-[#1f1a17] mb-6">
               The deck, sent personally.
             </h2>
-            <p className="text-[15px] sm:text-base leading-relaxed text-[#6f6660] mb-8 max-w-md">
+            <p className="text-[15px] sm:text-base leading-relaxed text-[#574e48] mb-8 max-w-md">
               Pre-seed, built on ETH Zurich and HSG research. Wasu, the CEO, replies within one working day.
             </p>
 

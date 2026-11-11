@@ -58,7 +58,7 @@ export function MomentStrip() {
                   <motion.span
                     className={`absolute h-1.5 w-1.5 rounded-full ${dot}`}
                     animate={{ left: ["0%", "100%"], opacity: [0, 1, 0] }}
-                    transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut", delay: i * 0.8 }}
+                    transition={{ duration: 1.6, repeat: 1, ease: [0.22, 1, 0.36, 1], delay: i * 0.4 }}
                   />
                 )}
               </div>

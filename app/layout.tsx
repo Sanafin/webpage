@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import { Playfair_Display } from 'next/font/google'
 import localFont from 'next/font/local'
 import { MotionProvider } from '@/components/motion-provider'
@@ -24,6 +24,11 @@ const playfair = Playfair_Display({
   weight: ['400', '500', '600', '700'],
   preload: false,
 })
+
+// The browser bar matches the page (Vercel web interface guidelines)
+export const viewport: Viewport = {
+  themeColor: '#fbfaf8',
+}
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),

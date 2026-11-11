@@ -32,7 +32,7 @@ export function Hero() {
             from anywhere.
           </h1>
 
-          <p className="max-w-xl text-base sm:text-lg leading-relaxed text-[#6f6660] mb-8">
+          <p className="max-w-xl text-base sm:text-lg leading-relaxed text-[#574e48] mb-8">
             The payer sets the money aside up front. It is paid out only when an independent check confirms the care
             worked.
           </p>
@@ -62,7 +62,7 @@ export function Hero() {
             )}
           </div>
           {/* The live product, not a mock: a pathway in Outcome Studio (studio.sanafin.tech) with synthetic test data */}
-          <a href={studio.start} data-cta="try_studio" data-location="hero-screenshot" className="relative hidden md:block rounded-[18px]">
+          <a href={studio.start} data-cta="try_studio" data-location="hero-screenshot" className="relative hidden md:block rounded-[18px] transition-transform duration-200 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-0.5">
             <ScreenFrame kind="product" caption={studioCaption} hideCaption>
               <img
                 src="/media/studio-pathway.webp"

@@ -29,7 +29,7 @@ export function CTASection() {
                   href="/call"
                   data-cta="book_call"
                   data-location="closing"
-                  className="mt-auto inline-flex min-h-11 items-center justify-center rounded-full bg-[#d1480f] px-6 py-2.5 text-[15px] font-medium text-white shadow-[0_8px_24px_-8px_rgba(209,72,15,0.55)] transition-colors hover:bg-[#b23d0c]"
+                  className="mt-auto inline-flex min-h-11 items-center justify-center rounded-full bg-[#d1480f] px-6 py-2.5 text-[15px] font-medium text-white shadow-[0_8px_24px_-8px_rgba(209,72,15,0.55)] press hover:bg-[#b23d0c]"
                 >
                   {CTA.buyer}
                 </Link>
@@ -43,7 +43,7 @@ export function CTASection() {
                   href="/#investors"
                   data-cta="request_deck"
                   data-location="closing"
-                  className="mt-auto inline-flex min-h-11 items-center justify-center gap-1.5 rounded-full bg-[#1f1a17] px-6 py-2.5 text-[15px] font-medium text-white transition-colors hover:bg-[#3a322d]"
+                  className="mt-auto inline-flex min-h-11 items-center justify-center gap-1.5 rounded-full bg-[#1f1a17] px-6 py-2.5 text-[15px] font-medium text-white press hover:bg-[#3a322d]"
                 >
                   {CTA.investor}
                   <ArrowRight className="h-4 w-4" aria-hidden="true" />
