@@ -3,13 +3,12 @@ import { site } from "@/lib/site"
 
 // Written from what this website actually does (revFADP Art. 19, GDPR Art. 13). The studio at studio.sanafin.tech has its
 // own privacy notice. Not legal advice: have it checked, and update it when the site adds a provider, tracker or cookie.
-// Owner input: replace site.legalLine with the registered company name and postal address when supplied.
 const sections: LegalSection[] = [
   {
     id: "controller",
     title: "Who is responsible",
     body: [
-      `${site.legalLine}. For anything about your personal data, write to ${site.contactEmail}.`,
+      `${site.legal.name}, ${site.legal.street}, ${site.legal.postalCode} ${site.legal.city}, ${site.legal.country}. For anything about your personal data, write to ${site.contactEmail}.`,
       "This notice covers the website sanafin.tech. Sanafin Outcome Studio (studio.sanafin.tech) has its own privacy notice, shown there before you sign up.",
     ],
   },

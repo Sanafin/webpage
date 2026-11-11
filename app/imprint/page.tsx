@@ -3,11 +3,20 @@ import { Footer } from "@/components/footer"
 import { site } from "@/lib/site"
 
 // Imprint as a plain label / value list (Stripe / Plain legal pattern). The legal
-// entity, street address and UID replace the placeholder values when supplied.
+// entity and address come from site.legal; add the UID (CHE-...) row once registered.
 
 const rows: { label: string; value: React.ReactNode }[] = [
-  { label: "Company name", value: "Sanafin.tech" },
-  { label: "Registered address", value: "St. Gallen, Switzerland" },
+  { label: "Company name", value: site.legal.name },
+  {
+    label: "Address",
+    value: (
+      <>
+        {site.legal.street}
+        <br />
+        {site.legal.postalCode} {site.legal.city}, {site.legal.country}
+      </>
+    ),
+  },
   { label: "Entity type", value: "Swiss technological platform and software operator" },
   {
     label: "General inquiries",
