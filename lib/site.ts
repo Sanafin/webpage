@@ -24,6 +24,8 @@ export const site = {
     postalCode: "9000",
     city: "St. Gallen",
     country: "Switzerland",
+    // Swiss enterprise identification number (UID), from the commercial register.
+    uid: "CHE-461.879.186",
   },
   legalLine: "Sanafin Research · St. Gallen, Switzerland",
 } as const
