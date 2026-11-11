@@ -65,7 +65,7 @@ export function DeckRequestForm({ source = "investors" }: { source?: "investors"
           Your mail app should have opened with the request ready to send. {site.ceo.firstName} replies personally with the deck
           within one working day.
         </p>
-        <p className="mt-3 text-[13px] leading-relaxed text-[#766d67]">
+        <p className="mt-3 text-[13px] leading-relaxed text-[#6f6660]">
           Nothing opened?{" "}
           <a href={mailto} className="text-[#1f1a17] underline decoration-[#d9d1ca] underline-offset-4 hover:decoration-[#1f1a17]">
             Open the email again
@@ -171,7 +171,7 @@ export function DeckRequestForm({ source = "investors" }: { source?: "investors"
       </div>
       <div className="mt-4">
         <label htmlFor={`deck-note-${source}`} className="mb-1.5 block text-[13px] font-medium text-[#1f1a17]">
-          Anything specific? <span className="font-normal text-[#766d67]">(optional)</span>
+          Anything specific? <span className="font-normal text-[#6f6660]">(optional)</span>
         </label>
         <textarea
           id={`deck-note-${source}`}
@@ -194,7 +194,7 @@ export function DeckRequestForm({ source = "investors" }: { source?: "investors"
         {CTA.investor}
       </button>
 
-      <p className="mt-4 text-[12px] leading-relaxed text-[#766d67]">
+      <p className="mt-4 text-[12px] leading-relaxed text-[#6f6660]">
         Opens a pre-filled email in your mail app. {site.ceo.firstName}, the {site.ceo.title}, replies personally within one working
         day with a view-only link. No mailing list.
       </p>

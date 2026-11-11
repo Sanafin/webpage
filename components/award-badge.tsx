@@ -86,10 +86,10 @@ export function AwardBadge({
       <span className="absolute inset-x-0 top-[14px] flex h-[64px] items-center justify-center">
         <Image src={a.mark} alt="" className={`object-contain ${a.markClass}`} />
       </span>
-      <span className="absolute inset-x-0 top-[86px] flex h-[22px] items-center justify-center text-[11px] font-semibold uppercase tracking-[0.24em] text-white">
+      <span className="absolute inset-x-0 top-[86px] flex h-[22px] items-center justify-center text-[12px] font-semibold uppercase tracking-[0.24em] text-white">
         {a.ribbonText}
       </span>
-      <span className="absolute inset-x-4 top-[118px] text-center text-[11px] font-semibold leading-[1.2] text-[#1f1a17]">
+      <span className="absolute inset-x-4 top-[118px] text-center text-[12px] font-semibold leading-[1.2] text-[#1f1a17]">
         {a.title[0]}
         <br />
         {a.title[1]}

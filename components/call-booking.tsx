@@ -49,7 +49,7 @@ function CallBookingInner({ initialRole }: { initialRole?: string }) {
           </span>
           <div>
             <p className="text-[15px] font-medium text-[#1f1a17]">{site.ceo.name}</p>
-            <p className="text-[13px] text-[#766d67]">{site.ceo.title}, Sanafin</p>
+            <p className="text-[13px] text-[#6f6660]">{site.ceo.title}, Sanafin</p>
           </div>
         </div>
 
@@ -84,7 +84,7 @@ function CallBookingInner({ initialRole }: { initialRole?: string }) {
       <aside className="lg:col-span-6 lg:pl-6">
         <div className="rounded-[28px] bg-[#f5f1ed] p-4 sm:p-6">
           <p className="text-[13px] font-medium text-[#1f1a17] mb-3">
-            <span className="font-mono text-[12px] text-[#766d67] mr-2">1</span>I&apos;m a…
+            <span className="font-mono text-[12px] text-[#6f6660] mr-2">1</span>I&apos;m a…
           </p>
           <div role="radiogroup" aria-label="Your role" className="mb-5 flex flex-wrap gap-2">
             {roles.map((r) => {
@@ -109,14 +109,14 @@ function CallBookingInner({ initialRole }: { initialRole?: string }) {
           {role === "investor" ? (
             <>
               <p className="text-[13px] font-medium text-[#1f1a17] mb-3">
-                <span className="font-mono text-[12px] text-[#766d67] mr-2">2</span>Investors get the deck first; a call follows if useful.
+                <span className="font-mono text-[12px] text-[#6f6660] mr-2">2</span>Investors get the deck first; a call follows if useful.
               </p>
               <DeckRequestForm source="call" />
             </>
           ) : (
             <>
               <p className="text-[13px] font-medium text-[#1f1a17] mb-3">
-                <span className="font-mono text-[12px] text-[#766d67] mr-2">2</span>Choose a time
+                <span className="font-mono text-[12px] text-[#6f6660] mr-2">2</span>Choose a time
               </p>
               <div className="rounded-3xl bg-white p-6 shadow-[0_1px_2px_rgba(47,36,31,0.06)]">
                 <a
@@ -126,14 +126,14 @@ function CallBookingInner({ initialRole }: { initialRole?: string }) {
                   data-cta="doodle_open"
                   data-location="call"
                   data-audience={role ?? "unset"}
-                  className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-[#f15d22] px-6 py-3 text-[15px] font-medium text-white shadow-[0_8px_24px_-8px_rgba(241,93,34,0.7)] transition-colors hover:bg-[#d94f18]"
+                  className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-[#d1480f] px-6 py-3 text-[15px] font-medium text-white shadow-[0_8px_24px_-8px_rgba(209,72,15,0.55)] transition-colors hover:bg-[#b23d0c]"
                 >
                   Choose a time
                   <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
                 </a>
-                <p className="mt-3 text-center text-[12px] text-[#766d67]">Opens our scheduling page in a new tab.</p>
+                <p className="mt-3 text-center text-[12px] text-[#6f6660]">Opens our scheduling page in a new tab.</p>
               </div>
-              {!role && <p className="mt-3 text-[12px] text-[#766d67]">Picking a role helps us prepare; it is optional.</p>}
+              {!role && <p className="mt-3 text-[12px] text-[#6f6660]">Picking a role helps us prepare; it is optional.</p>}
             </>
           )}
         </div>

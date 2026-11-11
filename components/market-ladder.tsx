@@ -44,11 +44,11 @@ export function MarketLadder() {
       <div className="max-w-7xl mx-auto px-6">
         <Reveal className="mb-14 grid gap-6 lg:grid-cols-2 lg:gap-16 lg:items-end">
           <div>
-            <p className="text-[13px] text-[#766d67] mb-4">Where this goes</p>
+            <p className="text-[13px] text-[#6f6660] mb-4">Where this goes</p>
             <h2 id="market-title" className="font-display text-4xl sm:text-5xl leading-[1.04] text-[#1f1a17]">
               One settlement layer,
               <br />
-              <span className="text-[#1f1a17]/45">three sizes of money.</span>
+              <span className="text-[#1f1a17]/55">three sizes of money.</span>
             </h2>
           </div>
           <p className="max-w-md text-base sm:text-lg leading-relaxed text-[#6f6660] lg:pb-2">
@@ -67,7 +67,7 @@ export function MarketLadder() {
               <li className="grid gap-3 border-b border-[#ece7e2] py-9 md:grid-cols-[13rem_1fr_auto] md:items-baseline md:gap-10">
                 <div className="md:col-start-1 md:row-start-1">
                   <p className="text-[15px] font-medium text-[#1f1a17]">{s.stage}</p>
-                  <p className="font-mono text-[12px] text-[#766d67]">{s.when}</p>
+                  <p className="font-mono text-[12px] text-[#6f6660]">{s.when}</p>
                 </div>
                 <p className="font-display text-4xl sm:text-5xl text-[#1f1a17] md:col-start-3 md:row-start-1 md:text-right">
                   {s.value}
@@ -79,14 +79,14 @@ export function MarketLadder() {
                     {s.body}
                     {s.bodySourceId && <Fn id={s.bodySourceId} />}
                   </p>
-                  <p className="mt-2 text-[14px] leading-snug text-[#766d67]">{s.why}</p>
+                  <p className="mt-2 text-[14px] leading-snug text-[#6f6660]">{s.why}</p>
                 </div>
               </li>
             </Reveal>
           ))}
         </ol>
 
-        <p className="mt-6 max-w-2xl text-[12.5px] leading-relaxed text-[#766d67]">
+        <p className="mt-6 max-w-2xl text-[12.5px] leading-relaxed text-[#6f6660]">
           Each figure is the money in play in that venue — a ceiling on what could settle against an outcome, not a
           forecast of what Sanafin earns. None of these programmes has a settlement layer today.
         </p>

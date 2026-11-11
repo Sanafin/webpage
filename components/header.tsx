@@ -41,7 +41,7 @@ export function Header({ tone = "light", announce = false }: { tone?: "light" | 
   return (
     <header className="fixed top-0 left-0 right-0 z-50">
       {announce && (
-        <div className={`overflow-hidden transition-[height] duration-300 ${isScrolled ? "h-0" : "h-10"}`} aria-hidden={isScrolled}>
+        <div className={`overflow-hidden transition-[height] duration-300 ${isScrolled ? "h-0" : "h-10"}`} aria-hidden={isScrolled} inert={isScrolled}>
           <AwardBar />
         </div>
       )}
@@ -96,7 +96,7 @@ export function Header({ tone = "light", announce = false }: { tone?: "light" | 
               href="/call"
               data-cta="book_call"
               data-location="header"
-              className="px-4 py-2 text-white rounded-full text-[14px] font-medium cursor-pointer transition-colors duration-200 bg-[#f15d22] hover:bg-[#d94f18]"
+              className="px-4 py-2 text-white rounded-full text-[14px] font-medium cursor-pointer transition-colors duration-200 bg-[#d1480f] hover:bg-[#b23d0c]"
             >
               {CTA.buyer}
             </Link>
@@ -147,7 +147,7 @@ export function Header({ tone = "light", announce = false }: { tone?: "light" | 
                     href="/call"
                     data-cta="book_call"
                     data-location="mobile-menu"
-                    className="inline-flex min-h-11 items-center justify-center w-full px-4 py-2.5 bg-[#f15d22] text-white hover:bg-[#d94f18] rounded-full text-[15px] font-medium text-center cursor-pointer transition-colors duration-200"
+                    className="inline-flex min-h-11 items-center justify-center w-full px-4 py-2.5 bg-[#d1480f] text-white hover:bg-[#b23d0c] rounded-full text-[15px] font-medium text-center cursor-pointer transition-colors duration-200"
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     {CTA.buyer}

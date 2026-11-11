@@ -55,7 +55,7 @@ export function Footer({ sources = false }: { sources?: boolean }) {
               style={{ height: "32px", width: "auto" }}
             />
             <p className="max-w-sm text-[14px] leading-relaxed text-[#6f6660] mb-6">{site.tagline}</p>
-            <p className="text-[13px] text-[#766d67] mb-3">Contact</p>
+            <p className="text-[13px] text-[#6f6660] mb-3">Contact</p>
             <p className="text-[14px] leading-relaxed text-[#6f6660]">
               <a href={`mailto:${site.contactEmail}`} className="text-[#1f1a17] underline decoration-[#d9d1ca] underline-offset-4 hover:decoration-[#1f1a17]">
                 {site.contactEmail}
@@ -71,19 +71,19 @@ export function Footer({ sources = false }: { sources?: boolean }) {
 
           {columns.map((col) => (
             <div key={col.title}>
-              <p className="text-[13px] font-medium text-[#1f1a17] mb-5">{col.title}</p>
-              <ul className="space-y-3 text-[14px] text-[#6f6660]">
+              <p className="text-[13px] font-medium text-[#1f1a17] mb-3">{col.title}</p>
+              <ul className="space-y-1 text-[14px] text-[#6f6660]">
                 {col.links.map((l) =>
                   "external" in l && l.external ? (
                     <li key={l.label}>
-                      <a href={l.href} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 hover:text-[#1f1a17]">
+                      <a href={l.href} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 py-1.5 hover:text-[#1f1a17]">
                         {l.label}
                         <ArrowUpRight className="h-3 w-3" aria-hidden="true" />
                       </a>
                     </li>
                   ) : (
                     <li key={l.label}>
-                      <Link href={l.href} className="hover:text-[#1f1a17]">
+                      <Link href={l.href} className="inline-block py-1.5 hover:text-[#1f1a17]">
                         {l.label}
                       </Link>
                     </li>
@@ -103,7 +103,7 @@ export function Footer({ sources = false }: { sources?: boolean }) {
               <SourcesList />
             </>
           )}
-          <p className={`${sources ? "mt-6" : ""} text-[12.5px] leading-relaxed text-[#766d67]`}>
+          <p className={`${sources ? "mt-6" : ""} text-[12.5px] leading-relaxed text-[#6f6660]`}>
             Sanafin is a software provider. It is not an insurer, bank or payment institution, and it gives no medical
             advice. Money committed under an outcome contract is held by a licensed custody partner, never by Sanafin.
             Figures on this site are illustrative unless a source is given. Institutions named as research affiliations
@@ -112,10 +112,10 @@ export function Footer({ sources = false }: { sources?: boolean }) {
         </section>
 
         <div className="flex flex-col gap-4 border-t border-black/5 pt-8 md:flex-row md:items-center md:justify-between">
-          <p className="text-[13px] text-[#766d67]">
+          <p className="text-[13px] text-[#6f6660]">
             &copy; {new Date().getFullYear()} {site.legalLine}
           </p>
-          <div className="flex items-center gap-5 text-[13px] text-[#766d67]">
+          <div className="flex items-center gap-5 text-[13px] text-[#6f6660]">
             <Link href="/imprint" className="hover:text-[#1f1a17]">
               Imprint
             </Link>
@@ -129,7 +129,7 @@ export function Footer({ sources = false }: { sources?: boolean }) {
               href={site.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex h-9 w-9 items-center justify-center rounded-full border border-[#e9e4df] text-[#766d67] hover:text-[#1f1a17]"
+              className="flex h-11 w-11 items-center justify-center rounded-full border border-[#e9e4df] text-[#6f6660] hover:text-[#1f1a17]"
               aria-label="Sanafin on LinkedIn"
             >
               <Linkedin className="h-3.5 w-3.5" aria-hidden="true" />

@@ -19,7 +19,7 @@ export function Hero() {
   const heroBackers = backers.filter((b) => b.inHero && b.relationship !== "Award")
 
   return (
-    <section id="top" className="relative overflow-hidden bg-[#fbfaf8] !pt-[8.75rem] !pb-0">
+    <section id="top" className="relative overflow-hidden bg-[#fbfaf8] !pt-[7.75rem] !pb-0">
       <div
         className="pointer-events-none absolute inset-x-0 top-0 h-[720px] blueprint-grid-light [mask-image:radial-gradient(ellipse_70%_60%_at_50%_20%,black_20%,transparent_75%)]"
         aria-hidden="true"
@@ -32,7 +32,7 @@ export function Hero() {
             from anywhere.
           </h1>
 
-          <p className="max-w-xl text-base sm:text-lg leading-relaxed text-[#6f6660] mb-9">
+          <p className="max-w-xl text-base sm:text-lg leading-relaxed text-[#6f6660] mb-8">
             The payer sets the money aside up front. It is paid out only when an independent check confirms the care
             worked.
           </p>
@@ -41,7 +41,7 @@ export function Hero() {
             <HeroCtas />
           </div>
 
-          <p data-proof-row className="mt-6 text-[13px] text-[#766d67]">
+          <p data-proof-row className="mt-6 text-[13px] text-[#6f6660]">
             Started with metabolic health in Switzerland ·{" "}
             <Link href="#traction" className="underline decoration-[#d9d1ca] underline-offset-4 hover:text-[#1f1a17]">
               {lois.length} signed letters of intent
@@ -50,7 +50,7 @@ export function Hero() {
         </HeroCopy>
 
         {/* Product on a soft glow: tilted up out of the page, it settles flat as it scrolls to centre */}
-        <HeroStage className="relative mx-auto mt-12 md:mt-14 max-w-5xl pb-5 md:pb-6">
+        <HeroStage className="relative mx-auto mt-10 md:mt-12 max-w-5xl pb-5 md:pb-6">
           <div className="pointer-events-none absolute -inset-x-6 -top-6 -bottom-5 overflow-hidden rounded-[32px] md:-inset-x-10 md:-top-8" aria-hidden="true">
             {media.heroPlate ? (
               <img src={media.heroPlate} alt="" className="h-full w-full object-cover opacity-90" />
@@ -102,7 +102,7 @@ export function Hero() {
           </div>
           <span className="hidden h-24 w-px bg-[#ece7e2] md:block" aria-hidden="true" />
           <div className="flex flex-col items-center gap-5 md:items-start">
-            <p className="text-center text-[12px] text-[#766d67] md:text-left">
+            <p className="text-center text-[12px] text-[#6f6660] md:text-left">
               Supported by Swiss innovation programmes · Research from ETH Zurich and HSG
             </p>
             <ul className="flex flex-wrap items-center justify-center gap-x-10 gap-y-6 md:justify-start">

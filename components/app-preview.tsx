@@ -57,14 +57,14 @@ export function AppPreview() {
               <li
                 key={label}
                 className={`flex items-center justify-between rounded-lg px-2 py-1.5 text-[13px] ${
-                  active ? "bg-[#f3efeb] font-medium text-[#1f1a17]" : "text-[#766d67]"
+                  active ? "bg-[#f3efeb] font-medium text-[#1f1a17]" : "text-[#6f6660]"
                 }`}
               >
                 <span className="flex items-center gap-2">
                   <Icon className="h-3.5 w-3.5" aria-hidden="true" />
                   {label}
                 </span>
-                {badge && <span className="rounded-md bg-[#f3efeb] px-1.5 text-[11px] text-[#766d67]">{badge}</span>}
+                {badge && <span className="rounded-md bg-[#f3efeb] px-1.5 text-[12px] text-[#6f6660]">{badge}</span>}
               </li>
             ))}
           </ul>
@@ -73,7 +73,7 @@ export function AppPreview() {
         {/* Main */}
         <div className="min-w-0 flex-1 p-4 sm:p-5">
           <div className="flex items-center justify-between gap-3 mb-5">
-            <div className="flex min-w-0 flex-1 items-center gap-2 rounded-lg border border-[#f0ebe6] bg-[#fcfbfa] px-3 py-1.5 text-[12px] text-[#766d67] max-w-xs">
+            <div className="flex min-w-0 flex-1 items-center gap-2 rounded-lg border border-[#f0ebe6] bg-[#fcfbfa] px-3 py-1.5 text-[12px] text-[#6f6660] max-w-xs">
               <Search className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
               <span className="truncate">Search contracts, endpoints…</span>
             </div>
@@ -81,7 +81,7 @@ export function AppPreview() {
               <span className="hidden sm:inline-flex items-center gap-1 rounded-full border border-[#e9e4df] px-3 py-1 text-[12px] text-[#1f1a17]">
                 <Plus className="h-3 w-3" aria-hidden="true" /> New contract
               </span>
-              <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[#f3efeb] text-[#766d67]">
+              <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[#f3efeb] text-[#6f6660]">
                 <Bell className="h-3.5 w-3.5" aria-hidden="true" />
               </span>
             </div>
@@ -94,19 +94,19 @@ export function AppPreview() {
             <div className="rounded-xl border border-[#f0ebe6] p-4">
               <div className="flex items-start justify-between gap-3">
                 <div>
-                  <p className="text-[12px] text-[#766d67] flex items-center gap-1.5">
+                  <p className="text-[12px] text-[#6f6660] flex items-center gap-1.5">
                     Released on verified outcomes
                     <Check className="h-3 w-3 text-[#14B8A6]" aria-hidden="true" />
                   </p>
                   <p className="mt-1 text-2xl sm:text-[28px] font-medium tracking-tight text-[#1f1a17]">
                     {example.milestones[0].amount}
-                    <span className="text-base text-[#766d67]"> of {example.committed}</span>
+                    <span className="text-base text-[#6f6660]"> of {example.committed}</span>
                   </p>
                 </div>
-                <span className="rounded-md bg-[#14B8A6]/10 px-2 py-1 text-[11px] font-medium text-[#0f766e]">Month 6 · threshold met</span>
+                <span className="rounded-md bg-[#14B8A6]/10 px-2 py-1 text-[12px] font-medium text-[#0f766e]">Month 6 · threshold met</span>
               </div>
               <AreaChart />
-              <div className="flex justify-between text-[10px] text-[#766d67]">
+              <div className="flex justify-between text-[12px] text-[#6f6660]">
                 <span>M1</span>
                 <span>M3</span>
                 <span>M6</span>
@@ -119,18 +119,18 @@ export function AppPreview() {
             <div className="rounded-xl border border-[#f0ebe6] p-4">
               <div className="flex items-center justify-between mb-3">
                 <p className="text-[13px] font-medium text-[#1f1a17]">Active contracts</p>
-                <span className="text-[11px] text-[#766d67]">View all</span>
+                <span className="text-[12px] text-[#6f6660]">View all</span>
               </div>
               <ul className="divide-y divide-[#f0ebe6]">
                 {contracts.map((c, i) => (
                   <li key={c.id} className="flex items-center justify-between gap-3 py-2.5">
                     <div className="min-w-0">
                       <p className="truncate text-[12px] font-medium text-[#1f1a17]">{c.name}</p>
-                      <p className="truncate text-[11px] text-[#766d67]">{c.population}</p>
+                      <p className="truncate text-[12px] text-[#6f6660]">{c.population}</p>
                     </div>
                     <div className="shrink-0 text-right">
                       <p className="text-[12px] text-[#1f1a17]">{c.committed}</p>
-                      <p className={`text-[10px] font-medium ${i === 0 ? "text-[#0f766e]" : "text-[#766d67]"}`}>
+                      <p className={`text-[12px] font-medium ${i === 0 ? "text-[#0f766e]" : "text-[#6f6660]"}`}>
                         {i === 0 ? "Verified" : "Monitoring"}
                       </p>
                     </div>
@@ -148,7 +148,7 @@ export function AppPreview() {
               { label: "Audit hash", value: `${example.hash.slice(0, 8)}…`, icon: Layers },
             ].map(({ label, value, icon: Icon }) => (
               <div key={label} className="rounded-xl border border-[#f0ebe6] px-3 py-2.5">
-                <p className="flex items-center gap-1.5 text-[10px] sm:text-[11px] text-[#766d67]">
+                <p className="flex items-center gap-1.5 text-[12px] sm:text-[12px] text-[#6f6660]">
                   <Icon className="h-3 w-3 shrink-0" aria-hidden="true" />
                   <span className="truncate">{label}</span>
                 </p>
@@ -166,16 +166,16 @@ export function AppPreview() {
 export function MobileContractCard() {
   return (
     <div className="bg-white p-4 text-left">
-      <p className="text-[11px] text-[#766d67]">{example.programme}</p>
+      <p className="text-[12px] text-[#6f6660]">{example.programme}</p>
       <p className="mt-1 text-xl font-medium tracking-tight text-[#1f1a17]">
-        {example.milestones[0].amount} <span className="text-sm text-[#766d67]">of {example.committed}</span>
+        {example.milestones[0].amount} <span className="text-sm text-[#6f6660]">of {example.committed}</span>
       </p>
       <ul className="mt-4 divide-y divide-[#f0ebe6] text-[13px]">
         {example.milestones.map((m) => (
           <li key={m.label} className="flex items-center justify-between gap-3 py-2">
             <span className="text-[#1f1a17]">{m.label}</span>
             <span
-              className={`rounded-full px-2 py-0.5 text-[10px] font-medium uppercase tracking-wider ${
+              className={`rounded-full px-2 py-0.5 text-[12px] font-medium uppercase tracking-wider ${
                 m.status === "Released" ? "bg-[#14B8A6]/15 text-[#0f766e]" : "bg-[#f15d22]/15 text-[#f15d22]"
               }`}
             >

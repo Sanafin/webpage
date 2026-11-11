@@ -57,7 +57,7 @@ export function ProblemSection() {
                   <img src={f.photo} alt={f.alt} className="h-full w-full object-cover" loading="lazy" />
                 </Parallax>
               </div>
-              <p className="mt-6 text-[12px] font-medium uppercase tracking-[0.14em] text-[#766d67]">{f.eyebrow}</p>
+              <p className="mt-6 text-[12px] font-medium uppercase tracking-[0.14em] text-[#6f6660]">{f.eyebrow}</p>
               <p className="mt-2 font-display text-5xl tabular-nums text-[#1f1a17] sm:text-6xl">
                 <CountUp {...f.count} duration={1.6 + i * 0.2} />
               </p>
@@ -68,7 +68,7 @@ export function ProblemSection() {
             </Reveal>
           ))}
         </ul>
-        <p className="mt-8 text-[12px] text-[#766d67]">Photos posed by models.</p>
+        <p className="mt-8 text-[12px] text-[#6f6660]">Photos posed by models.</p>
       </div>
     </section>
   )

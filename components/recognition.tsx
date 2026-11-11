@@ -29,11 +29,11 @@ export function Recognition() {
 
         {/* Stage header */}
         <div className="hidden md:grid md:grid-cols-[minmax(0,1.1fr)_minmax(0,2fr)] md:gap-10 border-b border-[#ece7e2] pb-3">
-          <span className="text-[12px] text-[#766d67]">Partner</span>
+          <span className="text-[12px] text-[#6f6660]">Partner</span>
           <ol className="grid" style={{ gridTemplateColumns: `repeat(${n}, minmax(0, 1fr))` }}>
             {pathway.map((stage, i) => (
-              <li key={stage} className="flex items-center gap-2 text-[12px] text-[#766d67]">
-                <span className="font-mono text-[11px]">0{i + 1}</span>
+              <li key={stage} className="flex items-center gap-2 text-[12px] text-[#6f6660]">
+                <span className="font-mono text-[12px]">0{i + 1}</span>
                 {stage}
               </li>
             ))}
@@ -45,7 +45,7 @@ export function Recognition() {
             <Reveal as="li" key={loi.partnerType} delay={rowIndex * 0.1} className="grid gap-4 py-5 md:grid-cols-[minmax(0,1.1fr)_minmax(0,2fr)] md:items-center md:gap-10">
               <div>
                 <p className="text-lg sm:text-xl text-[#1f1a17]">{loiLabel(loi)}</p>
-                <p className="mt-1 text-[13px] text-[#766d67]">
+                <p className="mt-1 text-[13px] text-[#6f6660]">
                   {loi.focus}
                   {loi.signed ? ` · signed ${loi.signed}` : ""}
                 </p>
@@ -96,17 +96,17 @@ export function Recognition() {
                     )
                   })}
                 </div>
-                <p className="mt-7 text-[12px] text-[#766d67] md:hidden">
+                <p className="mt-7 text-[12px] text-[#6f6660] md:hidden">
                   {pathway[loi.stage - 1]} · {loi.status}
                 </p>
               </div>
             </Reveal>
           ))}
         </ul>
-        <p className="mt-2 text-[12px] text-[#766d67]">Partner names withheld by agreement · letters shared with investors under NDA</p>
+        <p className="mt-2 text-[12px] text-[#6f6660]">Partner names withheld by agreement · letters shared with investors under NDA</p>
 
         <div className="mt-14 grid gap-6 border-t border-[#ece7e2] pt-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,2fr)] lg:gap-10">
-          <p className="text-[13px] text-[#766d67]">Research · ETH Zurich and HSG</p>
+          <p className="text-[13px] text-[#6f6660]">Research · ETH Zurich and HSG</p>
           <ul className="divide-y divide-[#ece7e2]">
             {metabolicResearch.map((p) => (
               <li key={p.doi} className="py-3 first:pt-0">
@@ -117,9 +117,9 @@ export function Recognition() {
                   className="group inline-flex items-start gap-1 text-[15px] leading-snug text-[#1f1a17] hover:underline hover:decoration-[#d9d1ca] hover:underline-offset-4"
                 >
                   {p.title}
-                  <ArrowUpRight className="mt-1 h-3.5 w-3.5 shrink-0 text-[#766d67]" aria-hidden="true" />
+                  <ArrowUpRight className="mt-1 h-3.5 w-3.5 shrink-0 text-[#6f6660]" aria-hidden="true" />
                 </a>
-                <p className="mt-0.5 text-[13px] text-[#766d67]">
+                <p className="mt-0.5 text-[13px] text-[#6f6660]">
                   {p.venue ? `${p.venue} · ` : ""}
                   {p.year}
                 </p>

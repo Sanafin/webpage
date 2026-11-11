@@ -32,18 +32,18 @@ export function Certificate({
           <ShieldCheck className={`h-3.5 w-3.5 ${dark ? "text-[#5eead4]" : "text-[#0f766e]"}`} aria-hidden="true" />
           Verification certificate
         </span>
-        <span className={`shrink-0 text-[10.5px] uppercase tracking-wider ${dark ? "text-white/45" : "text-[#766d67]"}`}>synthetic</span>
+        <span className={`shrink-0 text-[12px] uppercase tracking-wider ${dark ? "text-white/45" : "text-[#6f6660]"}`}>synthetic</span>
       </div>
       <dl className="grid grid-cols-[auto_1fr] gap-x-4 gap-y-1 px-4 py-3">
-        <dt className={dark ? "text-white/45" : "text-[#766d67]"}>verdict</dt>
+        <dt className={dark ? "text-white/45" : "text-[#6f6660]"}>verdict</dt>
         <dd className={dark ? "text-[#5eead4]" : "text-[#0f766e]"}>{verdict}</dd>
-        <dt className={dark ? "text-white/45" : "text-[#766d67]"}>composite</dt>
+        <dt className={dark ? "text-white/45" : "text-[#6f6660]"}>composite</dt>
         <dd className="tabular-nums">
-          {composite} / 100 <span className={dark ? "text-white/45" : "text-[#766d67]"}>cutoff {cutoff}</span>
+          {composite} / 100 <span className={dark ? "text-white/45" : "text-[#6f6660]"}>cutoff {cutoff}</span>
         </dd>
-        <dt className={dark ? "text-white/45" : "text-[#766d67]"}>certificate</dt>
+        <dt className={dark ? "text-white/45" : "text-[#6f6660]"}>certificate</dt>
         <dd className="min-w-0 truncate">{hash.slice(0, 12)}…</dd>
-        <dt className={dark ? "text-white/45" : "text-[#766d67]"}>recomputed</dt>
+        <dt className={dark ? "text-white/45" : "text-[#6f6660]"}>recomputed</dt>
         <dd className={`min-w-0 truncate ${matches ? "" : dark ? "text-[#ffab8a]" : "text-[#c4460f]"}`}>
           {recomputed.slice(0, 12)}… {matches ? "· match" : "· mismatch"}
         </dd>

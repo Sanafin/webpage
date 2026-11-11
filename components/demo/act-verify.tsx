@@ -31,12 +31,12 @@ export function ActVerify({ t, contract, scenario, onScenario, compact = false }
     return (
       <div className="grid gap-8 lg:grid-cols-12 lg:items-center [&>*]:min-w-0">
         <div className="lg:col-span-5">
-          <p className="text-[13px] text-[#766d67]">03 · Verify</p>
+          <p className="text-[13px] text-[#6f6660]">03 · Verify</p>
           <h3 className="mt-3 font-display text-[1.75rem] sm:text-[2.2rem] leading-[1.06] text-[#1f1a17]">An independent check scores the outcome.</h3>
           <p className="mt-3 max-w-md text-[15px] leading-relaxed text-[#6f6660]">Same inputs, same verdict, on any machine. The hash proves it.</p>
           <div className="mt-6 flex items-end gap-4">
             <div>
-              <p className="text-[13px] text-[#766d67]">Composite · cut-off {contract.cutoff}</p>
+              <p className="text-[13px] text-[#6f6660]">Composite · cut-off {contract.cutoff}</p>
               <p className="mt-1 font-display text-[3rem] leading-none tracking-tight text-[#1f1a17] tabular-nums">
                 {formatInt(composite)}
                 <span className="text-[#1f1a17]/35"> / 100</span>
@@ -56,7 +56,7 @@ export function ActVerify({ t, contract, scenario, onScenario, compact = false }
     <div>
       <div className="grid gap-5 lg:grid-cols-12 lg:items-end [&>*]:min-w-0">
         <div className="lg:col-span-5">
-          <p className="text-[13px] text-[#766d67]">03 · Verify</p>
+          <p className="text-[13px] text-[#6f6660]">03 · Verify</p>
           <h2 className="mt-3 font-display text-[1.75rem] sm:text-[2.2rem] leading-[1.06] text-[#1f1a17]">An independent evaluation scores the cohort.</h2>
         </div>
         <p className="max-w-md text-[15px] leading-relaxed text-[#6f6660] lg:col-span-4">
@@ -98,7 +98,7 @@ export function ActVerify({ t, contract, scenario, onScenario, compact = false }
                   <li key={p.key}>
                     <div className="flex items-baseline justify-between gap-3">
                       <span className="min-w-0 text-[14px] text-[#1f1a17]">
-                        {p.key} <span className="hidden text-[12px] text-[#766d67] sm:inline">· {p.sub}</span>
+                        {p.key} <span className="hidden text-[12px] text-[#6f6660] sm:inline">· {p.sub}</span>
                       </span>
                       <span className="shrink-0 font-mono text-[13px] tabular-nums text-[#1f1a17]">{formatInt(v)} / 100</span>
                     </div>
@@ -111,7 +111,7 @@ export function ActVerify({ t, contract, scenario, onScenario, compact = false }
             </ul>
             <div className="mt-4 flex items-end justify-between gap-4 border-t border-[#ece7e2] pt-4">
               <div>
-                <p className="text-[13px] text-[#766d67]">Composite · cut-off {contract.cutoff}</p>
+                <p className="text-[13px] text-[#6f6660]">Composite · cut-off {contract.cutoff}</p>
                 <p className="mt-1 font-display text-[2.2rem] leading-none tracking-tight text-[#1f1a17] tabular-nums">{formatInt(composite)}</p>
               </div>
               <div className={`transition-all duration-500 ${stamped ? "scale-100 opacity-100" : "scale-90 opacity-0"}`}>
@@ -129,7 +129,7 @@ export function ActVerify({ t, contract, scenario, onScenario, compact = false }
               recomputed={integrity.reverify?.recomputedHash ?? integrity.auditHash}
             />
           </div>
-          <p className="text-[12px] text-[#766d67]">
+          <p className="text-[12px] text-[#6f6660]">
             {scenario === "fail"
               ? `Same ${contract.cohortSize} patients, scored over a ${contract.horizonYears}-year horizon instead of forty. Only the efficiency pillar moves; that is enough.`
               : "Synthetic cohort · verification run of 24 Sep 2026 · example data"}

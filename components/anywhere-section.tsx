@@ -131,9 +131,9 @@ export function AnywhereSection() {
                   style={{ left: `${(x / width) * 100}%`, top: `${(y / height) * 100}%` }}
                 >
                   <div className={`whitespace-nowrap rounded-xl px-2 py-1 shadow-[0_6px_20px_-10px_rgba(47,36,31,0.35)] sm:px-2.5 sm:py-1.5 ${live ? "bg-[#1f1a17] text-white" : "bg-white text-[#1f1a17]"}`}>
-                    <p className="text-[11px] font-medium leading-tight sm:text-[13px]">{p.city}</p>
+                    <p className="text-[12px] font-medium leading-tight sm:text-[13px]">{p.city}</p>
                     {p.kind !== "network" && (
-                      <p className={`hidden text-[11.5px] leading-tight sm:block ${live ? "text-[#5eead4]" : "text-[#766d67]"}`}>{p.note}</p>
+                      <p className={`hidden text-[12px] leading-tight sm:block ${live ? "text-[#5eead4]" : "text-[#6f6660]"}`}>{p.note}</p>
                     )}
                   </div>
                 </Reveal>
@@ -146,14 +146,14 @@ export function AnywhereSection() {
             <ol className="flex flex-wrap items-center justify-center gap-1.5" aria-label="The four fields of every contract">
               {fields.map((f, i) => (
                 <li key={f} className="flex items-center gap-1.5">
-                  <span className="rounded-full border border-[#e3dcd5] bg-white px-3 py-1 font-mono text-[11.5px] text-[#1f1a17]">{f}</span>
+                  <span className="rounded-full border border-[#e3dcd5] bg-white px-3 py-1 font-mono text-[12px] text-[#1f1a17]">{f}</span>
                   {i < fields.length - 1 && <span className="text-[#b5aaa0]" aria-hidden="true">+</span>}
                 </li>
               ))}
             </ol>
             <ul className="flex flex-wrap items-center justify-center gap-x-5 gap-y-1.5">
               {legend.map((l) => (
-                <li key={l.kind} className="flex items-center gap-2 text-[12px] text-[#766d67]">
+                <li key={l.kind} className="flex items-center gap-2 text-[12px] text-[#6f6660]">
                   <Dot kind={l.kind} />
                   {l.label}
                 </li>
@@ -162,11 +162,11 @@ export function AnywhereSection() {
           </div>
         </Reveal>
 
-        <p className="mt-10 mb-4 text-center text-[13px] text-[#766d67]">Payers are already writing outcomes into law</p>
+        <p className="mt-10 mb-4 text-center text-[13px] text-[#6f6660]">Payers are already writing outcomes into law</p>
         <ul className="grid gap-5 text-center sm:grid-cols-3">
           {signals.map((s) => (
             <li key={s.sourceId}>
-              <p className="text-[13px] text-[#766d67]">{s.region} · 2026</p>
+              <p className="text-[13px] text-[#6f6660]">{s.region} · 2026</p>
               <p className="mt-1 text-[15px] text-[#1f1a17]">
                 {s.text}
                 <Fn id={s.sourceId} />

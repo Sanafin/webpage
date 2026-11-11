@@ -15,13 +15,13 @@ export function Terminal({ lines, shown, title = "sanafin verify · transcript",
   return (
     <div className={`flex min-h-0 flex-col overflow-hidden rounded-3xl bg-[#1a1512] text-white shadow-[0_40px_100px_-50px_rgba(47,36,31,0.6)] ${className}`}>
       <div className="flex items-center justify-between border-b border-white/10 px-5 py-3">
-        <span className="font-mono text-[11px] text-white/45">{title}</span>
-        <span className="flex items-center gap-2 font-mono text-[11px] text-white/45">
+        <span className="font-mono text-[12px] text-white/45">{title}</span>
+        <span className="flex items-center gap-2 font-mono text-[12px] text-white/45">
           <span className={`h-1.5 w-1.5 rounded-full ${live ? "bg-[#f15d22]" : "bg-[#5eead4]"}`} aria-hidden="true" />
           {live ? "running" : "complete"}
         </span>
       </div>
-      <pre ref={bodyRef} className="min-h-0 flex-1 overflow-y-auto overflow-x-auto px-5 py-4 font-mono text-[11.5px] leading-[1.65] text-white/85 [scrollbar-width:thin]" aria-live="off">
+      <pre ref={bodyRef} className="min-h-0 flex-1 overflow-y-auto overflow-x-auto px-5 py-4 font-mono text-[12px] leading-[1.65] text-white/85 [scrollbar-width:thin]" aria-live="off">
         {visible.map((l, i) => (
           <Line key={i} text={l} />
         ))}
