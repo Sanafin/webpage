@@ -10,11 +10,12 @@ export function JsonLd() {
         "@type": "Organization",
         "@id": `${site.url}/#organization`,
         name: site.name,
+        legalName: site.legal.name,
         url: site.url,
         logo: `${site.url}/images/sanafin_logo.png`,
         description: site.description,
         sameAs: [site.linkedin],
-        address: { "@type": "PostalAddress", addressLocality: "St. Gallen", addressCountry: "CH" },
+        address: { "@type": "PostalAddress", streetAddress: site.legal.street, postalCode: site.legal.postalCode, addressLocality: site.legal.city, addressCountry: "CH" },
       },
       {
         "@type": "WebSite",

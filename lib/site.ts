@@ -17,8 +17,15 @@ export const site = {
   ceo: { name: "Dr. Wasu Mekniran", firstName: "Wasu", title: "CEO" },
   // Public address, also on the imprint. Deck requests and contact go here.
   contactEmail: "hello@sanafin.tech",
-  // Owner input: legal entity, street and UID replace this line when supplied.
-  legalLine: "Sanafin · Switzerland",
+  // Legal entity and postal address: imprint, privacy policy, footer and structured data read these.
+  legal: {
+    name: "Sanafin Research",
+    street: "Engelgasse 12",
+    postalCode: "9000",
+    city: "St. Gallen",
+    country: "Switzerland",
+  },
+  legalLine: "Sanafin Research · St. Gallen, Switzerland",
 } as const
 
 // Two sales calls to action (buyer, investor) plus the product itself: Outcome Studio is live, so the
