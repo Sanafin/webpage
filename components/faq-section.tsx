@@ -134,7 +134,7 @@ export function FAQSection() {
           {group.faqs.map((faq) => (
             <details key={faq.q} className="group/details">
               <summary className="flex cursor-pointer list-none items-center justify-between gap-6 py-6 [&::-webkit-details-marker]:hidden">
-                <h3 className="text-[17px] sm:text-lg font-medium text-[#1f1a17] leading-snug">{faq.q}</h3>
+                <span className="text-balance text-[17px] sm:text-lg font-medium text-[#1f1a17] leading-snug">{faq.q}</span>
                 <Plus className="h-5 w-5 shrink-0 text-[#6f6660] transition-transform duration-300 group-open/details:rotate-45 motion-reduce:transition-none" aria-hidden="true" />
               </summary>
               <p className="pb-6 pr-10 text-[15px] leading-relaxed text-[#6f6660]">
