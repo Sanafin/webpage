@@ -61,28 +61,22 @@ export function Hero() {
               </>
             )}
           </div>
-          {/* The live product, not a mock: a pathway in Outcome Studio (studio.sanafin.tech) with synthetic test data */}
-          <a href={studio.start} data-cta="try_studio" data-location="hero-screenshot" className="relative hidden md:block rounded-[18px]">
+          {/* The live product, not a mock: a pathway in Outcome Studio (studio.sanafin.tech) with synthetic test data.
+              One <picture> picks the desktop or phone crop, so a phone never downloads the 2048px desktop
+              screenshot and the visible crop is the one fetched at high priority (it is the LCP element). */}
+          <a href={studio.start} data-cta="try_studio" data-location="hero-screenshot" className="relative mx-auto block max-w-sm rounded-[18px] md:max-w-none">
             <ScreenFrame kind="product" caption={studioCaption} hideCaption>
-              <img
-                src="/media/studio-pathway.webp"
-                alt="Sanafin Outcome Studio: a diabetes prevention pathway with two target outcomes, their payment terms and the five steps from build to pilot"
-                width={2048}
-                height={1280}
-                className="block h-auto w-full"
-                fetchPriority="high"
-              />
-            </ScreenFrame>
-          </a>
-          <a href={studio.start} data-cta="try_studio" data-location="hero-screenshot" className="relative md:hidden mx-auto block max-w-sm rounded-[18px]">
-            <ScreenFrame kind="product" caption={studioCaption} hideCaption>
-              <img
-                src="/media/studio-pathway-mobile.webp"
-                alt="Sanafin Outcome Studio on a phone: a diabetes prevention pathway and its next step"
-                width={780}
-                height={1093}
-                className="block h-auto w-full"
-              />
+              <picture>
+                <source media="(min-width: 48rem)" srcSet="/media/studio-pathway.webp" width={2048} height={1280} />
+                <img
+                  src="/media/studio-pathway-mobile.webp"
+                  alt="Sanafin Outcome Studio: a diabetes prevention pathway with its target outcomes, payment terms and the steps from build to pilot"
+                  width={780}
+                  height={1093}
+                  className="block h-auto w-full"
+                  fetchPriority="high"
+                />
+              </picture>
             </ScreenFrame>
           </a>
           <div className="relative mx-auto mt-6 hidden max-w-4xl md:block">
