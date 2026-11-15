@@ -324,8 +324,8 @@ export default async function ContractPage({ params }: { params: Promise<{ id: s
                   className="mt-5 border-t border-[#ece7e2] pt-4"
                   rows={[
                     ["Settled", fmtDateTime(s.settledAt)],
-                    ["Settlement reference", <span title={s.reference}>{shortHash(s.reference, 16)}</span>],
-                    ["Audit hash", <span title={s.auditHash}>{shortHash(s.auditHash, 16)}</span>],
+                    ["Settlement reference", <span key="reference" title={s.reference}>{shortHash(s.reference, 16)}</span>],
+                    ["Audit hash", <span key="audit-hash" title={s.auditHash}>{shortHash(s.auditHash, 16)}</span>],
                     ["Reconciliation", c.reconciliation ? `${c.reconciliation.checks - c.reconciliation.failed} / ${c.reconciliation.checks} checks ok` : "—"],
                   ]}
                 />

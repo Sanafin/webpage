@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useLayoutEffect, useRef, useState, type ReactNode } from "react"
+import { useEffect, useLayoutEffect, useRef, useState, useSyncExternalStore, type ReactNode } from "react"
 import { animate, motion, useInView, useReducedMotion, useScroll, useSpring, useTransform, type MotionValue } from "framer-motion"
 
 // Small scroll-driven primitives shared by the landing sections. Every one of them
@@ -126,10 +126,10 @@ export function Pop({ children, delay = 0 }: { children: ReactNode; delay?: numb
 // True once the component has mounted on the client. Scroll-linked styles that would
 // otherwise render their "before" state into the server HTML wait for this, so the
 // no-script page and the first paint always show the finished layout.
+const noop = () => () => {}
 export function useHydrated() {
-  const [hydrated, setHydrated] = useState(false)
-  useEffect(() => setHydrated(true), [])
-  return hydrated
+  // Server snapshot is false, client snapshot is true: React re-renders once after hydration.
+  return useSyncExternalStore(noop, () => true, () => false)
 }
 
 // A band that settles into place as it scrolls up into view: it starts a touch

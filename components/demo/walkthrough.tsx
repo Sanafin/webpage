@@ -54,6 +54,8 @@ export function Walkthrough({ compact = false }: { compact?: boolean }) {
   useEffect(() => {
     const h = fromHash()
     if (!h) return
+    // The hash only exists on the client, so it is applied after mount rather than in the initial state
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setScenario(h.scenario)
     open(h.act)
   }, [open])

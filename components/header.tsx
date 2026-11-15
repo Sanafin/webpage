@@ -41,12 +41,12 @@ export function Header({ tone = "light", announce = false }: { tone?: "light" | 
   return (
     <header className="fixed top-0 left-0 right-0 z-50">
       {announce && (
-        <div className={`overflow-hidden transition-[height] duration-300 ${isScrolled ? "h-0" : "h-10"}`} aria-hidden={isScrolled} inert={isScrolled}>
+        <div className={`overflow-hidden transition-[height] duration-300 motion-reduce:transition-none ${isScrolled ? "h-0" : "h-10"}`} aria-hidden={isScrolled} inert={isScrolled}>
           <AwardBar />
         </div>
       )}
       <div
-        className={`transition-all duration-300 ${
+        className={`transition-all duration-300 motion-reduce:transition-none ${
           isScrolled
             ? dark
               ? "bg-[#120d0b]/92 backdrop-blur-md border-b border-white/10 py-3"
