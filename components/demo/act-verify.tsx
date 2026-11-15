@@ -42,7 +42,7 @@ export function ActVerify({ t, contract, scenario, onScenario, compact = false }
                 <span className="text-[#1f1a17]/35"> / 100</span>
               </p>
             </div>
-            <div className={`pb-1 transition-all duration-500 ${stamped ? "scale-100 opacity-100" : "scale-90 opacity-0"}`}>
+            <div className={`pb-1 transition-all duration-500 motion-reduce:transition-none ${stamped ? "scale-100 opacity-100" : "scale-90 opacity-0"}`}>
               <Pill tone={meets ? "teal" : "orange"}>{meets ? "threshold met" : "insufficient"}</Pill>
             </div>
           </div>
@@ -114,7 +114,7 @@ export function ActVerify({ t, contract, scenario, onScenario, compact = false }
                 <p className="text-[13px] text-[#6f6660]">Composite · cut-off {contract.cutoff}</p>
                 <p className="mt-1 font-display text-[2.2rem] leading-none tracking-tight text-[#1f1a17] tabular-nums">{formatInt(composite)}</p>
               </div>
-              <div className={`transition-all duration-500 ${stamped ? "scale-100 opacity-100" : "scale-90 opacity-0"}`}>
+              <div className={`transition-all duration-500 motion-reduce:transition-none ${stamped ? "scale-100 opacity-100" : "scale-90 opacity-0"}`}>
                 <Pill tone={meets ? "teal" : "orange"}>{meets ? "meets WZW" : "insufficient"}</Pill>
               </div>
             </div>

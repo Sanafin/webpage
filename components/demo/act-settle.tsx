@@ -92,7 +92,7 @@ export function ActSettle({ t, contract, compact = false }: { t: number; contrac
           const on = i < reached
           const dot = st.tone === "teal" ? "bg-[#14b8a6]" : st.tone === "orange" ? "bg-[#f15d22]" : "bg-[#1f1a17]"
           return (
-            <li key={st.label} className={`relative rounded-2xl border px-4 py-3.5 transition-all duration-500 ${on ? "border-[#e6dfd8] bg-white" : "border-transparent bg-[#f5f1ed]/60 opacity-60"}`}>
+            <li key={st.label} className={`relative rounded-2xl border px-4 py-3.5 transition-all duration-500 motion-reduce:transition-none ${on ? "border-[#e6dfd8] bg-white" : "border-transparent bg-[#f5f1ed]/60 opacity-60"}`}>
               <div className="flex items-center gap-2.5">
                 <span className={`h-2.5 w-2.5 rounded-full ${on ? dot : "bg-[#d9d1ca]"}`} aria-hidden="true" />
                 <span className="text-[14px] font-medium text-[#1f1a17]">{st.label}</span>
@@ -135,7 +135,7 @@ export function ActSettle({ t, contract, compact = false }: { t: number; contrac
           </dl>
         </div>
 
-        <div className={`lg:col-span-5 transition-all duration-700 ${showOrder ? "translate-y-0 opacity-100" : "translate-y-2 opacity-0"}`}>
+        <div className={`lg:col-span-5 transition-all duration-700 motion-reduce:transition-none ${showOrder ? "translate-y-0 opacity-100" : "translate-y-2 opacity-0"}`}>
           {released && po ? (
             <div className="rounded-3xl border border-[#ece7e2] bg-white p-5">
               <div className="flex items-start justify-between gap-3">

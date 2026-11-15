@@ -127,7 +127,7 @@ export default function EdenFrameworkPage() {
                                   {p.venue ? ` · ${p.venue}` : ""}
                                 </span>
                               </span>
-                              <ArrowUpRight className="mt-1 h-4 w-4 shrink-0 text-[#766d67] transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" aria-hidden="true" />
+                              <ArrowUpRight className="mt-1 h-4 w-4 shrink-0 text-[#766d67] transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 motion-reduce:transition-none" aria-hidden="true" />
                             </a>
                           </li>
                         ))}

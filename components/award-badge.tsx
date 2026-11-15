@@ -1,4 +1,5 @@
 import Image, { type StaticImageData } from "next/image"
+import Link from "next/link"
 import stamp from "@/components/ui/logo/ibsdf-stamp.png"
 import ventureKick from "@/components/ui/logo/venturekick-claim.png"
 import ventureKickWhite from "@/components/ui/logo/venturekick-claim-white.png"
@@ -70,7 +71,7 @@ export function AwardBadge({
       rel="noopener noreferrer"
       aria-label={a.ariaLabel}
       style={{ zoom }}
-      className={`group relative block h-[196px] w-[140px] transition-transform duration-300 hover:-translate-y-0.5 ${className}`}
+      className={`group relative block h-[196px] w-[140px] transition-transform duration-300 hover:-translate-y-0.5 motion-reduce:transition-none motion-reduce:hover:translate-y-0 ${className}`}
     >
       <svg viewBox="0 0 140 196" className="absolute inset-0 h-full w-full overflow-visible drop-shadow-[0_14px_24px_rgba(47,36,31,0.22)]" aria-hidden="true">
         {/* Shield: straight sides past the text, then the point */}
@@ -102,7 +103,7 @@ export function AwardBadge({
 // one dark line above the header, both marks, one sentence, one link.
 export function AwardBar() {
   return (
-    <a
+    <Link
       href="/#recognition"
       className="group flex h-10 items-center justify-center gap-2.5 bg-[#1f1a17] px-4 text-[12.5px] text-white/75 transition-colors hover:text-white sm:text-[13px]"
     >
@@ -119,6 +120,6 @@ export function AwardBar() {
         Learn more
         <span aria-hidden="true">→</span>
       </span>
-    </a>
+    </Link>
   )
 }

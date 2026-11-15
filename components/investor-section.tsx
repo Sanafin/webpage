@@ -1,6 +1,4 @@
 import { DeckRequestForm } from "@/components/deck-request-form"
-import { publications } from "@/lib/research"
-import { lois } from "@/lib/traction"
 import { Reveal } from "@/components/reveal"
 
 // The page's number-one job. Plain language about what Sanafin is and what the deck

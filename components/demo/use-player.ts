@@ -22,6 +22,8 @@ export function usePlayer(
   useEffect(() => {
     if (reduce) return
     // A looping player simply runs while on screen; a one-shot player starts once.
+    // useInView is an external observer; mirroring it into state here is the intended sync.
+    /* eslint-disable react-hooks/set-state-in-effect */
     if (loop) {
       setPlaying(inView)
       return
@@ -30,6 +32,7 @@ export function usePlayer(
       setStarted(true)
       setPlaying(true)
     }
+    /* eslint-enable react-hooks/set-state-in-effect */
   }, [inView, started, reduce, loop])
 
   const frame = useRef<number | null>(null)
