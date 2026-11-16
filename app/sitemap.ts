@@ -7,6 +7,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${site.url}/`, lastModified, changeFrequency: 'weekly', priority: 1 },
     { url: `${site.url}/demo`, lastModified: new Date('2026-11-07'), changeFrequency: 'monthly', priority: 0.8 },
     { url: `${site.url}/call`, lastModified, changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${site.url}/join`, lastModified: new Date('2026-11-16'), changeFrequency: 'monthly', priority: 0.6 },
     { url: `${site.url}/eden-framework`, lastModified, changeFrequency: 'monthly', priority: 0.6 },
     { url: `${site.url}/api-docs`, lastModified, changeFrequency: 'monthly', priority: 0.4 },
     { url: `${site.url}/privacy`, lastModified, changeFrequency: 'yearly', priority: 0.2 },
