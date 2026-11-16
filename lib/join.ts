@@ -5,7 +5,7 @@ export const joinRoles = [
   {
     id: "engineer",
     title: "Full-stack engineer",
-    format: "Internship or founding team",
+    format: "Internship or working student",
     what: "Build Outcome Studio, our product for agreeing and checking health results.",
     fit: "Computer science · TypeScript, React, Python",
   },

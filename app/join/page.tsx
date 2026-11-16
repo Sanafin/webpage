@@ -7,7 +7,7 @@ import { thesisTopics } from "@/lib/join"
 export const metadata: Metadata = {
   title: "Work with us",
   description:
-    "Thesis projects, internships and founding-team roles at Sanafin, where health gets paid for results instead of bills. For students at ETH, HSG and beyond.",
+    "Thesis projects, internships and working-student roles at Sanafin, where health gets paid for results instead of bills. For students at ETH, HSG and beyond.",
   alternates: { canonical: "/join" },
 }
 
@@ -55,7 +55,7 @@ export default function JoinPage() {
               </h2>
               <p className="mt-3 text-[16px] leading-relaxed text-[#1f1a17]">
                 We are lean and grant-funded, so we are open about pay. Thesis work is unpaid. Short research projects are paid by the
-                hour. Internships get a modest stipend where funds allow. Founding roles come with shares. Mostly remote, based at the
+                hour. Internships get a modest stipend where funds allow. Mostly remote, based at the
                 HSG ETH Student Project House in St. Gallen.
               </p>
             </section>
