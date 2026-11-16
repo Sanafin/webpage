@@ -18,7 +18,16 @@ const navLinks = [
 ]
 
 // `announce` adds the award bar above the header; it folds away once the page scrolls.
-export function Header({ tone = "light", announce = false }: { tone?: "light" | "dark"; announce?: boolean }) {
+// `minimal` keeps only the logo and one quiet link home, for focused pages such as /join.
+export function Header({
+  tone = "light",
+  announce = false,
+  minimal = false,
+}: {
+  tone?: "light" | "dark"
+  announce?: boolean
+  minimal?: boolean
+}) {
   const dark = tone === "dark"
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
@@ -67,6 +76,12 @@ export function Header({ tone = "light", announce = false }: { tone?: "light" | 
             />
           </Link>
 
+          {minimal ? (
+            <Link href="/" className="nav-link text-[14px] text-[#1f1a17]/70 hover:text-[#1f1a17]">
+              What Sanafin does
+            </Link>
+          ) : (
+          <>
           <nav className="hidden md:flex items-center gap-7 text-sm" aria-label="Main">
             {navLinks.map((link) => (
               <Link key={link.href} href={link.href} className={`nav-link text-[14px] ${dark ? "text-[#fffaf6]/70 hover:text-[#fffaf6]" : "text-[#1f1a17]/70 hover:text-[#1f1a17]"}`}>
@@ -112,10 +127,12 @@ export function Header({ tone = "light", announce = false }: { tone?: "light" | 
             <span className="sr-only">{mobileMenuOpen ? "Close main menu" : "Open main menu"}</span>
             {mobileMenuOpen ? <X className="h-6 w-6" aria-hidden="true" /> : <Menu className="h-6 w-6" aria-hidden="true" />}
           </button>
+          </>
+          )}
         </div>
 
         <AnimatePresence>
-          {mobileMenuOpen && (
+          {mobileMenuOpen && !minimal && (
             <motion.div
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: "auto" }}
