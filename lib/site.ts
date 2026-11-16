@@ -13,7 +13,6 @@ export const site = {
     "Sanafin lets any payer, anywhere, buy verified health outcomes: the payer commits a capped budget, a provider delivers the care, an independent evaluation verifies the outcome, and payment is released only when it is met. Funds sit with a licensed custody partner, never with Sanafin.",
   doodleUrl: "https://doodle.com/bp/wasumekniran/discover-sanafin",
   linkedin: "https://linkedin.com/company/sanafin",
-  careers: "https://wellfound.com/company/sanafin",
   ceo: { name: "Dr. Wasu Mekniran", firstName: "Wasu", title: "CEO" },
   // Public address, also on the imprint. Deck requests and contact go here.
   contactEmail: "hello@sanafin.tech",
