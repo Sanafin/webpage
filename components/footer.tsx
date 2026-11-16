@@ -25,7 +25,7 @@ const columns = [
       { href: "/#team", label: "Team" },
       { href: "/#traction", label: "Evidence & partners" },
       { href: "/call", label: "Book a discovery call" },
-      { href: site.careers, label: "Careers", external: true },
+      { href: "/join", label: "Careers" },
     ],
   },
   {

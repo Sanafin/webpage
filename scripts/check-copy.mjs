@@ -7,7 +7,7 @@ import { readFileSync, readdirSync, statSync } from "node:fs"
 import { join } from "node:path"
 import { findForbidden } from "./forbidden.mjs"
 
-const ROOTS = ["components", "lib", "app/page.tsx", "app/layout.tsx", "app/demo", "app/call", "app/app"]
+const ROOTS = ["components", "lib", "app/page.tsx", "app/layout.tsx", "app/demo", "app/call", "app/join", "app/app"]
 const SKIP = [/components\/ui\//]
 const EXEMPT = new Set(["lib/site.ts"])
 
