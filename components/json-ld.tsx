@@ -11,6 +11,7 @@ export function JsonLd() {
         "@id": `${site.url}/#organization`,
         name: site.name,
         legalName: site.legal.name,
+        taxID: site.legal.uid,
         url: site.url,
         logo: `${site.url}/images/sanafin_logo.png`,
         description: site.description,

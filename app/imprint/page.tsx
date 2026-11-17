@@ -3,7 +3,7 @@ import { Footer } from "@/components/footer"
 import { site } from "@/lib/site"
 
 // Imprint as a plain label / value list (Stripe / Plain legal pattern). The legal
-// entity and address come from site.legal; add the UID (CHE-...) row once registered.
+// entity, address and UID come from site.legal.
 
 const rows: { label: string; value: React.ReactNode }[] = [
   { label: "Company name", value: site.legal.name },
@@ -17,6 +17,7 @@ const rows: { label: string; value: React.ReactNode }[] = [
       </>
     ),
   },
+  { label: "Company ID (UID)", value: site.legal.uid },
   { label: "Entity type", value: "Swiss technological platform and software operator" },
   {
     label: "General inquiries",
