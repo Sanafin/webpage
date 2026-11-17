@@ -15,6 +15,7 @@ const navLinks = [
   { href: "/#traction", label: "Evidence" },
   { href: "/#team", label: "Team" },
   { href: "/#faq", label: "FAQ" },
+  { href: "/join", label: "Careers" },
 ]
 
 // `announce` adds the award bar above the header; it folds away once the page scrolls.
@@ -82,20 +83,20 @@ export function Header({
             </Link>
           ) : (
           <>
-          <nav className="hidden md:flex items-center gap-7 text-sm" aria-label="Main">
+          <nav className="hidden lg:flex items-center gap-5 xl:gap-7 text-sm" aria-label="Main">
             {navLinks.map((link) => (
-              <Link key={link.href} href={link.href} className={`nav-link text-[14px] ${dark ? "text-[#fffaf6]/70 hover:text-[#fffaf6]" : "text-[#1f1a17]/70 hover:text-[#1f1a17]"}`}>
+              <Link key={link.href} href={link.href} className={`nav-link whitespace-nowrap text-[14px] ${dark ? "text-[#fffaf6]/70 hover:text-[#fffaf6]" : "text-[#1f1a17]/70 hover:text-[#1f1a17]"}`}>
                 {link.label}
               </Link>
             ))}
           </nav>
 
-          <div className="hidden md:flex items-center gap-5">
+          <div className="hidden lg:flex items-center gap-4 xl:gap-5">
             <a
               href={studio.login}
               data-cta="studio_login"
               data-location="header"
-              className={`nav-link text-[14px] ${dark ? "text-[#fffaf6]/70 hover:text-[#fffaf6]" : "text-[#1f1a17]/70 hover:text-[#1f1a17]"}`}
+              className={`nav-link whitespace-nowrap text-[14px] ${dark ? "text-[#fffaf6]/70 hover:text-[#fffaf6]" : "text-[#1f1a17]/70 hover:text-[#1f1a17]"}`}
             >
               {CTA.login}
             </a>
@@ -103,7 +104,7 @@ export function Header({
               href="/#investors"
               data-cta="request_deck"
               data-location="header"
-              className={`nav-link text-[14px] ${dark ? "text-[#fffaf6]/70 hover:text-[#fffaf6]" : "text-[#1f1a17]/70 hover:text-[#1f1a17]"}`}
+              className={`nav-link whitespace-nowrap text-[14px] ${dark ? "text-[#fffaf6]/70 hover:text-[#fffaf6]" : "text-[#1f1a17]/70 hover:text-[#1f1a17]"}`}
             >
               For investors
             </Link>
@@ -119,7 +120,7 @@ export function Header({
 
           <button
             type="button"
-            className={`icon-action md:hidden -m-2.5 inline-flex min-h-11 min-w-11 items-center justify-center rounded-lg p-2.5 ${dark ? "text-[#fffaf6] hover:bg-white/10" : "text-[#2f241f] hover:bg-[#f2e8e1]"}`}
+            className={`icon-action lg:hidden -m-2.5 inline-flex min-h-11 min-w-11 items-center justify-center rounded-lg p-2.5 ${dark ? "text-[#fffaf6] hover:bg-white/10" : "text-[#2f241f] hover:bg-[#f2e8e1]"}`}
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-expanded={mobileMenuOpen}
             aria-controls="mobile-navigation"
@@ -138,7 +139,7 @@ export function Header({
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
               id="mobile-navigation"
-              className="md:hidden bg-white/95 backdrop-blur-xl border-t border-[#ece7e2] overflow-hidden shadow-lg"
+              className="lg:hidden bg-white/95 backdrop-blur-xl border-t border-[#ece7e2] overflow-hidden shadow-lg"
             >
               <div className="space-y-1 px-6 pb-6 pt-4">
                 {[...navLinks, { href: "/#investors", label: "For investors" }].map((link) => (
