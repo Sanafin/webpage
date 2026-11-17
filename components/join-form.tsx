@@ -3,7 +3,7 @@
 import { useRef, useState } from "react"
 import { ArrowRight, Check } from "lucide-react"
 import { joinSchema } from "@/lib/schemas"
-import { joinInterests, joinRoles } from "@/lib/join"
+import { joinInterests, joinRoles, openApplicationImage } from "@/lib/join"
 import { site } from "@/lib/site"
 
 // Same pattern as the deck form: no server, no third-party service. The form composes a
@@ -35,6 +35,14 @@ export function buildJoinMailto(values: Values, interest: string, source: string
 
 const row = "group flex w-full items-center justify-between gap-6 border-b border-[#ece7e2] py-5 text-left"
 
+// A small illustrated character per role, so the list is warmer and easier to scan.
+// Decorative only: the title next to it carries the meaning.
+function Avatar({ src }: { src: string }) {
+  return (
+    <img src={src} alt="" width={56} height={56} loading="lazy" className="h-14 w-14 shrink-0 rounded-2xl bg-[#f4f0ec] object-cover" />
+  )
+}
+
 export function JoinRolesAndForm({ source = "join", children }: { source?: string; children?: React.ReactNode }) {
   const [interest, setInterest] = useState("")
   const formRef = useRef<HTMLDivElement>(null)
@@ -55,9 +63,12 @@ export function JoinRolesAndForm({ source = "join", children }: { source?: strin
           {joinRoles.map((r) => (
             <li key={r.id}>
               <button type="button" onClick={() => pick(r.id)} className={row}>
-                <span>
-                  <span className="block text-[16px] text-[#1f1a17]">{r.title}</span>
-                  <span className="mt-1 block text-[14px] leading-snug text-[#766d67]">{r.what}</span>
+                <span className="flex items-center gap-4">
+                  <Avatar src={r.image} />
+                  <span>
+                    <span className="block text-[16px] text-[#1f1a17]">{r.title}</span>
+                    <span className="mt-1 block text-[14px] leading-snug text-[#766d67]">{r.what}</span>
+                  </span>
                 </span>
                 <span className="flex shrink-0 items-center gap-3 text-[13px] text-[#766d67]">
                   <span className="hidden sm:inline">{r.format}</span>
@@ -68,9 +79,12 @@ export function JoinRolesAndForm({ source = "join", children }: { source?: strin
           ))}
           <li>
             <button type="button" onClick={() => pick("other")} className={row}>
-              <span>
-                <span className="block text-[16px] text-[#1f1a17]">Open application</span>
-                <span className="mt-1 block text-[14px] leading-snug text-[#766d67]">Not listed? Tell us what you would like to do.</span>
+              <span className="flex items-center gap-4">
+                <Avatar src={openApplicationImage} />
+                <span>
+                  <span className="block text-[16px] text-[#1f1a17]">Open application</span>
+                  <span className="mt-1 block text-[14px] leading-snug text-[#766d67]">Not listed? Tell us what you would like to do.</span>
+                </span>
               </span>
               <ArrowRight className="h-4 w-4 shrink-0 text-[#766d67] transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
             </button>

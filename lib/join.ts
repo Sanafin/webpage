@@ -4,6 +4,7 @@
 export const joinRoles = [
   {
     id: "engineer",
+    image: "/images/join/engineer.webp",
     title: "Full-stack engineer",
     format: "Internship or working student",
     what: "Build Outcome Studio, our product for agreeing and checking health results.",
@@ -11,6 +12,7 @@ export const joinRoles = [
   },
   {
     id: "health-data",
+    image: "/images/join/health-data.webp",
     title: "Health data and outcomes analyst",
     format: "Thesis or internship",
     what: "Decide which health results can be measured, and what a fair target is.",
@@ -18,6 +20,7 @@ export const joinRoles = [
   },
   {
     id: "bizdev",
+    image: "/images/join/bizdev.webp",
     title: "Business development and partnerships",
     format: "Working student or internship",
     what: "Talk to insurers, clinics and fitness providers. German or French helps.",
@@ -25,12 +28,15 @@ export const joinRoles = [
   },
   {
     id: "growth",
+    image: "/images/join/growth.webp",
     title: "Growth and content",
     format: "Internship",
     what: "Landing pages, short videos and LinkedIn that bring in sign-ups.",
     fit: "Marketing, design, video",
   },
 ] as const
+
+export const openApplicationImage = "/images/join/open.webp"
 
 export const thesisTopics = [
   { title: "Pricing a health result", q: "How should a payer price a prevention outcome that pays off years later?", fields: "Finance, economics, MTEC" },
