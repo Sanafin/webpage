@@ -3,6 +3,14 @@
 
 export const joinRoles = [
   {
+    id: "bizdev",
+    image: "/images/join/bizdev.webp",
+    title: "Pilot manager / business development",
+    format: "Working student or internship",
+    what: "Run our first pilots with insurers, clinics and fitness providers, from first call to agreed result. German or French helps.",
+    fit: "MTEC, HSG, economics · German or French a big plus",
+  },
+  {
     id: "engineer",
     image: "/images/join/engineer.webp",
     title: "Full-stack engineer",
@@ -18,33 +26,13 @@ export const joinRoles = [
     what: "Decide which health results can be measured, and what a fair target is.",
     fit: "Health sciences, HST, epidemiology, statistics",
   },
-  {
-    id: "bizdev",
-    image: "/images/join/bizdev.webp",
-    title: "Business development and partnerships",
-    format: "Working student or internship",
-    what: "Talk to insurers, clinics and fitness providers. German or French helps.",
-    fit: "MTEC, HSG, economics · German or French a big plus",
-  },
-  {
-    id: "growth",
-    image: "/images/join/growth.webp",
-    title: "Growth and content",
-    format: "Internship",
-    what: "Landing pages, short videos and LinkedIn that bring in sign-ups.",
-    fit: "Marketing, design, video",
-  },
 ] as const
 
 export const openApplicationImage = "/images/join/open.webp"
 
 export const thesisTopics = [
   { title: "Pricing a health result", q: "How should a payer price a prevention outcome that pays off years later?", fields: "Finance, economics, MTEC" },
-  { title: "Checking results automatically", q: "Which rules and data sources can confirm an agreed health result without manual review?", fields: "Computer science, data science, health sciences" },
-  { title: "Who benefits from prevention?", q: "Who pays and who saves in Swiss diabetes or cardiovascular prevention?", fields: "Health economics, public health" },
-  { title: "Blended finance for prevention", q: "How can grants, insurers and impact investors share the risk of paying for results?", fields: "Sustainable finance" },
   { title: "Trust in paying for results", q: "What do providers and payers need to see before they sign? An interview study.", fields: "Management, behavioural science" },
-  { title: "Fitness and longevity as health spending", q: "Can workplace or insurer-funded fitness be paid by result?", fields: "Sports science, HST, business" },
 ] as const
 
 export const joinInterests = [
